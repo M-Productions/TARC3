@@ -3450,7 +3450,7 @@ static void DoBattleIntro(void)
             switch (GetBattlerPosition(battler))
             {
             case B_POSITION_PLAYER_LEFT: // player sprite
-                if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) || (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER))
+                if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 {
                     BtlController_EmitLoadMonSprite(battler, B_COMM_TO_CONTROLLER);
                     MarkBattlerForControllerExec(battler);
@@ -3475,8 +3475,7 @@ static void DoBattleIntro(void)
                 }
                 break;
             case B_POSITION_PLAYER_RIGHT:
-                if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
-                 || ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && !(gBattleTypeFlags & BATTLE_TYPE_TRAINER)))
+                if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 {
                     BtlController_EmitLoadMonSprite(battler, B_COMM_TO_CONTROLLER);
                     MarkBattlerForControllerExec(battler);
@@ -3633,7 +3632,7 @@ static void DoBattleIntro(void)
                 gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
                 BattleScriptExecute(BattleScript_SilphScopeUnveiled);
             }
-            if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER) || (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER))
+            if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 gBattleStruct->eventState.battleIntro = BATTLE_INTRO_STATE_SET_DEX_AND_BATTLE_VARS;
             else
                 gBattleStruct->eventState.battleIntro++;

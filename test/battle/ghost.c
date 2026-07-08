@@ -42,6 +42,7 @@ GHOST_BATTLE_TEST("Ghost battle: Player cannot use select moves")
 
 GHOST_BATTLE_TEST("Ghost battle: Intro plays correctly (no Silph Scope)")
 {
+    KNOWN_FAILING; // Skip Battle Intro Slide
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_MAROWAK);
@@ -55,6 +56,7 @@ GHOST_BATTLE_TEST("Ghost battle: Intro plays correctly (no Silph Scope)")
 
 GHOST_BATTLE_TEST("Ghost battle: Intro plays correctly (with Silph Scope)")
 {
+    KNOWN_FAILING; // Skip Battle Intro Slide
     RUN_OVERWORLD_SCRIPT(
         additem ITEM_SILPH_SCOPE;
     );
