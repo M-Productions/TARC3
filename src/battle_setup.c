@@ -483,6 +483,44 @@ void StartOldManTutorialBattle(void)
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
+void StartArchenTutorialBattle(void)
+{
+    ZeroPlayerPartyMons();
+
+    u32 data = STATUS1_SLEEP_TURN(2);
+
+    struct Pokemon *larvesta = &gParties[B_TRAINER_PLAYER][0];
+    CreateMaleMon(larvesta, SPECIES_LARVESTA, 5);
+
+    // SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
+    // SetMonData(larvesta, MON_DATA_STATUS, &data);
+    data = MOVE_SNORE;
+    SetMonMoveSlot(larvesta, MOVE_SNORE, 0);
+    // data = MOVE_NONE;
+    SetMonMoveSlot(larvesta, MOVE_TACKLE, 1);
+    SetMonMoveSlot(larvesta, MOVE_GROWL, 2);
+    SetMonMoveSlot(larvesta, MOVE_FLAIL, 3);
+
+    struct Pokemon *archen = &gParties[B_TRAINER_OPPONENT_A][0];
+    CreateMaleMon(archen, SPECIES_ARCHEN, 5);
+
+    data = STATUS1_SLEEP_TURN(2);
+
+    // SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
+    SetMonData(archen, MON_DATA_STATUS, &data);
+    data = MOVE_SNORE;
+    SetMonData(archen, MON_DATA_MOVE1, &data);
+    data = MOVE_NONE;
+    SetMonData(archen, MON_DATA_MOVE2, &data);
+    SetMonData(archen, MON_DATA_MOVE3, &data);
+    SetMonData(archen, MON_DATA_MOVE4, &data);
+
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    gBattleTypeFlags = BATTLE_TYPE_CATCH_TUTORIAL;
+    CreateBattleStartTask(B_TRANSITION_SLICE, 0);
+}
+
 void BattleSetup_StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();

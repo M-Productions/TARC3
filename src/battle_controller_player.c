@@ -49,7 +49,7 @@
 #include "pokedex.h"
 #include "test/battle.h"
 
-static void PlayerHandleLoadMonSprite(enum BattlerId battler);
+void PlayerHandleLoadMonSprite(enum BattlerId battler);
 static void PlayerHandleDrawTrainerPic(enum BattlerId battler);
 static void PlayerHandleTrainerSlide(enum BattlerId battler);
 static void PlayerHandleTrainerSlideBack(enum BattlerId battler);
@@ -76,9 +76,9 @@ static void PlayerHandleEndLinkBattle(enum BattlerId battler);
 static void PlayerHandleBattleDebug(enum BattlerId battler);
 
 static void PlayerBufferRunCommand(enum BattlerId battler);
-static void MoveSelectionDisplayPpNumber(enum BattlerId battler);
+void MoveSelectionDisplayPpNumber(enum BattlerId battler);
 static void MoveSelectionDisplayPpString(enum BattlerId battler);
-static void MoveSelectionDisplayMoveType(enum BattlerId battler);
+void MoveSelectionDisplayMoveType(enum BattlerId battler);
 static void MoveSelectionDisplayMoveNames(enum BattlerId battler);
 static void TryMoveSelectionDisplayMoveDescription(enum BattlerId battler);
 static void MoveSelectionDisplayMoveDescription(enum BattlerId battler);
@@ -1692,7 +1692,7 @@ static void MoveSelectionDisplayPpString(enum BattlerId battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 }
 
-static void MoveSelectionDisplayPpNumber(enum BattlerId battler)
+void MoveSelectionDisplayPpNumber(enum BattlerId battler)
 {
     u8 *txtPtr;
     struct ChooseMoveStruct *moveInfo;
@@ -1709,7 +1709,7 @@ static void MoveSelectionDisplayPpNumber(enum BattlerId battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP_REMAINING);
 }
 
-static void MoveSelectionDisplayMoveType(enum BattlerId battler)
+void MoveSelectionDisplayMoveType(enum BattlerId battler)
 {
     u8 *txtPtr, *end;
     enum Species speciesId = gBattleMons[battler].species;
@@ -1874,7 +1874,7 @@ static void PrintLinkStandbyMsg(void)
     }
 }
 
-static void PlayerHandleLoadMonSprite(enum BattlerId battler)
+void PlayerHandleLoadMonSprite(enum BattlerId battler)
 {
     if (gBattleStruct->eventState.battleIntro <= BATTLE_INTRO_STATE_INTRO_TEXT)
     {

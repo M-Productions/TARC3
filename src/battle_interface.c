@@ -830,7 +830,7 @@ static const s16 sBattlerHealthboxCoords[BATTLE_COORDS_COUNT][MAX_BATTLERS_COUNT
 {
     [BATTLE_COORDS_SINGLES] =
     {
-        [B_POSITION_PLAYER_LEFT]   = { 158, 88 },
+        [B_POSITION_PLAYER_LEFT]   = {  24, 42 },
         [B_POSITION_OPPONENT_LEFT] = { 106, 16 },
     },
     [BATTLE_COORDS_DOUBLES] =
@@ -2152,6 +2152,7 @@ static void MoveBattleBarGraphically(enum BattlerId battler, u8 whichBar)
         }
         break;
     case EXP_BAR:
+        break;
         CalcBarFilledPixels(gBattleSpritesDataPtr->battleBars[battler].maxValue,
                     gBattleSpritesDataPtr->battleBars[battler].oldValue,
                     gBattleSpritesDataPtr->battleBars[battler].receivedValue,

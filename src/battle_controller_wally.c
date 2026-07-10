@@ -46,13 +46,17 @@ static void WallyBufferRunCommand(enum BattlerId battler);
 static void CompleteOnChosenItem(enum BattlerId battler);
 static void Intro_WaitForShinyAnimAndHealthbox(enum BattlerId battler);
 
+extern void PlayerHandleLoadMonSprite(enum BattlerId battler);
+
+static const u8 sText_WallyTutorialMsg[] = _("This POKéMON's HP is weakened.\nNow's your chance!\pThrow a POKé BALL!\p");
+
 static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(enum BattlerId battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
     [CONTROLLER_GETRAWMONDATA]            = BtlController_HandleGetRawMonData,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
     [CONTROLLER_SETRAWMONDATA]            = BtlController_Empty,
-    [CONTROLLER_LOADMONSPRITE]            = BtlController_Empty,
+    [CONTROLLER_LOADMONSPRITE]            = PlayerHandleLoadMonSprite,
     [CONTROLLER_SWITCHINANIM]             = BtlController_Empty,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = WallyHandleDrawTrainerPic,
@@ -125,14 +129,58 @@ static void WallyBufferRunCommand(enum BattlerId battler)
     }
 }
 
+enum ArchenTutorialStates
+{
+    AT_SETUP,
+    AT_TURN_SPECIAL,
+    AT_WAKE_UP_MESSAGE,
+    AT_ATTACKING_MESSAGE,
+    AT_ATTACKING_MESSAGE_RESET,
+    AT_TURN_ATTACKING,
+    AT_DEFENDING_MESSAGE,
+    AT_DEFENDING_MESSAGE_RESET,
+    AT_TURN_DEFENDING,
+    AT_STATUS_MESSAGE,
+    AT_STATUS_MESSAGE_RESET,
+    AT_TURN_STATUS,
+};
+
+static bool32 ShouldPrepareMessage(void)
+{
+    switch (gBattleStruct->wallyBattleState)
+    {
+        case AT_WAKE_UP_MESSAGE:
+        case AT_DEFENDING_MESSAGE:
+        case AT_STATUS_MESSAGE:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void ArchenMessageReset(void)
+{
+    if (!IsTextPrinterActiveOnWindow(B_WIN_MSG))
+    {
+        gBattle_BG0_Y = DISPLAY_HEIGHT;
+        gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
+        gBattleStruct->wallyBattleState++;
+    }
+}
+
 static void WallyHandleActions(enum BattlerId battler)
 {
     switch (gBattleStruct->wallyBattleState)
     {
-    case 0:
+    case AT_ATTACKING_MESSAGE_RESET:
+    case AT_DEFENDING_MESSAGE_RESET:
+    case AT_STATUS_MESSAGE_RESET:
+        ArchenMessageReset();
+        break;
+    case AT_SETUP:
         gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         gBattleStruct->wallyBattleState++;
-    case 1:
+    case AT_TURN_SPECIAL:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
@@ -143,7 +191,18 @@ static void WallyHandleActions(enum BattlerId battler)
             gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
-    case 2:
+    case AT_WAKE_UP_MESSAGE:
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 1"));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+        gBattleStruct->wallyBattleState++;
+        break;
+    case AT_ATTACKING_MESSAGE:
+        if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 2"));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+        gBattleStruct->wallyBattleState++;
+        break;
+    case AT_TURN_ATTACKING:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
@@ -154,32 +213,36 @@ static void WallyHandleActions(enum BattlerId battler)
             gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
-    case 3:
+    case AT_DEFENDING_MESSAGE:
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 3"));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+        gBattleStruct->wallyBattleState++;
+        break;
+    case AT_TURN_DEFENDING:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
-            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_WALLY_THROW, 0);
+            PlaySE(SE_SELECT);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_MOVE, 0);
             BtlController_Complete(battler);
             gBattleStruct->wallyBattleState++;
             gBattleStruct->wallyMovesState = 0;
             gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
-    case 4:
-        if (--gBattleStruct->wallyWaitFrames == 0)
-        {
-            PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(0);
-            ActionSelectionCreateCursorAt(1, 0);
-            gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
-            gBattleStruct->wallyBattleState++;
-        }
+    case AT_STATUS_MESSAGE:
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 4"));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+        gBattleStruct->wallyBattleState++;
         break;
-    case 5:
+    case AT_TURN_STATUS:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_ITEM, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_MOVE, 0);
             BtlController_Complete(battler);
+            gBattleStruct->wallyBattleState++;
+            gBattleStruct->wallyMovesState = 0;
+            gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
     }
@@ -299,7 +362,8 @@ static void HandleChooseActionAfterDma3(enum BattlerId battler)
     if (!IsDma3ManagerBusyWithBgCopy())
     {
         gBattle_BG0_X = 0;
-        gBattle_BG0_Y = DISPLAY_HEIGHT;
+        if (!ShouldPrepareMessage())
+            gBattle_BG0_Y = DISPLAY_HEIGHT;
         gBattlerControllerFuncs[battler] = WallyHandleActions;
     }
 }
@@ -319,14 +383,38 @@ static void WallyHandleChooseAction(enum BattlerId battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
+static u32 ArchenGetMoveOffset(void)
+{
+    u32 attackingTurn = gBattleStruct->wallyBattleState - 1;
+    switch (attackingTurn)
+    {
+        case AT_TURN_SPECIAL:
+            return 3;
+
+        case AT_TURN_ATTACKING:
+            return 0;
+
+        case AT_TURN_DEFENDING:
+            return 1;
+
+        case AT_TURN_STATUS:
+            return 2;
+    }
+
+    return FALSE;
+}
+
+extern void MoveSelectionDisplayMoveType(enum BattlerId battler);
+extern void MoveSelectionDisplayPpNumber(enum BattlerId battler);
 static void WallyHandleChooseMove(enum BattlerId battler)
 {
+    u32 moveOffset = ArchenGetMoveOffset();
     switch (gBattleStruct->wallyMovesState)
     {
     case 0:
         InitMoveSelectionsVarsAndStrings(battler);
         gBattleStruct->wallyMovesState++;
-        gBattleStruct->wallyMoveFrames = 80;
+        gBattleStruct->wallyMoveFrames = 40;
         break;
     case 1:
         if (!IsDma3ManagerBusyWithBgCopy())
@@ -339,8 +427,24 @@ static void WallyHandleChooseMove(enum BattlerId battler)
     case 2:
         if (--gBattleStruct->wallyMoveFrames == 0)
         {
+            if (moveOffset != gMoveSelectionCursor[battler])
+            {
+                PlaySE(SE_SELECT);
+                MoveSelectionDestroyCursorAt(gMoveSelectionCursor[battler]);
+                gMoveSelectionCursor[battler] = moveOffset;
+                MoveSelectionCreateCursorAt(moveOffset, 0);
+                MoveSelectionDisplayMoveType(battler);
+                MoveSelectionDisplayPpNumber(battler);
+            }
+            gBattleStruct->wallyMoveFrames = 40;
+            gBattleStruct->wallyMovesState++;
+        }
+        break;
+    case 3:
+        if (--gBattleStruct->wallyMoveFrames == 0)
+        {
             PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_EXEC_SCRIPT, 0x100);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_EXEC_SCRIPT, 0x100 + moveOffset);
             BtlController_Complete(battler);
         }
         break;
