@@ -225,6 +225,9 @@ static u64 GetWildAiFlags(void)
     u32 avgLevel = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_LEVEL);
     u64 flags = 0;
 
+    if (gBattleTypeFlags == BATTLE_TYPE_CATCH_TUTORIAL)
+        return AI_FLAG_DYNAMIC_FUNC;
+
     if (IsDoubleBattle())
         avgLevel = (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_LEVEL) + GetMonData(&gParties[B_TRAINER_OPPONENT_A][1], MON_DATA_LEVEL)) / 2;
 
@@ -6659,6 +6662,20 @@ void ScriptSetDynamicAiFunc(struct ScriptContext *ctx)
 
     AiScoreFunc func = (AiScoreFunc)ScriptReadWord(ctx);
     sDynamicAiFunc = func;
+}
+
+static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    u32 targetSlot = min(gBattleResults.battleTurnCounter, MAX_MON_MOVES - 1);
+    if (move != gBattleMons[battlerAtk].moves[targetSlot])
+        return 0;
+
+    return score;
+}
+
+void SetSequentialAIFunc(void)
+{
+    sDynamicAiFunc = AI_SequentialMoves;
 }
 
 void ScriptSetDynamicAiSwitchFunc(struct ScriptContext *ctx)

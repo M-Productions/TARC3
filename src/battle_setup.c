@@ -487,37 +487,32 @@ void StartArchenTutorialBattle(void)
 {
     ZeroPlayerPartyMons();
 
-    u32 data = STATUS1_SLEEP_TURN(1);
-
     struct Pokemon *larvesta = &gParties[B_TRAINER_PLAYER][0];
     CreateMaleMon(larvesta, SPECIES_LARVESTA, 5);
-
-    // SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
-    // SetMonData(larvesta, MON_DATA_STATUS, &data);
-    data = MOVE_SNORE;
     SetMonMoveSlot(larvesta, MOVE_LARVESTA_ATTACK, 0);
-    // data = MOVE_NONE;
     SetMonMoveSlot(larvesta, MOVE_LARVESTA_DEFEND, 1);
     SetMonMoveSlot(larvesta, MOVE_LARVESTA_STATUS, 2);
     SetMonMoveSlot(larvesta, MOVE_LARVESTA_SPECIAL_TUTORIAL, 3);
 
     struct Pokemon *archen = &gParties[B_TRAINER_OPPONENT_A][0];
+    u32 data = STATUS1_SLEEP_TURN(2);
     CreateMaleMon(archen, SPECIES_ARCHEN, 5);
-
-    data = STATUS1_SLEEP_TURN(2);
-
-    // SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
     SetMonData(archen, MON_DATA_STATUS, &data);
-    data = MOVE_SNORE;
-    SetMonData(archen, MON_DATA_MOVE1, &data);
-    data = MOVE_NONE;
-    SetMonData(archen, MON_DATA_MOVE2, &data);
-    SetMonData(archen, MON_DATA_MOVE3, &data);
-    SetMonData(archen, MON_DATA_MOVE4, &data);
+    SetMonMoveSlot(archen, MOVE_SNORE, 0);
+    SetMonMoveSlot(archen, MOVE_QUIVER_DANCE, 1);
+    SetMonMoveSlot(archen, MOVE_BITE, 2);
+    SetMonMoveSlot(archen, MOVE_ROAR, 3);
+
+    data = 100;
+    SetMonData(larvesta, MON_DATA_HP, &data);
+    SetMonData(larvesta, MON_DATA_MAX_HP, &data);
+    SetMonData(archen, MON_DATA_HP, &data);
+    SetMonData(archen, MON_DATA_MAX_HP, &data);
 
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_CATCH_TUTORIAL;
+    SetSequentialAIFunc();
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 

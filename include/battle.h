@@ -1191,4 +1191,6 @@ static inline bool32 IsGhostBattleWithoutScope(void)
     return (gBattleTypeFlags & BATTLE_TYPE_GHOST) && !CheckBagHasItem(ITEM_SILPH_SCOPE, 1);
 }
 
+void SetSequentialAIFunc(void);
+
 #endif // GUARD_BATTLE_H

@@ -2,7 +2,7 @@
 #define GUARD_BATTLE_AI_MAIN_H
 
 
-typedef s32 (*AiScoreFunc)(u32, u32, u32, s32);
+typedef s32 (*AiScoreFunc)(enum BattlerId, enum BattlerId, enum Move, s32);
 
 #define UNKNOWN_NO_OF_HITS UINT32_MAX
 
