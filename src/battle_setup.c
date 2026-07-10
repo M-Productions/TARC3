@@ -495,10 +495,10 @@ void StartArchenTutorialBattle(void)
     // SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
     // SetMonData(larvesta, MON_DATA_STATUS, &data);
     data = MOVE_SNORE;
-    SetMonMoveSlot(larvesta, MOVE_SNORE, 0);
+    SetMonMoveSlot(larvesta, MOVE_LARVESTA_ATTACK, 0);
     // data = MOVE_NONE;
-    SetMonMoveSlot(larvesta, MOVE_TACKLE, 1);
-    SetMonMoveSlot(larvesta, MOVE_GROWL, 2);
+    SetMonMoveSlot(larvesta, MOVE_LARVESTA_DEFEND, 1);
+    SetMonMoveSlot(larvesta, MOVE_LARVESTA_STATUS, 2);
     SetMonMoveSlot(larvesta, MOVE_LARVESTA_SPECIAL_TUTORIAL, 3);
 
     struct Pokemon *archen = &gParties[B_TRAINER_OPPONENT_A][0];

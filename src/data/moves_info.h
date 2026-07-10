@@ -23656,6 +23656,87 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxRapidFlow,
     },
 
+    [MOVE_LARVESTA_ATTACK] =
+    {
+        .name = COMPOUND_STRING("Attack"),
+        .description = COMPOUND_STRING(
+            "Eats the foe's held Berry\n"
+            "gaining its effect."),
+        .effect = EFFECT_FIXED_HP_DAMAGE,
+        .power = 1,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .argument = { .fixedDamage = 25 },
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_BUG_BITE,
+        }),
+        .contestEffect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_VineWhip,
+    },
+
+    [MOVE_LARVESTA_DEFEND] =
+    {
+        .name = COMPOUND_STRING("Defend"),
+        .description = COMPOUND_STRING(
+            "Evades attack, but may fail\n"
+            "if used in succession."),
+        .effect = EFFECT_PROTECT,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_USER,
+        .priority = 4,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .protectMethod = PROTECT_NORMAL },
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .assistBanned = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_AVOID_STARTLE_ONCE : CONTEST_EFFECT_AVOID_STARTLE,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_HARDEN},
+        .battleAnimScript = gBattleAnimMove_DefenseCurl,
+        .validApprenticeMove = TRUE,
+    },
+    
+    [MOVE_LARVESTA_STATUS] =
+    {
+        .name = COMPOUND_STRING("Status"),
+        .description = COMPOUND_STRING(
+            "Recovers up to half the\n"
+            "target's maximum HP."),
+        .effect = EFFECT_HEAL_PULSE,
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .magicCoatAffected = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .healingMove = TRUE,
+        .pulseMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Synthesis,
+    },
+
     [MOVE_LARVESTA_SPECIAL] =
     {
         .name = COMPOUND_STRING("Special"),
@@ -23666,8 +23747,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .accuracy = 100,
         .pp = 1,
         .target = TARGET_SELECTED,
-        .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = { .fixedDamage = 100 },
         .makesContact = TRUE,
 
@@ -23690,8 +23771,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_DO_NOTHING,
         .pp = 1,
         .target = TARGET_SELECTED,
-        .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .makesContact = TRUE,
 
         .thawsUser = TRUE,
@@ -23713,8 +23794,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_DO_NOTHING_TUTORIAL,
         .pp = 1,
         .target = TARGET_SELECTED,
-        .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = { .status = STATUS1_SLEEP, },
         .makesContact = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
