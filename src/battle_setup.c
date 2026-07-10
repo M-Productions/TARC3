@@ -487,7 +487,7 @@ void StartArchenTutorialBattle(void)
 {
     ZeroPlayerPartyMons();
 
-    u32 data = STATUS1_SLEEP_TURN(2);
+    u32 data = STATUS1_SLEEP_TURN(1);
 
     struct Pokemon *larvesta = &gParties[B_TRAINER_PLAYER][0];
     CreateMaleMon(larvesta, SPECIES_LARVESTA, 5);
@@ -499,7 +499,7 @@ void StartArchenTutorialBattle(void)
     // data = MOVE_NONE;
     SetMonMoveSlot(larvesta, MOVE_TACKLE, 1);
     SetMonMoveSlot(larvesta, MOVE_GROWL, 2);
-    SetMonMoveSlot(larvesta, MOVE_FLAIL, 3);
+    SetMonMoveSlot(larvesta, MOVE_LARVESTA_SPECIAL_TUTORIAL, 3);
 
     struct Pokemon *archen = &gParties[B_TRAINER_OPPONENT_A][0];
     CreateMaleMon(archen, SPECIES_ARCHEN, 5);

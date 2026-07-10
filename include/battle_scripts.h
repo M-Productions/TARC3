@@ -566,6 +566,7 @@ extern const u8 BattleScript_EffectSubstitute[];
 extern const u8 BattleScript_EffectMimic[];
 extern const u8 BattleScript_EffectLeechSeed[];
 extern const u8 BattleScript_EffectDoNothing[];
+extern const u8 BattleScript_SpecialArchenTutorial[];
 extern const u8 BattleScript_EffectHoldHands[];
 extern const u8 BattleScript_EffectCelebrate[];
 extern const u8 BattleScript_EffectHappyHour[];

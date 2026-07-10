@@ -134,6 +134,7 @@ enum ArchenTutorialStates
     AT_SETUP,
     AT_TURN_SPECIAL,
     AT_WAKE_UP_MESSAGE,
+    AT_WAKE_UP_MESSAGE_2,
     AT_ATTACKING_MESSAGE,
     AT_ATTACKING_MESSAGE_RESET,
     AT_TURN_ATTACKING,
@@ -141,6 +142,7 @@ enum ArchenTutorialStates
     AT_DEFENDING_MESSAGE_RESET,
     AT_TURN_DEFENDING,
     AT_STATUS_MESSAGE,
+    AT_STATUS_MESSAGE_2,
     AT_STATUS_MESSAGE_RESET,
     AT_TURN_STATUS,
 };
@@ -192,13 +194,19 @@ static void WallyHandleActions(enum BattlerId battler)
         }
         break;
     case AT_WAKE_UP_MESSAGE:
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 1"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: Hey! What's going on?\nDid you wake me up?{PAUSE 60}"));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+        gBattleStruct->wallyBattleState++;
+        break;
+    case AT_WAKE_UP_MESSAGE_2:
+        if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: I'm sorry if my loud snoring\nscared you, friend!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
     case AT_ATTACKING_MESSAGE:
         if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 2"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: That attacking move didn't do\nmuch… Why don't you try another one!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
@@ -214,7 +222,7 @@ static void WallyHandleActions(enum BattlerId battler)
         }
         break;
     case AT_DEFENDING_MESSAGE:
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 3"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: You got me! Now it's my turn!\nYou should try defending against this.{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
@@ -230,7 +238,13 @@ static void WallyHandleActions(enum BattlerId battler)
         }
         break;
     case AT_STATUS_MESSAGE:
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Text 4"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: Good job! If you noticed,\nI even spent time preparing that move!{PAUSE 60}"));
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+        gBattleStruct->wallyBattleState++;
+        break;
+    case AT_STATUS_MESSAGE_2:
+        if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: You can try doing a status move\nyourself. Then we can leave it there!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
