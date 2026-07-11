@@ -5453,10 +5453,10 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         FOOTPRINT(Drampa)
         OVERWORLD(
             sPicTable_Drampa,
-            SIZE_32x32,
-            SHADOW_SIZE_M,
+            SIZE_64x64,
+            SHADOW_SIZE_L,
             TRACKS_FOOT,
-            sAnimTable_Following,
+            sAnimTable_Following_4F,
             gOverworldPalette_Drampa,
             gShinyOverworldPalette_Drampa
         )
