@@ -129,38 +129,38 @@ static void WallyBufferRunCommand(enum BattlerId battler)
     }
 }
 
-enum ArchenTutorialStates
+enum BattleTutorialStates
 {
-    AT_SETUP,
-    AT_TURN_SPECIAL,
-    AT_WAKE_UP_MESSAGE,
-    AT_WAKE_UP_MESSAGE_2,
-    AT_ATTACKING_MESSAGE,
-    AT_ATTACKING_MESSAGE_RESET,
-    AT_TURN_ATTACKING,
-    AT_DEFENDING_MESSAGE,
-    AT_DEFENDING_MESSAGE_RESET,
-    AT_TURN_DEFENDING,
-    AT_STATUS_MESSAGE,
-    AT_STATUS_MESSAGE_2,
-    AT_STATUS_MESSAGE_RESET,
-    AT_TURN_STATUS,
+    BT_SETUP,
+    BT_TURN_SPECIAL,
+    BT_WAKE_UP_MESSAGE,
+    BT_WAKE_UP_MESSAGE_2,
+    BT_ATTACKING_MESSAGE,
+    BT_ATTACKING_MESSAGE_RESET,
+    BT_TURN_ATTACKING,
+    BT_DEFENDING_MESSAGE,
+    BT_DEFENDING_MESSAGE_RESET,
+    BT_TURN_DEFENDING,
+    BT_STATUS_MESSAGE,
+    BT_STATUS_MESSAGE_2,
+    BT_STATUS_MESSAGE_RESET,
+    BT_TURN_STATUS,
 };
 
 static bool32 ShouldPrepareMessage(void)
 {
     switch (gBattleStruct->wallyBattleState)
     {
-        case AT_WAKE_UP_MESSAGE:
-        case AT_DEFENDING_MESSAGE:
-        case AT_STATUS_MESSAGE:
+        case BT_WAKE_UP_MESSAGE:
+        case BT_DEFENDING_MESSAGE:
+        case BT_STATUS_MESSAGE:
             return TRUE;
     }
 
     return FALSE;
 }
 
-static void ArchenMessageReset(void)
+static void DrampaMessageReset(void)
 {
     if (!IsTextPrinterActiveOnWindow(B_WIN_MSG))
     {
@@ -174,15 +174,15 @@ static void WallyHandleActions(enum BattlerId battler)
 {
     switch (gBattleStruct->wallyBattleState)
     {
-    case AT_ATTACKING_MESSAGE_RESET:
-    case AT_DEFENDING_MESSAGE_RESET:
-    case AT_STATUS_MESSAGE_RESET:
-        ArchenMessageReset();
+    case BT_ATTACKING_MESSAGE_RESET:
+    case BT_DEFENDING_MESSAGE_RESET:
+    case BT_STATUS_MESSAGE_RESET:
+        DrampaMessageReset();
         break;
-    case AT_SETUP:
+    case BT_SETUP:
         gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         gBattleStruct->wallyBattleState++;
-    case AT_TURN_SPECIAL:
+    case BT_TURN_SPECIAL:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
@@ -193,24 +193,24 @@ static void WallyHandleActions(enum BattlerId battler)
             gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
-    case AT_WAKE_UP_MESSAGE:
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: Hey! What's going on?\nDid you wake me up?{PAUSE 60}"));
+    case BT_WAKE_UP_MESSAGE:
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Drampa: Hey! What's going on?\nDid you wake me up?{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
-    case AT_WAKE_UP_MESSAGE_2:
+    case BT_WAKE_UP_MESSAGE_2:
         if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: I'm sorry if my loud snoring\nscared you, friend!{PAUSE 60}"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Drampa: I'm sorry if my loud snoring\nscared you, friend!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
-    case AT_ATTACKING_MESSAGE:
+    case BT_ATTACKING_MESSAGE:
         if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: That attacking move didn't do\nmuch… Why don't you try another one!{PAUSE 60}"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Drampa: That attacking move didn't do\nmuch… Why don't you try another one!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
-    case AT_TURN_ATTACKING:
+    case BT_TURN_ATTACKING:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
@@ -221,12 +221,12 @@ static void WallyHandleActions(enum BattlerId battler)
             gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
-    case AT_DEFENDING_MESSAGE:
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: You got me! Now it's my turn!\nYou should try defending against this.{PAUSE 60}"));
+    case BT_DEFENDING_MESSAGE:
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Drampa: You got me! Now it's my turn!\nYou should try defending against this.{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
-    case AT_TURN_DEFENDING:
+    case BT_TURN_DEFENDING:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
@@ -237,18 +237,18 @@ static void WallyHandleActions(enum BattlerId battler)
             gBattleStruct->wallyWaitFrames = B_WAIT_TIME_LONG;
         }
         break;
-    case AT_STATUS_MESSAGE:
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: Good job! If you noticed,\nI even spent time preparing that move!{PAUSE 60}"));
+    case BT_STATUS_MESSAGE:
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Drampa: Good job! If you noticed,\nI even spent time preparing that move!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
-    case AT_STATUS_MESSAGE_2:
+    case BT_STATUS_MESSAGE_2:
         if (IsTextPrinterActiveOnWindow(B_WIN_MSG)) break;
-        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Archen: You can try doing a status move\nyourself. Then we can leave it there!{PAUSE 60}"));
+        BattleStringExpandPlaceholdersToDisplayedString(COMPOUND_STRING("Drampa: You can try doing a status move\nyourself. Then we can leave it there!{PAUSE 60}"));
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
         gBattleStruct->wallyBattleState++;
         break;
-    case AT_TURN_STATUS:
+    case BT_TURN_STATUS:
         if (--gBattleStruct->wallyWaitFrames == 0)
         {
             PlaySE(SE_SELECT);
@@ -397,21 +397,21 @@ static void WallyHandleChooseAction(enum BattlerId battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
-static u32 ArchenGetMoveOffset(void)
+static u32 DrampaGetMoveOffset(void)
 {
     u32 attackingTurn = gBattleStruct->wallyBattleState - 1;
     switch (attackingTurn)
     {
-        case AT_TURN_SPECIAL:
+        case BT_TURN_SPECIAL:
             return 3;
 
-        case AT_TURN_ATTACKING:
+        case BT_TURN_ATTACKING:
             return 0;
 
-        case AT_TURN_DEFENDING:
+        case BT_TURN_DEFENDING:
             return 1;
 
-        case AT_TURN_STATUS:
+        case BT_TURN_STATUS:
             return 2;
     }
 
@@ -422,7 +422,7 @@ extern void MoveSelectionDisplayMoveType(enum BattlerId battler);
 extern void MoveSelectionDisplayPpNumber(enum BattlerId battler);
 static void WallyHandleChooseMove(enum BattlerId battler)
 {
-    u32 moveOffset = ArchenGetMoveOffset();
+    u32 moveOffset = DrampaGetMoveOffset();
     switch (gBattleStruct->wallyMovesState)
     {
     case 0:

@@ -234,6 +234,9 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    CreateMon(player, SPECIES_LARVESTA, PUZZLE_LEVEL, Random32(), OTID_STRUCT_PLAYER_ID);
+    SetMonData(player, MON_DATA_IS_SHINY, &gSaveBlock2Ptr->playerGender);
 }
 
 static void ResetMiniGamesRecords(void)

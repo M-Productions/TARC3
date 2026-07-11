@@ -6664,18 +6664,9 @@ void ScriptSetDynamicAiFunc(struct ScriptContext *ctx)
     sDynamicAiFunc = func;
 }
 
-static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+void SetDynamicAIFunc(AiScoreFunc func)
 {
-    u32 targetSlot = min(gBattleResults.battleTurnCounter, MAX_MON_MOVES - 1);
-    if (move != gBattleMons[battlerAtk].moves[targetSlot])
-        return 0;
-
-    return score;
-}
-
-void SetSequentialAIFunc(void)
-{
-    sDynamicAiFunc = AI_SequentialMoves;
+    sDynamicAiFunc = func;
 }
 
 void ScriptSetDynamicAiSwitchFunc(struct ScriptContext *ctx)
