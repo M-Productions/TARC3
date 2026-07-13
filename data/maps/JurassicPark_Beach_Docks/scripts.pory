@@ -1,1 +1,8 @@
-mapscripts JurassicPark_Beach_Docks_MapScripts {}
+mapscripts JurassicPark_Beach_Docks_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0 {
+            addvar(VAR_TEMP_0, 1)
+            clearflag(FLAG_SPAWN_NORTH)
+        }
+    ]
+}

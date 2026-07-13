@@ -1062,6 +1062,8 @@ bool8 MetatileBehavior_IsSurfableInSeafoamIslands(u16 metatileBehavior)
 
 static enum Direction GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u8 transitionFlags, u16 metatileBehavior, enum MapType mapType)
 {
+    if (FlagGet(FLAG_SPAWN_NORTH))
+        return DIR_NORTH;
     if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
         return DIR_EAST;
     else if (MetatileBehavior_IsDeepSouthWarp(metatileBehavior) == TRUE)
@@ -1919,6 +1921,7 @@ void CB2_NewGame(void)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     else
         gFieldCallback = ExecuteTruckSequence;
+    gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
