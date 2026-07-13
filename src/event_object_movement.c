@@ -9114,6 +9114,14 @@ bool8 MovementAction_Figure8_Step1(struct ObjectEvent *objectEvent, struct Sprit
     return FALSE;
 }
 
+void DrampaStartSleeping(void)
+{
+    u32 spriteId = gObjectEvents[GetObjectEventIdByLocalId(LOCALID_DRAMPA_FOREST)].spriteId;
+    StartSpriteAnimIfDifferent(&gSprites[spriteId], ANIM_POKEMON_SLEEP);
+    gSprites[spriteId].y2 = 10;
+    gSprites[spriteId].callback = SpriteCallbackDummy;
+}
+
 static void InitAcroWheelieJump(struct ObjectEvent *objectEvent, struct Sprite *sprite, enum Direction direction, u8 distance, u8 type)
 {
     InitJump(objectEvent, sprite, direction, distance, type);

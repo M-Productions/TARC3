@@ -1357,6 +1357,22 @@ static const union AnimCmd sAnim_GoFastEast4F_Asym[] =
     ANIMCMD_JUMP(0),
 };
 
+static const union AnimCmd sAnim_Sleep[] =
+{
+    ANIMCMD_FRAME(12, 32),
+    ANIMCMD_FRAME(12, 32),
+    ANIMCMD_FRAME(13, 32),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_Sleep_Asym[] =
+{
+    ANIMCMD_FRAME(16, 32),
+    ANIMCMD_FRAME(16, 32),
+    ANIMCMD_FRAME(17, 32),
+    ANIMCMD_JUMP(0),
+};
+
 const union AnimCmd *const sAnimTable_Following[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth2F,
@@ -1440,6 +1456,7 @@ const union AnimCmd *const sAnimTable_Following_4F[] = {
     [ANIM_EXIT_POKEBALL_FAST_NORTH] = sAnim_ExitPokeballFastNorth,
     [ANIM_EXIT_POKEBALL_FAST_WEST] = sAnim_ExitPokeballFastWest,
     [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast,
+    [ANIM_POKEMON_SLEEP] = sAnim_Sleep,
 };
 
 // Like the above, but has separate frames for facing right (east frames 12-15).
@@ -1468,6 +1485,7 @@ const union AnimCmd *const sAnimTable_Following_Asym_4F[] = {
     [ANIM_EXIT_POKEBALL_FAST_NORTH] = sAnim_ExitPokeballFastNorth,
     [ANIM_EXIT_POKEBALL_FAST_WEST] = sAnim_ExitPokeballFastWest,
     [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast_Asym,
+    [ANIM_POKEMON_SLEEP] = sAnim_Sleep_Asym,
 };
 
 static const union AnimCmd *const sAnimTable_HoOh[] = {
