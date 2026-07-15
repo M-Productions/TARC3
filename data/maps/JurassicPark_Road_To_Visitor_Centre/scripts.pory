@@ -1,1 +1,29 @@
-mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {}
+mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAME_STATE, GS_WOKEN_UP {
+            setvar(VAR_GAME_STATE, GS_FOREST_ROAD)
+            applymovement(LOCALID_PLAYER, PlayerWalkToForest)
+            waitmovement(0)
+            msgbox("(Woah...)\p(This forest is huge!\nHopefully I don't get lost...)", MSGBOX_SIGN)
+        }
+    ]
+}
+
+movement PlayerWalkToForest {
+    walk_up * 5
+}
+
+script DrampaStartTutorial {
+    callnative(DrampaStartSleeping)
+    playse(SE_M_SNORE)
+    delay(40)
+    playse(SE_M_SNORE)
+    delay(40)
+    callnative(StartPuzzleTutorialBattle)
+    waitstate
+    msgbox("You're a very interesting Pokémon,\nwho are you?", MSGBOX_SIGN)
+    delay(30)
+    msgbox("Larvesta? What a funny name...\nWell it's a pleasure to meet you.", MSGBOX_SIGN)
+}
+
+

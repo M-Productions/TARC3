@@ -30,6 +30,34 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "DocksShouldHeadInLand"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "DocksShouldHeadInLand"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "DocksShouldHeadInLand"
+    }
+  ],
   "bg_events": []
 }

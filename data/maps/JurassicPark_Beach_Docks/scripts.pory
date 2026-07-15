@@ -1,8 +1,36 @@
 mapscripts JurassicPark_Beach_Docks_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_0, 0 {
-            addvar(VAR_TEMP_0, 1)
+        VAR_GAME_STATE, GS_INTRO {
+            setvar(VAR_GAME_STATE, GS_WOKEN_UP)
             clearflag(FLAG_SPAWN_NORTH)
+            goto(LarvestaWakeUp)
         }
     ]
+}
+
+script LarvestaWakeUp {
+    createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_PAIN)
+    msgbox("(.{PAUSE 20}.{PAUSE 20}.)", MSGBOX_SIGN)
+    delay(40)
+    createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_SAD)
+    msgbox("(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)", MSGBOX_SIGN)
+}
+
+script DocksShouldHeadInLand {
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, CameraPanOverDocks)
+    waitmovement(0)
+    msgbox("(What a nice view, but... {PAUSE 40}Where am I?)", MSGBOX_SIGN)
+    applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
+    applymovement(LOCALID_CAMERA, CameraPanFromDocks)
+    waitmovement(0)
+    special(RemoveCameraObject)
+}
+
+movement CameraPanOverDocks {
+    walk_down * 4
+}
+
+movement CameraPanFromDocks {
+    walk_up * 5
 }
