@@ -409,7 +409,8 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
          || MetatileBehavior_IsPokeGrass(objectEvent->currentMetatileBehavior)
          || MetatileBehavior_IsPuddle(objectEvent->currentMetatileBehavior)
          || MetatileBehavior_IsSurfableWaterOrUnderwater(objectEvent->currentMetatileBehavior)
-         || MetatileBehavior_IsSurfableWaterOrUnderwater(objectEvent->previousMetatileBehavior))
+         || MetatileBehavior_IsSurfableWaterOrUnderwater(objectEvent->previousMetatileBehavior)
+         || objectEvent->movementType == MOVEMENT_TYPE_SLEEP)
         {
             FieldEffectStop(sprite, FLDEFF_SHADOW);
         }

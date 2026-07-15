@@ -1,12 +1,13 @@
-mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
-    MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_GAME_STATE, GS_WOKEN_UP {
-            setvar(VAR_GAME_STATE, GS_FOREST_ROAD)
-            applymovement(LOCALID_PLAYER, PlayerWalkToForest)
-            waitmovement(0)
-            msgbox("(Woah...)\p(This forest is huge!\nHopefully I don't get lost...)", MSGBOX_SIGN)
-        }
-    ]
+mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {}
+
+script PlayerObserveForest {
+    setvar(VAR_GAME_STATE, GS_FOREST_ROAD)
+    applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    delay(20)
+    applymovement(LOCALID_PLAYER, PlayerWalkToForest)
+    waitmovement(0)
+    msgbox("(Woah...)\p(This forest is huge!\nHopefully I don't get lost...)", MSGBOX_SIGN)
 }
 
 movement PlayerWalkToForest {
@@ -14,7 +15,6 @@ movement PlayerWalkToForest {
 }
 
 script DrampaStartTutorial {
-    callnative(DrampaStartSleeping)
     playse(SE_M_SNORE)
     delay(40)
     playse(SE_M_SNORE)

@@ -70,7 +70,20 @@
       "x": 32,
       "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_SLEEP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DrampaStartTutorial",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
+      "x": 31,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -80,6 +93,34 @@
     }
   ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "PlayerObserveForest"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "PlayerObserveForest"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "PlayerObserveForest"
+    }
+  ],
   "bg_events": []
 }

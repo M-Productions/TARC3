@@ -349,6 +349,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_WATCH_PLAYER_OWE] = MovementType_OverworldWildEncounter_WatchPlayer,
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = MovementType_OverworldWildEncounter_ApproachPlayer,
     [MOVEMENT_TYPE_DESPAWN_OWE] = MovementType_OverworldWildEncounter_Despawn,
+    [MOVEMENT_TYPE_SLEEP] = MovementType_Sleep,
 };
 
 static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
@@ -6190,6 +6191,17 @@ bool8 MovementType_Invisible_Step2(struct ObjectEvent *objectEvent, struct Sprit
     return FALSE;
 }
 
+movement_type_def(MovementType_Sleep, gMovementTypeFuncs_Sleep)
+
+bool8 MovementType_Sleep_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    sprite->x2 = -8;
+    sprite->y2 = 10;
+    ClearObjectEventMovement(objectEvent, sprite);
+    StartSpriteAnimIfDifferent(sprite, ANIM_POKEMON_SLEEP);
+    return FALSE;
+}
+
 void ClearObjectEventMovement(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     objectEvent->singleMovementActive = FALSE;
@@ -9112,14 +9124,6 @@ bool8 MovementAction_Figure8_Step1(struct ObjectEvent *objectEvent, struct Sprit
         return TRUE;
     }
     return FALSE;
-}
-
-void DrampaStartSleeping(void)
-{
-    u32 spriteId = gObjectEvents[GetObjectEventIdByLocalId(LOCALID_DRAMPA_FOREST)].spriteId;
-    StartSpriteAnimIfDifferent(&gSprites[spriteId], ANIM_POKEMON_SLEEP);
-    gSprites[spriteId].y2 = 10;
-    gSprites[spriteId].callback = SpriteCallbackDummy;
 }
 
 static void InitAcroWheelieJump(struct ObjectEvent *objectEvent, struct Sprite *sprite, enum Direction direction, u8 distance, u8 type)
