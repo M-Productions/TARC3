@@ -59,5 +59,38 @@
       "script": "DocksShouldHeadInLand"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "General_EventScript_Cutout"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "General_EventScript_Cutout"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "General_EventScript_Cutout"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "General_EventScript_Cutout"
+    }
+  ]
 }
