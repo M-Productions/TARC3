@@ -75,7 +75,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "DrampaStartTutorial",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial",
       "flag": "0"
     },
     {
@@ -88,7 +88,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "DrampaStartTutorial",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial",
       "flag": "0"
     }
   ],
@@ -101,7 +101,7 @@
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "PlayerObserveForest"
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest"
     },
     {
       "type": "trigger",
@@ -110,7 +110,7 @@
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "PlayerObserveForest"
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest"
     },
     {
       "type": "trigger",
@@ -119,7 +119,7 @@
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "PlayerObserveForest"
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest"
     }
   ],
   "bg_events": []

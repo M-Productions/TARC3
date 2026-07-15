@@ -14,11 +14,11 @@ JurassicPark_Beach_Docks_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
 # 5 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	clearflag FLAG_SPAWN_NORTH
 # 6 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	goto LarvestaWakeUp
+	goto JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp
 	return
 
 
-LarvestaWakeUp::
+JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp::
 # 12 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	createfieldmugshot MUGSHOT_LARVESTA, MUGSHOT_EMOTE_PAIN
 # 13 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
@@ -32,11 +32,11 @@ LarvestaWakeUp::
 	return
 
 
-DocksShouldHeadInLand::
+JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand::
 # 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	special SpawnCameraObject
 # 21 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_CAMERA, CameraPanOverDocks
+	applymovement LOCALID_CAMERA, JurassicPark_Beach_Docks_Movement_CameraPanOverDocks
 # 22 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	waitmovement 0
 # 23 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
@@ -44,7 +44,7 @@ DocksShouldHeadInLand::
 # 24 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 # 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_CAMERA, CameraPanFromDocks
+	applymovement LOCALID_CAMERA, JurassicPark_Beach_Docks_Movement_CameraPanFromDocks
 # 26 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	waitmovement 0
 # 27 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
@@ -53,7 +53,7 @@ DocksShouldHeadInLand::
 
 
 # 30 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-CameraPanOverDocks:
+JurassicPark_Beach_Docks_Movement_CameraPanOverDocks:
 # 31 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
 # 31 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
@@ -65,7 +65,7 @@ CameraPanOverDocks:
 	step_end
 
 # 34 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-CameraPanFromDocks:
+JurassicPark_Beach_Docks_Movement_CameraPanFromDocks:
 # 35 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
 # 35 "data/maps/JurassicPark_Beach_Docks/scripts.pory"

@@ -38,7 +38,7 @@
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "DocksShouldHeadInLand"
+      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
     },
     {
       "type": "trigger",
@@ -47,7 +47,7 @@
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "DocksShouldHeadInLand"
+      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
     },
     {
       "type": "trigger",
@@ -56,7 +56,7 @@
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "DocksShouldHeadInLand"
+      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
     }
   ],
   "bg_events": [
