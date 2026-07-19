@@ -1,3 +1,20 @@
+@ Kabuto cut tree
+EventScript_CutTree_Kabuto::
+	lockall
+	facetogether VAR_0x8000, VAR_0x8001
+	delay 30
+	dofieldeffect FLDEFF_USE_CUT_ON_TREE
+	waitstate
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	applymovement VAR_0x8000, Movement_CutTreeDown
+	waitmovement 0
+	callnative DoOWEDespawnAnim_Kabuto
+	playse SE_FLEE
+	removeobject VAR_0x8000
+	removeobject VAR_0x8001
+	releaseall
+	end
+
 @ Interact with cuttable tree
 EventScript_CutTree::
 	lockall

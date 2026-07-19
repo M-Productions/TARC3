@@ -60,7 +60,9 @@ static void Task_DoFieldMove_Init(u8 taskId)
     if (!ObjectEventIsMovementOverridden(&gObjectEvents[objEventId])
      || ObjectEventClearHeldMovementIfFinished(&gObjectEvents[objEventId]))
     {
-        if (gMapHeader.mapType == MAP_TYPE_UNDERWATER || gFieldEffectArguments[3])
+        if (gMapHeader.mapType == MAP_TYPE_UNDERWATER || gFieldEffectArguments[3]
+         || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
+         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)))
         {
             // Skip field move pose underwater, or if arg3 is nonzero
             if (gFieldEffectArguments[3])

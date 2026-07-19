@@ -1574,6 +1574,12 @@ static void DoOWEDespawnAnim(struct ObjectEvent *owe)
         PlaySE(SE_FLEE);
 }
 
+void DoOWEDespawnAnim_Kabuto(void)
+{
+    struct ObjectEvent *kabuto = &gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8001)];
+    DoOWEDespawnAnim(kabuto);
+}
+
 static enum SpawnDespawnTypeOWE GetOWESpawnDespawnAnimType(u32 metatileBehavior)
 {
     if (MetatileBehavior_IsPokeGrass(metatileBehavior) || MetatileBehavior_IsAshGrass(metatileBehavior))

@@ -12060,18 +12060,107 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step8(struct ObjectEvent *o
 
 #define sCollisionTimer     sprite->data[6]
 
+extern const u8 EventScript_CutTree_Kabuto[];
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    if (WE_OWE_FLEE_DESPAWN && sCollisionTimer >= OWE_FLEE_COLLISION_TIME && CanRemoveObjectForOWEMovement(objectEvent))
+    u32 species = SPECIES_NONE;
+    if (IS_OW_MON_OBJ(objectEvent))
+        species = OW_SPECIES(objectEvent);
+
+    if (species != SPECIES_KABUTO && WE_OWE_FLEE_DESPAWN && sCollisionTimer >= OWE_FLEE_COLLISION_TIME && CanRemoveObjectForOWEMovement(objectEvent))
     {
         RemoveObjectEvent(objectEvent);
         return FALSE;
+    }
+
+    if (species == SPECIES_KABUTO)
+    {
+        s32 x = objectEvent->currentCoords.x;
+        s32 y = objectEvent->currentCoords.y;
+        u32 elevation = objectEvent->currentElevation;
+        u32 objectIdNorth, objectIdSouth, objectIdEast, objectIdWest;
+        struct ObjectEvent *objectNorth = NULL, *objectSouth = NULL, *objectEast = NULL, *objectWest = NULL;
+        bool32 runScript = TRUE;
+
+        objectIdNorth = GetObjectEventIdByPosition(x, y - 1, elevation);
+        objectIdSouth = GetObjectEventIdByPosition(x, y + 1, elevation);
+        objectIdEast = GetObjectEventIdByPosition(x + 1, y, elevation);
+        objectIdWest = GetObjectEventIdByPosition(x - 1, y, elevation);
+
+        objectNorth = &gObjectEvents[objectIdNorth];
+        objectSouth = &gObjectEvents[objectIdSouth];
+        objectEast = &gObjectEvents[objectIdEast];
+        objectWest = &gObjectEvents[objectIdWest];
+        
+        if (objectIdNorth != OBJECT_EVENTS_COUNT
+         && objectNorth->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+        {
+            gSpecialVar_0x8000 = objectNorth->localId;
+            gSpecialVar_0x8002 = DIR_NORTH;
+        }
+        else if (objectIdSouth != OBJECT_EVENTS_COUNT
+         && objectSouth->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+        {
+            gSpecialVar_0x8000 = objectSouth->localId;
+            gSpecialVar_0x8002 = DIR_SOUTH;
+        }
+        else if (objectIdEast != OBJECT_EVENTS_COUNT
+         && objectEast->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+        {
+            gSpecialVar_0x8000 = objectEast->localId;
+            gSpecialVar_0x8002 = DIR_EAST;
+        }
+        else if (objectIdWest != OBJECT_EVENTS_COUNT
+         && objectWest->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+        {
+            gSpecialVar_0x8000 = objectWest->localId;
+            gSpecialVar_0x8002 = DIR_WEST;
+        }
+        else
+        {
+            runScript = FALSE;
+        }
+
+        gSpecialVar_0x8001 = objectEvent->localId;
+        struct ScriptContext ctx;
+        if (runScript && RunScriptImmediatelyUntilEffect(SCREFF_V1 | SCREFF_HARDWARE, EventScript_CutTree_Kabuto, &ctx))
+        {
+            ScriptContext_ContinueScript(&ctx);
+            return FALSE;
+        }
     }
 
     enum Direction direction = GetOppositeDirection(DetermineObjectEventDirectionFromObject(&gObjectEvents[gPlayerAvatar.objectEventId], objectEvent));
     SetObjectEventDirection(objectEvent, direction);
     sprite->sTypeFuncId = 11;
     return TRUE;
+}
+
+void KabutoFaceTree(void)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+    
+    struct ObjectEvent *objectEvent = &gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8001)];
+
+    ClearObjectEventMovement(objectEvent, &gSprites[objectEvent->spriteId]);
+    gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8001)].directionOverwrite = DIR_NONE;
+    switch (gSpecialVar_0x8002)
+    {
+    case DIR_NORTH:
+        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceUp);
+        break;
+    case DIR_SOUTH:
+        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceDown);
+        break;
+    case DIR_EAST:
+        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceRight);
+        break;
+    case DIR_WEST:
+        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceLeft);
+        break;
+    default:
+        break;
+    }
 }
 
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step11(struct ObjectEvent *objectEvent, struct Sprite *sprite)

@@ -25,6 +25,7 @@
 #include "party_menu.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
+#include "random.h"
 #include "script.h"
 #include "sound.h"
 #include "sprite.h"
@@ -3287,6 +3288,13 @@ static u8 InitFieldMoveMonSprite(enum Species species, bool8 isShiny, u32 person
     struct Sprite *sprite;
     noDucking = (species & SHOW_MON_CRY_NO_DUCKING) >> 16;
     species &= ~SHOW_MON_CRY_NO_DUCKING;
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
+    {
+        species = SPECIES_KABUTO;
+        isShiny = FALSE;
+        personality = Random32();
+    }
     monSprite = CreateMonSprite_FieldMove(species, isShiny, personality, 320, 80, 0);
     sprite = &gSprites[monSprite];
     sprite->callback = SpriteCallbackDummy;
