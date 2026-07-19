@@ -662,6 +662,7 @@ AI_DOUBLE_BATTLE_TEST("AI can use all moves, 801-900")
         //TODO: AI TESTS
         case EFFECT_WEATHER_AND_SWITCH:
         case EFFECT_TIDY_UP:
+        case EFFECT_HEAL_PULSE:
 
         // tests exist elsewhere
         case EFFECT_DRAGON_CHEER:
@@ -676,6 +677,7 @@ AI_DOUBLE_BATTLE_TEST("AI can use all moves, 801-900")
         case EFFECT_PROTECT:
         case EFFECT_NON_VOLATILE_STATUS:
         case EFFECT_DO_NOTHING:
+        case EFFECT_DO_NOTHING_TUTORIAL:
         case EFFECT_HOLD_HANDS:
         case EFFECT_CELEBRATE:
         case EFFECT_HAPPY_HOUR:

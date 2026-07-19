@@ -23742,6 +23742,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Special"),
         .description = COMPOUND_STRING(
             "A powerful move."),
+        .effect = EFFECT_FIXED_HP_DAMAGE,
         .power = 1,
         .type = TYPE_FIRE,
         .accuracy = 100,
