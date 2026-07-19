@@ -22,13 +22,13 @@ JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp::
 # 12 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	createfieldmugshot MUGSHOT_LARVESTA, MUGSHOT_EMOTE_PAIN
 # 13 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	msgbox LarvestaWakeUp_Text_0, MSGBOX_SIGN
+	msgbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_0, MSGBOX_SIGN
 # 14 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	delay 40
 # 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	createfieldmugshot MUGSHOT_LARVESTA, MUGSHOT_EMOTE_SAD
 # 16 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	msgbox LarvestaWakeUp_Text_1, MSGBOX_SIGN
+	msgbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1, MSGBOX_SIGN
 	return
 
 
@@ -40,7 +40,7 @@ JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand::
 # 22 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	waitmovement 0
 # 23 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	msgbox DocksShouldHeadInLand_Text_0, MSGBOX_SIGN
+	msgbox JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand_Text_0, MSGBOX_SIGN
 # 24 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
 # 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
@@ -78,44 +78,44 @@ JurassicPark_Beach_Docks_Movement_CameraPanFromDocks:
 	walk_up
 	step_end
 
-LarvestaWakeUp_Text_0:
-# 13 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	.string "(.{PAUSE 20}.{PAUSE 20}.)$"
-
-LarvestaWakeUp_Text_1:
-# 16 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	.string "(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)$"
-
-DocksShouldHeadInLand_Text_0:
-# 23 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	.string "(What a nice view, but... {PAUSE 40}Where am I?)$"
-
 General_EventScript_Cutout::
-# 5 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 40 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	lock
-# 6 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 41 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	goto_if_set FLAG_TEMP_1, General_EventScript_Cutout_2
-# 14 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 49 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	msgbox General_EventScript_Cutout_Text_1
-# 19 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 54 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	setflag FLAG_TEMP_1
 General_EventScript_Cutout_1:
-# 21 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 56 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	release
 	end
 
 General_EventScript_Cutout_2:
-# 8 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 43 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	msgbox General_EventScript_Cutout_Text_0
 	goto General_EventScript_Cutout_1
 
 
+JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_0:
+# 13 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	.string "(.{PAUSE 20}.{PAUSE 20}.)$"
+
+JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1:
+# 16 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	.string "(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)$"
+
+JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand_Text_0:
+# 23 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	.string "(What a nice view, but... {PAUSE 40}Where am I?)$"
+
 General_EventScript_Cutout_Text_0:
-# 9 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 44 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Yep, still cardboard.$"
 
 General_EventScript_Cutout_Text_1:
-# 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 50 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "As you approach the hut,\n"
 	.string "you start to notice…\p"
 	.string "That this is just a cardboard cutout.$"
