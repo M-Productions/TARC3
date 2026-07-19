@@ -12136,33 +12136,6 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *
     return TRUE;
 }
 
-void KabutoFaceTree(void)
-{
-    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
-    
-    struct ObjectEvent *objectEvent = &gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8001)];
-
-    ClearObjectEventMovement(objectEvent, &gSprites[objectEvent->spriteId]);
-    gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8001)].directionOverwrite = DIR_NONE;
-    switch (gSpecialVar_0x8002)
-    {
-    case DIR_NORTH:
-        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceUp);
-        break;
-    case DIR_SOUTH:
-        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceDown);
-        break;
-    case DIR_EAST:
-        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceRight);
-        break;
-    case DIR_WEST:
-        ScriptMovement_StartObjectMovementScript(objectEvent->localId, objectEvent->mapGroup, objectEvent->mapNum, Common_Movement_FaceLeft);
-        break;
-    default:
-        break;
-    }
-}
-
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step11(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u32 speciesId = OW_SPECIES(objectEvent);
