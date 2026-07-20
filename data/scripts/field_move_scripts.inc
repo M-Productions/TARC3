@@ -6,12 +6,12 @@ EventScript_CutTree_Kabuto::
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
 	waitstate
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	applymovement VAR_0x8000, Movement_CutTreeDown
+	callnative AnimateMarshPuzzleBarriers
 	waitmovement 0
 	callnative DoOWEDespawnAnim_Kabuto
 	playse SE_FLEE
 	removeobject VAR_0x8000
-	removeobject VAR_0x8001
+	callnative RemoveMarshPuzzleBarriers
 	releaseall
 	end
 
@@ -46,7 +46,7 @@ EventScript_UseCut::
 	lockall
 	goto EventScript_CutTreeCommon
 
-Movement_CutTreeDown:
+Movement_CutTreeDown::
 	cut_tree
 	step_end
 

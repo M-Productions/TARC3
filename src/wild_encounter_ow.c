@@ -1576,7 +1576,7 @@ static void DoOWEDespawnAnim(struct ObjectEvent *owe)
 
 void DoOWEDespawnAnim_Kabuto(void)
 {
-    struct ObjectEvent *kabuto = &gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8001)];
+    struct ObjectEvent *kabuto = &gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8000)];
     DoOWEDespawnAnim(kabuto);
 }
 
