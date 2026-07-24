@@ -356,6 +356,9 @@
 #define METATILE_LilycoveMuseum_Painting4_Left   0x862
 #define METATILE_LilycoveMuseum_Painting4_Right  0x863
 
+// gTileset_Marshlands_Primary
+#define METATILE_Marshlands_Primary_Grass  0x009
+
 // gTileset_Mart
 #define METATILE_Mart_CounterMid_Bottom  0x8C0
 #define METATILE_Mart_CounterMid_Top     0x8BF

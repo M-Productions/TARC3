@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
-      "x": 7,
-      "y": 26,
+      "x": 9,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FLEE_PLAYER_OWE",
       "movement_range_x": 0,
@@ -28,8 +28,8 @@
       "flag": "FLAG_TEMP_1"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_1L",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "local_id": "LOCALID_MARSH_BARRIER_1L",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 13,
       "y": 25,
       "elevation": 0,
@@ -42,8 +42,8 @@
       "flag": "FLAG_TEMP_1"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_1R",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "local_id": "LOCALID_MARSH_BARRIER_1R",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 14,
       "y": 25,
       "elevation": 0,
@@ -56,8 +56,21 @@
       "flag": "FLAG_TEMP_1"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_2L",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
+      "x": 29,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FLEE_PLAYER_OWE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "local_id": "LOCALID_MARSH_BARRIER_2L",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 33,
       "y": 23,
       "elevation": 0,
@@ -67,11 +80,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_TEMP_2"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_2M",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "local_id": "LOCALID_MARSH_BARRIER_2M",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 34,
       "y": 23,
       "elevation": 0,
@@ -81,11 +94,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_2R",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "local_id": "LOCALID_MARSH_BARRIER_2R",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 35,
       "y": 23,
       "elevation": 0,
@@ -95,11 +108,24 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_3L",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FLEE_PLAYER_OWE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "local_id": "LOCALID_MARSH_BARRIER_3L",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 11,
       "y": 17,
       "elevation": 0,
@@ -109,11 +135,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_3R",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "local_id": "LOCALID_MARSH_BARRIER_3R",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 12,
       "y": 17,
       "elevation": 0,
@@ -123,11 +149,24 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_4L",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
+      "x": 17,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FLEE_PLAYER_OWE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "local_id": "LOCALID_MARSH_BARRIER_4L",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 22,
       "y": 21,
       "elevation": 0,
@@ -137,11 +176,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_4"
     },
     {
-      "local_id": "LOCALID_MARSH_TREE_4R",
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "local_id": "LOCALID_MARSH_BARRIER_4R",
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 23,
       "y": 21,
       "elevation": 0,
@@ -151,7 +190,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_4"
     }
   ],
   "warp_events": [

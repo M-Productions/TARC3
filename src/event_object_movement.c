@@ -51,6 +51,7 @@
 #include "constants/items.h"
 #include "constants/mauville_old_man.h"
 #include "constants/metatile_behaviors.h"
+#include "constants/metatile_labels.h"
 #include "constants/rgb.h"
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
@@ -12069,10 +12070,10 @@ extern const u8 Movement_CutTreeDown[];
 #define LOCALID_BARRIER_INVALID LOCALID_PLAYER
 static const u32 MarshPuzzleBarrierLocalIds[NUM_MARSH_BARRIERS][NUM_OBJECTS_PER_BARRIER] =
 {
-    { LOCALID_MARSH_TREE_1L, LOCALID_MARSH_TREE_1R, LOCALID_BARRIER_INVALID },
-    { LOCALID_MARSH_TREE_2L, LOCALID_MARSH_TREE_2M, LOCALID_MARSH_TREE_2R   },
-    { LOCALID_MARSH_TREE_3L, LOCALID_MARSH_TREE_3R, LOCALID_BARRIER_INVALID },
-    { LOCALID_MARSH_TREE_4L, LOCALID_MARSH_TREE_4R, LOCALID_BARRIER_INVALID }
+    { LOCALID_MARSH_BARRIER_1L, LOCALID_MARSH_BARRIER_1R, LOCALID_BARRIER_INVALID },
+    { LOCALID_MARSH_BARRIER_2L, LOCALID_MARSH_BARRIER_2M, LOCALID_MARSH_BARRIER_2R   },
+    { LOCALID_MARSH_BARRIER_3L, LOCALID_MARSH_BARRIER_3R, LOCALID_BARRIER_INVALID },
+    { LOCALID_MARSH_BARRIER_4L, LOCALID_MARSH_BARRIER_4R, LOCALID_BARRIER_INVALID }
 };
 
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -12107,22 +12108,22 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *
         objectWest = &gObjectEvents[objectIdWest];
         
         if (objectIdNorth != OBJECT_EVENTS_COUNT
-         && objectNorth->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectNorth->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
             gSpecialVar_0x8001 = objectNorth->localId;
         }
         else if (objectIdSouth != OBJECT_EVENTS_COUNT
-         && objectSouth->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectSouth->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
             gSpecialVar_0x8001 = objectSouth->localId;
         }
         else if (objectIdEast != OBJECT_EVENTS_COUNT
-         && objectEast->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectEast->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
             gSpecialVar_0x8001 = objectEast->localId;
         }
         else if (objectIdWest != OBJECT_EVENTS_COUNT
-         && objectWest->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectWest->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
             gSpecialVar_0x8001 = objectWest->localId;
         }
@@ -12197,6 +12198,7 @@ void AnimateMarshPuzzleBarriers(void)
 void RemoveMarshPuzzleBarriers(void)
 {
     u32 localId;
+    struct ObjectEvent *object;
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE | SCREFF_HARDWARE);
 
     for (u32 i = 0; i < NUM_OBJECTS_PER_BARRIER; i++)
@@ -12204,9 +12206,12 @@ void RemoveMarshPuzzleBarriers(void)
         localId = VarGet(VAR_0x8001 + i);
         if (localId != LOCALID_BARRIER_INVALID)
         {
+            object = &gObjectEvents[GetObjectEventIdByLocalId(localId)];
+            MapGridSetMetatileIdAt(object->currentCoords.x, object->currentCoords.y, METATILE_Marshlands_Primary_Grass);
             RemoveObjectEventByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
         }
     }
+    DrawWholeMapView();
 }
 
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step11(struct ObjectEvent *objectEvent, struct Sprite *sprite)
