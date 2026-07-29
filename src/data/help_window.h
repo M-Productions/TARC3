@@ -54,4 +54,17 @@ const struct HelpWindow gHelpWindowInfo[] =
                             ),
         // .headerFont = FONT_SHORT,
     },
+    
+    [HELP_RAMPARDOS_RIDDLE] =
+    {
+        .header = COMPOUND_STRING("Rampardos Paddock"),
+        .desc = COMPOUND_STRING("Rampardos rams in threes,\n"
+                                "Just one warning before two strides.\n"
+                                "Then back to one, a rhythm like the tide.\n\n"
+                                "Count the cycle, if you wish to thrive...\n"
+                                "One... Two... Two... Back to One...\n\n"
+                                "This is how to survive!"
+                            ),
+        .headerFont = FONT_SHORT,
+    },
 };

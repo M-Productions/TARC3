@@ -513,6 +513,7 @@ struct BattlePuzzle
 enum BattlePuzzles
 {
     BP_TUTORIAL,
+    BP_HEADBUTT,
     BP_COUNT
 };
 
@@ -522,6 +523,19 @@ static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerD
     if (move != gBattleMons[battlerAtk].moves[targetSlot])
         return 0;
 
+    return score;
+}
+
+static s32 AI_OneThenTwo(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    u32 turnCycle = gBattleResults.battleTurnCounter % 3;
+    
+    if (turnCycle == 0 && move == gBattleMons[battlerAtk].moves[0])
+        return 100;
+    
+    if ((turnCycle == 1 || turnCycle == 2) && move == gBattleMons[battlerAtk].moves[1])
+        return 100;
+    
     return score;
 }
 
@@ -544,6 +558,26 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .battleFlags = BATTLE_TYPE_CATCH_TUTORIAL,
         .aiFunc = AI_SequentialMoves,
     },
+
+    [BP_HEADBUTT] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS_2,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+
+        .partnerSpecies = SPECIES_TURTWIG,
+        .partnerAttackMove = MOVE_TACKLE,
+        .partnerDefendMove = MOVE_PROTECT,
+        .partnerStatusMove = MOVE_TAUNT,
+
+        .enemySpecies = SPECIES_RAMPARDOS,
+        .enemyAttackMove = MOVE_MEDITATE,
+        .enemyDefendMove = MOVE_HEAD_CHARGE,
+
+        .battleFlags = BATTLE_TYPE_DOUBLE,
+        .aiFunc = AI_OneThenTwo,
+    }
 };
 
 void StartPuzzleBattle(enum BattlePuzzles puzzle)
@@ -592,7 +626,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
 
 void StartPuzzleTutorialBattle(void)
 {
-    StartPuzzleBattle(BP_TUTORIAL);
+    StartPuzzleBattle(BP_HEADBUTT);
 }
 
 void BattleSetup_StartScriptedWildBattle(void)
