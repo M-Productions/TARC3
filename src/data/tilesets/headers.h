@@ -1641,3 +1641,25 @@ const struct Tileset gTileset_Desert_Secondary =
     .metatileAttributes = gMetatileAttributes_Desert_Secondary,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Mountain_Primary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Mountain_Primary,
+    .palettes = gTilesetPalettes_Mountain_Primary,
+    .metatiles = gMetatiles_Mountain_Primary,
+    .metatileAttributes = gMetatileAttributes_Mountain_Primary,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Mountain_Secondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Mountain_Secondary,
+    .palettes = gTilesetPalettes_Mountain_Secondary,
+    .metatiles = gMetatiles_Mountain_Secondary,
+    .metatileAttributes = gMetatileAttributes_Mountain_Secondary,
+    .callback = NULL,
+};

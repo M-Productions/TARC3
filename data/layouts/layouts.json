@@ -1735,8 +1735,8 @@
       "name": "GraniteCave_B2F_Layout",
       "width": 32,
       "height": 26,
-      "border_width": 0,
-      "border_height": 0,
+      "border_width": 2,
+      "border_height": 2,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/GraniteCave_B2F/border.bin",
@@ -10313,6 +10313,30 @@
       "secondary_tileset": "gTileset_Desert_Secondary",
       "border_filepath": "data/layouts/JurassicPark_Desert_Main/border.bin",
       "blockdata_filepath": "data/layouts/JurassicPark_Desert_Main/map.bin"
+    },
+    {
+      "id": "LAYOUT_JURASSIC_PARK_MOUNTAIN_BASE",
+      "name": "JurassicPark_Mountain_Base_Layout",
+      "width": 80,
+      "height": 74,
+      "border_width": 4,
+      "border_height": 4,
+      "primary_tileset": "gTileset_Mountain_Primary",
+      "secondary_tileset": "gTileset_Mountain_Secondary",
+      "border_filepath": "data/layouts/JurassicPark_Mountain_Base/border.bin",
+      "blockdata_filepath": "data/layouts/JurassicPark_Mountain_Base/map.bin"
+    },
+    {
+      "id": "LAYOUT_JURASSIC_PARK_MOUNTAIN_TOP",
+      "name": "JurassicPark_Mountain_Top_Layout",
+      "width": 54,
+      "height": 46,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Mountain_Primary",
+      "secondary_tileset": "gTileset_Mountain_Secondary",
+      "border_filepath": "data/layouts/JurassicPark_Mountain_Top/border.bin",
+      "blockdata_filepath": "data/layouts/JurassicPark_Mountain_Top/map.bin"
     }
   ]
 }

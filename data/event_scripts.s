@@ -1756,3 +1756,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.inc"
 
 	.include "data/maps/JurassicPark_Desert_Main/scripts.inc"
+
+	.include "data/maps/JurassicPark_Mountain_Base/scripts.inc"
+
+	.include "data/maps/JurassicPark_Mountain_Top/scripts.inc"

@@ -1,0 +1,3 @@
+JurassicPark_Mountain_Base_MapScripts::
+	.byte 0
+
