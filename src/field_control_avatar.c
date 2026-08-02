@@ -158,6 +158,38 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     }
 }
 
+extern const u8 JurassicPark_Desert_Main_EventScript_WarpToLastPosition[];
+bool32 TryIncrementCradilyQuicksand(struct MapPosition *position)
+{
+    u32 x = position->x;
+    u32 y = position->y;
+    u32 metatileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+    u32 steps = VarGet(VAR_QUICKSAND_STEPS);
+
+    if (metatileBehavior != MB_QUICKSAND)
+    {
+        VarSet(VAR_NON_QUICKSAND_X, x - MAP_OFFSET);
+        VarSet(VAR_NON_QUICKSAND_Y, y - MAP_OFFSET);
+        VarSet(VAR_QUICKSAND_STEPS, 0);
+        return FALSE;
+    }
+    
+    steps++;
+    if (steps < 10)
+    {
+        VarSet(VAR_QUICKSAND_STEPS, steps);
+        return FALSE;
+    }
+    VarSet(VAR_QUICKSAND_STEPS, 0);
+    
+    struct ScriptContext ctx;
+    if (!RunScriptImmediatelyUntilEffect(SCREFF_V1 | SCREFF_HARDWARE, JurassicPark_Desert_Main_EventScript_WarpToLastPosition, &ctx))
+        return FALSE;
+
+    ScriptContext_ContinueScript(&ctx);
+    return TRUE;
+}
+
 int ProcessPlayerFieldInput(struct FieldInput *input)
 {
     struct MapPosition position;
@@ -186,6 +218,9 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         IncrementBirthIslandRockStepCount();
         DespawnAllOverworldWildEncounters(OWE_GENERATED, WILD_CHECK_REPEL);
         if (FindTaskIdByFunc(Task_FollowerNPCOutOfDoor) == TASK_NONE && TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)
+            return TRUE;
+
+        if (TryIncrementCradilyQuicksand(&position))
             return TRUE;
     }
 

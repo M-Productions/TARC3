@@ -20,8 +20,45 @@
     }
   ],
   "object_events": [],
-  "warp_events": [],
-  "coord_events": [],
+  "warp_events": [
+    {
+      "warp_id": "WARP_ID_SPAWN",
+      "x": 18,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_BEACH_DOCKS",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

@@ -91,7 +91,8 @@
 #define MOVEMENT_TYPE_WATCH_PLAYER_OWE                 0x56
 #define MOVEMENT_TYPE_APPROACH_PLAYER_OWE              0x57
 #define MOVEMENT_TYPE_DESPAWN_OWE                      0x58
-#define NUM_MOVEMENT_TYPES                             0x59
+#define MOVEMENT_TYPE_SLEEP                            0x59
+#define NUM_MOVEMENT_TYPES                             0x5A
 
 #define MOVEMENT_ACTION_FACE_DOWN                       0x0
 #define MOVEMENT_ACTION_FACE_UP                         0x1
@@ -321,6 +322,8 @@
 #define ANIM_EXIT_POKEBALL_FAST_NORTH (ANIM_STD_COUNT + 1)
 #define ANIM_EXIT_POKEBALL_FAST_WEST  (ANIM_STD_COUNT + 2)
 #define ANIM_EXIT_POKEBALL_FAST_EAST  (ANIM_STD_COUNT + 3)
+
+#define ANIM_POKEMON_SLEEP  		  (ANIM_STD_COUNT + 4)
 
 #define ANIM_BUNNY_HOP_BACK_WHEEL_SOUTH         (ANIM_STD_COUNT + 0)
 #define ANIM_BUNNY_HOP_BACK_WHEEL_NORTH         (ANIM_STD_COUNT + 1)

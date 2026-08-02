@@ -1,1 +1,6 @@
 mapscripts JurassicPark_Desert_Main_MapScripts {}
+
+script JurassicPark_Desert_Main_EventScript_WarpToLastPosition {
+    warpsilent(MAP_JURASSIC_PARK_DESERT_MAIN, VAR_NON_QUICKSAND_X, VAR_NON_QUICKSAND_Y)
+    waitstate
+}

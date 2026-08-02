@@ -392,6 +392,8 @@ static inline bool32 IgnoreMoveForSheerForceBoost(enum Move move)
         case MOVE_UPPER_HAND:    //  Bugged?
         case MOVE_GLITZY_GLOW:   //  Light Screen Move Effect seems to be bugged
         case MOVE_PAYBACK:
+        case MOVE_LARVESTA_SPECIAL_LOCKED:
+        case MOVE_LARVESTA_SPECIAL_TUTORIAL:
             return TRUE;
         default:
             return FALSE;

@@ -1,1 +1,30 @@
 mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest {
+    setvar(VAR_GAME_STATE, GS_FOREST_ROAD)
+    applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    delay(20)
+    applymovement(LOCALID_PLAYER, JurassicPark_Road_To_Visitor_Centre_Movement_PlayerWalkToForest)
+    waitmovement(0)
+    msgbox("(Woah...)\p(This forest is huge!\nHopefully I don't get lost...)", MSGBOX_SIGN)
+}
+
+movement JurassicPark_Road_To_Visitor_Centre_Movement_PlayerWalkToForest {
+    walk_up * 5
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial {
+    playse(SE_M_SNORE)
+    delay(40)
+    playse(SE_M_SNORE)
+    delay(40)
+    callnative(StartPuzzleTutorialBattle)
+    waitstate
+    helpwindow(HELP_BATTLE_TUTORIAL)
+    msgbox("You're a very interesting Pokémon,\nwho are you?", MSGBOX_SIGN)
+    delay(30)
+    msgbox("Larvesta? What a funny name...\nWell it's a pleasure to meet you.", MSGBOX_SIGN)
+}
+
+

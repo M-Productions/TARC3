@@ -1,4 +1,39 @@
-mapscripts JurassicPark_Beach_Docks_MapScripts {}
+mapscripts JurassicPark_Beach_Docks_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAME_STATE, GS_INTRO {
+            setvar(VAR_GAME_STATE, GS_WOKEN_UP)
+            clearflag(FLAG_SPAWN_NORTH)
+            goto(JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp)
+        }
+    ]
+}
+
+script JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp {
+    createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_PAIN)
+    msgbox("(.{PAUSE 20}.{PAUSE 20}.)", MSGBOX_SIGN)
+    delay(40)
+    createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_SAD)
+    msgbox("(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)", MSGBOX_SIGN)
+}
+
+script JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand {
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, JurassicPark_Beach_Docks_Movement_CameraPanOverDocks)
+    waitmovement(0)
+    msgbox("(What a nice view, but... {PAUSE 40}Where am I?)", MSGBOX_SIGN)
+    applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
+    applymovement(LOCALID_CAMERA, JurassicPark_Beach_Docks_Movement_CameraPanFromDocks)
+    waitmovement(0)
+    special(RemoveCameraObject)
+}
+
+movement JurassicPark_Beach_Docks_Movement_CameraPanOverDocks {
+    walk_down * 4
+}
+
+movement JurassicPark_Beach_Docks_Movement_CameraPanFromDocks {
+    walk_up * 5
+}
 
 script General_EventScript_Cutout
 {

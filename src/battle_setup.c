@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_ai_main.h"
 #include "load_save.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
@@ -481,6 +482,117 @@ void StartOldManTutorialBattle(void)
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_CATCH_TUTORIAL;
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
+}
+
+struct BattlePuzzle
+{
+    enum Move playerAttackMove;
+    enum Move playerDefendMove;
+    enum Move playerStatusMove;
+    enum Move playerAceMove;
+    u32 playerStatusEffect;
+
+    enum Species partnerSpecies;
+    enum Move partnerAttackMove;
+    enum Move partnerDefendMove;
+    enum Move partnerStatusMove;
+    enum Move partnerAceMove;
+    u32 partnerStatusEffect;
+
+    enum Species enemySpecies;
+    enum Move enemyAttackMove;
+    enum Move enemyDefendMove;
+    enum Move enemyStatusMove;
+    enum Move enemyAceMove;
+    u32 enemyStatusEffect;
+
+    u32 battleFlags;
+    AiScoreFunc aiFunc;
+};
+
+enum BattlePuzzles
+{
+    BP_TUTORIAL,
+    BP_COUNT
+};
+
+static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    u32 targetSlot = min(gBattleResults.battleTurnCounter, MAX_MON_MOVES - 1);
+    if (move != gBattleMons[battlerAtk].moves[targetSlot])
+        return 0;
+
+    return score;
+}
+
+static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
+{
+    [BP_TUTORIAL] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+
+        .enemySpecies = SPECIES_DRAMPA,
+        .enemyAttackMove = MOVE_SNORE,
+        .enemyDefendMove = MOVE_QUIVER_DANCE,
+        .enemyStatusMove = MOVE_BITE,
+        .enemyAceMove = MOVE_ROAR,
+        .enemyStatusEffect = STATUS1_SLEEP_TURN(2),
+
+        .battleFlags = BATTLE_TYPE_CATCH_TUTORIAL,
+        .aiFunc = AI_SequentialMoves,
+    },
+};
+
+void StartPuzzleBattle(enum BattlePuzzles puzzle)
+{
+    const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[puzzle];
+    u32 hp = 100;
+
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    SetMonMoveSlot(player, puzzlesData->playerAttackMove, 0);
+    SetMonMoveSlot(player, puzzlesData->playerDefendMove, 1);
+    SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
+    SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
+    SetMonData(player, MON_DATA_STATUS, &puzzlesData->playerStatusEffect);
+    SetMonData(player, MON_DATA_HP, &hp);
+    SetMonData(player, MON_DATA_MAX_HP, &hp);
+
+    if (puzzlesData->partnerSpecies)
+    {
+        struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][1];
+        CreateMon(partner, puzzlesData->partnerSpecies, PUZZLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+        SetMonMoveSlot(partner, puzzlesData->partnerAttackMove, 0);
+        SetMonMoveSlot(partner, puzzlesData->partnerDefendMove, 1);
+        SetMonMoveSlot(partner, puzzlesData->partnerStatusMove, 2);
+        SetMonMoveSlot(partner, puzzlesData->partnerAceMove, 3);
+        SetMonData(partner, MON_DATA_STATUS, &puzzlesData->partnerStatusEffect);
+        SetMonData(partner, MON_DATA_HP, &hp);
+        SetMonData(partner, MON_DATA_MAX_HP, &hp);
+    }
+
+    struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
+    CreateMon(enemy, puzzlesData->enemySpecies, PUZZLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    SetMonMoveSlot(enemy, puzzlesData->enemyAttackMove, 0);
+    SetMonMoveSlot(enemy, puzzlesData->enemyDefendMove, 1);
+    SetMonMoveSlot(enemy, puzzlesData->enemyStatusMove, 2);
+    SetMonMoveSlot(enemy, puzzlesData->enemyAceMove, 3);
+    SetMonData(enemy, MON_DATA_STATUS, &puzzlesData->enemyStatusEffect);
+    SetMonData(enemy, MON_DATA_HP, &hp);
+    SetMonData(enemy, MON_DATA_MAX_HP, &hp);
+
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    gBattleTypeFlags = puzzlesData->battleFlags;
+    SetDynamicAIFunc(puzzlesData->aiFunc);
+    CreateBattleStartTask(B_TRANSITION_SLICE, 0);
+}
+
+void StartPuzzleTutorialBattle(void)
+{
+    StartPuzzleBattle(BP_TUTORIAL);
 }
 
 void BattleSetup_StartScriptedWildBattle(void)

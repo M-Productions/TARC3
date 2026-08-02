@@ -466,3 +466,7 @@ u8 (*const gMovementTypeFuncs_Invisible[])(struct ObjectEvent *, struct Sprite *
     MovementType_Invisible_Step1,
     MovementType_Invisible_Step2,
 };
+
+u8 (*const gMovementTypeFuncs_Sleep[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Sleep_Step0,
+};

@@ -13,8 +13,52 @@
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
-  "warp_events": [],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
+      "x": 7,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FLEE_PLAYER_OWE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 14,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "warp_id": "WARP_MARSH_PUZZLE_LEFT",
+      "x": 7,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST",
+      "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "WARP_MARSH_PUZZLE_RIGHT",
+      "x": 8,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
