@@ -10349,6 +10349,18 @@
       "secondary_tileset": "gTileset_Visitor_Centre_Indoor_Secondary",
       "border_filepath": "data/layouts/JurassicPark_Visitor_Centre/border.bin",
       "blockdata_filepath": "data/layouts/JurassicPark_Visitor_Centre/map.bin"
+    },
+    {
+      "id": "LAYOUT_JURASSIC_PARK_VISITOR_CENTRE_RED",
+      "name": "JurassicPark_Visitor_Centre_Red_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Visitor_Centre_Red_Primary",
+      "secondary_tileset": "gTileset_Visitor_Centre_Red_Indoor_Secondary",
+      "border_filepath": "data/layouts/JurassicPark_Visitor_Centre_Red/border.bin",
+      "blockdata_filepath": "data/layouts/JurassicPark_Visitor_Centre_Red/map.bin"
     }
   ]
 }
