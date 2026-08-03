@@ -16,6 +16,7 @@
 #include "malloc.h"
 #include "constants/speaker_names.h"
 #include "data/speaker_names.h"
+#include "constants/event_objects.h"
 
 static EWRAM_INIT u8 sNameboxWindowId = WINDOW_NONE;
 EWRAM_DATA const u8 *gSpeakerName = NULL;
@@ -53,8 +54,9 @@ void PrepareNamebox(u32 tileNum)
             winWidth = OW_NAME_BOX_DEFAULT_WIDTH;
     }
 
-    if (sNameboxWindowId != WINDOW_NONE)
+    if (sNameboxWindowId != WINDOW_NONE && FlagGet(FLAG_SUPPRESS_SPEAKER_NAME_CHANGE))
     {
+        FlagClear(FLAG_SUPPRESS_SPEAKER_NAME_CHANGE);
         DestroyNameboxFrame();
         RedrawDialogueFrame();
     }
@@ -191,6 +193,16 @@ void SetSpeaker(struct ScriptContext *ctx)
         speaker = (const u8 *)arg;
 
     gSpeakerName = speaker;
+}
+
+static const u8 UnknownName[] = _("?????");
+void SetSpeakerAuto(struct ScriptContext *ctx)
+{
+    bool32 known = ScriptReadByte(ctx);
+    if (known)
+        gSpeakerName = GetSpeciesName(OW_SPECIES(&gObjectEvents[gSelectedObjectEvent]));
+    else
+        gSpeakerName = UnknownName;
 }
 
 // useful for other context e.g. match call

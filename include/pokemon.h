@@ -18,6 +18,7 @@
 #include "constants/abilities.h"
 #include "contest_effect.h"
 #include "constants/trainers.h"
+#include "constants/field_mugshots.h"
 
 #define GET_BASE_SPECIES_ID(speciesId) (GetFormSpeciesId(speciesId, 0))
 #define FORM_SPECIES_END (0xffff)
@@ -521,6 +522,7 @@ struct SpeciesInfo /*0xC4*/
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
     enum OverworldWildEncounterBehaviors overworldEncounterBehavior;
+    enum Mugshots mugshotId;
 };
 
 struct EggData

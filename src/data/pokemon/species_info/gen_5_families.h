@@ -12490,6 +12490,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .teachableLearnset = sLarvestaTeachableLearnset,
         .eggMoveLearnset = sLarvestaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 59, SPECIES_VOLCARONA}),
+        .mugshotId = MUGSHOT_LARVESTA,
     },
 
     [SPECIES_VOLCARONA] =

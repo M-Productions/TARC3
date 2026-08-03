@@ -1651,6 +1651,7 @@
 #define FLAG_SAFE_FOLLOWER_MOVEMENT             (SPECIAL_FLAGS_START + 0x5) // When set, applymovement does not put the follower inside a pokeball
                                                                             // Also, scripted movements on the player will move follower(s), too
 #define FLAG_SPAWN_NORTH                        (SPECIAL_FLAGS_START + 0x6)
+#define FLAG_SUPPRESS_SPEAKER_NAME_CHANGE       (SPECIAL_FLAGS_START + 0x7)
 // FLAG_SPECIAL_FLAG_0x4005 - 0x407F also exist and are unused
 #define SPECIAL_FLAGS_END                       (SPECIAL_FLAGS_START + 0x7F)
 #define NUM_SPECIAL_FLAGS                       (SPECIAL_FLAGS_END - SPECIAL_FLAGS_START + 1)

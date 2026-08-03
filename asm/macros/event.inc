@@ -2989,3 +2989,92 @@
 	closemessage
 	.endm
 
+	@ sets localId stored in gSelectedObjectEvent
+	.macro setselectedobjectevent localId:req
+	callnative ScrCmd_setselectedobjectevent
+	.2byte \localId
+	.endm
+
+	@ Calls Common_Movement_Face(Up/Down/Left/Right) for provided localid.
+	@ By default, waitmovement \localid is provided, but can be omitted by passing FALSE.
+	.macro objectface localid:req, direction:req, wait=FALSE
+	.if \direction == DIR_NORTH
+		applymovement \localid, Common_Movement_FaceUp
+		.if \wait
+			waitmovement \localid
+		.endif
+	.elseif \direction == DIR_SOUTH
+		applymovement \localid, Common_Movement_FaceDown
+		.if \wait
+			waitmovement \localid
+		.endif
+	.elseif \direction == DIR_WEST
+		applymovement \localid, Common_Movement_FaceLeft
+		.if \wait
+			waitmovement \localid
+		.endif
+	.elseif \direction == DIR_EAST
+		applymovement \localid, Common_Movement_FaceRight
+		.if \wait
+			waitmovement \localid
+		.endif
+	.endif
+	.endm
+
+	@ Automatically buffer Pokémon speaker name
+	.macro autospeaker known=TRUE
+	callnative SetSpeakerAuto
+	.byte \known
+	.endm
+
+	@ auto spawn a Pokémon mugshot in the overworld
+	.macro automugshot emote=0
+	callnative AutoMugshot
+	.2byte \emote
+	.endm
+
+	@ Buffers the given text and calls the relevant message, name and mugshot script (see gStdScripts).
+	.macro mnmbox text:req, mugshotEmotion=MUGSHOT_EMOTE_NORMAL, nameKnown=TRUE, nameSame=FALSE, localId, lock=FALSE, waitbuttonpress=TRUE, remain=FALSE, direction
+	.if \lock == TRUE
+		lock
+	.endif
+	.ifb \localId
+		getoverworldwildencounterspecies VAR_0x8000
+	.else
+		getoverworldwildencounterspecies VAR_0x8000 \localId
+	.endif
+	.ifnb \localId
+		setselectedobjectevent \localId
+	.endif
+	.ifb \direction
+		faceplayer
+	.else
+		objectface \localId \direction
+	.endif
+	automugshot emote=\mugshotEmotion
+	.if \nameKnown == TRUE
+		autospeaker known=TRUE
+	.else
+		autospeaker known=FALSE
+	.endif
+	.if \nameSame == TRUE
+		clearflag FLAG_SUPPRESS_SPEAKER_NAME_CHANGE
+	.else
+		setflag FLAG_SUPPRESS_SPEAKER_NAME_CHANGE
+	.endif
+	playmoncry VAR_0x8000, CRY_MODE_NORMAL
+	message \text
+	waitmessage
+	.if \waitbuttonpress == TRUE
+		waitbuttonpress
+	.endif
+	waitmoncry
+	.if \remain == FALSE
+		release
+	.endif
+	.endm
+
+	@ For consistent delay between mnmbox
+	.macro mnmboxdelay
+	delay 30
+	.endm

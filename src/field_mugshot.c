@@ -8,6 +8,7 @@
 #include "field_mugshot.h"
 #include "constants/field_mugshots.h"
 #include "data/field_mugshots.h"
+#include "constants/event_objects.h"
 
 static EWRAM_DATA u8 sFieldMugshotSpriteIds[2] = {};
 static EWRAM_DATA u8 sIsFieldMugshotActive = 0;
@@ -70,6 +71,19 @@ void RemoveFieldMugshot(void)
     sIsFieldMugshotActive = FALSE;
 }
 
+static EWRAM_DATA bool32 mugshotShiny = FALSE;
+void AutoMugshot(struct ScriptContext *ctx)
+{
+    u32 id = gSpeciesInfo[gSpecialVar_0x8000].mugshotId;
+    u16 emote = VarGet(ScriptReadHalfword(ctx));
+    mugshotShiny = FALSE;
+
+    if (OW_SHINY(&gObjectEvents[gSelectedObjectEvent]))
+        mugshotShiny = TRUE;
+
+    _CreateFieldMugshot(id, emote);
+}
+
 void CreateFieldMugshot(struct ScriptContext *ctx)
 {
     u16 id = VarGet(ScriptReadHalfword(ctx));
@@ -118,6 +132,8 @@ void _CreateFieldMugshot(u32 id, u32 emote)
     temp.paletteTag = sheet.tag;
     sheet.data = (sFieldMugshots[id][emote].gfx != NULL ? sFieldMugshots[id][emote].gfx : sFieldMugshotGfx_LarvestaNormal);
     pal.data = (sFieldMugshots[id][emote].pal != NULL ? sFieldMugshots[id][emote].pal : sFieldMugshotPal_LarvestaNormal);
+    if (mugshotShiny)
+        pal.data = (sFieldMugshots[id][emote].palShiny != NULL ? sFieldMugshots[id][emote].palShiny : sFieldMugshotPal_LarvestaNormal);
 
     LoadSpritePalette(&pal);
     LoadCompressedSpriteSheet(&sheet);
