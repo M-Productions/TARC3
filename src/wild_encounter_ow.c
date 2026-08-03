@@ -1574,6 +1574,12 @@ static void DoOWEDespawnAnim(struct ObjectEvent *owe)
         PlaySE(SE_FLEE);
 }
 
+void DoOWESpawnAnim_Cradily(void)
+{
+    struct ObjectEvent *cradily = &gObjectEvents[GetObjectEventIdByLocalId(LOCALID_CRADILY)];
+    DoOWEDespawnAnim(cradily);
+}
+
 void DoOWEDespawnAnim_Kabuto(void)
 {
     struct ObjectEvent *kabuto = &gObjectEvents[GetObjectEventIdByLocalId(gSpecialVar_0x8000)];

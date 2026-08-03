@@ -498,6 +498,7 @@ enum
 // in regular offline play, five for linked players while playing Berry Blender, and one for an invisible object that
 // can be spawned for the camera to track instead of the player. Additionally, the value 0 is reserved as an "empty" indicator.
 #define LOCALID_NONE                              0
+#define LOCALID_CRADILY                         126
 #define LOCALID_CAMERA                          127
 #define LOCALID_BERRY_BLENDER_PLAYER_END        240 // This will use 5 (MAX_RFU_PLAYERS) IDs ending at 240, i.e. 236-240
 #define LOCALID_OW_ENCOUNTER_END                252 // This will use 4 (OWE_SPAWNS_MAX) IDs ending at 252, i.e. 249-252
