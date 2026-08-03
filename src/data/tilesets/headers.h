@@ -1663,3 +1663,25 @@ const struct Tileset gTileset_Mountain_Secondary =
     .metatileAttributes = gMetatileAttributes_Mountain_Secondary,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Visitor_Centre_Primary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Visitor_Centre_Primary,
+    .palettes = gTilesetPalettes_Visitor_Centre_Primary,
+    .metatiles = gMetatiles_Visitor_Centre_Primary,
+    .metatileAttributes = gMetatileAttributes_Visitor_Centre_Primary,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Visitor_Centre_Indoor_Secondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Visitor_Centre_Indoor_Secondary,
+    .palettes = gTilesetPalettes_Visitor_Centre_Indoor_Secondary,
+    .metatiles = gMetatiles_Visitor_Centre_Indoor_Secondary,
+    .metatileAttributes = gMetatileAttributes_Visitor_Centre_Indoor_Secondary,
+    .callback = NULL,
+};
