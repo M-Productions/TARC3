@@ -24,14 +24,16 @@ JurassicPark_Desert_Main_EventScript_WarpToLastPosition::
 # 13 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	callnative DoOWESpawnAnim_Cradily
 # 14 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	playmoncry SPECIES_CRADILY, CRY_MODE_ENCOUNTER
-# 15 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	facetogether LOCALID_PLAYER, LOCALID_CRADILY
+# 15 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_WarpToLastPosition_Text_0, localId = LOCALID_CRADILY
 # 16 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitmoncry
-# 17 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	warpsilent MAP_JURASSIC_PARK_DESERT_MAIN, VAR_NON_QUICKSAND_X, VAR_NON_QUICKSAND_Y
-# 18 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 17 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	waitstate
 	return
 
+
+JurassicPark_Desert_Main_EventScript_WarpToLastPosition_Text_0:
+# 15 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	.string "Who are you?\n{PAUSE 40}Get out of my sandpit!$"

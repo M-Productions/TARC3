@@ -11,9 +11,8 @@ script JurassicPark_Desert_Main_EventScript_WarpToLastPosition {
     playse(SE_DOWNPOUR_STOP)
     callnative(CreateCradilyToGetYa)
     callnative(DoOWESpawnAnim_Cradily)
-    playmoncry(SPECIES_CRADILY, CRY_MODE_ENCOUNTER)
     facetogether(LOCALID_PLAYER, LOCALID_CRADILY)
-    waitmoncry
+    mnmbox("Who are you?\n{PAUSE 40}Get out of my sandpit!", localId=LOCALID_CRADILY)
     warpsilent(MAP_JURASSIC_PARK_DESERT_MAIN, VAR_NON_QUICKSAND_X, VAR_NON_QUICKSAND_Y)
     waitstate
 }
