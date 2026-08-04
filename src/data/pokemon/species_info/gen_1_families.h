@@ -19225,6 +19225,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sKabutoTeachableLearnset,
         .eggMoveLearnset = sKabutoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_KABUTOPS}),
+        .mugshotId = MUGSHOT_KABUTO,
     },
 
     [SPECIES_KABUTOPS] =

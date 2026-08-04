@@ -6438,6 +6438,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .teachableLearnset = sArchenTeachableLearnset,
         .eggMoveLearnset = sArchenEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_ARCHEOPS}),
+        .mugshotId = MUGSHOT_ARCHEN,
     },
 
     [SPECIES_ARCHEOPS] =

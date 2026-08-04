@@ -1733,6 +1733,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sRampardosLevelUpLearnset,
         .teachableLearnset = sRampardosTeachableLearnset,
+        .mugshotId = MUGSHOT_RAMPARDOS,
     },
 #endif //P_FAMILY_CRANIDOS
 

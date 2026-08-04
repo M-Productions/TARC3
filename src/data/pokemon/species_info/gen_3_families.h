@@ -8865,6 +8865,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sCradilyLevelUpLearnset,
         .teachableLearnset = sCradilyTeachableLearnset,
+        .mugshotId = MUGSHOT_CRADILY,
     },
 #endif //P_FAMILY_LILEEP
 
