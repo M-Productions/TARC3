@@ -338,6 +338,7 @@ void MovementType_RunInPlace(struct Sprite *sprite);
 void MovementType_Invisible(struct Sprite *sprite);
 void MovementType_WalkSlowlyInPlace(struct Sprite *sprite);
 void MovementType_Sleep(struct Sprite *sprite);
+void MovementType_Ram(struct Sprite *sprite);
 void MovementType_FollowPlayer(struct Sprite *sprite);
 u8 GetSlideMovementAction(u32);
 u8 GetJump2MovementAction(u32);
@@ -451,6 +452,10 @@ u8 MovementType_WalkBackAndForth_Step0(struct ObjectEvent *objectEvent, struct S
 u8 MovementType_WalkBackAndForth_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementType_WalkBackAndForth_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementType_WalkBackAndForth_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementType_Ram_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementType_Ram_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementType_Ram_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementType_Ram_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementType_WalkSequence_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementType_WalkSequence_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementType_WalkSequenceUpRightLeftDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);

@@ -352,6 +352,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = MovementType_OverworldWildEncounter_ApproachPlayer,
     [MOVEMENT_TYPE_DESPAWN_OWE] = MovementType_OverworldWildEncounter_Despawn,
     [MOVEMENT_TYPE_SLEEP] = MovementType_Sleep,
+    [MOVEMENT_TYPE_RAM] = MovementType_Ram,
 };
 
 static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
@@ -396,6 +397,7 @@ static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_IN_GRASS] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_CLOCKWISE_IN_GRASS] = TRUE,
+    [MOVEMENT_TYPE_RAM] = TRUE,
 };
 
 const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
@@ -487,6 +489,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_WATCH_PLAYER_OWE] = DIR_SOUTH,
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = DIR_SOUTH,
     [MOVEMENT_TYPE_DESPAWN_OWE] = DIR_SOUTH,
+    [MOVEMENT_TYPE_RAM] = DIR_NORTH,
 };
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -5115,6 +5118,68 @@ bool8 MovementType_WalkBackAndForth_Step2(struct ObjectEvent *objectEvent, struc
 }
 
 bool8 MovementType_WalkBackAndForth_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        objectEvent->singleMovementActive = FALSE;
+        sprite->sTypeFuncId = 1;
+    }
+    return FALSE;
+}
+
+movement_type_def(MovementType_Ram, gMovementTypeFuncs_Ram)
+bool8 MovementType_Ram_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ClearObjectEventMovement(objectEvent, sprite);
+    objectEvent->facingDirection = DIR_NORTH;
+    objectEvent->facingDirectionLocked = TRUE;
+    sprite->sTypeFuncId = 1;
+    return TRUE;
+}
+
+bool8 MovementType_Ram_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    enum Direction direction = objectEvent->directionSequenceIndex ? DIR_NORTH : DIR_SOUTH;
+
+    SetObjectEventDirection(objectEvent, direction);
+    sprite->sTypeFuncId = 2;
+    return TRUE;
+}
+
+bool8 MovementType_Ram_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    enum Collision collision;
+    u8 movementActionId;
+
+    if (objectEvent->directionSequenceIndex && objectEvent->initialCoords.x == objectEvent->currentCoords.x && objectEvent->initialCoords.y == objectEvent->currentCoords.y)
+    {
+        objectEvent->directionSequenceIndex = 0;
+        SetObjectEventDirection(objectEvent, DIR_SOUTH);
+    }
+
+    collision = GetCollisionInDirection(objectEvent, objectEvent->movementDirection);
+    if (collision == COLLISION_OUTSIDE_RANGE && objectEvent->directionSequenceIndex == 0)
+    {
+        objectEvent->directionSequenceIndex = 1;
+        SetObjectEventDirection(objectEvent, DIR_NORTH);
+        collision = GetCollisionInDirection(objectEvent, objectEvent->movementDirection);
+    }
+
+    if (objectEvent->directionSequenceIndex)
+        movementActionId = GetWalkFastMovementAction(objectEvent->movementDirection); // Ram
+    else
+        movementActionId = GetWalkNormalMovementAction(objectEvent->movementDirection); // Charge
+
+    if (collision)
+        movementActionId = GetWalkInPlaceNormalMovementAction(objectEvent->facingDirection);
+
+    ObjectEventSetSingleMovement(objectEvent, sprite, movementActionId);
+    objectEvent->singleMovementActive = TRUE;
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_Ram_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
     {
