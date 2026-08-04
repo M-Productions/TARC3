@@ -11654,6 +11654,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .teachableLearnset = sBagonTeachableLearnset,
         .eggMoveLearnset = sBagonEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_SHELGON}),
+        .mugshotId = MUGSHOT_BAGON,
     },
 
     [SPECIES_SHELGON] =

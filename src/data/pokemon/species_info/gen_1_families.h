@@ -5665,6 +5665,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sJigglypuffLevelUpLearnset,
         .teachableLearnset = sJigglypuffTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_MOON_STONE, SPECIES_WIGGLYTUFF}),
+        .mugshotId = MUGSHOT_JIGGLYPUFF,
     },
 
 #if P_UPDATED_STATS >= GEN_6

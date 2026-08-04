@@ -5465,6 +5465,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .eggMoveLearnset = sDrampaEggMoveLearnset,
         .formSpeciesIdTable = sDrampaFormSpeciesIdTable,
         .formChangeTable = sDrampaFormChangeTable,
+        .mugshotId = MUGSHOT_DRAMPA,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
