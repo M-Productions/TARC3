@@ -1291,7 +1291,8 @@ void PlayerWalkFaster(enum Direction direction)
 
 static void PlayerRun(enum Direction direction)
 {
-    PlayerSetAnimId(GetPlayerRunMovementAction(direction), COPY_MOVE_WALK);
+    // PlayerSetAnimId(GetPlayerRunMovementAction(direction), COPY_MOVE_WALK);
+    PlayerWalkFast(direction);
 }
 
 void PlayerOnBikeCollide(enum Direction direction)
