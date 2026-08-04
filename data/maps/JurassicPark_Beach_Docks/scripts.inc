@@ -26,7 +26,7 @@ JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp::
 # 14 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	delay 40
 # 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	createfieldmugshot MUGSHOT_LARVESTA, MUGSHOT_EMOTE_SAD
+	createfieldmugshot MUGSHOT_LARVESTA, MUGSHOT_EMOTE_ANGRY
 # 16 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	msgbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1, MSGBOX_SIGN
 	return

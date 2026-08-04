@@ -12,7 +12,7 @@ script JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp {
     createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_PAIN)
     msgbox("(.{PAUSE 20}.{PAUSE 20}.)", MSGBOX_SIGN)
     delay(40)
-    createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_SAD)
+    createfieldmugshot(MUGSHOT_LARVESTA, MUGSHOT_EMOTE_ANGRY)
     msgbox("(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)", MSGBOX_SIGN)
 }
 

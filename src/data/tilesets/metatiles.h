@@ -441,3 +441,15 @@ const u16 gMetatileAttributes_Mountain_Primary[] = INCBIN_U16("data/tilesets/pri
 
 const u16 gMetatiles_Mountain_Secondary[] = INCBIN_U16("data/tilesets/secondary/mountain_secondary/metatiles.bin");
 const u16 gMetatileAttributes_Mountain_Secondary[] = INCBIN_U16("data/tilesets/secondary/mountain_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_Visitor_Centre_Primary[] = INCBIN_U16("data/tilesets/primary/visitor_centre_primary/metatiles.bin");
+const u16 gMetatileAttributes_Visitor_Centre_Primary[] = INCBIN_U16("data/tilesets/primary/visitor_centre_primary/metatile_attributes.bin");
+
+const u16 gMetatiles_Visitor_Centre_Indoor_Secondary[] = INCBIN_U16("data/tilesets/secondary/visitor_centre_indoor_secondary/metatiles.bin");
+const u16 gMetatileAttributes_Visitor_Centre_Indoor_Secondary[] = INCBIN_U16("data/tilesets/secondary/visitor_centre_indoor_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_Visitor_Centre_Red_Primary[] = INCBIN_U16("data/tilesets/primary/visitor_centre_red_primary/metatiles.bin");
+const u16 gMetatileAttributes_Visitor_Centre_Red_Primary[] = INCBIN_U16("data/tilesets/primary/visitor_centre_red_primary/metatile_attributes.bin");
+
+const u16 gMetatiles_Visitor_Centre_Red_Indoor_Secondary[] = INCBIN_U16("data/tilesets/secondary/visitor_centre_red_indoor_secondary/metatiles.bin");
+const u16 gMetatileAttributes_Visitor_Centre_Red_Indoor_Secondary[] = INCBIN_U16("data/tilesets/secondary/visitor_centre_red_indoor_secondary/metatile_attributes.bin");
