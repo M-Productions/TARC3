@@ -7001,7 +7001,7 @@ void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sp
     UpdateObjectEventVisibility(objectEvent, sprite);
     ObjectEventUpdateSubpriority(objectEvent, sprite);
 
-    if (IS_OW_MON_OBJ(objectEvent))
+    if (IS_OW_MON_OBJ(objectEvent) && !objectEvent->isPlayer)
     {
         enum Species speciesId = OW_SPECIES(objectEvent);
         sprite->y2 = sBigPokemonVertOffset[speciesId][objectEvent->facingDirection];
