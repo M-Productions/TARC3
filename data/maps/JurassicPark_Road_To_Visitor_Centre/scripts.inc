@@ -38,11 +38,11 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial::
 # 18 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	playse SE_M_SNORE
 # 19 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	delay 40
+	mnmboxdelay
 # 20 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	playse SE_M_SNORE
 # 21 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	delay 40
+	mnmboxdelay
 # 22 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	callnative StartPuzzleTutorialBattle
 # 23 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -50,11 +50,11 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial::
 # 24 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	helpwindow HELP_BATTLE_TUTORIAL
 # 25 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	msgbox JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial_Text_0, MSGBOX_SIGN
+	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial_Text_0
 # 26 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	delay 30
+	mnmboxdelay
 # 27 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	msgbox JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial_Text_1, MSGBOX_SIGN
+	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial_Text_1
 	return
 
 
