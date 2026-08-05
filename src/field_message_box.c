@@ -138,6 +138,7 @@ static void ExpandStringAndStartDrawFieldMessage(const u8 *str, bool32 allowSkip
     if (IsFieldMugshotActive())
     {
         gSprites[GetFieldMugshotSpriteId()].data[0] = TRUE;
+        gSprites[GetFieldMugshotBorderSpriteId()].data[0] = TRUE;
     }
 }
 
@@ -156,6 +157,7 @@ void HideFieldMessageBox(void)
     if (IsFieldMugshotActive())
     {
         gSprites[GetFieldMugshotSpriteId()].data[0] = FALSE;
+        gSprites[GetFieldMugshotBorderSpriteId()].data[0] = FALSE;
         RemoveFieldMugshot();
     }
 }

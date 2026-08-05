@@ -1544,6 +1544,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 if (IsFieldMugshotActive())
                 {
                     gSprites[GetFieldMugshotSpriteId()].data[0] = TRUE;
+                    gSprites[GetFieldMugshotBorderSpriteId()].data[0] = TRUE;
                 }
             }
                 return RENDER_REPEAT;

@@ -9,13 +9,16 @@
 #include "constants/field_mugshots.h"
 #include "data/field_mugshots.h"
 #include "constants/event_objects.h"
+#include "field_player_avatar.h"
 
 static EWRAM_DATA u8 sFieldMugshotSpriteIds[2] = {};
 static EWRAM_DATA u8 sIsFieldMugshotActive = 0;
 static EWRAM_DATA u8 sFieldMugshotSlot = 0;
+static EWRAM_DATA u8 sFieldMugshotBorderSpriteId = 0;
 
 #define TAG_MUGSHOT 0x9000
 #define TAG_MUGSHOT2 0x9001
+#define TAG_MUGSHOTB 0x9002
 
 // don't remove the `+ 32`
 // otherwise your sprite will not be placed in the place you desire
@@ -68,6 +71,13 @@ void RemoveFieldMugshot(void)
         DestroySprite(&gSprites[sFieldMugshotSpriteIds[1]]);
         sFieldMugshotSpriteIds[1] = SPRITE_NONE;
     }
+    if (sFieldMugshotBorderSpriteId != 0xFF)
+    {
+        FreeSpriteTilesByTag(TAG_MUGSHOTB);
+        FreeSpritePaletteByTag(TAG_MUGSHOTB);
+        DestroySprite(&gSprites[sFieldMugshotBorderSpriteId]);
+        sFieldMugshotBorderSpriteId = SPRITE_NONE;
+    }
     sIsFieldMugshotActive = FALSE;
 }
 
@@ -108,8 +118,18 @@ void _RemoveFieldMugshot(u8 slot)
         DestroySprite(&gSprites[sFieldMugshotSpriteIds[slot]]);
         sFieldMugshotSpriteIds[slot] = SPRITE_NONE;
     }
+
+    if (sFieldMugshotBorderSpriteId != SPRITE_NONE)
+    {
+        gSprites[sFieldMugshotBorderSpriteId].data[0] = TRUE; // same as setting visibility
+        FreeSpriteTilesByTag(TAG_MUGSHOTB);
+        FreeSpritePaletteByTag(TAG_MUGSHOTB);
+        DestroySprite(&gSprites[sFieldMugshotBorderSpriteId]);
+        sFieldMugshotBorderSpriteId = SPRITE_NONE;
+    }
 }
 
+static const u32 sFieldMugshotBorderGfx[] = INCGFX_U32("graphics/pokemon/larvesta/mugshot/mugshot-bordert.png", ".4bpp.smol");
 void _CreateFieldMugshot(u32 id, u32 emote)
 {
     u32 slot = sFieldMugshotSlot;
@@ -147,11 +167,30 @@ void _CreateFieldMugshot(u32 id, u32 emote)
     gSprites[sFieldMugshotSpriteIds[slot]].data[0] = FALSE;
     sIsFieldMugshotActive = TRUE;
     sFieldMugshotSlot ^= 1;
+
+
+    struct CompressedSpriteSheet sheetBorder = { .size=0x1000, .tag=TAG_MUGSHOTB };
+    sheetBorder.data = sFieldMugshotBorderGfx;
+    LoadCompressedSpriteSheet(&sheetBorder);
+    temp.tileTag = sheetBorder.tag;
+    temp.paletteTag = TAG_NONE;
+    sFieldMugshotBorderSpriteId = CreateSprite(&temp, MUGSHOT_X-4, MUGSHOT_Y-4, 0);
+    if (sFieldMugshotBorderSpriteId == SPRITE_NONE)
+    {
+        return;
+    }
+    gSprites[sFieldMugshotBorderSpriteId].oam.paletteNum = gSprites[GetPlayerAvatarSpriteId()].oam.paletteNum;
+    PreservePaletteInWeather(gSprites[sFieldMugshotBorderSpriteId].oam.paletteNum + 0x10);
 }
 
 u8 GetFieldMugshotSpriteId(void)
 {
     return sFieldMugshotSpriteIds[sFieldMugshotSlot ^ 1];
+}
+
+u8 GetFieldMugshotBorderSpriteId(void)
+{
+    return sFieldMugshotBorderSpriteId;
 }
 
 u8 IsFieldMugshotActive(void)
