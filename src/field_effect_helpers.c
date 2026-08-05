@@ -432,12 +432,29 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
 #define sCurrentMap  data[5]
 #define sObjectMoved data[7]
 
+static const struct SpritePalette *const sGrassPal[MAP_GROUPS_COUNT] =
+{
+    
+};
+
+void LoadFadedGrass(bool32 tallGrass)
+{
+    const struct SpritePalette *palette = sGrassPal[gSaveBlock1Ptr->location.mapGroup];
+    if (palette == NULL)
+        palette = &gSpritePalette_GeneralFieldEffect1;
+
+    u32 paletteSlot = LoadSpritePalette(palette);
+    SetPaletteColorMapType(paletteSlot + 16, COLOR_MAP_DARK_CONTRAST);
+    UpdateSpritePaletteWithWeather(paletteSlot, !tallGrass);
+}
+
 u32 FldEff_TallGrass(void)
 {
     u8 spriteId;
     s16 x = gFieldEffectArguments[0];
     s16 y = gFieldEffectArguments[1];
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
+    LoadFadedGrass(TRUE);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -505,6 +522,7 @@ u32 FldEff_JumpTallGrass(void)
     u8 spriteId;
 
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 12);
+    LoadFadedGrass(TRUE);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_JUMP_TALL_GRASS], gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -542,6 +560,7 @@ u32 FldEff_LongGrass(void)
     s16 x = gFieldEffectArguments[0];
     s16 y = gFieldEffectArguments[1];
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
+    LoadFadedGrass(FALSE);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x, y, 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -614,6 +633,7 @@ u32 FldEff_JumpLongGrass(void)
     u8 spriteId;
 
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    LoadFadedGrass(FALSE);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_JUMP_LONG_GRASS], gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
     if (spriteId != MAX_SPRITES)
     {
