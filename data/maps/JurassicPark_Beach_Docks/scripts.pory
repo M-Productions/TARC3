@@ -11,7 +11,7 @@ mapscripts JurassicPark_Beach_Docks_MapScripts {
 script JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp {
     mnmbox("(.{PAUSE 20}.{PAUSE 20}.)", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
     mnmboxdelay
-    mnmbox("(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    mnmbox("(.{PAUSE 10}.{PAUSE 10}.)\p(Where am I?)\p(I should probably make my way in land.)", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_ANRGY)
 }
 
 script JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand {

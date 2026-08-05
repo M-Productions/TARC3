@@ -5,6 +5,7 @@
     "gMapGroup_JurassicPark_Forest",
     "gMapGroup_JurassicPark_Marshlands",
     "gMapGroup_JurassicPark_Desert",
+    "gMapGroup_JurassicPark_Mountain",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -91,7 +92,9 @@
     "JurassicPark_Road_To_Visitor_Centre",
     "JurassicPark_Dino_Enclosure",
     "Jurassic_Park_Road_To_Bridge",
-    "JurassicPark_Bridge_And_Lab"
+    "JurassicPark_Bridge_And_Lab",
+    "JurassicPark_Visitor_Centre",
+    "JurassicPark_Visitor_Centre_Red"
   ],
   "gMapGroup_JurassicPark_Marshlands": [
     "JurassicPark_Marshlands_Main",
@@ -99,6 +102,10 @@
   ],
   "gMapGroup_JurassicPark_Desert": [
     "JurassicPark_Desert_Main"
+  ],
+  "gMapGroup_JurassicPark_Mountain": [
+    "JurassicPark_Mountain_Base",
+    "JurassicPark_Mountain_Top"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
