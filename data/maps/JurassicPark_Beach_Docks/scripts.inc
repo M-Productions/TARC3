@@ -24,7 +24,7 @@ JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp::
 # 13 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmboxdelay
 # 14 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
+	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	return
 
 
