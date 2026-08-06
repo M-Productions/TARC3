@@ -3034,7 +3034,7 @@
 	.endm
 
 	@ Buffers the given text and calls the relevant message, name and mugshot script (see gStdScripts).
-	.macro mnmbox text:req, mugshotEmotion=MUGSHOT_EMOTE_NORMAL, nameKnown=TRUE, nameSame=FALSE, localId, lock=FALSE, waitbuttonpress=TRUE, remain=FALSE, direction
+	.macro mnmbox text:req, mugshotEmotion=MUGSHOT_EMOTE_NORMAL, nameKnown=TRUE, nameSame=FALSE, localId, lock=FALSE, waitbuttonpress=TRUE, remain=TRUE, direction
 	.if \lock == TRUE
 		lock
 	.endif
