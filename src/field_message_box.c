@@ -10,6 +10,8 @@
 #include "field_name_box.h"
 #include "field_mugshot.h"
 #include "sprite.h"
+#include "sound.h"
+#include "constants/songs.h"
 
 static EWRAM_DATA u8 sFieldMessageBoxMode = 0;
 EWRAM_DATA u8 gWalkAwayFromSignpostTimer = 0;
@@ -138,6 +140,7 @@ static void ExpandStringAndStartDrawFieldMessage(const u8 *str, bool32 allowSkip
     if (IsFieldMugshotActive())
     {
         gSprites[GetFieldMugshotSpriteId()].data[0] = TRUE;
+        gSprites[GetFieldMugshotBorderSpriteId()].data[0] = TRUE;
     }
 }
 
@@ -153,9 +156,11 @@ void HideFieldMessageBox(void)
     ClearDialogWindowAndFrame(0, TRUE);
     DestroyNamebox();
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
+    PlaySE(SE_SELECT);
     if (IsFieldMugshotActive())
     {
         gSprites[GetFieldMugshotSpriteId()].data[0] = FALSE;
+        gSprites[GetFieldMugshotBorderSpriteId()].data[0] = FALSE;
         RemoveFieldMugshot();
     }
 }

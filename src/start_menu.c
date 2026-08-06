@@ -51,6 +51,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "constants/map_event_ids.h"
+
 // Menu actions
 enum
 {
@@ -69,6 +71,7 @@ enum
     MENU_ACTION_PYRAMID_BAG,
     MENU_ACTION_DEBUG,
     MENU_ACTION_DEXNAV,
+    MENU_ACTION_MARSH_PUZZLE,
 };
 
 // Save status
@@ -111,6 +114,7 @@ static bool8 StartMenuBattlePyramidRetireCallback(void);
 static bool8 StartMenuBattlePyramidBagCallback(void);
 static bool8 StartMenuDebugCallback(void);
 static bool8 StartMenuDexNavCallback(void);
+static bool8 StartMenuMarshCallback(void);
 
 // Menu callbacks
 static bool8 SaveStartCallback(void);
@@ -206,6 +210,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}},
     [MENU_ACTION_DEBUG]           = {sText_MenuDebug,   {.u8_void = StartMenuDebugCallback}},
     [MENU_ACTION_DEXNAV]          = {gText_MenuDexNav,  {.u8_void = StartMenuDexNavCallback}},
+    [MENU_ACTION_MARSH_PUZZLE] = {COMPOUND_STRING("Restart"), {.u8_void = StartMenuMarshCallback}},
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -331,6 +336,10 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
+        AddStartMenuAction(MENU_ACTION_MARSH_PUZZLE);
+    
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEDEX);
 
@@ -354,6 +363,9 @@ static void BuildNormalStartMenu(void)
 static void BuildDebugStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_DEBUG);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
+        AddStartMenuAction(MENU_ACTION_MARSH_PUZZLE);
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEDEX);
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
@@ -1508,6 +1520,14 @@ void AppendToList(u8 *list, u8 *pos, u8 newEntry)
 static bool8 StartMenuDexNavCallback(void)
 {
     CreateTask(Task_OpenDexNavFromStartMenu, 0);
+    return TRUE;
+}
+
+static bool8 StartMenuMarshCallback(void)
+{
+    SetWarpDestinationToMapWarp(MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST), MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST), WARP_MARSH_PUZZLE_LEFT);
+    DoDiveWarp();
+    ResetInitialPlayerAvatarState();
     return TRUE;
 }
 

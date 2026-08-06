@@ -4313,7 +4313,12 @@ static void Cmd_checkteamslost(void)
     if (NoAliveMonsForPlayer())
         gBattleOutcome |= B_OUTCOME_LOST;
     if (NoAliveMonsForOpponent())
-        gBattleOutcome |= B_OUTCOME_WON;
+    {
+        if (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES) == SPECIES_RAMPARDOS)
+            gBattleOutcome |= B_OUTCOME_RAN;
+        else
+            gBattleOutcome |= B_OUTCOME_WON;
+    }
 
     // Fair switching - everyone has to switch in most at the same time, without knowing which Pokémon the other trainer selected.
     // In vanilla Emerald this was only used for link battles, in expansion it's also used for regular trainer battles.

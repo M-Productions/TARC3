@@ -16,15 +16,15 @@ movement JurassicPark_Road_To_Visitor_Centre_Movement_PlayerWalkToForest {
 
 script JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial {
     playse(SE_M_SNORE)
-    delay(40)
+    mnmboxdelay
     playse(SE_M_SNORE)
-    delay(40)
+    mnmboxdelay
     callnative(StartPuzzleTutorialBattle)
     waitstate
     helpwindow(HELP_BATTLE_TUTORIAL)
-    msgbox("You're a very interesting Pokémon,\nwho are you?", MSGBOX_SIGN)
-    delay(30)
-    msgbox("Larvesta? What a funny name...\nWell it's a pleasure to meet you.", MSGBOX_SIGN)
+    mnmbox("You're a very interesting Pokémon,\nwho are you?")
+    mnmboxdelay
+    mnmbox("Larvesta? What a funny name...\nWell it's a pleasure to meet you.")
 }
 
 

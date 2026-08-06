@@ -14431,15 +14431,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A charge using guard hair.\n"
             "It hurts the user a little."),
-        .effect = EFFECT_RECOIL,
-        .power = 120,
+        .effect = EFFECT_RECOIL_IF_MISS,
+        .power = 50,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
-        .pp = 15,
+        .accuracy = 0,
+        .pp = 10,
         .target = TARGET_SELECTED,
-        .priority = 0,
+        .priority = 4,
         .category = DAMAGE_CATEGORY_PHYSICAL,
-        .argument = { .recoilPercentage = 25 },
+        .argument = { .recoilPercentage = 20 },
         .makesContact = TRUE,
         .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
@@ -18120,7 +18120,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Crystal from cold haze hits.\n"
             "Eliminates all stat changes."),
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_HEAL_PULSE,
         .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 100 : 90,
         .type = TYPE_ICE,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_8 ? 90 : 100,
@@ -18131,7 +18131,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_HAZE,
+            .moveEffect = STAT_CHANGE_EFFECT_MINUS,
+            .attack = 1,
         }),
         .battleAnimScript = gBattleAnimMove_FreezyFrost,
     },
@@ -23735,6 +23736,35 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_Synthesis,
+    },
+
+    [MOVE_LARVESTA_STATUS_2] =
+    {
+        .name = COMPOUND_STRING("Status"),
+        .description = COMPOUND_STRING(
+            "Recovers the target's\n"
+            "HP and resets all stats."),
+        .effect = EFFECT_HEAL_PULSE,
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .magicCoatAffected = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .healingMove = TRUE,
+        .pulseMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Synthesis,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_HAZE,
+        }),
     },
 
     [MOVE_LARVESTA_SPECIAL] =

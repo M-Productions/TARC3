@@ -201,6 +201,13 @@ u8 (*const gMovementTypeFuncs_WalkBackAndForth[])(struct ObjectEvent *, struct S
     MovementType_WalkBackAndForth_Step3,
 };
 
+u8 (*const gMovementTypeFuncs_Ram[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Ram_Step0,
+    MovementType_Ram_Step1,
+    MovementType_Ram_Step2,
+    MovementType_Ram_Step3,
+};
+
 u8 (*const gMovementTypeFuncs_WalkSequenceUpRightLeftDown[])(struct ObjectEvent *, struct Sprite *) = {
     MovementType_WalkSequence_Step0,
     MovementType_WalkSequenceUpRightLeftDown_Step1,

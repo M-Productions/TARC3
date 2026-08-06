@@ -4645,6 +4645,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         )
         .levelUpLearnset = sTyrantrumLevelUpLearnset,
         .teachableLearnset = sTyrantrumTeachableLearnset,
+        .mugshotId = MUGSHOT_TYRANTRUM,
     },
 #endif //P_FAMILY_TYRUNT
 

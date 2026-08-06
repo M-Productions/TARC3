@@ -1,3 +1,4 @@
+#include "constants/global.h"
 #include "global.h"
 #include "battle_setup.h"
 #include "bike.h"
@@ -188,6 +189,52 @@ bool32 TryIncrementCradilyQuicksand(struct MapPosition *position)
 
     ScriptContext_ContinueScript(&ctx);
     return TRUE;
+}
+
+static const u32 sOppositeFaceMovementTypes[CARDINAL_DIRECTION_COUNT] =
+{
+    [DIR_SOUTH] = MOVEMENT_TYPE_FACE_UP,
+    [DIR_NORTH] = MOVEMENT_TYPE_FACE_DOWN,
+    [DIR_WEST]  = MOVEMENT_TYPE_FACE_RIGHT,
+    [DIR_EAST]  = MOVEMENT_TYPE_FACE_LEFT,
+};
+
+void CreateCradilyToGetYa(void)
+{
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    bool32 quicksand = FALSE;
+    u32 elevation = player->currentElevation;
+    s16 x, y;
+    enum Direction dir;
+
+    for (dir = DIR_NONE + 1; dir < CARDINAL_DIRECTION_COUNT; dir++)
+    {
+        x = player->currentCoords.x;
+        y = player->currentCoords.y;
+
+        MoveCoords(dir, &x, &y);
+        if (MapGridGetMetatileBehaviorAt(x, y) == MB_QUICKSAND && GetObjectEventIdByPosition(x, y, elevation) == OBJECT_EVENTS_COUNT)
+        {
+            quicksand = TRUE;
+            break;
+        }
+    }
+
+    if (!quicksand)
+    {
+        x = player->currentCoords.x;
+        y = player->currentCoords.y;
+        dir = player->facingDirection;
+        MoveCoords(dir, &x, &y);
+    }
+
+    SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_SPECIES(CRADILY),
+        sOppositeFaceMovementTypes[dir],
+        LOCALID_CRADILY,
+        x,
+        y,
+        elevation
+    );
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)

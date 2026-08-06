@@ -1068,6 +1068,7 @@ BattleScript_EffectHealPulse::
 	datahpupdate BS_TARGET, PASSIVE_HP_UPDATE
 	printstring STRINGID_PKMNREGAINEDHEALTH
 	waitmessage B_WAIT_TIME_LONG
+	setadditionaleffects
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectEntrainment::

@@ -330,7 +330,7 @@ u32 GetPlayerTextSpeed(void)
     if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_INSTANT)
         gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
 
-    if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT)
+    if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT || FlagGet(FLAG_ANTI_PIRACY_INSTANT_TEXT))
         return OPTIONS_TEXT_SPEED_INSTANT;
 
     return gSaveBlock2Ptr->optionsTextSpeed;
@@ -1188,8 +1188,8 @@ void TextPrinterDrawDownArrow(struct TextPrinter *textPrinter)
             FillWindowPixelRect(
                 textPrinter->printerTemplate.windowId,
                 textPrinter->printerTemplate.color.background << 4 | textPrinter->printerTemplate.color.background,
-                textPrinter->printerTemplate.currentX,
-                textPrinter->printerTemplate.currentY,
+                ((gWindows[textPrinter->printerTemplate.windowId].window.width * 8) - 10),
+                ((gWindows[textPrinter->printerTemplate.windowId].window.height * 8) - 14),
                 8,
                 16);
 
@@ -1211,8 +1211,8 @@ void TextPrinterDrawDownArrow(struct TextPrinter *textPrinter)
                 sDownArrowYCoords[textPrinter->downArrowYPosIdx],
                 8,
                 16,
-                textPrinter->printerTemplate.currentX,
-                textPrinter->printerTemplate.currentY,
+                ((gWindows[textPrinter->printerTemplate.windowId].window.width * 8) - 10),
+                ((gWindows[textPrinter->printerTemplate.windowId].window.height * 8) - 14),
                 8,
                 16);
             CopyWindowToVram(textPrinter->printerTemplate.windowId, COPYWIN_GFX);
@@ -1440,6 +1440,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 textPrinter->delayCounter = *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;
                 textPrinter->state = RENDER_STATE_PAUSE;
+                FlagClear(FLAG_ANTI_PIRACY_INSTANT_TEXT);
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_PAUSE_UNTIL_PRESS:
                 textPrinter->state = RENDER_STATE_WAIT;
@@ -1544,6 +1545,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 if (IsFieldMugshotActive())
                 {
                     gSprites[GetFieldMugshotSpriteId()].data[0] = TRUE;
+                    gSprites[GetFieldMugshotBorderSpriteId()].data[0] = TRUE;
                 }
             }
                 return RENDER_REPEAT;

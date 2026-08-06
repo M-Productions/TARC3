@@ -34,6 +34,7 @@
 #include "region_map.h"
 #include "rtc.h"
 #include "script.h"
+#include "script_movement.h"
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
@@ -50,6 +51,7 @@
 #include "constants/items.h"
 #include "constants/mauville_old_man.h"
 #include "constants/metatile_behaviors.h"
+#include "constants/metatile_labels.h"
 #include "constants/rgb.h"
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
@@ -350,6 +352,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = MovementType_OverworldWildEncounter_ApproachPlayer,
     [MOVEMENT_TYPE_DESPAWN_OWE] = MovementType_OverworldWildEncounter_Despawn,
     [MOVEMENT_TYPE_SLEEP] = MovementType_Sleep,
+    [MOVEMENT_TYPE_RAM] = MovementType_Ram,
 };
 
 static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
@@ -394,6 +397,7 @@ static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_IN_GRASS] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_CLOCKWISE_IN_GRASS] = TRUE,
+    [MOVEMENT_TYPE_RAM] = TRUE,
 };
 
 const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
@@ -485,6 +489,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_WATCH_PLAYER_OWE] = DIR_SOUTH,
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = DIR_SOUTH,
     [MOVEMENT_TYPE_DESPAWN_OWE] = DIR_SOUTH,
+    [MOVEMENT_TYPE_RAM] = DIR_NORTH,
 };
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -5122,6 +5127,68 @@ bool8 MovementType_WalkBackAndForth_Step3(struct ObjectEvent *objectEvent, struc
     return FALSE;
 }
 
+movement_type_def(MovementType_Ram, gMovementTypeFuncs_Ram)
+bool8 MovementType_Ram_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ClearObjectEventMovement(objectEvent, sprite);
+    objectEvent->facingDirection = DIR_NORTH;
+    objectEvent->facingDirectionLocked = TRUE;
+    sprite->sTypeFuncId = 1;
+    return TRUE;
+}
+
+bool8 MovementType_Ram_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    enum Direction direction = objectEvent->directionSequenceIndex ? DIR_NORTH : DIR_SOUTH;
+
+    SetObjectEventDirection(objectEvent, direction);
+    sprite->sTypeFuncId = 2;
+    return TRUE;
+}
+
+bool8 MovementType_Ram_Step2(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    enum Collision collision;
+    u8 movementActionId;
+
+    if (objectEvent->directionSequenceIndex && objectEvent->initialCoords.x == objectEvent->currentCoords.x && objectEvent->initialCoords.y == objectEvent->currentCoords.y)
+    {
+        objectEvent->directionSequenceIndex = 0;
+        SetObjectEventDirection(objectEvent, DIR_SOUTH);
+    }
+
+    collision = GetCollisionInDirection(objectEvent, objectEvent->movementDirection);
+    if (collision == COLLISION_OUTSIDE_RANGE && objectEvent->directionSequenceIndex == 0)
+    {
+        objectEvent->directionSequenceIndex = 1;
+        SetObjectEventDirection(objectEvent, DIR_NORTH);
+        collision = GetCollisionInDirection(objectEvent, objectEvent->movementDirection);
+    }
+
+    if (objectEvent->directionSequenceIndex)
+        movementActionId = GetWalkFastMovementAction(objectEvent->movementDirection); // Ram
+    else
+        movementActionId = GetWalkNormalMovementAction(objectEvent->movementDirection); // Charge
+
+    if (collision)
+        movementActionId = GetWalkInPlaceNormalMovementAction(objectEvent->facingDirection);
+
+    ObjectEventSetSingleMovement(objectEvent, sprite, movementActionId);
+    objectEvent->singleMovementActive = TRUE;
+    sprite->sTypeFuncId = 3;
+    return TRUE;
+}
+
+bool8 MovementType_Ram_Step3(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
+    {
+        objectEvent->singleMovementActive = FALSE;
+        sprite->sTypeFuncId = 1;
+    }
+    return FALSE;
+}
+
 bool8 MovementType_WalkSequence_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     ClearObjectEventMovement(objectEvent, sprite);
@@ -6934,7 +7001,7 @@ void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sp
     UpdateObjectEventVisibility(objectEvent, sprite);
     ObjectEventUpdateSubpriority(objectEvent, sprite);
 
-    if (IS_OW_MON_OBJ(objectEvent))
+    if (IS_OW_MON_OBJ(objectEvent) && !objectEvent->isPlayer)
     {
         enum Species speciesId = OW_SPECIES(objectEvent);
         sprite->y2 = sBigPokemonVertOffset[speciesId][objectEvent->facingDirection];
@@ -12061,6 +12128,19 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step8(struct ObjectEvent *o
 #define sCollisionTimer     sprite->data[6]
 
 extern const u8 EventScript_CutTree_Kabuto[];
+extern const u8 Movement_CutTreeDown[];
+
+#define NUM_MARSH_BARRIERS 4
+#define NUM_OBJECTS_PER_BARRIER 3
+#define LOCALID_BARRIER_INVALID LOCALID_PLAYER
+static const u32 MarshPuzzleBarrierLocalIds[NUM_MARSH_BARRIERS][NUM_OBJECTS_PER_BARRIER] =
+{
+    { LOCALID_MARSH_BARRIER_1L, LOCALID_MARSH_BARRIER_1R, LOCALID_BARRIER_INVALID },
+    { LOCALID_MARSH_BARRIER_2L, LOCALID_MARSH_BARRIER_2M, LOCALID_MARSH_BARRIER_2R   },
+    { LOCALID_MARSH_BARRIER_3L, LOCALID_MARSH_BARRIER_3R, LOCALID_BARRIER_INVALID },
+    { LOCALID_MARSH_BARRIER_4L, LOCALID_MARSH_BARRIER_4R, LOCALID_BARRIER_INVALID }
+};
+
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u32 species = SPECIES_NONE;
@@ -12093,35 +12173,62 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *
         objectWest = &gObjectEvents[objectIdWest];
         
         if (objectIdNorth != OBJECT_EVENTS_COUNT
-         && objectNorth->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectNorth->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
-            gSpecialVar_0x8000 = objectNorth->localId;
-            gSpecialVar_0x8002 = DIR_NORTH;
+            gSpecialVar_0x8001 = objectNorth->localId;
         }
         else if (objectIdSouth != OBJECT_EVENTS_COUNT
-         && objectSouth->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectSouth->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
-            gSpecialVar_0x8000 = objectSouth->localId;
-            gSpecialVar_0x8002 = DIR_SOUTH;
+            gSpecialVar_0x8001 = objectSouth->localId;
         }
         else if (objectIdEast != OBJECT_EVENTS_COUNT
-         && objectEast->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectEast->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
-            gSpecialVar_0x8000 = objectEast->localId;
-            gSpecialVar_0x8002 = DIR_EAST;
+            gSpecialVar_0x8001 = objectEast->localId;
         }
         else if (objectIdWest != OBJECT_EVENTS_COUNT
-         && objectWest->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
+         && objectWest->graphicsId == OBJ_EVENT_GFX_BOY_1)
         {
-            gSpecialVar_0x8000 = objectWest->localId;
-            gSpecialVar_0x8002 = DIR_WEST;
+            gSpecialVar_0x8001 = objectWest->localId;
         }
         else
         {
             runScript = FALSE;
         }
 
-        gSpecialVar_0x8001 = objectEvent->localId;
+        if (runScript)
+        {
+            u32 barrier, barrierOthers, j;
+            gSpecialVar_0x8002 = LOCALID_BARRIER_INVALID;
+            gSpecialVar_0x8003 = LOCALID_BARRIER_INVALID;
+
+            for (barrier = 0; barrier < NUM_MARSH_BARRIERS; barrier++)
+            {
+                for (j = 0; j < NUM_OBJECTS_PER_BARRIER; j++)
+                {
+                    if (MarshPuzzleBarrierLocalIds[barrier][j] == gSpecialVar_0x8001)
+                    {
+                        barrierOthers = 0;
+                        for (j = 0; j < NUM_OBJECTS_PER_BARRIER; j++)
+                        {
+                            if (MarshPuzzleBarrierLocalIds[barrier][j] != gSpecialVar_0x8001)
+                            {
+                                if (barrierOthers == 0)
+                                    gSpecialVar_0x8002 = MarshPuzzleBarrierLocalIds[barrier][j];
+                                else if (barrierOthers == 1)
+                                    gSpecialVar_0x8003 = MarshPuzzleBarrierLocalIds[barrier][j];
+                                barrierOthers++;
+                            }
+                        }
+                        barrier = NUM_MARSH_BARRIERS;
+                        break;
+                    }
+                }
+            }
+        }
+
+        gSpecialVar_0x8000 = objectEvent->localId;
         struct ScriptContext ctx;
         if (runScript && RunScriptImmediatelyUntilEffect(SCREFF_V1 | SCREFF_HARDWARE, EventScript_CutTree_Kabuto, &ctx))
         {
@@ -12134,6 +12241,42 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *
     SetObjectEventDirection(objectEvent, direction);
     sprite->sTypeFuncId = 11;
     return TRUE;
+}
+
+void AnimateMarshPuzzleBarriers(void)
+{
+    u32 localId;
+    Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE | SCREFF_HARDWARE);
+
+    for (u32 i = 0; i < NUM_OBJECTS_PER_BARRIER; i++)
+    {
+        localId = VarGet(VAR_0x8001 + i);
+        if (localId != LOCALID_BARRIER_INVALID)
+        {
+            gObjectEvents[GetObjectEventIdByLocalId(localId)].directionOverwrite = DIR_NONE;
+            ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, Movement_CutTreeDown);
+            SetMovingNpcId(localId);
+        }
+    }
+}
+
+void RemoveMarshPuzzleBarriers(void)
+{
+    u32 localId;
+    struct ObjectEvent *object;
+    Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE | SCREFF_HARDWARE);
+
+    for (u32 i = 0; i < NUM_OBJECTS_PER_BARRIER; i++)
+    {
+        localId = VarGet(VAR_0x8001 + i);
+        if (localId != LOCALID_BARRIER_INVALID)
+        {
+            object = &gObjectEvents[GetObjectEventIdByLocalId(localId)];
+            MapGridSetMetatileIdAt(object->currentCoords.x, object->currentCoords.y, METATILE_Marshlands_Primary_Grass);
+            RemoveObjectEventByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+        }
+    }
+    DrawWholeMapView();
 }
 
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step11(struct ObjectEvent *objectEvent, struct Sprite *sprite)

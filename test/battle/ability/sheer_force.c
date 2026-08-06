@@ -394,6 +394,7 @@ static inline bool32 IgnoreMoveForSheerForceBoost(enum Move move)
         case MOVE_PAYBACK:
         case MOVE_LARVESTA_SPECIAL_LOCKED:
         case MOVE_LARVESTA_SPECIAL_TUTORIAL:
+        case MOVE_FREEZY_FROST: // TARC edit
             return TRUE;
         default:
             return FALSE;

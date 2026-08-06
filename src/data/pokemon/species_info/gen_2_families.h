@@ -7611,6 +7611,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sPhanpyTeachableLearnset,
         .eggMoveLearnset = sPhanpyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DONPHAN}),
+        .mugshotId = MUGSHOT_PHANPY,
     },
 
     [SPECIES_DONPHAN] =
