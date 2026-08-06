@@ -36,12 +36,13 @@ SINGLE_BATTLE_TEST("Stamina raises Attack by 1 when hit by a move")
         STAMINA_HIT(opponent, player, move, "Wobbuffet's Attack rose!", turnTwoHit);
     }
     THEN {
-        if (move == MOVE_SCRATCH) {
-            EXPECT_MUL_EQ(turnTwoHit, Q_4_12(1.5), turnOneHit);
-        }
-        else {
-            EXPECT_EQ(turnTwoHit, turnOneHit);
-        }
+        // if (move == MOVE_SCRATCH) {
+        //     EXPECT_MUL_EQ(turnTwoHit, Q_4_12(1.5), turnOneHit);
+        // }
+        // else {
+        //     EXPECT_EQ(turnTwoHit, turnOneHit);
+        // }
+        EXPECT_EQ(turnTwoHit, turnOneHit); // No damage change as defence the same
     }
 }
 
@@ -100,7 +101,7 @@ SINGLE_BATTLE_TEST("Stamina activates for every hit of a multi hit move")
         STAMINA_STAT_RAISE(opponent, "The opposing Mudbray's Attack rose!");
         STAMINA_STAT_RAISE(opponent, "The opposing Mudbray's Attack rose!");
     } THEN {
-        EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 2);
+        EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
     }
 }
 
@@ -119,6 +120,6 @@ SINGLE_BATTLE_TEST("Stamina is not activated by users own Substitute")
             MESSAGE("Mudbray's Attack rose!");
         }
     } THEN {
-        EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE);
+        EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
     }
 }
