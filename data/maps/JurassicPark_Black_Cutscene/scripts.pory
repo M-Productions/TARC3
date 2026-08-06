@@ -18,59 +18,38 @@ script Black_Cutscene_Boat_Intro{
     delay(5)
     playse(SE_THUNDER2)
     waitse
-    // Stunned phanpy
-    msgbox(format("A-are you okay, everyone?!"))
+    mnmbox(format("A-are you okay, everyone?!"), localId=LOCALID_PHANPY, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     playse(SE_THUNDER)
-    // Dizzy larvesta
-    msgbox(format("(Urgh…\nI think I'm going to be sick…)"))
-    // Determined jigglypuff
-    msgbox(format("You and your treasure maps!\pThere was supposed to be land, here!\nLand!"))
-    // Shouting phanpy
-    msgbox(format("W-we just got a little off course, is all!"))
-    // Worried jigglypuff
-    msgbox(format("A little off course."))
-    // Sigh larvesta
-    msgbox(format("(Here we go again…)"))
+    mnmbox(format("(Urgh…\nI think I'm going to be sick…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_DIZZY)
+    mnmbox(format("You and your treasure maps!\pThere was supposed to be land, here!\nLand!"), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("W-we just got a little off course, is all!"), localId=LOCALID_PHANPY, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    mnmbox(format("A little off course."), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("(Here we go again…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
     closemessage
     delay(10)
     playse(SE_THUNDER2)
     waitse
     delay(10)
-    // Worried bagon
-    msgbox(format("Erm, guys…?"))
-    // Stunned phanpy
-    msgbox(format("I'm sure we'll find the island!\pWe have to be very close, now!"))
-    // determined jigglypuff
-    msgbox(format("If we don't get thrown overboard first, that is!"))
-    // shouting bagon
-    msgbox(format("GUYS!\pLook, over there!\nIsn't that…?"))
-    // worried jigglypuff
-    msgbox(format("Look at w-"))
-    // stunned jigglypuff
-    msgbox(format("Oh.\nOh, no."))
+    mnmbox(format("Erm, guys…?"), localId=LOCALID_BAGON, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("I'm sure we'll find the island!\pWe have to be very close, now!"), localId=LOCALID_PHANPY, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("If we don't get thrown overboard first, that is!"), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("GUYS!\pLook, over there!\nIsn't that…?"), localId=LOCALID_BAGON, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Look at w-"), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Oh.\nOh, no."), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     closemessage
     delay(10)
     playse(SE_THUNDER)
     waitse
     delay(10)
-    //surprised larvesta
-    msgbox(format("(That wave…\nIt's awfully big, isn't it…?)"))
-    //shouting phanpy
-    msgbox(format("Turn the ship around!\nNOW!\pWe have to face it dead on!"))
-    //determined jigglypuff
-    msgbox(format("On it!"))
-    //crying bagon
-    msgbox(format("We're gonna die!\nWe're gonna die!"))
-    //determined jigglypuff
-    msgbox(format("We're not gonna die if you just GIVE US A HAND!"))
-    //stunned larvesta
-    msgbox(format("(No! It's too late!\NIt's already here!)"))
-    //shouting phanpy
-    msgbox(format("Everyone!\nBrace for impact!"))
-    //surprised jigglypuff
-    msgbox(format("A{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}!"))
-    //surprised bagon
-    msgbox(format("N{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}!"))
+    mnmbox(format("(That wave…\nIt's awfully big, isn't it…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("Turn the ship around!\nNOW!\pWe have to face it dead on!"), localId=LOCALID_PHANPY, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    mnmbox(format("On it!"), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("We're gonna die!\nWe're gonna die!"), localId=LOCALID_BAGON, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+    mnmbox(format("We're not gonna die if you just GIVE US A HAND!"), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("(No! It's too late!\NIt's already here!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("Everyone!\nBrace for impact!"), localId=LOCALID_PHANPY, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    mnmbox(format("A{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}!"), localId=LOCALID_JIGGLYPUFF, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("N{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}!"), localId=LOCALID_BAGON, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     closemessage
     delay(5)
     playse(SE_THUNDER2)

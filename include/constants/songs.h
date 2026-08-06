@@ -548,6 +548,7 @@
 #define MUS_FORGOTTEN_SWAMP         612
 #define MUS_ANCIENT_DESERT         613
 #define MUS_LOST_MOUNTAINS           614
+#define MUS_MYSTERIOUS_BEACH                 615
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

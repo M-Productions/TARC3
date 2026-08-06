@@ -2,10 +2,10 @@
   "id": "MAP_JURASSIC_PARK_BEACH_DOCKS",
   "name": "JurassicPark_Beach_Docks",
   "layout": "LAYOUT_JURASSIC_PARK_BEACH_DOCKS",
-  "music": "MUS_NONE",
+  "music": "MUS_MYSTERIOUS_BEACH",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -19,7 +19,50 @@
       "direction": "up"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_BAGON_BEACH",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BAGON)",
+      "x": 18,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Beach_Docks_EventScript_Bagon",
+      "flag": "FLAG_HIDE_BAGON_BEACH"
+    },
+    {
+      "local_id": "LOCALID_PHANPY_BEACH",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PHANPY)",
+      "x": 33,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Beach_Docks_EventScript_Phanpy",
+      "flag": "FLAG_HIDE_PHANPY_BEACH"
+    },
+    {
+      "local_id": "LOCALID_JIGGLYPUFF_BEACH",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF)",
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Beach_Docks_EventScript_Jigglypuff",
+      "flag": "FLAG_HIDE_JIGGLYPUFF_BEACH"
+    }
+  ],
   "warp_events": [
     {
       "warp_id": "WARP_ID_SPAWN",
@@ -28,35 +71,103 @@
       "elevation": 0,
       "dest_map": "MAP_JURASSIC_PARK_BEACH_DOCKS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 36,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAIN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 36,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAIN",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 32,
-      "y": 27,
+      "x": 19,
+      "y": 24,
       "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_WOKEN_UP",
-      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     },
     {
       "type": "trigger",
-      "x": 33,
-      "y": 27,
+      "x": 19,
+      "y": 24,
       "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_WOKEN_UP",
-      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
+      "var": "VAR_BEACH_CHARACTERS_MET",
+      "var_value": "0",
+      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon"
     },
     {
       "type": "trigger",
-      "x": 34,
-      "y": 27,
+      "x": 18,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_BEACH_CHARACTERS_MET",
+      "var_value": "0",
+      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_BEACH_CHARACTERS_MET",
+      "var_value": "0",
+      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_WOKEN_UP",
-      "script": "JurassicPark_Beach_Docks_EventScript_ShouldHeadInLand"
+      "script": "JurassicPark_Beach_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_WOKEN_UP",
+      "script": "JurassicPark_Beach_EventScript_GoBack"
     }
   ],
   "bg_events": [

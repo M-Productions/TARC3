@@ -14,7 +14,22 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 5,
+      "y": 67,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_BEACH_DOCKS",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 68,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_BEACH_DOCKS",
+      "dest_warp_id": "2"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

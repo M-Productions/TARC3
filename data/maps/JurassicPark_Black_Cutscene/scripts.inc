@@ -30,93 +30,93 @@ Black_Cutscene_Boat_Intro::
 	playse SE_THUNDER2
 # 20 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	waitse
+# 21 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_1, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 22 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_1
+	playse SE_THUNDER
 # 23 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	playse SE_THUNDER
+	mnmbox Black_Cutscene_Boat_Intro_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_DIZZY
+# 24 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_3, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 25 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_2
+	mnmbox Black_Cutscene_Boat_Intro_Text_4, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+# 26 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_5, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 27 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_3
+	mnmbox Black_Cutscene_Boat_Intro_Text_6, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SIGH
+# 28 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	closemessage
 # 29 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_4
+	delay 10
+# 30 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	playse SE_THUNDER2
 # 31 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_5
+	waitse
+# 32 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	delay 10
 # 33 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_6
+	mnmbox Black_Cutscene_Boat_Intro_Text_7, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 34 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	closemessage
+	mnmbox Black_Cutscene_Boat_Intro_Text_8, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 35 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	delay 10
+	mnmbox Black_Cutscene_Boat_Intro_Text_9, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 36 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	playse SE_THUNDER2
+	mnmbox Black_Cutscene_Boat_Intro_Text_10, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 37 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	waitse
+	mnmbox Black_Cutscene_Boat_Intro_Text_11, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 38 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	delay 10
+	mnmbox Black_Cutscene_Boat_Intro_Text_12, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 39 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	closemessage
 # 40 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_7
-# 42 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_8
-# 44 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_9
-# 46 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_10
-# 48 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_11
-# 50 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_12
-# 51 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	closemessage
-# 52 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 10
-# 53 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 41 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	playse SE_THUNDER
-# 54 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 42 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	waitse
-# 55 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 43 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 10
-# 57 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_13
-# 59 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_14
-# 61 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_15
-# 63 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_16
-# 65 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_17
-# 67 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_18
-# 69 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_19
-# 71 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_20
-# 73 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	msgbox Black_Cutscene_Boat_Intro_Text_21
-# 74 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 44 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_13, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 45 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_14, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+# 46 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_15, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+# 47 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_16, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+# 48 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_17, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+# 49 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_18, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 50 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_19, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+# 51 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_20, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 52 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	mnmbox Black_Cutscene_Boat_Intro_Text_21, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 53 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	closemessage
-# 75 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 54 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 5
-# 76 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 55 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	playse SE_THUNDER2
-# 77 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 56 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	waitse
-# 78 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 57 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 5
-# 79 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 58 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	playse SE_M_HYDRO_PUMP
-# 80 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 59 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	waitse
-# 81 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 60 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	playse SE_M_EXPLOSION
-# 82 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 61 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	waitse
-# 83 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 62 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 30
-# 84 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 63 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	setvar VAR_INTRO_BOAT_CUTSCENE, 1
-# 85 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 64 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	warpsilent MAP_JURASSIC_PARK_BEACH_DOCKS, 0
 	return
 
@@ -126,101 +126,101 @@ Black_Cutscene_Boat_Intro_Text_0:
 	.string "Somewhere, in the deep ocean…$"
 
 Black_Cutscene_Boat_Intro_Text_1:
-# 22 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 21 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "A-are you okay, everyone?!$"
 
 Black_Cutscene_Boat_Intro_Text_2:
-# 25 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 23 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "(Urgh…\n"
 	.string "I think I'm going to be sick…)$"
 
 Black_Cutscene_Boat_Intro_Text_3:
-# 27 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 24 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "You and your treasure maps!\p"
 	.string "There was supposed to be land, here!\n"
 	.string "Land!$"
 
 Black_Cutscene_Boat_Intro_Text_4:
-# 29 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 25 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "W-we just got a little off course, is\n"
 	.string "all!$"
 
 Black_Cutscene_Boat_Intro_Text_5:
-# 31 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 26 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "A little off course.$"
 
 Black_Cutscene_Boat_Intro_Text_6:
-# 33 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 27 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "(Here we go again…)$"
 
 Black_Cutscene_Boat_Intro_Text_7:
-# 40 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 33 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "Erm, guys…?$"
 
 Black_Cutscene_Boat_Intro_Text_8:
-# 42 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 34 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "I'm sure we'll find the island!\p"
 	.string "We have to be very close, now!$"
 
 Black_Cutscene_Boat_Intro_Text_9:
-# 44 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 35 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "If we don't get thrown overboard first,\n"
 	.string "that is!$"
 
 Black_Cutscene_Boat_Intro_Text_10:
-# 46 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 36 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "GUYS!\p"
 	.string "Look, over there!\n"
 	.string "Isn't that…?$"
 
 Black_Cutscene_Boat_Intro_Text_11:
-# 48 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 37 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "Look at w-$"
 
 Black_Cutscene_Boat_Intro_Text_12:
-# 50 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 38 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "Oh.\n"
 	.string "Oh, no.$"
 
 Black_Cutscene_Boat_Intro_Text_13:
-# 57 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 44 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "(That wave…\n"
 	.string "It's awfully big, isn't it…?)$"
 
 Black_Cutscene_Boat_Intro_Text_14:
-# 59 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 45 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "Turn the ship around!\n"
 	.string "NOW!\p"
 	.string "We have to face it dead on!$"
 
 Black_Cutscene_Boat_Intro_Text_15:
-# 61 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 46 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "On it!$"
 
 Black_Cutscene_Boat_Intro_Text_16:
-# 63 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 47 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "We're gonna die!\n"
 	.string "We're gonna die!$"
 
 Black_Cutscene_Boat_Intro_Text_17:
-# 65 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 48 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "We're not gonna die if you just GIVE US\n"
 	.string "A HAND!$"
 
 Black_Cutscene_Boat_Intro_Text_18:
-# 67 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 49 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "(No! It's too late!\n"
 	.string "It's already here!)$"
 
 Black_Cutscene_Boat_Intro_Text_19:
-# 69 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+# 50 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	.string "Everyone!\n"
 	.string "Brace for impact!$"
 
 Black_Cutscene_Boat_Intro_Text_20:
-# 71 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	.string "A{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}!$"
+# 51 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	.string "A{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}!$"
 
 Black_Cutscene_Boat_Intro_Text_21:
-# 73 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	.string "N{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}!$"
+# 52 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
+	.string "N{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}!$"
