@@ -83,7 +83,8 @@
     "gMapGroup_IndoorSevenIslandRoute_Frlg"
   ],
   "gMapGroup_JurassicPark_Test": [
-    "Forest_Test"
+    "Forest_Test",
+    "JurassicPark_Black_Cutscene"
   ],
   "gMapGroup_JurassicPark_Beach": [
     "JurassicPark_Beach_Docks"

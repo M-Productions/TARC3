@@ -1,0 +1,89 @@
+mapscripts JurassicPark_Black_Cutscene_MapScripts {
+
+    MAP_SCRIPT_ON_FRAME_TABLE
+    [
+        VAR_INTRO_BOAT_CUTSCENE, 0: Black_Cutscene_Boat_Intro
+    ]
+}
+
+
+script Black_Cutscene_Boat_Intro{
+    lockall
+    playse(SE_THUNDERSTORM)
+    delay(20)
+    msgbox(format("Somewhere, in the deep ocean…"))
+    closemessage
+    playse(SE_THUNDER)
+    waitse
+    delay(5)
+    playse(SE_THUNDER2)
+    waitse
+    // Stunned phanpy
+    msgbox(format("A-are you okay, everyone?!"))
+    playse(SE_THUNDER)
+    // Dizzy larvesta
+    msgbox(format("(Urgh…\nI think I'm going to be sick…)"))
+    // Determined jigglypuff
+    msgbox(format("You and your treasure maps!\pThere was supposed to be land, here!\nLand!"))
+    // Shouting phanpy
+    msgbox(format("W-we just got a little off course, is all!"))
+    // Worried jigglypuff
+    msgbox(format("A little off course."))
+    // Sigh larvesta
+    msgbox(format("(Here we go again…)"))
+    closemessage
+    delay(10)
+    playse(SE_THUNDER2)
+    waitse
+    delay(10)
+    // Worried bagon
+    msgbox(format("Erm, guys…?"))
+    // Stunned phanpy
+    msgbox(format("I'm sure we'll find the island!\pWe have to be very close, now!"))
+    // determined jigglypuff
+    msgbox(format("If we don't get thrown overboard first, that is!"))
+    // shouting bagon
+    msgbox(format("GUYS!\pLook, over there!\nIsn't that…?"))
+    // worried jigglypuff
+    msgbox(format("Look at w-"))
+    // stunned jigglypuff
+    msgbox(format("Oh.\nOh, no."))
+    closemessage
+    delay(10)
+    playse(SE_THUNDER)
+    waitse
+    delay(10)
+    //surprised larvesta
+    msgbox(format("(That wave…\nIt's awfully big, isn't it…?)"))
+    //shouting phanpy
+    msgbox(format("Turn the ship around!\nNOW!\pWe have to face it dead on!"))
+    //determined jigglypuff
+    msgbox(format("On it!"))
+    //crying bagon
+    msgbox(format("We're gonna die!\nWe're gonna die!"))
+    //determined jigglypuff
+    msgbox(format("We're not gonna die if you just GIVE US A HAND!"))
+    //stunned larvesta
+    msgbox(format("(No! It's too late!\NIt's already here!)"))
+    //shouting phanpy
+    msgbox(format("Everyone!\nBrace for impact!"))
+    //surprised jigglypuff
+    msgbox(format("A{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}h{PAUSE 10}!"))
+    //surprised bagon
+    msgbox(format("N{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}o{PAUSE 10}!"))
+    closemessage
+    delay(5)
+    playse(SE_THUNDER2)
+    waitse
+    delay(5)
+    playse(SE_M_HYDRO_PUMP)
+    waitse
+    playse(SE_M_EXPLOSION)
+    waitse
+    delay(30)
+    setvar(VAR_INTRO_BOAT_CUTSCENE, 1)
+    warpsilent(MAP_JURASSIC_PARK_BEACH_DOCKS, 0)
+
+
+
+}
