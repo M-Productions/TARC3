@@ -432,18 +432,27 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
 #define sCurrentMap  data[5]
 #define sObjectMoved data[7]
 
-static const struct SpritePalette *const sGrassPal[MAP_GROUPS_COUNT] =
+const u16 sGrassPalForest[] = INCGFX_U16("graphics/field_effects/pics/tall_grass_forest.png", ".gbapal");
+const u16 sGrassPalMarsh[] = INCGFX_U16("graphics/field_effects/pics/tall_grass_marsh.png", ".gbapal");
+const u16 sGrassPalMountain[] = INCGFX_U16("graphics/field_effects/pics/tall_grass_mountain.png", ".gbapal");
+
+static const u16 *const sGrassPal[MAP_GROUPS_COUNT] =
 {
-    
+    [MAP_GROUP(MAP_JURASSIC_PARK_BEACH_DOCKS)] = sGrassPalForest,
+    [MAP_GROUP(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE)] = sGrassPalForest,
+    [MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)] = sGrassPalMarsh,
+    [MAP_GROUP(MAP_JURASSIC_PARK_DESERT_MAIN)] = sGrassPalForest,
+    [MAP_GROUP(MAP_JURASSIC_PARK_MOUNTAIN_BASE)] = sGrassPalMountain,
 };
 
 void LoadFadedGrass(bool32 tallGrass)
 {
-    const struct SpritePalette *palette = sGrassPal[gSaveBlock1Ptr->location.mapGroup];
-    if (palette == NULL)
-        palette = &gSpritePalette_GeneralFieldEffect1;
+    struct SpritePalette palette = gSpritePalette_GeneralFieldEffect1;
+    const u16 *paletteData = sGrassPal[gSaveBlock1Ptr->location.mapGroup];
+    if (paletteData != NULL)
+        palette.data = paletteData;
 
-    u32 paletteSlot = LoadSpritePalette(palette);
+    u32 paletteSlot = LoadSpritePalette(&palette);
     SetPaletteColorMapType(paletteSlot + 16, COLOR_MAP_DARK_CONTRAST);
     UpdateSpritePaletteWithWeather(paletteSlot, !tallGrass);
 }
