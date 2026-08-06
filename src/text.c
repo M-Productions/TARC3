@@ -330,7 +330,7 @@ u32 GetPlayerTextSpeed(void)
     if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_INSTANT)
         gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
 
-    if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT)
+    if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT || FlagGet(FLAG_ANTI_PIRACY_INSTANT_TEXT))
         return OPTIONS_TEXT_SPEED_INSTANT;
 
     return gSaveBlock2Ptr->optionsTextSpeed;
@@ -1440,6 +1440,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 textPrinter->delayCounter = *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;
                 textPrinter->state = RENDER_STATE_PAUSE;
+                FlagClear(FLAG_ANTI_PIRACY_INSTANT_TEXT);
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_PAUSE_UNTIL_PRESS:
                 textPrinter->state = RENDER_STATE_WAIT;

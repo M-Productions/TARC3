@@ -30,6 +30,8 @@
 #include "constants/battle_anim.h"
 #include "pokemon.h"
 
+#include "anti_piracy.h"
+
 /*
     The intro is grouped into the following scenes
     Scene 0. Copyright screen
@@ -1138,6 +1140,9 @@ static u8 SetUpCopyrightScreen(void)
 
 void CB2_InitCopyrightScreenAfterBootup(void)
 {
+    if (AntiPiracyScreen())
+        return;
+
     if (!SetUpCopyrightScreen())
     {
         SetSaveBlocksPointers(GetSaveBlocksPointersBaseOffset());
