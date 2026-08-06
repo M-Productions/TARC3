@@ -20,383 +20,394 @@ JurassicPark_Beach_Docks_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
 
 JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp::
 # 12 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	checkplayergender
 # 13 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	closemessage
-# 14 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	playse SE_PIN
-# 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Movement_0
-# 16 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitse
+	compare VAR_RESULT, FEMALE
+	goto_if_eq JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_2
+JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_1:
 # 17 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitmovement 0
+	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 18 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	closemessage
 # 19 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	closemessage
+	playse SE_PIN
 # 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Movement_1
+	applymovement LOCALID_PLAYER, JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Movement_0
 # 21 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitmovement 0
+	waitse
 # 22 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
+	waitmovement 0
 # 23 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 24 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	closemessage
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Movement_1
+# 26 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	waitmovement 0
+# 27 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
+# 28 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	closemessage
+# 29 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	releaseall
 	return
 
+JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_2:
+# 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	playse SE_SHINY
+	goto JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_1
 
-# 28 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+
+# 33 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_Movement_CameraPanOverDocks:
-# 29 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 34 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
-# 29 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 34 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
-# 29 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 34 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
-# 29 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 34 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
 	step_end
 
-# 32 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 37 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_Movement_CameraPanFromDocks:
-# 33 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 38 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 33 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 38 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 33 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 38 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 33 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 38 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 33 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 38 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
 	step_end
 
 General_EventScript_Cutout::
-# 38 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 43 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	lock
-# 39 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 44 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	goto_if_set FLAG_TEMP_1, General_EventScript_Cutout_2
-# 47 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	msgbox General_EventScript_Cutout_Text_1
 # 52 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	msgbox General_EventScript_Cutout_Text_1
+# 57 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	setflag FLAG_TEMP_1
 General_EventScript_Cutout_1:
-# 54 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 59 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	release
 	end
 
 General_EventScript_Cutout_2:
-# 41 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 46 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	msgbox General_EventScript_Cutout_Text_0
 	goto General_EventScript_Cutout_1
 
 
 JurassicPark_Beach_Docks_EventScript_Meet_Bagon::
-# 60 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	lockall
-# 61 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	playse SE_PIN
-# 62 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_BAGON_BEACH, JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Movement_0
-# 63 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitmovement 0
-# 64 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_0, localId = LOCALID_BAGON_BEACH, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
 # 65 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
+	lockall
 # 66 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	playse SE_PIN
+# 67 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	applymovement LOCALID_BAGON_BEACH, JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Movement_0
+# 68 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	waitmovement 0
+# 69 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_0, localId = LOCALID_BAGON_BEACH, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
+# 70 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
+# 71 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_2, localId = LOCALID_BAGON_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 73 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 78 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	addvar VAR_BEACH_CHARACTERS_MET, 1
-# 74 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 79 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	setfollowernpc LOCALID_BAGON_BEACH, FOLLOWER_NPC_FLAG_ALL_LAND
-# 75 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 80 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	releaseall
 	end
 
 
 JurassicPark_Beach_Docks_EventScript_Bagon::
-# 82 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 87 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	lockall
-# 83 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 88 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	faceplayer
-# 84 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 89 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Bagon_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 85 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 90 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	closemessage
-# 86 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 91 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	release
 	end
 
 
 JurassicPark_Beach_EventScript_MetEveryone::
-# 92 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 97 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_EventScript_MetEveryone_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 93 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 98 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	setvar VAR_GAME_STATE, GS_MET_EVERYONE
-# 94 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 99 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	release
 	end
 
 
 JurassicPark_Beach_Docks_EventScript_Jigglypuff::
-# 101 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	lockall
-# 102 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	faceplayer
-# 103 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_0, localId = LOCALID_JIGGLYPUFF_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 104 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 105 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 106 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	lockall
+# 107 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	faceplayer
+# 108 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_0, localId = LOCALID_JIGGLYPUFF_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+# 109 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 110 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 111 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_3, localId = LOCALID_JIGGLYPUFF_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 116 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 121 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	closemessage
-# 117 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 122 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	getobjectfacingdirection LOCALID_PLAYER, VAR_RESULT
-# 118 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 123 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	compare VAR_RESULT, DIR_EAST
 	goto_if_eq JurassicPark_Beach_Docks_EventScript_Jigglypuff_2
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_1:
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_JIGGLYPUFF_BEACH, JurassicPark_Beach_Docks_EventScript_Jigglypuff_Movement_1
-# 125 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitmovement 0
-# 126 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	removeobject LOCALID_JIGGLYPUFF_BEACH
-# 127 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	addvar VAR_BEACH_CHARACTERS_MET, 1
-# 128 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	goto_if_eq VAR_BEACH_CHARACTERS_MET, 3, JurassicPark_Beach_EventScript_MetEveryone
 # 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	applymovement LOCALID_JIGGLYPUFF_BEACH, JurassicPark_Beach_Docks_EventScript_Jigglypuff_Movement_1
+# 130 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	waitmovement 0
+# 131 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	removeobject LOCALID_JIGGLYPUFF_BEACH
+# 132 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	addvar VAR_BEACH_CHARACTERS_MET, 1
+# 133 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	goto_if_eq VAR_BEACH_CHARACTERS_MET, 3, JurassicPark_Beach_EventScript_MetEveryone
+# 134 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	releaseall
 	end
 
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_2:
-# 120 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 125 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	applymovement LOCALID_PLAYER, JurassicPark_Beach_Docks_EventScript_Jigglypuff_Movement_0
-# 121 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 126 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Beach_Docks_EventScript_Jigglypuff_Movement_0
-# 122 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 127 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	waitmovement 0
 	goto JurassicPark_Beach_Docks_EventScript_Jigglypuff_1
 
 
 JurassicPark_Beach_EventScript_GoBack::
-# 135 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	lock
-# 136 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	msgbox JurassicPark_Beach_EventScript_GoBack_Text_0
-# 137 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	closemessage
-# 138 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Beach_EventScript_GoBack_Movement_0
-# 139 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Beach_EventScript_GoBack_Movement_0
 # 140 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitmovement 0
+	lock
 # 141 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	msgbox JurassicPark_Beach_EventScript_GoBack_Text_0
+# 142 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	closemessage
+# 143 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Beach_EventScript_GoBack_Movement_0
+# 144 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Beach_EventScript_GoBack_Movement_0
+# 145 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	waitmovement 0
+# 146 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	release
 	end
 
 
 JurassicPark_Beach_Docks_EventScript_Phanpy::
-# 147 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	lockall
-# 148 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_0, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
-# 149 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 150 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
-# 151 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_3, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
 # 152 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	lockall
+# 153 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_0, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
+# 154 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 155 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
+# 156 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_3, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
+# 157 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_4, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 160 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 165 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
-# 161 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 166 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_6, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 162 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 167 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	closemessage
-# 163 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 168 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	getobjectfacingdirection LOCALID_PLAYER, VAR_RESULT
-# 164 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 169 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	compare VAR_RESULT, DIR_SOUTH
 	goto_if_eq JurassicPark_Beach_Docks_EventScript_Phanpy_2
 JurassicPark_Beach_Docks_EventScript_Phanpy_1:
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	applymovement LOCALID_PHANPY_BEACH, JurassicPark_Beach_Docks_EventScript_Phanpy_Movement_1
-# 171 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	waitmovement 0
-# 172 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	removeobject LOCALID_PHANPY_BEACH
-# 173 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	addvar VAR_BEACH_CHARACTERS_MET, 1
-# 174 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	goto_if_eq VAR_BEACH_CHARACTERS_MET, 3, JurassicPark_Beach_EventScript_MetEveryone
 # 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	applymovement LOCALID_PHANPY_BEACH, JurassicPark_Beach_Docks_EventScript_Phanpy_Movement_1
+# 176 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	waitmovement 0
+# 177 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	removeobject LOCALID_PHANPY_BEACH
+# 178 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	addvar VAR_BEACH_CHARACTERS_MET, 1
+# 179 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	goto_if_eq VAR_BEACH_CHARACTERS_MET, 3, JurassicPark_Beach_EventScript_MetEveryone
+# 180 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	releaseall
 	end
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_2:
-# 166 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 171 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	applymovement LOCALID_PLAYER, JurassicPark_Beach_Docks_EventScript_Phanpy_Movement_0
-# 167 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 172 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Beach_Docks_EventScript_Phanpy_Movement_0
-# 168 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 173 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	waitmovement 0
 	goto JurassicPark_Beach_Docks_EventScript_Phanpy_1
 
 
-# 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Movement_0:
-# 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	emote_exclamation_mark
-# 15 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	delay_16
 	step_end
 
-# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Movement_1:
-# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	face_right
-# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	delay_16
-# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	face_left
-# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	delay_16
-# 20 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 25 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	face_down
 	step_end
 
-# 62 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 67 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Movement_0:
-# 62 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 67 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	emote_exclamation_mark
-# 62 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 67 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	delay_16
-# 62 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 67 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
-# 62 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 67 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
 	step_end
 
-# 120 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 125 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_Movement_0:
-# 120 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 125 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
-# 120 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 125 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	face_up
 	step_end
 
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_Movement_1:
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_left
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_left
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 124 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 129 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
 	step_end
 
-# 138 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 143 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_EventScript_GoBack_Movement_0:
-# 138 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 143 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_down
 	step_end
 
-# 166 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 171 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_Phanpy_Movement_0:
-# 166 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 171 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_right
-# 166 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 171 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	face_left
 	step_end
 
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 JurassicPark_Beach_Docks_EventScript_Phanpy_Movement_1:
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 175 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	walk_up
 	step_end
 
 JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_0:
-# 12 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 17 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(.{PAUSE 20}.{PAUSE 20}.)\p…W-what-$"
 
 JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_1:
-# 18 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 23 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(I- I'm alive!)$"
 
 JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp_Text_2:
-# 22 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 27 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(But…\n"
 	.string "Where am I…?)\p"
 	.string "(I better go look for the others.)$"
 
 General_EventScript_Cutout_Text_0:
-# 42 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 47 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(Yep, still cardboard.)$"
 
 General_EventScript_Cutout_Text_1:
-# 48 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 53 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(As you approach the hut,\n"
 	.string "you start to notice…)\p"
 	.string "(That this is just a cardboard cutout.)$"
 
 JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_0:
-# 64 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 69 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Larvy!\n"
 	.string "You're okay!$"
 
 JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_1:
-# 65 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 70 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(I'm glad to see you too, Bagon.)$"
 
 JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_2:
-# 66 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 71 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "That was quite the storm, wasn't it?\n"
 	.string "We all made it out, but the ship's…\p"
 	.string "Well, what's done is done.\n"
@@ -405,17 +416,17 @@ JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Text_2:
 	.string "Let's go meet up with them!$"
 
 JurassicPark_Beach_Docks_EventScript_Bagon_Text_0:
-# 84 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 89 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Let's meet up with the others, Larvy.$"
 
 JurassicPark_Beach_EventScript_MetEveryone_Text_0:
-# 92 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	.string "(Okay, I've talked to everyone.\n"
-	.string "I should also go and check what's\l"
+# 97 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+	.string "(Okay, I've talked to everyone.)\p"
+	.string "(I should also go and check what's\n"
 	.string "ahead.)$"
 
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_0:
-# 103 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 108 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Well, well, well.\p"
 	.string "If it isn't the consequences of our\n"
 	.string "hubris.\p"
@@ -423,15 +434,15 @@ JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_0:
 	.string "but…$"
 
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_1:
-# 104 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 109 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Do… You?$"
 
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_2:
-# 105 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 110 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(Somehow, I doubt it…)$"
 
 JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_3:
-# 107 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 112 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Aaaanyway!\n"
 	.string "Quite the island we got here, eh?\p"
 	.string "I get a feeling that it's not quite…\n"
@@ -445,33 +456,33 @@ JurassicPark_Beach_Docks_EventScript_Jigglypuff_Text_3:
 	.string "after all this trouble.$"
 
 JurassicPark_Beach_EventScript_GoBack_Text_0:
-# 136 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 141 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(I should meet up with everyone else\n"
 	.string "first.)$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_0:
-# 148 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 153 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Larvy, my ship…\n"
 	.string "It's completely wrecked…$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_1:
-# 149 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 154 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "It's, uh…\n"
 	.string "Good to see you too, Phanpy…$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_2:
-# 150 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 155 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Phanpy, it'll be ok!\p"
 	.string "If we find treasure, we can buy you a\n"
 	.string "new one!$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_3:
-# 151 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 156 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Sniffle…\n"
 	.string "You're right.$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_4:
-# 153 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 158 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Anyway…\n"
 	.string "About this island.\p"
 	.string "According to the map, it's known as Isla\n"
@@ -488,11 +499,11 @@ JurassicPark_Beach_Docks_EventScript_Phanpy_Text_4:
 	.string "or…$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_5:
-# 160 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 165 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "(That someone got here before us…)$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_6:
-# 161 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
+# 166 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	.string "Whatever the case, we need to find how\n"
 	.string "to get back home.\p"
 	.string "I'll be scouting what's ahead.$"
