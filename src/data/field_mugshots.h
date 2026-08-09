@@ -484,6 +484,57 @@ const u16 sFieldMugshotPal_KabutoTearyEyedShiny[] = INCGFX_U16("graphics/pokemon
 const u32 sFieldMugshotGfx_KabutoWorried[] = INCGFX_U32("graphics/pokemon/kabuto/mugshot/Worried.png", ".4bpp.smol");
 const u16 sFieldMugshotPal_KabutoWorried[] = INCGFX_U16("graphics/pokemon/kabuto/mugshot/Worried.pal", ".gbapal");
 const u16 sFieldMugshotPal_KabutoWorriedShiny[] = INCGFX_U16("graphics/pokemon/kabuto/mugshot/Worried-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonAngry[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Angry.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonAngry[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Angry.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonAngryShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Angry-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonCrying[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Crying.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonCrying[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Crying.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonCryingShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Crying-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonDetermined[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Determined.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonDetermined[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Determined.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonDeterminedShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Determined-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonDizzy[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Dizzy.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonDizzy[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Dizzy.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonDizzyShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Dizzy-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonHappy[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Happy.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonHappy[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Happy.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonHappyShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Happy-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonInspired[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Inspired.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonInspired[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Inspired.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonInspiredShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Inspired-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonJoyous[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Joyous.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonJoyous[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Joyous.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonJoyousShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Joyous-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonNormal[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonNormal[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonNormalShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Normal-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonPain[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Pain.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonPain[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Pain.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonPainShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Pain-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonSad[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Sad.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonSad[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Sad.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonSadShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Sad-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonShouting[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Shouting.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonShouting[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Shouting.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonShoutingShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Shouting-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonSigh[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Sigh.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonSigh[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Sigh.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonSighShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Sigh-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonStunned[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Stunned.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonStunned[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Stunned.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonStunnedShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Stunned-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonSurprised[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Surprised.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonSurprised[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Surprised.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonSurprisedShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Surprised-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonTearyEyed[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Teary-Eyed.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonTearyEyed[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Teary-Eyed.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonTearyEyedShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Teary-Eyed-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_BastiodonWorried[] = INCGFX_U32("graphics/pokemon/bastiodon/mugshot/Worried.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_BastiodonWorried[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Worried.pal", ".gbapal");
+const u16 sFieldMugshotPal_BastiodonWorriedShiny[] = INCGFX_U16("graphics/pokemon/bastiodon/mugshot/Worried-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_RagingBoltNormal[] = INCGFX_U32("graphics/pokemon/raging_bolt/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_RagingBoltNormal[] = INCGFX_U16("graphics/pokemon/raging_bolt/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_RagingBoltNormalShiny[] = INCGFX_U16("graphics/pokemon/raging_bolt/mugshot/Normal-shiny.pal", ".gbapal");
 
 struct MugshotGfx
 {
@@ -1499,6 +1550,114 @@ static const struct MugshotGfx sFieldMugshots[MUGSHOT_COUNT][MUGSHOT_EMOTE_COUNT
             .gfx = sFieldMugshotGfx_KabutoWorried,
             .pal = sFieldMugshotPal_KabutoWorried,
             .palShiny = sFieldMugshotPal_KabutoWorriedShiny,
+        },
+    },
+    [MUGSHOT_BASTIODON] =
+    {
+        [MUGSHOT_EMOTE_ANGRY] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonAngry,
+            .pal = sFieldMugshotPal_BastiodonAngry,
+            .palShiny = sFieldMugshotPal_BastiodonAngryShiny,
+        },
+        [MUGSHOT_EMOTE_CRYING] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonCrying,
+            .pal = sFieldMugshotPal_BastiodonCrying,
+            .palShiny = sFieldMugshotPal_BastiodonCryingShiny,
+        },
+        [MUGSHOT_EMOTE_DETERMINED] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonDetermined,
+            .pal = sFieldMugshotPal_BastiodonDetermined,
+            .palShiny = sFieldMugshotPal_BastiodonDeterminedShiny,
+        },
+        [MUGSHOT_EMOTE_DIZZY] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonDizzy,
+            .pal = sFieldMugshotPal_BastiodonDizzy,
+            .palShiny = sFieldMugshotPal_BastiodonDizzyShiny,
+        },
+        [MUGSHOT_EMOTE_HAPPY] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonHappy,
+            .pal = sFieldMugshotPal_BastiodonHappy,
+            .palShiny = sFieldMugshotPal_BastiodonHappyShiny,
+        },
+        [MUGSHOT_EMOTE_INSPIRED] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonInspired,
+            .pal = sFieldMugshotPal_BastiodonInspired,
+            .palShiny = sFieldMugshotPal_BastiodonInspiredShiny,
+        },
+        [MUGSHOT_EMOTE_JOYOUS] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonJoyous,
+            .pal = sFieldMugshotPal_BastiodonJoyous,
+            .palShiny = sFieldMugshotPal_BastiodonJoyousShiny,
+        },
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonNormal,
+            .pal = sFieldMugshotPal_BastiodonNormal,
+            .palShiny = sFieldMugshotPal_BastiodonNormalShiny,
+        },
+        [MUGSHOT_EMOTE_PAIN] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonPain,
+            .pal = sFieldMugshotPal_BastiodonPain,
+            .palShiny = sFieldMugshotPal_BastiodonPainShiny,
+        },
+        [MUGSHOT_EMOTE_SAD] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonSad,
+            .pal = sFieldMugshotPal_BastiodonSad,
+            .palShiny = sFieldMugshotPal_BastiodonSadShiny,
+        },
+        [MUGSHOT_EMOTE_SHOUTING] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonShouting,
+            .pal = sFieldMugshotPal_BastiodonShouting,
+            .palShiny = sFieldMugshotPal_BastiodonShoutingShiny,
+        },
+        [MUGSHOT_EMOTE_SIGH] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonSigh,
+            .pal = sFieldMugshotPal_BastiodonSigh,
+            .palShiny = sFieldMugshotPal_BastiodonSighShiny,
+        },
+        [MUGSHOT_EMOTE_STUNNED] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonStunned,
+            .pal = sFieldMugshotPal_BastiodonStunned,
+            .palShiny = sFieldMugshotPal_BastiodonStunnedShiny,
+        },
+        [MUGSHOT_EMOTE_SURPRISED] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonSurprised,
+            .pal = sFieldMugshotPal_BastiodonSurprised,
+            .palShiny = sFieldMugshotPal_BastiodonSurprisedShiny,
+        },
+        [MUGSHOT_EMOTE_TEARY_EYED] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonTearyEyed,
+            .pal = sFieldMugshotPal_BastiodonTearyEyed,
+            .palShiny = sFieldMugshotPal_BastiodonTearyEyedShiny,
+        },
+        [MUGSHOT_EMOTE_WORRIED] =
+        {
+            .gfx = sFieldMugshotGfx_BastiodonWorried,
+            .pal = sFieldMugshotPal_BastiodonWorried,
+            .palShiny = sFieldMugshotPal_BastiodonWorriedShiny,
+        },
+    },
+    [MUGSHOT_RAGING_BOLT] =
+    {
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_RagingBoltNormal,
+            .pal = sFieldMugshotPal_RagingBoltNormal,
+            .palShiny = sFieldMugshotPal_RagingBoltNormalShiny,
         },
     },
 };

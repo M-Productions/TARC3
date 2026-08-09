@@ -8175,6 +8175,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isParadox = TRUE,
         .levelUpLearnset = sRagingBoltLevelUpLearnset,
         .teachableLearnset = sRagingBoltTeachableLearnset,
+        .mugshotId = MUGSHOT_RAGING_BOLT,
     },
 #endif //P_FAMILY_RAGING_BOLT
 
