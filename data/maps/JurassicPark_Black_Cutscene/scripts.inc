@@ -31,19 +31,19 @@ Black_Cutscene_Boat_Intro::
 # 20 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	waitse
 # 21 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_1, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox Black_Cutscene_Boat_Intro_Text_1, LOCALID_PHANPY, MUGSHOT_EMOTE_STUNNED
 # 22 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	playse SE_THUNDER
 # 23 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_DIZZY
+	mnmbox Black_Cutscene_Boat_Intro_Text_2, LOCALID_PLAYER, MUGSHOT_EMOTE_DIZZY
 # 24 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_3, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox Black_Cutscene_Boat_Intro_Text_3, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_DETERMINED
 # 25 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_4, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox Black_Cutscene_Boat_Intro_Text_4, LOCALID_PHANPY, MUGSHOT_EMOTE_SHOUTING
 # 26 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_5, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox Black_Cutscene_Boat_Intro_Text_5, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_WORRIED
 # 27 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_6, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SIGH
+	mnmbox Black_Cutscene_Boat_Intro_Text_6, LOCALID_PLAYER, MUGSHOT_EMOTE_SIGH
 # 28 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	closemessage
 # 29 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
@@ -55,17 +55,17 @@ Black_Cutscene_Boat_Intro::
 # 32 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 10
 # 33 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_7, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox Black_Cutscene_Boat_Intro_Text_7, LOCALID_BAGON, MUGSHOT_EMOTE_WORRIED
 # 34 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_8, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox Black_Cutscene_Boat_Intro_Text_8, LOCALID_PHANPY, MUGSHOT_EMOTE_STUNNED
 # 35 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_9, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox Black_Cutscene_Boat_Intro_Text_9, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_DETERMINED
 # 36 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_10, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox Black_Cutscene_Boat_Intro_Text_10, LOCALID_BAGON, MUGSHOT_EMOTE_WORRIED
 # 37 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_11, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox Black_Cutscene_Boat_Intro_Text_11, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_WORRIED
 # 38 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_12, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox Black_Cutscene_Boat_Intro_Text_12, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_STUNNED
 # 39 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	closemessage
 # 40 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
@@ -77,23 +77,23 @@ Black_Cutscene_Boat_Intro::
 # 43 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	delay 10
 # 44 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_13, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	mnmbox Black_Cutscene_Boat_Intro_Text_13, LOCALID_PLAYER, MUGSHOT_EMOTE_SURPRISED
 # 45 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_14, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox Black_Cutscene_Boat_Intro_Text_14, LOCALID_PHANPY, MUGSHOT_EMOTE_SHOUTING
 # 46 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_15, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox Black_Cutscene_Boat_Intro_Text_15, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_DETERMINED
 # 47 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_16, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	mnmbox Black_Cutscene_Boat_Intro_Text_16, LOCALID_BAGON, MUGSHOT_EMOTE_CRYING
 # 48 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_17, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox Black_Cutscene_Boat_Intro_Text_17, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_DETERMINED
 # 49 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_18, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox Black_Cutscene_Boat_Intro_Text_18, LOCALID_PLAYER, MUGSHOT_EMOTE_STUNNED
 # 50 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_19, localId = LOCALID_PHANPY, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox Black_Cutscene_Boat_Intro_Text_19, LOCALID_PHANPY, MUGSHOT_EMOTE_SHOUTING
 # 51 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_20, localId = LOCALID_JIGGLYPUFF, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	mnmbox Black_Cutscene_Boat_Intro_Text_20, LOCALID_JIGGLYPUFF, MUGSHOT_EMOTE_SURPRISED
 # 52 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
-	mnmbox Black_Cutscene_Boat_Intro_Text_21, localId = LOCALID_BAGON, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	mnmbox Black_Cutscene_Boat_Intro_Text_21, LOCALID_BAGON, MUGSHOT_EMOTE_SURPRISED
 # 53 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"
 	closemessage
 # 54 "data/maps/JurassicPark_Black_Cutscene/scripts.pory"

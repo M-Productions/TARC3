@@ -66,6 +66,7 @@
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
+#include "field_camera.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3430,5 +3431,14 @@ bool8 ScrCmd_setselectedobjectevent(struct ScriptContext *ctx)
     u16 localId = VarGet(ScriptReadHalfword(ctx));
 
     gSelectedObjectEvent = GetObjectEventIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    return FALSE;
+}
+
+bool8 ScrCmd_teleportcamera(struct ScriptContext *ctx)
+{
+    s16 x = VarGet(ScriptReadHalfword(ctx)) - gSaveBlock1Ptr->pos.x;
+    s16 y = VarGet(ScriptReadHalfword(ctx)) - gSaveBlock1Ptr->pos.y;
+
+    MoveCameraAndRedrawMap(x, y);
     return FALSE;
 }

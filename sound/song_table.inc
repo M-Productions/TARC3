@@ -622,6 +622,10 @@ gSongTable::
 	song mus_ancient_desert, MUSIC_PLAYER_BGM, 0
 	song mus_lost_mountains, MUSIC_PLAYER_BGM, 0
 	song mus_mysterious_beach, MUSIC_PLAYER_BGM, 0
+	song mus_jurassic_park_main_theme, MUSIC_PLAYER_BGM, 0
+	song mus_calm_cutscene, MUSIC_PLAYER_BGM, 0
+	song mus_cutscene_mysterious, MUSIC_PLAYER_BGM, 0
+	song mus_visitor_centre, MUSIC_PLAYER_BGM, 0
 
 	.align 2
 dummy_song_header:

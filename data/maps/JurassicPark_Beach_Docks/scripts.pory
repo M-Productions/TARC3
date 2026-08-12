@@ -2,7 +2,6 @@ mapscripts JurassicPark_Beach_Docks_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_GAME_STATE, GS_INTRO {
             setvar(VAR_GAME_STATE, GS_WOKEN_UP)
-            clearflag(FLAG_SPAWN_NORTH)
             goto(JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp)
         }
     ]
@@ -22,6 +21,7 @@ script JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp {
     mnmbox(format("(But…\nWhere am I…?)\p(I better go look for the others.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     closemessage
     releaseall
+    end
 }
 
 
@@ -81,7 +81,15 @@ script JurassicPark_Beach_Docks_EventScript_Bagon
 {
     lockall
     faceplayer
-    mnmbox(format("Let's meet up with the others, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    if(var(VAR_GAME_STATE) == GS_FOREST_ROAD)
+    {
+        mnmbox(format("Let's look around a bit more, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    }
+    else
+    {
+        mnmbox(format("Let's meet up with the others, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+
+    }
     closemessage
     release
     end

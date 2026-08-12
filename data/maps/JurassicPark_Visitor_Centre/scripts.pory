@@ -1,1 +1,30 @@
-mapscripts JurassicPark_Visitor_Centre_MapScripts {}
+mapscripts JurassicPark_Visitor_Centre_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAME_STATE, GS_MET_DRAMPA {
+            goto(JurassicPark_Visitor_Centre_EventScript_LookLarvy)
+        }
+    ]
+}
+
+
+script JurassicPark_Visitor_Centre_EventScript_LookLarvy
+{
+    lock
+    msgbox(format("Larvy!\nCome here!\pThis is incredible!"))
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_up*5))
+    waitmovement(0)
+    setvar(VAR_GAME_STATE, GS_IN_CENTRE)
+    release
+    end
+}
+
+script JurassicPark_Visitor_Centre_EventScript_WalkUp
+{
+    lock
+    mnmbox(format("(I need to talk to Dr. Drampa first.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    end
+}
