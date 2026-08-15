@@ -1872,6 +1872,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sBastiodonLevelUpLearnset,
         .teachableLearnset = sBastiodonTeachableLearnset,
+        .mugshotId = MUGSHOT_BASTIODON,
     },
 #endif //P_FAMILY_SHIELDON
 
