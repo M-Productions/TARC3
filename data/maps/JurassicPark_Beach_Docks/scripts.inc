@@ -226,7 +226,7 @@ JurassicPark_Beach_Docks_EventScript_Phanpy::
 # 160 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_4, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 168 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
+	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 169 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
 	mnmbox JurassicPark_Beach_Docks_EventScript_Phanpy_Text_6, localId = LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 170 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
@@ -467,8 +467,8 @@ JurassicPark_Beach_Docks_EventScript_Phanpy_Text_0:
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_1:
 # 157 "data/maps/JurassicPark_Beach_Docks/scripts.pory"
-	.string "It's, uh…\n"
-	.string "Good to see you too, Phanpy…$"
+	.string "(It's, uh…\n"
+	.string "Good to see you too, Phanpy…)$"
 
 JurassicPark_Beach_Docks_EventScript_Phanpy_Text_2:
 # 158 "data/maps/JurassicPark_Beach_Docks/scripts.pory"

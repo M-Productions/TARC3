@@ -54,7 +54,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRUNT)",
-      "x": 22,
+      "x": 24,
       "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_APPROACH_PLAYER_OWE",
@@ -68,7 +68,7 @@
     {
       "local_id": "LOCALID_KABUTO_PLATFORM",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
-      "x": 6,
+      "x": 8,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -140,7 +140,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 16,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
@@ -149,7 +149,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 17,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
@@ -158,7 +158,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 18,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
@@ -167,7 +167,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 19,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
@@ -218,6 +218,15 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_CENTRE_AFTER_BRIDGE",
       "script": "JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
     }
   ],
   "bg_events": []

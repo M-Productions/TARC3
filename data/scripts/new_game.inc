@@ -276,6 +276,7 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_HIDE_DINOS_WILDS
 	setflag FLAG_HIDE_TYRANTRUM_FOREST
+	setflag FLAG_HIDE_BAGON_FOREST
 	end
 
 EventScript_ResetAllMapFlagsFrlg::

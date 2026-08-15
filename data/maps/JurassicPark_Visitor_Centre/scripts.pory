@@ -82,7 +82,7 @@ script JurassicPark_Visitor_Centre_EventScript_Phanpy
                 release
                 end
             }
-            mnmbox(format("So, uhm…\nAbout this… Park.\pDon't you think it's a bit…\nStrange?\pI'm not sure how to feel about the caged Pokémon.\pThey may be mindless as Dr. Drampa said, but…\NThey're still Pokémon.\pAnd exhibiting them in enclosure…\nI'm not sure about it."), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+            mnmbox(format("So, uhm…\nAbout this… Park.\pDon't you think it's a bit…\nStrange?\pI'm not sure how to feel about the caged Pokémon.\pThey may be mindless as Dr. Drampa said, but…\NThey're still Pokémon.\pAnd exhibiting them in enclosures…\nI'm not sure about it."), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
             applymovement(LOCALID_JIGGLYPUFF_CENTRE, moves(face_down))
             mnmbox(format("What's strange here is the power grid.\pThe Doc wasn't lying about the backup generators.\pBut if I'm reading this right, the system is way overloaded.\pSomething is pulling an immense quantity of power."), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
             mnmbox(format("Which means…?"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
@@ -109,7 +109,7 @@ script JurassicPark_Visitor_Centre_EventScript_Jigglypuff
     switch(var(VAR_GAME_STATE))
     {
         case GS_IN_CENTRE:
-            mnmbox(format("This face…\nIts smug aura seems to mock me."), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            mnmbox(format("This face…\nIts smug aura mocks me."), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
             closemessage
         case GS_CENTRE_SECOND_VISIT:
             mnmbox(format("Is that so…"), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
@@ -135,7 +135,7 @@ script JurassicPark_Visitor_Centre_EventScript_Cradily
 
 script JurassicPark_Visitor_Centre_EventScript_Armaldo
 {
-    msgbox(format("ARMALDO\nThe plated fortress.\pIts scales make it impenetrable to any assault."), MSGBOX_SIGN)
+    msgbox(format("ARMALDO\nThe plated fortress.\pIts tough scales make it impenetrable to any assault."), MSGBOX_SIGN)
     end
 }
 
@@ -154,7 +154,7 @@ script JurassicPark_Visitor_Centre_EventScript_Schematics
 
 script JurassicPark_Visitor_Centre_EventScript_Computer
 {
-    msgbox(format("You've never really been good with technology."))
+    msgbox(format("You've never been good with technology."))
     closemessage
     end
 }
@@ -181,7 +181,7 @@ script JurassicPark_Visitor_Centre_EventScript_Drampa
     }
     if(var(VAR_GAME_STATE)==GS_CENTRE_SECOND_VISIT)
     {
-        mnmbox(format("Ah, hello!\pYes, as I was going to say, I have a boat ready to get you back as soon as the rain stops.\pOf course, you'll put a good word for the park before the opening, won't you?"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        mnmbox(format("Ah, hello!\pYes, as I was saying, I have a boat ready to get you back as soon as the rain stops.\pOf course, you'll put a good word for the park before the opening, won't you?"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
         closemessage
         release
         end
@@ -235,10 +235,10 @@ script JurassicPark_Visitor_Centre_EventScript_Drampa
     mnmbox(format("Yes!\nWith this machine here…\lWell, this one is a replica.\pBut with a machine like this, my life's work…\pI can bring fossilized remains back to life!"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     mnmbox(format("That's impossible!"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     mnmbox(format("And yet you've seen it with your very own eyes!\pI am in the final stages of setting up this island to be an educational park.\pI call it…\nJurassic Park!"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
-    mnmbox(format("If these prehistoric Pokémon are as strong as you said…"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("So… What are these Pokémon like?\pWe tried talking to them, but…"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("…"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     mnmbox(format("Well, why don't you come and take a look for yourselves?"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
-    mnmbox(format("(What was that pause for…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("(What was that look for…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     mnmbox(format("There's an observation platform east of this center.\NI'll meet you there.\pOh and…\nPlease don't take any detours.\pThe rest of the park is still being finished.\pIt's not dangerous, but someone could still get injured."), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     applymovement(LOCALID_DRAMPA_CENTRE, moves(walk_left*2, walk_down*4, walk_left*3, walk_down*4))
@@ -246,7 +246,7 @@ script JurassicPark_Visitor_Centre_EventScript_Drampa
     removeobject(LOCALID_DRAMPA_CENTRE)
     playse(SE_EXIT)
     waitse
-    mnmbox(format("Well, what are we waiting for?\pLet's go see it!\p"), localId=LOCALID_BAGON_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("Well, what are we waiting for?\pLet's go see it!"), localId=LOCALID_BAGON_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     closemessage
     fadescreen(FADE_TO_BLACK)
     removeobject(LOCALID_BAGON_CENTRE)

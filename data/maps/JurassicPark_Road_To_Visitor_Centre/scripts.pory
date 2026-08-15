@@ -104,6 +104,8 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest {
     setobjectxy(LOCALID_PHANPY_FOREST, 42, 36)
     setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 21, 34)
     setobjectxyperm(LOCALID_PHANPY_FOREST, 42, 36)
+    clearflag(FLAG_HIDE_BAGON_FOREST)
+    addobject(LOCALID_BAGON_FOREST)
     releaseall
     end
 
@@ -149,15 +151,36 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Jigglypuff
 script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
 {
     lock
-    mnmbox("Guoh?\pTHIS MUGSHOT IS A PLACEHOLDER", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) == DIR_NORTH){
+        mnmbox("Guoh!", localId=VAR_LAST_TALKED, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        closemessage
+        release
+        end
+    }
+    msgbox("PLACEHOLDER: skipping battle.")
+    removeobject(VAR_LAST_TALKED)
     release
+    end
 }
 
 script JurassicPark_Road_To_Visitor_Centre_EventScript_Raging_Bolt
 {
+    if(var(VAR_GAME_STATE) >= GS_NO_GENERATORS)
+    {
+        msgbox(format("No response."))
+        closemessage
+        end
+    }
+    elif(var(VAR_GAME_STATE) >= GS_PRE_MEETING_DRAMPA)
+    {
+        mnmbox(format("…"), localId=VAR_LAST_TALKED)
+        closemessage
+        end
+    }
     lock
     mnmbox(format("Uhm, hello?\nSir?\lOr madam?\pCan I ask you something?"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
-    mnmbox("…\pTHIS MUGSHOT IS A PLACEHOLDER", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    mnmbox("…", localId=VAR_LAST_TALKED, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("Hmm…\nNo response.\pMaybe they can't hear me because their neck is too long."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     mnmbox("(I wonder…)", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     closemessage
@@ -261,6 +284,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa
     applymovement(LOCALID_PHANPY_FOREST, moves(face_right))
     waitmovement(0)
     fadescreen(FADE_FROM_BLACK)
+    special(SpawnCameraObject)
     mnmbox(format("As I was saying…\pI think we're dealing with an uncontacted tribe."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("Uncontacted tribe?"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("Yeah, y'know.\nCannibals and the such."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
@@ -286,9 +310,10 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa
     applymovement(LOCALID_PHANPY_FOREST, moves(walk_left*10))
     applymovement(LOCALID_JIGGLYPUFF_FOREST, moves(walk_left*10))
     waitmovement(0)
-    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_faster_up))
-    waitmovement(0)
     destroyfollowernpc
+    applymovement(LOCALID_CAMERA, moves(walk_up))
+    waitmovement(0)
+    special(RemoveCameraObject)
     removeobject(LOCALID_JIGGLYPUFF_FOREST)
     removeobject(LOCALID_PHANPY_FOREST)
     setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 31, 13)
@@ -428,6 +453,8 @@ script JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up
     end
 }
 
+
+
 script JurassicPark_Road_To_Visitor_Centre_EventScript_Sign
 {
     lock
@@ -552,6 +579,7 @@ script JurassicPark_Visitor_Centre_EventScript_TyrantrumScene
     setflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
     setflag(FLAG_HIDE_JIGGLYPUFF_CENTRE)
     setflag(FLAG_HIDE_TYRANTRUM_FOREST)
+    setflag(FLAG_HIDE_ARCHEN_FOREST)
     setflag(FLAG_HIDE_DRAMPA_CENTRE)
     clearflag(FLAG_SPAWN_WEST)
     waitstate

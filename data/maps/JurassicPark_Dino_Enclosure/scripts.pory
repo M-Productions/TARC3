@@ -102,7 +102,7 @@ script JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer
     setvar(VAR_GAME_STATE, GS_DRAMPA_EXPLAINER)
     delay(32)
     mnmbox(format("Oh!\nIt's raining!"), localId=LOCALID_BAGON_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
-    mnmbox(format("W-well!\nWhy don't we head back indoors?\pWe can wait out the rain there and discuss your…\lLeaving."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("W-well!\nWhy don't we head back indoors?\pWe can wait out the rain there and discuss your…\lLeaving.\pThere's a boat by my laboratory that can take you back."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     mnmbox(format("Aw, you want us to leave already?"), localId=LOCALID_PHANPY_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     mnmbox(format("Don't get me wrong, you're quite the lively bunch!\NBut I got a grand opening to prepare.\pBut come, let us talk inside."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     mnmboxdelay

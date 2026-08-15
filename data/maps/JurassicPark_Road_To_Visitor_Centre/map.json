@@ -118,7 +118,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
-      "flag": "0"
+      "flag": "FLAG_HIDE_BASTIODON_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
@@ -131,7 +131,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
-      "flag": "0"
+      "flag": "FLAG_HIDE_BASTIODON_2"
     },
     {
       "local_id": "LOCALID_ARCHEN",
@@ -145,7 +145,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Archen",
-      "flag": "FLAG_HIDE_TYRANTRUM_FOREST"
+      "flag": "FLAG_HIDE_ARCHEN_FOREST"
     },
     {
       "local_id": "LOCALID_BAGON_FOREST",
@@ -249,8 +249,8 @@
     },
     {
       "type": "trigger",
-      "x": 44,
-      "y": 21,
+      "x": 31,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_PRE_MEETING_DRAMPA",
@@ -393,8 +393,8 @@
     },
     {
       "type": "trigger",
-      "x": 30,
-      "y": 26,
+      "x": 31,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_GOING_TO_PLATFORM",
@@ -588,6 +588,42 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_HEADING_TOWARDS_LAB",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
     }
   ],
   "bg_events": [
