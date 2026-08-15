@@ -40,7 +40,12 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
             addobject(LOCALID_BAGON_FOREST)
             clearflag(FLAG_HIDE_TYRANTRUM_FOREST)
             addobject(LOCALID_TYRANTRUM_FOREST)
-
+        }
+        if(var(VAR_GAME_STATE)>=GS_NO_GENERATORS)
+        {
+            setobjectmovementtype(1, MOVEMENT_TYPE_SLEEP)
+            setobjectmovementtype(2, MOVEMENT_TYPE_SLEEP)
+            setobjectmovementtype(3, MOVEMENT_TYPE_SLEEP)
         }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [

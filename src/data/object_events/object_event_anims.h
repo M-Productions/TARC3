@@ -1399,6 +1399,7 @@ const union AnimCmd *const sAnimTable_Following[] = {
     [ANIM_EXIT_POKEBALL_FAST_NORTH] = sAnim_ExitPokeballFastNorth,
     [ANIM_EXIT_POKEBALL_FAST_WEST] = sAnim_ExitPokeballFastWest,
     [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast,
+    [ANIM_POKEMON_SLEEP] = sAnim_Sleep,
 };
 
 // Like the above, but has separate frames for facing right

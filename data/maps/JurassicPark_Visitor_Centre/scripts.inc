@@ -490,8 +490,6 @@ JurassicPark_Visitor_Centre_EventScript_LarvyPanic::
 # 293 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	setvar VAR_GAME_STATE, GS_NO_GENERATORS
 # 294 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	fadedefaultbgm
-# 295 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	release
 	end
 
