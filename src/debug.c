@@ -4271,7 +4271,8 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_JURASSIC_PARK_MAIN_THEME) \
     X(MUS_CALM_CUTSCENE)            \
     X(MUS_CUTSCENE_MYSTERIOUS)      \
-    X(MUS_VISITOR_CENTRE)            
+    X(MUS_VISITOR_CENTRE)           \
+    X(MUS_VS_BOSS_POWERFUL)
 
 #define SOUND_LIST_SE               \
     X(SE_USE_ITEM)                  \

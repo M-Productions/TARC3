@@ -11,7 +11,46 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
             setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 31, 13)
             setobjectxyperm(LOCALID_PHANPY_FOREST, 32, 13)
         }
+        if(var(VAR_GAME_STATE) == GS_CENTRE_GOING_AFTER_DRAMPA)
+        {
+            clearflag(FLAG_HIDE_PHANPY_FOREST)
+            clearflag(FLAG_HIDE_DRAMPA_FOREST)
+            setobjectxyperm(LOCALID_PHANPY_FOREST, 32, 8)
+            setobjectxyperm(LOCALID_DRAMPA_FOREST, 35, 16)
+            setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_DOWN)
+            setobjectmovementtype(LOCALID_DRAMPA_FOREST, MOVEMENT_TYPE_FACE_RIGHT)
+        }
+        if(var(VAR_GAME_STATE) == GS_CENTRE_AFTER_BRIDGE)
+        {
+            
+            clearflag(FLAG_HIDE_PHANPY_FOREST)
+            setobjectxyperm(LOCALID_PHANPY_FOREST, 51, 17)
+            setobjectxy(LOCALID_PHANPY_FOREST, 51, 17)
+            setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_LEFT)
+            addobject(LOCALID_PHANPY_FOREST)
+            clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
+            setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 46, 16)
+            setobjectxy(LOCALID_JIGGLYPUFF_FOREST, 46, 16)
+            setobjectmovementtype(LOCALID_JIGGLYPUFF_FOREST, MOVEMENT_TYPE_FACE_LEFT)
+            addobject(LOCALID_JIGGLYPUFF_FOREST)
+            clearflag(FLAG_HIDE_BAGON_FOREST)
+            setobjectxy(LOCALID_BAGON_FOREST, 45, 16)
+            setobjectxyperm(LOCALID_BAGON_FOREST, 45, 16)
+            setobjectmovementtype(LOCALID_BAGON_FOREST, MOVEMENT_TYPE_FACE_RIGHT)
+            addobject(LOCALID_BAGON_FOREST)
+            clearflag(FLAG_HIDE_TYRANTRUM_FOREST)
+            addobject(LOCALID_TYRANTRUM_FOREST)
+
+        }
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAME_STATE, GS_CENTRE_GOING_AFTER_DRAMPA {
+            goto(JurassicPark_Visitor_Centre_EventScript_GoingAfterDrampa)
+        }
+        VAR_GAME_STATE, GS_CENTRE_AFTER_BRIDGE {
+            goto(JurassicPark_Visitor_Centre_EventScript_TyrantrumScene)
+        }
+    ]
 }
 
 
@@ -125,6 +164,21 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Phanpy
 {
     lock
     faceplayer
+    if(var(VAR_GAME_STATE) == GS_HEADING_TOWARDS_LAB)
+    {
+        mnmbox(format("Quick, after him!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+        release
+        end
+    }
+
+    if(var(VAR_GAME_STATE) == GS_CENTRE_AFTER_BRIDGE)
+    {
+        mnmbox(format("…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        release
+        end
+    }
+
+
     mnmbox(format("Bagon, Larvy, there's something strange going on.\pDo you see that?"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     mnmbox(format("Looks like a flying-type Pokémon to me."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("Well, probably, but…\pHave you ever seen a Pokémon that looks like this?"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
@@ -345,4 +399,156 @@ script JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa
     playse(SE_EXIT)
     setvar(VAR_GAME_STATE, GS_MET_DRAMPA)
     warp(MAP_JURASSIC_PARK_VISITOR_CENTRE, 10, 19)
+}
+
+script JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down
+{
+    lock
+    mnmbox(format("Dr. Drampa said wandering around could be dangerous."), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+script JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up
+{
+    lock
+    mnmbox(format("Dr. Drampa said wandering around could be dangerous."), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    release
+    end
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_Sign
+{
+    lock
+    msgbox(format("{UP_ARROW} Ancient Desert\n{DOWN_ARROW} Primordial Beach\l{LEFT_ARROW} Lost Mountains\l{RIGHT_ARROW}Observation Platform, Forgotten Swamp, Laboratory"), MSGBOX_SIGN)
+    release
+    end
+}
+
+script JurassicPark_Visitor_Centre_EventScript_GoingAfterDrampa
+{
+    lock
+    mnmbox(format("Look, Larvy!"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    closemessage
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_down))
+    waitmovement(0)
+    applymovement(LOCALID_CAMERA, moves(walk_down*3))
+    applymovement(LOCALID_DRAMPA_FOREST, moves(walk_fast_right*8))
+    waitmovement(LOCALID_DRAMPA_FOREST)
+    removeobject(LOCALID_DRAMPA_FOREST)
+    applymovement(LOCALID_CAMERA, moves(walk_up*4))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    mnmbox(format("Let's go after him!"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_down*2))
+    applymovement(LOCALID_PHANPY_FOREST, moves(walk_down*2))
+    waitmovement(0)
+    setfollowernpc(LOCALID_PHANPY_FOREST, FOLLOWER_NPC_FLAG_ALL_LAND)
+    setvar(VAR_GAME_STATE, GS_HEADING_TOWARDS_LAB)
+    releaseall
+    end
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_GoAfterHim
+{
+    lock
+    mnmbox(format("Larvy, we have to go after the Doctor!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth
+{
+    lock
+    mnmbox(format("That's not the way he went, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth
+{
+    lock
+    mnmbox(format("That's not the way he went, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_up))
+    waitmovement(0)
+    release
+    end
+}
+
+script JurassicPark_Visitor_Centre_EventScript_TyrantrumScene
+{
+    lock
+    applymovement(LOCALID_PLAYER, moves(walk_fast_left*5))
+    applymovement(LOCALID_PHANPY_FOREST, moves(walk_fast_left*5))
+    waitmovement(0)
+    applymovement(LOCALID_PHANPY_FOREST, moves(face_up))
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    applymovement(LOCALID_BAGON_FOREST, moves(face_down))
+    applymovement(LOCALID_JIGGLYPUFF_FOREST, moves(face_down))
+    waitmovement(0)
+    mnmbox(format("What are you guys doing out here?!"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("We're going to repair the generators!"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("Yeah, I figured out where the generators are.\pBut the only way to restart them is manually."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Forget about it!\nThe cage is broken!\pWe need to hide, now!"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("What?!"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    closemessage
+    delay(10)
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    applymovement(LOCALID_PHANPY_FOREST, moves(face_down))
+    waitmovement(0)
+    playmoncry(SPECIES_TYRANTRUM, CRY_MODE_NORMAL)
+    waitmoncry
+    mnmbox(format("N-no way…"), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    closemessage
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, delay_16*2))
+    waitmovement(0)
+    mnmbox(format("… … …\nRun."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    closemessage
+    applymovement(LOCALID_JIGGLYPUFF_FOREST, moves(walk_fast_right*10))
+    applymovement(LOCALID_PHANPY_FOREST, moves(walk_fast_left*13, walk_fast_up*6, walk_fast_left*13))
+    applymovement(LOCALID_BAGON_FOREST, moves(walk_fast_left*12, walk_fast_down*10))
+    applymovement(LOCALID_PLAYER, moves(walk_fast_left*13, walk_fast_up*9))
+    applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, walk_fast_left*11, walk_up*10))
+    waitmovement(LOCALID_PLAYER)
+    clearflag(FLAG_ALWAYS_RAINING)
+    warp(MAP_JURASSIC_PARK_VISITOR_CENTRE, 10, 19)
+    setflag(FLAG_HIDE_BAGON_FOREST)
+    setflag(FLAG_HIDE_BAGON_CENTRE)
+    setflag(FLAG_HIDE_PHANPY_FOREST)
+    setflag(FLAG_HIDE_PHANPY_CENTRE)
+    setflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
+    setflag(FLAG_HIDE_JIGGLYPUFF_CENTRE)
+    setflag(FLAG_HIDE_TYRANTRUM_FOREST)
+    setflag(FLAG_HIDE_DRAMPA_CENTRE)
+    clearflag(FLAG_SPAWN_WEST)
+    waitstate
+    
 }

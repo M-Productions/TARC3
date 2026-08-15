@@ -161,6 +161,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDE_BAGON_FOREST"
+    },
+    {
+      "local_id": "LOCALID_TYRANTRUM_FOREST",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRANTRUM)",
+      "x": 45,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_TYRANTRUM_FOREST"
     }
   ],
   "warp_events": [
@@ -341,7 +355,258 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_PRE_MEETING_DRAMPA",
       "script": "JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoAfterHim"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoAfterHim"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Sign"
+    }
+  ]
 }

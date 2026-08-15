@@ -65,17 +65,17 @@
 #define FLAG_HIDE_BAGON_CENTRE    0x2B // Unused Flag
 #define FLAG_HIDE_DRAMPA_CENTRE    0x2C // Unused Flag
 #define FLAG_NO_OW_MUSIC    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
+#define FLAG_HIDE_CHARACTERS_PLATFORM    0x2E // Unused Flag
+#define FLAG_HIDE_KABUTO_PLATFORM    0x2F // Unused Flag
+#define FLAG_MUSIC_RAIN    0x30 // Unused Flag
+#define FLAG_HIDE_DINOS_PLATFORM    0x31 // Unused Flag
+#define FLAG_HIDE_TYRANTRUM_PLATFORM    0x32 // Unused Flag
+#define FLAG_ALWAYS_RAINING    0x33 // Unused Flag
+#define FLAG_HIDE_DRAMPA_BRIDGE    0x34 // Unused Flag
+#define FLAG_HIDE_BRIDGE    0x35 // Unused Flag
+#define FLAG_HIDE_DINOS_WILDS    0x36 // Unused Flag
+#define FLAG_PANIC_OW_MUSIC    0x37 // Unused Flag
+#define FLAG_HIDE_TYRANTRUM_FOREST    0x38 // Unused Flag
 #define FLAG_UNUSED_0x039    0x39 // Unused Flag
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
@@ -1650,7 +1650,7 @@
 #define FLAG_STORING_ITEMS_IN_PYRAMID_BAG       (SPECIAL_FLAGS_START + 0x4)
 #define FLAG_SAFE_FOLLOWER_MOVEMENT             (SPECIAL_FLAGS_START + 0x5) // When set, applymovement does not put the follower inside a pokeball
                                                                             // Also, scripted movements on the player will move follower(s), too
-#define FLAG_SPAWN_NORTH                        (SPECIAL_FLAGS_START + 0x6)
+#define FLAG_SPAWN_WEST                        (SPECIAL_FLAGS_START + 0x6)
 #define FLAG_SUPPRESS_SPEAKER_NAME_CHANGE       (SPECIAL_FLAGS_START + 0x7)
 #define FLAG_ANTI_PIRACY_INSTANT_TEXT           (SPECIAL_FLAGS_START + 0x8)
 // FLAG_SPECIAL_FLAG_0x4005 - 0x407F also exist and are unused

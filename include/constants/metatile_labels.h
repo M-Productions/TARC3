@@ -175,6 +175,14 @@
 #define METATILE_Dewford_Door              0x825
 #define METATILE_Dewford_Door_BattleTower  0x85D
 
+// gTileset_Dino_Enclosure_Secondary
+#define METATILE_Dino_Enclosure_Secondary_CageLeftBottom   0x838
+#define METATILE_Dino_Enclosure_Secondary_CageLeftMid      0x830
+#define METATILE_Dino_Enclosure_Secondary_CageLeftTop      0x828
+#define METATILE_Dino_Enclosure_Secondary_CageRightBottom  0x83A
+#define METATILE_Dino_Enclosure_Secondary_CageRightMid     0x832
+#define METATILE_Dino_Enclosure_Secondary_CageRightTop     0x82A
+
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x80E
 #define METATILE_EliteFour_EntryDoor_ClosedTop       0x806
@@ -218,6 +226,12 @@
 #define METATILE_Fallarbor_RedCaveEntrance_Bottom    0x94F
 #define METATILE_Fallarbor_RedCaveEntrance_Top       0x947
 #define METATILE_Fallarbor_RedRockWall               0x869
+
+// gTileset_Forest_Primary
+#define METATILE_Forest_Primary_FloorRock           0x0EC
+#define METATILE_Forest_Primary_Grass               0x000
+#define METATILE_Forest_Primary_LeftRock            0x078
+#define METATILE_Forest_Primary_TopRightCornerRock  0x083
 
 // gTileset_Fortree
 #define METATILE_Fortree_BridgeOverGrass_Lowered           0x84F
@@ -882,6 +896,12 @@
 #define METATILE_SecretBase_YellowBalloon               0x940
 #define METATILE_SecretBase_YellowBrick_Bottom          0x82E
 #define METATILE_SecretBase_YellowBrick_Top             0x826
+
+// gTileset_Secret_Lab_Secondary
+#define METATILE_Secret_Lab_Secondary_RightRockWater     0x8C2
+#define METATILE_Secret_Lab_Secondary_TopLeftRockWater   0x8B8
+#define METATILE_Secret_Lab_Secondary_TopRightRockWater  0x8BA
+#define METATILE_Secret_Lab_Secondary_Water              0x862
 
 // gTileset_SeviiIslands123
 #define METATILE_SeviiIslands123_Door            0x897

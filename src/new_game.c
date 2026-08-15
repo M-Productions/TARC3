@@ -145,7 +145,6 @@ static void WarpToTruck(void)
 
     SetWarpDestination(MAP_GROUP(MAP_JURASSIC_PARK_BLACK_CUTSCENE), MAP_NUM(MAP_JURASSIC_PARK_BLACK_CUTSCENE), WARP_ID_NONE, 10, 10);
     WarpIntoMap();
-    FlagSet(FLAG_SPAWN_NORTH);
 }
 
 void Sav2_ClearSetDefault(void)

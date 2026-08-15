@@ -16,6 +16,7 @@
 #include "trig.h"
 #include "gpu_regs.h"
 #include "palette.h"
+#include "event_data.h"
 
 EWRAM_DATA static u8 sCurrentAbnormalWeather = 0;
 
@@ -2528,6 +2529,9 @@ void SetSavedWeatherFromCurrMapHeader(void)
 {
     u8 oldWeather = gSaveBlock1Ptr->weather;
     gSaveBlock1Ptr->weather = TranslateWeatherNum(gMapHeader.weather);
+    if(FlagGet(FLAG_ALWAYS_RAINING)){
+        gSaveBlock1Ptr->weather = WEATHER_RAIN_THUNDERSTORM;
+    }
     UpdateRainCounter(gSaveBlock1Ptr->weather, oldWeather);
 }
 

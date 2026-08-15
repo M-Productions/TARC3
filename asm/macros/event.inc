@@ -3046,11 +3046,6 @@
 	.ifnb \localId
 		setselectedobjectevent \localId
 	.endif
-	.ifb \direction
-		faceplayer
-	.else
-		objectface \localId \direction
-	.endif
 	automugshot emote=\mugshotEmotion
 	.if \nameKnown == TRUE
 		autospeaker known=TRUE

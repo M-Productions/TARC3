@@ -1,1 +1,57 @@
-mapscripts JurassicPark_Visitor_Centre_Red_MapScripts {}
+mapscripts JurassicPark_Visitor_Centre_Red_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE
+    [
+        VAR_GAME_STATE, GS_CENTRE_SECOND_VISIT: JurassicPark_Visitor_Centre_Red_DrampaRunsOut
+    ]
+}
+
+script JurassicPark_Visitor_Centre_Red_DrampaRunsOut
+{
+    msgbox("Blackout detected.\nEmergency lights activated.")
+    closemessage
+    mnmbox(format("Great, you jinxed it."), localId=LOCALID_JIGGLYPUFF_RED, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+    mnmbox(format("(But if the power's out…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("The cages!"), localId=LOCALID_PHANPY_RED, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    closemessage
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_right*4))
+    waitmovement(0)
+    applymovement(LOCALID_BAGON, moves(face_right))
+    applymovement(LOCALID_CAMERA, moves(walk_right*4))
+    applymovement(LOCALID_DRAMPA_RED, moves(walk_fast_down*2))
+    waitmovement(LOCALID_DRAMPA_RED)
+    applymovement(LOCALID_DRAMPA_RED, moves(walk_fast_down*2, walk_fast_left*5))
+    waitmovement(0)
+    applymovement(LOCALID_BAGON_RED, moves(face_down))
+    waitmovement(0)
+    mnmbox(format("Hey, where are you going?"), localId=LOCALID_BAGON_RED, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    delay(16)
+    applymovement(LOCALID_DRAMPA_RED, moves(walk_in_place_up))
+    waitmovement(0)
+    mnmbox(format("…"), localId=LOCALID_DRAMPA_RED, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    closemessage
+    applymovement(LOCALID_DRAMPA_RED, moves(walk_faster_down*9))
+    waitmovement(0)
+    playse(SE_EXIT)
+    waitse
+    applymovement(LOCALID_CAMERA, moves(walk_left*8))
+    waitmovement(0)
+    mnmbox(format("He left?!"), localId=LOCALID_PHANPY_RED, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("I knew we shouldn't have trusted him.\NThis is bad."), localId=LOCALID_JIGGLYPUFF_RED, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    mnmbox(format("Can you bring the power back somehow?!"), localId=LOCALID_PHANPY_RED, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    mnmbox(format("I-I don't know?\nMaybe?"), localId=LOCALID_JIGGLYPUFF_RED, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    mnmbox(format("“Maybe”?!"), localId=LOCALID_PHANPY_RED, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    mnmbox(format("I'll look into it, okay?\pBut someone should go after the Doctor!"), localId=LOCALID_JIGGLYPUFF_RED, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    mnmbox(format("Larvy, let's go!\pJiggly, can you look after Bagon?"), localId=LOCALID_PHANPY_RED, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    mnmbox(format("Will do."), localId=LOCALID_JIGGLYPUFF_RED, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("We need to find the Doctor and get him to fix this!"), localId=LOCALID_PHANPY_RED, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    closemessage
+    setflag(FLAG_NO_OW_MUSIC)
+    setflag(FLAG_ALWAYS_RAINING)
+    setvar(VAR_GAME_STATE, GS_CENTRE_GOING_AFTER_DRAMPA)
+    warp(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE, 0)
+    waitstate
+    end
+
+}

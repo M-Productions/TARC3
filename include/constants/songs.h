@@ -563,6 +563,7 @@
 #define MUS_CALM_CUTSCENE           617
 #define MUS_CUTSCENE_MYSTERIOUS     618
 #define MUS_VISITOR_CENTRE          619
+#define MUS_VS_BOSS_POWERFUL        620
 
 
 #endif  // GUARD_CONSTANTS_SONGS_H

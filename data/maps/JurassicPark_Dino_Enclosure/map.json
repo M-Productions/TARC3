@@ -26,17 +26,18 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_TYRANTRUM_PLATFORM",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRANTRUM)",
       "x": 11,
-      "y": 24,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "y": 22,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TYRANTRUM_PLATFORM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRUNT)",
@@ -49,23 +50,175 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DINOS_PLATFORM"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRUNT)",
-      "x": 24,
+      "x": 22,
       "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_APPROACH_PLAYER_OWE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DINOS_PLATFORM"
+    },
+    {
+      "local_id": "LOCALID_KABUTO_PLATFORM",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
+      "x": 6,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_KABUTO_PLATFORM"
+    },
+    {
+      "local_id": "LOCALID_DRAMPA_PLATFORM",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
+      "x": 17,
+      "y": 15,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_CHARACTERS_PLATFORM"
+    },
+    {
+      "local_id": "LOCALID_JIGGLYPUFF_PLATFORM",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF)",
+      "x": 16,
+      "y": 17,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_CHARACTERS_PLATFORM"
+    },
+    {
+      "local_id": "LOCALID_BAGON_PLATFORM",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BAGON)",
+      "x": 17,
+      "y": 17,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_CHARACTERS_PLATFORM"
+    },
+    {
+      "local_id": "LOCALID_PHANPY_PLATFORM",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PHANPY)",
+      "x": 18,
+      "y": 17,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_CHARACTERS_PLATFORM"
     }
   ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOUGHT_KABUTO",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_CENTRE_AFTER_BRIDGE",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_CENTRE_AFTER_BRIDGE",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_CENTRE_AFTER_BRIDGE",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_CENTRE_AFTER_BRIDGE",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke"
+    }
+  ],
   "bg_events": []
 }
