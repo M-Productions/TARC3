@@ -543,19 +543,15 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
     {
-        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerAttackMove = MOVE_LARVESTA_ATTACK_TUTORIAL,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
-        .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+        .playerStatusMove = MOVE_LARVESTA_TALK_TUTORIAL,
+        .playerAceMove = MOVE_LARVESTA_TICKLE_TUTORIAL,
 
         .enemySpecies = SPECIES_DRAMPA,
         .enemyAttackMove = MOVE_SNORE,
-        .enemyDefendMove = MOVE_QUIVER_DANCE,
-        .enemyStatusMove = MOVE_BITE,
-        .enemyAceMove = MOVE_ROAR,
         .enemyStatusEffect = STATUS1_SLEEP_TURN(2),
 
-        .battleFlags = BATTLE_TYPE_CATCH_TUTORIAL,
         .aiFunc = AI_SequentialMoves,
     },
 
@@ -626,7 +622,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
 
 void StartPuzzleTutorialBattle(void)
 {
-    StartPuzzleBattle(BP_HEADBUTT);
+    StartPuzzleBattle(BP_TUTORIAL);
 }
 
 void BattleSetup_StartScriptedWildBattle(void)

@@ -131,7 +131,9 @@ static enum CancelerResult CancelerAsleepOrFrozen(struct BattleCalcValues *cv)
         else
         {
             u32 toSub;
-            if (IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_EARLY_BIRD))
+            if (gBattleMons[cv->battlerAtk].species == SPECIES_DRAMPA)
+                toSub = 0;
+            else if (IsAbilityAndRecord(cv->battlerAtk, cv->abilities[cv->battlerAtk], ABILITY_EARLY_BIRD))
                 toSub = 2;
             else
                 toSub = 1;

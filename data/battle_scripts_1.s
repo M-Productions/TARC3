@@ -1959,6 +1959,18 @@ BattleScript_SpecialArchenTutorial::
 	setadditionaleffects
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectTalkTutorial::
+	attackcanceler
+	attackanimation
+	waitanimation
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_TalkTutorial_StillAsleep
+	callnative BS_EndDrampaTutorialBattle
+	goto BattleScript_MoveEnd
+BattleScript_TalkTutorial_StillAsleep::
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectHoldHands::
 	attackcanceler
 	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_ButItFailed

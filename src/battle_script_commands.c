@@ -12586,6 +12586,13 @@ void BS_CancelMultiTurnMoves(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_EndDrampaTutorialBattle(void)
+{
+    NATIVE_ARGS();
+    gBattleOutcome = B_OUTCOME_WON;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_IsRunningImpossible(void)
 {
     NATIVE_ARGS();

@@ -23840,4 +23840,59 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
         .battleAnimScript = gBattleAnimMove_FlareBlitz,
     },
+
+    [MOVE_LARVESTA_ATTACK_TUTORIAL] =
+    {
+        .name = COMPOUND_STRING("Attack"),
+        .description = COMPOUND_STRING(
+            "Attempts to fight back,\n"
+            "but nothing happens."),
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_VineWhip,
+    },
+
+    [MOVE_LARVESTA_TALK_TUTORIAL] =
+    {
+        .name = COMPOUND_STRING("Talk"),
+        .description = COMPOUND_STRING(
+            "Talks to the target. Only\n"
+            "works once it's calm."),
+        .effect = EFFECT_TALK_TUTORIAL,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Growl,
+    },
+
+    [MOVE_LARVESTA_TICKLE_TUTORIAL] =
+    {
+        .name = COMPOUND_STRING("Tickle"),
+        .description = COMPOUND_STRING(
+            "Distracts the target,\n"
+            "waking it up."),
+        .effect = EFFECT_DO_NOTHING_TUTORIAL,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .status = STATUS1_SLEEP },
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_REMOVE_STATUS,
+        }),
+        .battleAnimScript = gBattleAnimMove_Tickle,
+    },
 };
