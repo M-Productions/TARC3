@@ -66,20 +66,6 @@
       "flag": "FLAG_HIDE_DINOS_PLATFORM"
     },
     {
-      "local_id": "LOCALID_KABUTO_PLATFORM",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KABUTO)",
-      "x": 8,
-      "y": 16,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "FLAG_HIDE_KABUTO_PLATFORM"
-    },
-    {
       "local_id": "LOCALID_DRAMPA_PLATFORM",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
       "x": 17,
@@ -136,51 +122,23 @@
       "flag": "FLAG_HIDE_CHARACTERS_PLATFORM"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 27,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAIN",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_GOING_TO_PLATFORM",
-      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 17,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_GOING_TO_PLATFORM",
-      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_GOING_TO_PLATFORM",
-      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_GOING_TO_PLATFORM",
-      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
-    },
     {
       "type": "trigger",
       "x": 14,
       "y": 13,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
+      "var_value": "GS_GOING_TO_PLATFORM",
       "script": "JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer"
     },
     {
@@ -218,15 +176,6 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_CENTRE_AFTER_BRIDGE",
       "script": "JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_GOING_TO_PLATFORM",
-      "script": "JurassicPark_Dino_Enclosure_EventScript_Kabuto"
     }
   ],
   "bg_events": []

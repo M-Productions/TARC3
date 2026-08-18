@@ -429,69 +429,6 @@
     },
     {
       "type": "trigger",
-      "x": 15,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 22,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
-    },
-    {
-      "type": "trigger",
-      "x": 33,
-      "y": 22,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
-    },
-    {
-      "type": "trigger",
-      "x": 32,
-      "y": 22,
-      "elevation": 0,
-      "var": "VAR_GAME_STATE",
-      "var_value": "GS_FOUGHT_KABUTO",
-      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
-    },
-    {
-      "type": "trigger",
       "x": 31,
       "y": 8,
       "elevation": 0,

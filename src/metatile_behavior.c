@@ -202,7 +202,7 @@ bool8 MetatileBehavior_IsSandOrDeepSand(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsDeepSand(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_DEEP_SAND)
+    if (metatileBehavior == MB_DEEP_SAND || metatileBehavior == MB_QUICKSAND)
         return TRUE;
     else
         return FALSE;
@@ -1299,6 +1299,7 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
     if (metatileBehavior == MB_NO_RUNNING
      || metatileBehavior == MB_LONG_GRASS
      || metatileBehavior == MB_HOT_SPRINGS
+     || metatileBehavior == MB_SHALLOW_WATER
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
     else

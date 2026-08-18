@@ -31,20 +31,6 @@ mapscripts JurassicPark_Dino_Enclosure_MapScripts {
     }
 }
 
-script JurassicPark_Dino_Enclosure_EventScript_Kabuto
-{
-    lockall
-    playse(SE_PIN)
-    applymovement(LOCALID_KABUTO_PLATFORM, moves(emote_exclamation_mark, delay_16, face_left))
-    waitmovement(0)
-    msgbox(format("PLACEHOLDER: SKIPPING BATTLE"))
-    closemessage
-    removeobject(LOCALID_KABUTO_PLATFORM)
-    setvar(VAR_GAME_STATE, GS_FOUGHT_KABUTO)
-    release
-    end
-}
-
 script JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer
 {
     mnmbox(format("Ah!\nHere you are!\pCome, come!"), localId=LOCALID_DRAMPA_PLATFORM)

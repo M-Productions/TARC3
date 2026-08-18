@@ -12,9 +12,9 @@
         "keyHeight": 4,
         "laneHeight": 48,
         "pxPerBeat": 65.70640715974844,
-        "scrollPx": 9353,
-        "scrollY": 20,
-        "selectedTrack": 4,
+        "scrollPx": 0,
+        "scrollY": 0,
+        "selectedTrack": 2,
         "splitter": [
             492,
             150

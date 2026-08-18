@@ -203,7 +203,7 @@
 #define VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR              0x40B5
 #define VAR_TRICK_HOUSE_PUZZLE_7_STATE_2                 0x40B6 // Leftover from RS, never set
 #define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7
-#define VAR_UNUSED_0x40B8                                0x40B8 // Unused Var
+#define VAR_MOUNTAIN_STATE                                0x40B8 // Unused Var
 #define VAR_MT_PYRE_STATE                                0x40B9
 #define VAR_NEW_MAUVILLE_STATE                           0x40BA
 #define VAR_UNUSED_0x40BB                                0x40BB // Unused Var
@@ -270,14 +270,16 @@
 #define VAR_QUICKSAND_STEPS                              0x40F8 // Unused Var
 #define VAR_NON_QUICKSAND_X                              0x40F9 // Unused Var
 #define VAR_NON_QUICKSAND_Y                              0x40FA // Unused Var
-#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+#define VAR_FIRST_SAVED                                0x40FB // Unused Var
+#define VAR_SECOND_SAVED                                0x40FC // Unused Var
+#define VAR_THIRD_SAVED                                0x40FD // Unused Var
+#define VAR_MARSH_STATE                                0x40FE // Unused Var
+#define VAR_DESERT_STATE                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
+
+#define VAR_MARSH_COMPLETE                           0X5000
 
 #define SPECIAL_VARS_START            0x8000
 // special vars
@@ -348,13 +350,25 @@ enum GameStates
     GS_MET_DRAMPA,
     GS_IN_CENTRE,
     GS_GOING_TO_PLATFORM,
-    GS_FOUGHT_KABUTO,
     GS_DRAMPA_EXPLAINER,
     GS_CENTRE_SECOND_VISIT,
     GS_CENTRE_GOING_AFTER_DRAMPA,
     GS_HEADING_TOWARDS_LAB,
     GS_CENTRE_AFTER_BRIDGE,
-    GS_NO_GENERATORS
+    GS_NO_GENERATORS,
+    GS_ONE_GENERATOR,
+    GS_POST_ONE_GENERATOR,
+    GS_TWO_GENERATORS,
+    GS_POST_TWO_GENERATORS,
+    GS_THREE_GENERATORS,
+    GS_POST_THREE_GENERATORS
+};
+
+enum Characters
+{
+    CHAR_PHANPY,
+    CHAR_JIGGLYPUFF,
+    CHAR_BAGON
 };
 
 #endif // GUARD_CONSTANTS_VARS_H

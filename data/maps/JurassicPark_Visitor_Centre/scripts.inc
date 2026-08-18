@@ -340,7 +340,7 @@ JurassicPark_Visitor_Centre_EventScript_Drampa_12:
 # 237 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	mnmbox JurassicPark_Visitor_Centre_EventScript_Drampa_Text_15, localId = LOCALID_DRAMPA_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
 # 238 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_Drampa_Text_16, localId = LOCALID_PHANPY_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_Drampa_Text_16, localId = LOCALID_PHANPY_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 239 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	mnmbox JurassicPark_Visitor_Centre_EventScript_Drampa_Text_17, localId = LOCALID_DRAMPA_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_SAD
 # 240 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
@@ -664,7 +664,7 @@ JurassicPark_Visitor_Centre_EventScript_Phanpy_Text_4:
 	.string "They may be mindless as Dr. Drampa said,\n"
 	.string "but…\l"
 	.string "They're still Pokémon.\p"
-	.string "And exhibiting them in enclosure…\n"
+	.string "And exhibiting them in enclosures…\n"
 	.string "I'm not sure about it.$"
 
 JurassicPark_Visitor_Centre_EventScript_Phanpy_Text_5:
@@ -697,7 +697,7 @@ JurassicPark_Visitor_Centre_EventScript_Phanpy_Text_8:
 JurassicPark_Visitor_Centre_EventScript_Jigglypuff_Text_0:
 # 112 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	.string "This face…\n"
-	.string "Its smug aura seems to mock me.$"
+	.string "Its smug aura mocks me.$"
 
 JurassicPark_Visitor_Centre_EventScript_Jigglypuff_Text_1:
 # 115 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
@@ -721,8 +721,8 @@ JurassicPark_Visitor_Centre_EventScript_Armaldo_Text_0:
 # 138 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	.string "ARMALDO\n"
 	.string "The plated fortress.\p"
-	.string "Its scales make it impenetrable to any\n"
-	.string "assault.$"
+	.string "Its tough scales make it impenetrable\n"
+	.string "to any assault.$"
 
 JurassicPark_Visitor_Centre_EventScript_Ammonite_Text_0:
 # 144 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
@@ -736,8 +736,7 @@ JurassicPark_Visitor_Centre_EventScript_Schematics_Text_0:
 
 JurassicPark_Visitor_Centre_EventScript_Computer_Text_0:
 # 157 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	.string "You've never really been good with\n"
-	.string "technology.$"
+	.string "You've never been good with technology.$"
 
 JurassicPark_Visitor_Centre_EventScript_Amber_Text_0:
 # 164 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
@@ -747,7 +746,7 @@ JurassicPark_Visitor_Centre_EventScript_Amber_Text_0:
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_0:
 # 184 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	.string "Ah, hello!\p"
-	.string "Yes, as I was going to say, I have a boat\n"
+	.string "Yes, as I was saying, I have a boat\n"
 	.string "ready to get you back as soon as the\l"
 	.string "rain stops.\p"
 	.string "Of course, you'll put a good word for\n"
@@ -848,8 +847,8 @@ JurassicPark_Visitor_Centre_EventScript_Drampa_Text_15:
 
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_16:
 # 238 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	.string "If these prehistoric Pokémon are as\n"
-	.string "strong as you said…$"
+	.string "So… What are these Pokémon like?\p"
+	.string "We tried talking to them, but…$"
 
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_17:
 # 239 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
@@ -862,7 +861,7 @@ JurassicPark_Visitor_Centre_EventScript_Drampa_Text_18:
 
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_19:
 # 241 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	.string "(What was that pause for…?)$"
+	.string "(What was that look for…?)$"
 
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_20:
 # 242 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
@@ -879,8 +878,7 @@ JurassicPark_Visitor_Centre_EventScript_Drampa_Text_20:
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_21:
 # 249 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	.string "Well, what are we waiting for?\p"
-	.string "Let's go see it!\p"
-	.string "$"
+	.string "Let's go see it!$"
 
 JurassicPark_Visitor_Centre_EventScript_LarvyPanic_Text_0:
 # 284 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"

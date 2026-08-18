@@ -71,20 +71,6 @@
       "elevation": 0,
       "dest_map": "MAP_JURASSIC_PARK_BEACH_DOCKS",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 36,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAIN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 36,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_JURASSIC_PARK_MARSHLANDS_MAIN",
-      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
