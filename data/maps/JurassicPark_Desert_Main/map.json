@@ -205,8 +205,8 @@
       "x": 9,
       "y": 77,
       "elevation": 0,
-      "dest_map": "MAP_JURASSIC_PARK_DESERT_MAIN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE",
+      "dest_warp_id": "2"
     },
     {
       "x": 58,
