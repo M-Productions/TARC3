@@ -526,16 +526,44 @@ static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerD
     return score;
 }
 
-static s32 AI_OneThenTwo(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+static EWRAM_DATA bool8 sRampardosHasRolled = FALSE;
+static EWRAM_DATA u8 sRampardosRolledTurn = 0;
+static EWRAM_DATA u8 sRampardosChosenSlot = 0;
+static EWRAM_DATA u8 sRampardosHeadbuttStreak = 0;
+
+static void ResetRampardosRandomAI(void)
 {
-    u32 turnCycle = gBattleResults.battleTurnCounter % 3;
-    
-    if (turnCycle == 0 && move == gBattleMons[battlerAtk].moves[0])
+    sRampardosHasRolled = FALSE;
+    sRampardosRolledTurn = 0;
+    sRampardosChosenSlot = 0;
+    sRampardosHeadbuttStreak = 0;
+}
+
+static s32 AI_RampardosRandom(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    u32 turn = gBattleResults.battleTurnCounter;
+
+    if (!sRampardosHasRolled || turn != sRampardosRolledTurn)
+    {
+        sRampardosHasRolled = TRUE;
+        sRampardosRolledTurn = turn;
+
+        if (sRampardosHeadbuttStreak >= 2)
+            sRampardosChosenSlot = 0;
+        else if (sRampardosHeadbuttStreak == 1)
+            sRampardosChosenSlot = RandomPercentage(RNG_NONE, 75) ? 1 : 0;
+        else
+            sRampardosChosenSlot = RandomPercentage(RNG_NONE, 50) ? 1 : 0;
+
+        if (sRampardosChosenSlot == 1)
+            sRampardosHeadbuttStreak++;
+        else
+            sRampardosHeadbuttStreak = 0;
+    }
+
+    if (move == gBattleMons[battlerAtk].moves[sRampardosChosenSlot])
         return 100;
-    
-    if ((turnCycle == 1 || turnCycle == 2) && move == gBattleMons[battlerAtk].moves[1])
-        return 100;
-    
+
     return score;
 }
 
@@ -572,7 +600,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyDefendMove = MOVE_HEAD_CHARGE,
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
-        .aiFunc = AI_OneThenTwo,
+        .aiFunc = AI_RampardosRandom,
     }
 };
 
@@ -616,6 +644,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = puzzlesData->battleFlags;
+    ResetRampardosRandomAI();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
