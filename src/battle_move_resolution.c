@@ -1147,6 +1147,35 @@ static enum CancelerResult CancelerBide(struct BattleCalcValues *cv)
     return CANCELER_RESULT_SUCCESS;
 }
 
+static enum CancelerResult CancelerSingArmaldo(struct BattleCalcValues *cv)
+{
+    if (cv->moveEffect != EFFECT_SING_ARMALDO)
+        return CANCELER_RESULT_SUCCESS;
+
+    if (gBattleMons[cv->battlerAtk].volatiles.multipleTurns)
+    {
+        gBattleMons[cv->battlerAtk].volatiles.multipleTurns = FALSE;
+        if (gBideDmg[cv->battlerAtk])
+        {
+            gBattlescriptCurrInstr = BattleScript_FocusPunchLostFocus;
+            return CANCELER_RESULT_FAILURE;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = BattleScript_TryNonVolatileStatus;
+            return CANCELER_RESULT_RUN_SCRIPT_AND_INCREMENT;
+        }
+    }
+    else
+    {
+        gBattleMons[gBattlerAttacker].volatiles.multipleTurns = TRUE;
+        gLockedMoves[gBattlerAttacker] = gCurrentMove;
+        gBideDmg[gBattlerAttacker] = 0;
+        gBattlescriptCurrInstr = BattleScript_SetUpBide;
+        return CANCELER_RESULT_RUN_SCRIPT_AND_INCREMENT;
+    }
+}
+
 static bool32 ShouldSkipFailureCheckOnBattler(enum BattlerId battlerAtk, enum BattlerId battlerDef, bool32 checkResultFlag)
 {
     if (gBattleStruct->battlerState[battlerAtk].targetsDone[battlerDef])
@@ -2445,6 +2474,7 @@ static enum CancelerResult (*const sMoveSuccessOrderCancelers[])(struct BattleCa
     [CANCELER_NOT_FULLY_PROTECTED] = CancelerNotFullyProtected,
     [CANCELER_MULTIHIT_MOVES] = CancelerMultihitMoves,
     [CANCELER_ACCURACY_CHECK] = CancelerAccuracyCheck,
+    [CANCELER_SING_ARMALDO] = CancelerSingArmaldo,
 };
 
 enum CancelerResult DoAttackCanceler(void)

@@ -2482,6 +2482,7 @@ BattleScript_EffectTorment::
 
 BattleScript_EffectNonVolatileStatus::
 	attackcanceler
+BattleScript_TryNonVolatileStatus::
 	trynonvolatilestatus
 	accuracycheck
 	attackanimation

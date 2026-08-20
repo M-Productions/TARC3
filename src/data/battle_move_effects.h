@@ -106,6 +106,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleFactoryStyle = FACTORY_STYLE_HIGH_RISK,
     },
 
+    [EFFECT_SING_ARMALDO] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 5,
+        .battleFactoryStyle = FACTORY_STYLE_HIGH_RISK,
+    },
+
     [EFFECT_ROAR] =
     {
         .battleScript = BattleScript_EffectRoar,

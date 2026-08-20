@@ -1272,10 +1272,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A soothing song lulls the\n"
             "foe into a deep slumber."),
-        .effect = EFFECT_NON_VOLATILE_STATUS,
+        .effect = EFFECT_SING_ARMALDO,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 55,
+        .accuracy = 0,
         .pp = 15,
         .target = TARGET_SELECTED,
         .priority = 0,
