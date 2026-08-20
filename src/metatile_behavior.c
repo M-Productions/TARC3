@@ -844,8 +844,7 @@ bool8 MetatileBehavior_IsLandWildEncounter(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsWaterWildEncounter(u8 metatileBehavior)
 {
-    if (MetatileBehavior_IsSurfableWaterOrUnderwater(metatileBehavior) == TRUE
-     && MetatileBehavior_IsEncounterTile(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsDeepSand(metatileBehavior))
         return TRUE;
     else
         return FALSE;
@@ -1300,6 +1299,7 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
      || metatileBehavior == MB_LONG_GRASS
      || metatileBehavior == MB_HOT_SPRINGS
      || metatileBehavior == MB_SHALLOW_WATER
+     || metatileBehavior == MB_QUICKSAND
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
     else

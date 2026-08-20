@@ -535,7 +535,7 @@ script JurassicPark_Visitor_Centre_EventScript_TyrantrumScene
     waitmovement(0)
     mnmbox(format("What are you guys doing out here?!"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     mnmbox(format("We're going to repair the generators!"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
-    mnmbox(format("Yeah, I figured out where the generators are.\pBut the only way to restart them is manually."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Yeah, I figured out where the generators are.\pTurns out, there's a bridge to the lab, but it retracts when the generators are out as a security measure.\pAnd the only way to take 'em back up is manually."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     mnmbox(format("Forget about it!\nThe cage is broken!\pWe need to hide, now!"), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     mnmbox(format("What?!"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     closemessage

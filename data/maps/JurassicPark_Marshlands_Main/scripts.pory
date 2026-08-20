@@ -24,10 +24,11 @@ mapscripts JurassicPark_Marshlands_Main_MapScripts {
             applymovement(LOCALID_PLAYER, moves(walk_down*2))
             applymovement(LOCALID_JIGGLYPUFF_MARSH, moves(walk_down*2))
             waitmovement(0)
-            mnmbox(format("Hah\nWe make a pretty good team, after all!\pWe REALLY should be hanging out together more often outside of our treasure hunts.\NJust the two of us, yeah?\pWe can make Phanpy a little jealous, as a joke.\NC'mon, it'd be funny."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            mnmbox(format("Hah!\nWe make a pretty good team, after all!\pWe REALLY should be hanging out together more often outside of our treasure hunts.\NJust the two of us, yeah?\pWe can make Phanpy a little jealous, as a joke.\NC'mon, it'd be funny."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
             if(var(VAR_GAME_STATE) == GS_THREE_GENERATORS)
             {
                 mnmbox(format("… … …"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("What, not in the mood for jokes?\pWhatever."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
             }
             else
             {
@@ -88,13 +89,13 @@ script JurassicPark_Marshlands_EventScript_Jigglypuff
         {
             case GS_NO_GENERATORS:
                 mnmbox(format("(I haven't found anyone else yet…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
-                mnmbox(format("Still missing in action, eh?\nHopefully they will be fine."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+                mnmbox(format("Still missing in action, eh?\nI'm sure they'll be fine."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
             case GS_POST_ONE_GENERATOR:
                 switch(var(VAR_FIRST_SAVED))
                 {
                     case CHAR_PHANPY:
                         mnmbox(format("(I only managed to find Phanpy so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
-                        mnmbox(format("Bagon is still missing, eh?\nThat's a bit worrying.\pShe always was a bit clueless.\pBut I'm sure it'll be fine, as always."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+                        mnmbox(format("Bagon is still missing, eh?\nThat's a bit concerning.\pShe was always the clueless one.\pBut I'm sure it'll be fine, as always."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
 
                     case CHAR_BAGON:
                         mnmbox(format("(I only managed to find Bagon so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)

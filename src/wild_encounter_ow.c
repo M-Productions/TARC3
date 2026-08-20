@@ -1726,9 +1726,19 @@ static bool32 CheckRestrictedOWEMovementAtCoords(struct ObjectEvent *owe, s32 xN
 
 static bool32 CheckRestrictedOWEMovementMetatile(s32 xCurrent, s32 yCurrent, s32 xNew, s32 yNew)
 {
+    if (!WE_OWE_RESTRICT_METATILE)
+        return FALSE;
 
-    return FALSE;
+    u32 metatileBehaviourCurrent = MapGridGetMetatileBehaviorAt(xCurrent, yCurrent);
+    u32 metatileBehaviourNew = MapGridGetMetatileBehaviorAt(xNew, yNew);
+
+    if (MetatileBehavior_IsWaterWildEncounter(metatileBehaviourCurrent)
+     && MetatileBehavior_IsWaterWildEncounter(metatileBehaviourNew))
+        return FALSE;
+
+    return TRUE;
 }
+
 
 static bool32 CheckRestrictedOWEMovementMap(struct ObjectEvent *owe, s32 xNew, s32 yNew)
 {

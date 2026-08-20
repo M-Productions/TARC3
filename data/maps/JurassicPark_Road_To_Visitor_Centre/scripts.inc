@@ -2100,7 +2100,10 @@ JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Text_2:
 # 538 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Yeah, I figured out where the\n"
 	.string "generators are.\p"
-	.string "But the only way to restart them is\n"
+	.string "Turns out, there's a bridge to the lab,\n"
+	.string "but it retracts when the generators\l"
+	.string "are out as a security measure.\p"
+	.string "And the only way to take 'em back up is\n"
 	.string "manually.$"
 
 JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Text_3:

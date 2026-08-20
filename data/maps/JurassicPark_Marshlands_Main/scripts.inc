@@ -1,47 +1,47 @@
 JurassicPark_Marshlands_Main_MapScripts::
-# 44 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 45 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION
 # 2 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-# 45 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 46 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	compare VAR_MARSH_STATE, 3
 	goto_if_ge JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
-# 50 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 51 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	compare VAR_MARSH_STATE, 4
 	goto_if_eq JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
 	return
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
-# 47 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectmovementtype LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE
 # 48 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setobjectmovementtype LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE
+# 49 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	setobjectmovementtype LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE
 	goto JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
-# 52 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	destroyfollowernpc
 # 53 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	clearflag FLAG_HIDE_JIGGLYPUFF_MARSH
+	destroyfollowernpc
 # 54 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	clearflag FLAG_HIDE_JIGGLYPUFF_MARSH
 # 55 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+# 56 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	compare VAR_TEMP_A, 20
 	goto_if_eq JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_6
-# 62 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectxyperm LOCALID_JIGGLYPUFF_MARSH, 20, 37
 # 63 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setobjectxyperm LOCALID_JIGGLYPUFF_MARSH, 20, 37
+# 64 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	setobjectxy LOCALID_JIGGLYPUFF_MARSH, 20, 37
 	return
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_TRANSITION_6:
-# 57 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectxyperm LOCALID_JIGGLYPUFF_MARSH, 21, 37
 # 58 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setobjectxyperm LOCALID_JIGGLYPUFF_MARSH, 21, 37
+# 59 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	setobjectxy LOCALID_JIGGLYPUFF_MARSH, 21, 37
 	return
 
@@ -93,176 +93,178 @@ JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1:
 # 26 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	waitmovement 0
 # 27 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	faceplayer
-# 28 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_1, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 29 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 28 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	compare VAR_GAME_STATE, GS_THREE_GENERATORS
 	goto_if_eq JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_2
 # 35 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_3, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_4, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_1:
 # 37 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setfollowernpc LOCALID_JIGGLYPUFF_MARSH, FOLLOWER_NPC_FLAG_ALL
+	mnmbox JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_5, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 38 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	closemessage
+	setfollowernpc LOCALID_JIGGLYPUFF_MARSH, FOLLOWER_NPC_FLAG_ALL
 # 39 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	closemessage
+# 40 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	release
 	end
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_2:
-# 31 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 30 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+# 31 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	mnmbox JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_3, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_1
 
 
 JurassicPark_Marshlands_Main_EventScript_GoBack::
-# 71 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_Main_EventScript_GoBack_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 72 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Marshlands_Main_EventScript_GoBack_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 73 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Marshlands_Main_EventScript_GoBack_Movement_0
+	closemessage
 # 74 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_PLAYER, JurassicPark_Marshlands_Main_EventScript_GoBack_Movement_0
 # 75 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	waitmovement 0
+# 76 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	release
 	end
 
 
 JurassicPark_Marshlands_EventScript_Jigglypuff::
-# 82 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	lockall
 # 83 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	lockall
+# 84 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	compare VAR_MARSH_STATE, 1
 	goto_if_eq JurassicPark_Marshlands_EventScript_Jigglypuff_2
-# 119 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	faceplayer
 # 120 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_13, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+	faceplayer
 # 121 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_13, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 122 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	closemessage
+# 123 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	release
 	end
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_2:
-# 85 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	faceplayer
 # 86 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_0, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+	faceplayer
 # 87 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_0, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+# 88 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	switch VAR_GAME_STATE
-# 89 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 90 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	case GS_NO_GENERATORS, JurassicPark_Marshlands_EventScript_Jigglypuff_6
-# 92 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 93 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	case GS_POST_ONE_GENERATOR, JurassicPark_Marshlands_EventScript_Jigglypuff_7
-# 103 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 104 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	case GS_POST_TWO_GENERATORS, JurassicPark_Marshlands_EventScript_Jigglypuff_8
 JurassicPark_Marshlands_EventScript_Jigglypuff_4:
-# 108 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_9, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 109 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_10, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_9, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 110 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_11, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_10, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 111 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_12, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_11, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 112 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_12, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 113 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setvar VAR_MARSH_STATE, 2
+	closemessage
 # 114 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	destroyfollowernpc
+	setvar VAR_MARSH_STATE, 2
 # 115 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setfollowernpc LOCALID_JIGGLYPUFF_MARSH, FOLLOWER_NPC_FLAG_ALL
+	destroyfollowernpc
 # 116 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setfollowernpc LOCALID_JIGGLYPUFF_MARSH, FOLLOWER_NPC_FLAG_ALL
+# 117 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	releaseall
 	end
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_6:
-# 90 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 91 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 92 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_2, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_SIGH
 	goto JurassicPark_Marshlands_EventScript_Jigglypuff_4
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_7:
-# 93 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 94 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	switch VAR_FIRST_SAVED
-# 95 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 96 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	case CHAR_PHANPY, JurassicPark_Marshlands_EventScript_Jigglypuff_10
-# 99 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 100 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	case CHAR_BAGON, JurassicPark_Marshlands_EventScript_Jigglypuff_11
 	goto JurassicPark_Marshlands_EventScript_Jigglypuff_4
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_8:
-# 104 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_7, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 105 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_7, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+# 106 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_8, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_SIGH
 	goto JurassicPark_Marshlands_EventScript_Jigglypuff_4
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_10:
-# 96 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_3, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 97 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_3, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 98 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_4, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_SIGH
 	goto JurassicPark_Marshlands_EventScript_Jigglypuff_4
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_11:
-# 100 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 101 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 102 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_EventScript_Jigglypuff_Text_6, localId = LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion = MUGSHOT_EMOTE_SIGH
 	goto JurassicPark_Marshlands_EventScript_Jigglypuff_4
 
 
 JurassicPark_Marshlands_EventScript_Anorith::
-# 129 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 130 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	compare VAR_MARSH_STATE, 2
 	goto_if_eq JurassicPark_Marshlands_EventScript_Anorith_2
 JurassicPark_Marshlands_EventScript_Anorith_1:
 	end
 
 JurassicPark_Marshlands_EventScript_Anorith_2:
-# 131 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	lockall
 # 132 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	msgbox JurassicPark_Marshlands_EventScript_Anorith_Text_0
+	lockall
 # 133 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Anorith_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	msgbox JurassicPark_Marshlands_EventScript_Anorith_Text_0
 # 134 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Marshlands_EventScript_Anorith_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 135 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	removeobject LOCALID_ANORITH_1
+	closemessage
 # 136 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectmovementtype LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE
+	removeobject LOCALID_ANORITH_1
 # 137 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	clearflag FLAG_TEMP_3
+	setobjectmovementtype LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE
 # 138 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	addobject LOCALID_ANORITH_1
+	clearflag FLAG_TEMP_3
 # 139 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	removeobject LOCALID_ANORITH_2
+	addobject LOCALID_ANORITH_1
 # 140 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectmovementtype LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE
+	removeobject LOCALID_ANORITH_2
 # 141 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	clearflag FLAG_TEMP_1
+	setobjectmovementtype LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE
 # 142 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	addobject LOCALID_ANORITH_2
+	clearflag FLAG_TEMP_1
 # 143 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setvar VAR_MARSH_STATE, 3
+	addobject LOCALID_ANORITH_2
 # 144 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setvar VAR_MARSH_STATE, 3
+# 145 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	releaseall
 	goto JurassicPark_Marshlands_EventScript_Anorith_1
 
 
 JurassicPark_Marshlands_EventScript_NotGoingThere::
-# 151 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_NotGoingThere_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
 # 152 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Marshlands_EventScript_NotGoingThere_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
 # 153 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	closemessage
+# 154 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	applymovement LOCALID_PLAYER, JurassicPark_Marshlands_Main_EventScript_GoBack_Movement_0
 	end
 
@@ -283,9 +285,9 @@ JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Movement_0:
 	delay_16
 	step_end
 
-# 73 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 74 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 JurassicPark_Marshlands_Main_EventScript_GoBack_Movement_0:
-# 73 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 74 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	walk_down
 	step_end
 
@@ -302,8 +304,8 @@ JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_0:
 	.string "since Armaldo is in front of you.$"
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_1:
-# 28 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	.string "Hah\n"
+# 27 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	.string "Hah!\n"
 	.string "We make a pretty good team, after all!\p"
 	.string "We REALLY should be hanging out\n"
 	.string "together more often outside of our\l"
@@ -314,66 +316,75 @@ JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_1:
 	.string "C'mon, it'd be funny.$"
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_2:
-# 31 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 30 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "… … …$"
 
 JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_3:
+# 31 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	.string "What, not in the mood for jokes?\p"
+	.string "Whatever.$"
+
+JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_4:
 # 35 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(Making Phanpy…\n"
 	.string "Jealous…?)$"
 
+JurassicPark_Marshlands_Main_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_5:
+# 37 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	.string "C'mon, let's go back.$"
+
 JurassicPark_Marshlands_Main_EventScript_GoBack_Text_0:
-# 71 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 72 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(There's no time to waste.)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_0:
-# 86 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 87 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "Hey, look who just showed up.\n"
 	.string "I was worried you'd be a goner by now.\p"
 	.string "How's the others?$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_1:
-# 90 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 91 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I haven't found anyone else yet…)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_2:
-# 91 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 92 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "Still missing in action, eh?\n"
-	.string "Hopefully they will be fine.$"
+	.string "I'm sure they'll be fine.$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_3:
-# 96 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 97 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I only managed to find Phanpy so far…)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_4:
-# 97 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 98 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "Bagon is still missing, eh?\n"
-	.string "That's a bit worrying.\p"
-	.string "She always was a bit clueless.\p"
+	.string "That's a bit concerning.\p"
+	.string "She was always the clueless one.\p"
 	.string "But I'm sure it'll be fine, as always.$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_5:
-# 100 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 101 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I only managed to find Bagon so far…)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_6:
-# 101 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 102 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "Phanpy is still missing, eh?\n"
 	.string "Meh, I wouldn't worry too much.\p"
 	.string "She's probably off somewhere exploring.$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_7:
-# 104 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 105 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I can't…\n"
 	.string "Bring myself to say it…)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_8:
-# 105 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 106 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "What, Meowth got your tongue?\p"
 	.string "You're even quieter than usual.$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_9:
-# 108 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 109 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "Anyway, as you can see, I survived.\p"
 	.string "I figure that brute won't be able to\n"
 	.string "come in here.\p"
@@ -386,11 +397,11 @@ JurassicPark_Marshlands_EventScript_Jigglypuff_Text_9:
 	.string "While running away.$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_10:
-# 109 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 110 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(Is that even a thing?)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_11:
-# 110 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 111 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "I was thinking that maybe, somehow get\n"
 	.string "some of these Pokémon with\l"
 	.string "sharp-looking claws to cut them down\l"
@@ -404,15 +415,15 @@ JurassicPark_Marshlands_EventScript_Jigglypuff_Text_11:
 	.string "them into doing our work for us?$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_12:
-# 111 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I'll see what I can do…)$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_13:
-# 120 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 121 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "Let's go, Larvy.$"
 
 JurassicPark_Marshlands_EventScript_Anorith_Text_0:
-# 132 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 133 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "PLACEHOLDER\p"
 	.string "In this battle the puzzle is that you\n"
 	.string "have to perform an action on Jiggly,\l"
@@ -420,12 +431,12 @@ JurassicPark_Marshlands_EventScript_Anorith_Text_0:
 	.string "the Anorith.$"
 
 JurassicPark_Marshlands_EventScript_Anorith_Text_1:
-# 133 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 134 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "…Now, that's funny.\p"
 	.string "Whatever, as long as it works.\n"
 	.string "Let's just go.$"
 
 JurassicPark_Marshlands_EventScript_NotGoingThere_Text_0:
-# 151 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 152 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I'm DEFINITELY not going back in\n"
 	.string "there.)$"

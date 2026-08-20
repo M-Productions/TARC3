@@ -1,4 +1,28 @@
-mapscripts JurassicPark_Desert_Main_MapScripts {}
+mapscripts JurassicPark_Desert_Main_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_DESERT_STATE, 0 {
+        
+            lock
+            mnmbox(format("(A desert…\nThe sand is making my face tickle.)\p(I need to find Phanpy.)"), localId=LOCALID_PLAYER)
+            closemessage
+            applymovement(LOCALID_PLAYER, moves(walk_up*2))
+            waitmovement(0)
+            setvar(VAR_DESERT_STATE, 1)
+            release
+        }
+    ]
+    MAP_SCRIPT_ON_LOAD
+    {
+        if(var(VAR_DESERT_STATE) >= 4)
+        {
+            call(JurassicPark_Desert_Main_RemoveHouse)
+            setobjectxyperm(LOCALID_RAMPARDOS, 45, 7)
+            setobjectmovementtype(LOCALID_RAMPARDOS, MOVEMENT_TYPE_FACE_UP)
+
+        }
+    }
+}
+
 
 script JurassicPark_Desert_Main_EventScript_WarpToLastPosition {
     playse(SE_DOWNPOUR)
@@ -12,7 +36,242 @@ script JurassicPark_Desert_Main_EventScript_WarpToLastPosition {
     callnative(CreateCradilyToGetYa)
     callnative(DoOWESpawnAnim_Cradily)
     facetogether(LOCALID_PLAYER, LOCALID_CRADILY)
-    mnmbox("Who are you?\n{PAUSE 40}Get out of my sandpit!", localId=LOCALID_CRADILY)
+    mnmbox("Grogogaaargh!", localId=LOCALID_CRADILY)
     warpsilent(MAP_JURASSIC_PARK_DESERT_MAIN, VAR_NON_QUICKSAND_X, VAR_NON_QUICKSAND_Y)
     waitstate
 }
+
+script JurassicPark_Desert_Main_EventScript_CantLeave
+{
+    mnmbox(format("(I still have things to do here.)"), localId=LOCALID_PLAYER)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    end
+}
+
+script JurassicPark_Desert_Main_EventScript_PhanpyJoins
+{
+    lockall
+    playse(SE_PIN)
+    applymovement(LOCALID_PHANPY_DESERT, moves(emote_exclamation_mark, delay_16, walk_right))
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(face_left))
+    waitmovement(0)
+    mnmbox(format("Larvy!\nI'm so glad to see you!\pHow are the others doing?"), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+        switch(var(VAR_GAME_STATE))
+        {
+            case GS_NO_GENERATORS:
+                mnmbox(format("(I haven't seen anyone else yet…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                mnmbox(format("Oh, I'm the first one you found?\n…Hmm.\pJiggly will be fine.\nBut Bagon…\pWe should hurry up here."), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                mnmbox(format("(What are we doing here, exactly…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            case GS_POST_ONE_GENERATOR:
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_JIGGLYPUFF:
+                        mnmbox(format("(I only managed to find Jiggly so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("…Hmm.\nI'm a bit worried about Bagon.\pShe's always had her head in the clouds.\pI think we should hurry up here."), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("(What are we doing here, exactly…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+
+                    case CHAR_BAGON:
+                        mnmbox(format("(I only managed to find Bagon so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("…Hmm.\nI know Jiggly can hold his own.\pBut…\nI can't help but worry about him.\pIf something happened to him, I…\pLet's just hurry up here."), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("(What are we doing here, exactly…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                }
+            case GS_POST_TWO_GENERATORS:
+                mnmbox(format("(I can't…\nBring myself to say it…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("…Are you ok, Larvy?\pI know we've been through a lot, but we need to hurry."), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+
+        }
+        mnmbox(format("There's a generator close by.\pThe sooner we restart it, the quicker this nightmare is over.\pThe problem is, remember Cradily?\NThat plant skeleton we saw earlier in the visitor centre.\pThere are a few lurking in these quicksand pits.\pI think they may be attracted by the water in the sand.\pThis is REALLY not the right environment for them…\NThey must be so agitated."), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        mnmbox(format("(Guess the Doctor hasn't put much thought into these habitats…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        mnmbox(format("If we want to cross that quicksand, we have to be quick.\pI guess that's why they call it quicksand, heh.\pLet's go, Larvy."), localId=LOCALID_PHANPY_DESERT)
+        closemessage
+        destroyfollowernpc
+        setfollowernpc(LOCALID_PHANPY_DESERT, FOLLOWER_NPC_FLAG_ALL)
+        setvar(VAR_DESERT_STATE, 2)
+        releaseall
+        end
+}
+
+script JurassicPark_Desert_Main_EventScript_Phanpy
+{
+    mnmbox(format("Let's go, Larvy"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    closemessage
+    end
+}
+
+script JurassicPark_Desert_Main_EventScript_House
+{
+    if(var(VAR_DESERT_STATE) == 2)
+    {
+        mnmbox(format("Look, Larvy!\nThere's stairs there!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+        closemessage
+        special(SpawnCameraObject)
+        applymovement(LOCALID_CAMERA, moves(walk_up*4, delay_16*3, walk_down*4))
+        waitmovement(0)
+        special(RemoveCameraObject)
+        mnmbox(format("But this house is in the way…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        mnmbox(format("(Wait, she hasn't noticed yet…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        mnmbox(format("… … …\pHey, wait a minute.\nThere's something… Off."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        mnmbox(format("Wait!\nThis house…\lIs not a house at all!\pIt's made of cardboard!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+        mnmbox(format("(There we go.)"), localId=LOCALID_PLAYER)
+        mnmbox(format("Which means, we just need to find a way to knock it down.\pLet's look around!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+        closemessage
+        setvar(VAR_DESERT_STATE, 3)
+        end
+    }
+    else
+    {
+        goto(General_EventScript_Cutout)
+    }
+    
+}
+
+script JurassicPark_Desert_Main_EventsScript_GoLeft
+{
+    mnmbox(format("Woah!\nThis must be a Rampardos.\pFascinating!\nBut dangerous.\pLet's keep clear, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_left))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_left))
+    waitmovement(0)
+    end
+}
+
+script JurassicPark_Desert_Main_EventsScript_RampardosFight
+{
+    mnmbox(format("Wait, Larvy, do you think that…\pWe could get this Rampardos to knock the house down?"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    mnmbox(format("(It seems a bit overkill…\nBut it might be worth a shot.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("It looks scary, but it hasn't been attacking us.\NSo maybe…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    mnmbox(format("(If we found a way to communicate…)"), localId=LOCALID_PLAYER)
+    mnmbox(format("If we got it really really mad…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("(That's not what I was thinking at all!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("Oh, do you think it's a bad idea…?"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("(Well…\nIt could work.)\p(We get it mad at us, and then lure it to the house.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    mnmbox(format("Hehe.\pLet's go, team!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    closemessage
+    msgbox(format("PLACEHOLDER\nInsert Rampardos battle here."))
+    mnmbox(format("Run, Larvy, run!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+    lockall
+    closemessage
+
+    applymovement(LOCALID_PLAYER, moves(walk_fast_left*5, walk_fast_up*5, walk_fast_left*2, face_right))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_fast_left*5, walk_fast_up*5, walk_fast_left*2, face_right))
+    applymovement(LOCALID_RAMPARDOS, moves(unlock_facing_direction, walk_fast_left*6, walk_fast_up*7))
+    waitmovement(LOCALID_RAMPARDOS)
+    playse(SE_UNLOCK)
+    call(JurassicPark_Desert_Main_RemoveHouse)
+    waitse
+    delay(16)
+    mnmbox(format("Graaaargh…"), localId=LOCALID_RAMPARDOS, mugshotEmotion=MUGSHOT_EMOTE_DIZZY)
+    closemessage
+    applymovement(LOCALID_RAMPARDOS, moves(walk_right*3, walk_up*4))
+    waitmovement(0)
+    setobjectxyperm(LOCALID_RAMPARDOS, 45, 7)
+    setobjectmovementtype(LOCALID_RAMPARDOS, MOVEMENT_TYPE_FACE_UP)
+    removeobject(LOCALID_RAMPARDOS)
+    clearflag(FLAG_HIDE_RAMPARDOS)
+    addobject(LOCALID_RAMPARDOS)
+    mnmbox(format("We did it!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+    mnmbox(format("…Ah!\nDid I overdo it?\NIs the Rampardos ok?\pI didn't give it brain damage, did I?"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("(I'm…\nSure it will be fine…)\p(But, uh, wasn't that really risky…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("I-I'm sorry, I got a bit carried away.\pI thought it was a good idea, and, and-"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+    mnmbox(format("(We did free the way to the stairs.)"), localId=LOCALID_PLAYER)
+    mnmbox(format("I don't want to see these Pokémon just as…\NObstacles in our path.\pWe may not be able to talk to them, but they're still Pokémon.\pWhen we get out of this mess, we should try and convince Doctor Drampa to change his mind on the park idea.\pI bet these Pokémon are so agitated because they just want to…\NLive free."), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    if(var(VAR_GAME_STATE) == GS_POST_TWO_GENERATORS)
+    {
+        mnmbox(format("… … …"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    }
+    else{
+        mnmbox(format("(Agreed.)"), localId=LOCALID_PLAYER)
+    }
+    mnmbox(format("Now let's go, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    setvar(VAR_DESERT_STATE, 4)
+    releaseall
+    end
+}
+
+script JurassicPark_Desert_Main_RemoveHouse
+{
+    setmetatile(39, 10 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(40, 10 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(41, 10 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(42, 10 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(39, 9 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(40, 9 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(41, 9 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(42, 9 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(39, 8 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(40, 8 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(41, 8 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(42, 8 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(39, 7 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(40, 7 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(41, 7 METATILE_Desert_Primary_Sand, FALSE)
+    setmetatile(42, 7 METATILE_Desert_Primary_Sand, FALSE)
+    special(DrawWholeMapView)
+    return
+}
+
+script JurassicPark_Desert_Main_EventScript_Rampardos
+{
+    mnmbox(format("Graaaargh…"), localId=LOCALID_RAMPARDOS, mugshotEmotion=MUGSHOT_EMOTE_DIZZY)
+    closemessage
+    end
+}
+
+script JurassicPark_Desert_Main_EventScript_Cradily
+{
+    playse(SE_PIN)
+    applymovement(LOCALID_CRADILY_STATIC, moves(emote_exclamation_mark, delay_16, face_up))
+    waitmovement(0)
+    msgbox(format("PLACEHOLDER\pThe puzzle here is getting Cradily to dig, and using Bulldoze with Phanpy."))
+    closemessage
+    removeobject(LOCALID_CRADILY_STATIC)
+    mnmbox(format("Wait…\nI get it!\pCradily are attracted by vibration, so if I use Bulldoze…\pIt's going to confuse them, and get them off our tail!\p…I'm sorry, Cradily.\nBut we have a generator to restart."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    closemessage
+    msgbox(format("Phanpy can now use Bulldoze!\p…But it's not implemented yet, so get teleported instead."))
+    closemessage
+    setvar(VAR_DESERT_STATE, 5)
+    warp(MAP_JURASSIC_PARK_DESERT_MAIN, 1)
+    waitstate
+    end
+}
+
+script JurassicPark_Desert_Main_EventScript_Generator
+{
+    if(var(VAR_DESERT_STATE) == 5)
+    {
+        mnmbox(format("Look!\nWe did it!\NWe really did it!\pI think we have to press this button here, and…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+        closemessage
+        playse(SE_M_STRENGTH)
+        setvar(VAR_0x8004, 1)  // vertical pan
+	    setvar(VAR_0x8005, 1)  // horizontal pan
+	    setvar(VAR_0x8006, 20) // num shakes
+	    setvar(VAR_0x8007, 5)  // shake delay
+        special(ShakeCamera)
+        waitstate
+        mnmbox(format("Yes!\nAnd what an adventure it was!\pThis totally makes up for my wrecked boat."), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+        mnmbox(format("… … …\nMy boat…\N Sniff."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+        mnmbox(format("No! I have to be strong!\NWe can get a new boat after this!\pC'mon Larvy, let's go back to the visitor centre."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+        closemessage
+        switch(var(VAR_GAME_STATE))
+        {
+            case GS_NO_GENERATORS:
+                setvar(VAR_GAME_STATE, GS_ONE_GENERATOR)
+                setvar(VAR_FIRST_SAVED, CHAR_PHANPY)
+            case GS_POST_ONE_GENERATOR:
+                setvar(VAR_GAME_STATE, GS_TWO_GENERATORS)
+                setvar(VAR_SECOND_SAVED, CHAR_PHANPY)
+            case GS_POST_TWO_GENERATORS:
+                setvar(VAR_GAME_STATE, GS_THREE_GENERATORS)
+                setvar(VAR_THIRD_SAVED, CHAR_PHANPY)
+        }
+        setvar(VAR_DESERT_STATE, 6)
+        setvar(VAR_DESERT_COMPLETE, 1)
+    }
+    end
+}
+
+
+    
