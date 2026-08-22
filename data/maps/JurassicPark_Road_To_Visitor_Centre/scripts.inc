@@ -1054,8 +1054,10 @@ JurassicPark_Visitor_Centre_EventScript_TyrantrumScene::
 # 583 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	setflag FLAG_HIDE_DRAMPA_CENTRE
 # 584 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	clearflag FLAG_SPAWN_WEST
+	setflag FLAG_HIDE_DINOS_WILDS
 # 585 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	clearflag FLAG_SPAWN_WEST
+# 586 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	waitstate
 	return
 

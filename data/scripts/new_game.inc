@@ -277,6 +277,7 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_DINOS_WILDS
 	setflag FLAG_HIDE_TYRANTRUM_FOREST
 	setflag FLAG_HIDE_BAGON_FOREST
+	setflag(FLAG_HIDE_ARCHEOPS_BASE)
 	end
 
 EventScript_ResetAllMapFlagsFrlg::

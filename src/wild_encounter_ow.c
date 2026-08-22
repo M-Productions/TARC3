@@ -1733,10 +1733,15 @@ static bool32 CheckRestrictedOWEMovementMetatile(s32 xCurrent, s32 yCurrent, s32
     u32 metatileBehaviourNew = MapGridGetMetatileBehaviorAt(xNew, yNew);
 
     if (MetatileBehavior_IsWaterWildEncounter(metatileBehaviourCurrent)
+     && !MetatileBehavior_IsWaterWildEncounter(metatileBehaviourNew))
+        return TRUE;
+    
+    if (!MetatileBehavior_IsWaterWildEncounter(metatileBehaviourCurrent)
      && MetatileBehavior_IsWaterWildEncounter(metatileBehaviourNew))
-        return FALSE;
+        return TRUE;
+        
 
-    return TRUE;
+    return FALSE;
 }
 
 

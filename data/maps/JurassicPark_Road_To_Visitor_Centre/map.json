@@ -204,6 +204,20 @@
       "elevation": 0,
       "dest_map": "MAP_JURASSIC_PARK_DESERT_MAIN",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MOUNTAIN_BASE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MOUNTAIN_BASE",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

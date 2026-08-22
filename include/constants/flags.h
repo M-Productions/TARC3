@@ -84,11 +84,11 @@
 #define FLAG_HIDE_PHANPY_DESERT    0x3E // Unused Flag
 #define FLAG_HIDE_RAMPARDOS    0x3F // Unused Flag
 #define FLAG_HIDE_CRADILY    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
+#define FLAG_HIDE_BRUTE_BONNET    0x41 // Unused Flag
+#define FLAG_HIDE_BAGON_MOUNTAIN    0x42 // Unused Flag
+#define FLAG_HIDE_ARCHEOPS    0x43 // Unused Flag
+#define FLAG_HIDE_AERODACTYL    0x44 // Unused Flag
+#define FLAG_HIDE_ARCHEOPS_BASE    0x45 // Unused Flag
 #define FLAG_UNUSED_0x046    0x46 // Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag

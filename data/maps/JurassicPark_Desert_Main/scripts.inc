@@ -921,14 +921,15 @@ JurassicPark_Desert_Main_EventScript_Generator_Text_0:
 JurassicPark_Desert_Main_EventScript_Generator_Text_1:
 # 254 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Yes!\n"
-	.string "What an adventure!\p"
+	.string "And what an adventure it was!\p"
 	.string "This totally makes up for my wrecked\n"
 	.string "boat.$"
 
 JurassicPark_Desert_Main_EventScript_Generator_Text_2:
 # 255 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "… … …\n"
-	.string "My boat… Sniff.$"
+	.string "My boat…\l"
+	.string "Sniff.$"
 
 JurassicPark_Desert_Main_EventScript_Generator_Text_3:
 # 256 "data/maps/JurassicPark_Desert_Main/scripts.pory"

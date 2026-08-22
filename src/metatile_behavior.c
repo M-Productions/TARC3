@@ -210,14 +210,6 @@ bool8 MetatileBehavior_IsDeepSand(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_POND_WATER
-     || metatileBehavior == MB_PUDDLE
-     || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2
-     || metatileBehavior == MB_ICE
-     || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER
-     || metatileBehavior == MB_REFLECTION_UNDER_BRIDGE)
-        return TRUE;
-    else
         return FALSE;
 }
 
@@ -844,7 +836,11 @@ bool8 MetatileBehavior_IsLandWildEncounter(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsWaterWildEncounter(u8 metatileBehavior)
 {
-    if (MetatileBehavior_IsDeepSand(metatileBehavior))
+    if (MetatileBehavior_IsDeepSand(metatileBehavior)
+    || MetatileBehavior_IsNorthwardCurrent(metatileBehavior)
+    || MetatileBehavior_IsSouthwardCurrent(metatileBehavior)
+    || MetatileBehavior_IsEastwardCurrent(metatileBehavior)
+    || MetatileBehavior_IsWestwardCurrent(metatileBehavior))
         return TRUE;
     else
         return FALSE;
