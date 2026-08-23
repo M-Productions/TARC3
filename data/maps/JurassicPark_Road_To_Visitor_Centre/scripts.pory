@@ -47,6 +47,23 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
             setobjectmovementtype(2, MOVEMENT_TYPE_SLEEP)
             setobjectmovementtype(3, MOVEMENT_TYPE_SLEEP)
         }
+        if(var(VAR_GAME_STATE) == GS_ONE_GENERATOR_CUTSCENE)
+        {
+            switch(var(VAR_FIRST_SAVED))
+            {
+                case CHAR_BAGON:
+                    setobjectxyperm(LOCALID_BAGON_FOREST, 31, 10)
+                    setobjectmovementtype(LOCALID_BAGON_FOREST, MOVEMENT_TYPE_FACE_RIGHT)
+                case CHAR_PHANPY:
+                    setobjectxyperm(LOCALID_PHANPY_FOREST, 31, 10)
+                    setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_RIGHT)
+                case CHAR_JIGGLYPUFF:
+                    setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 31, 10)
+                    setobjectmovementtype(LOCALID_JIGGLYPUFF_FOREST, MOVEMENT_TYPE_FACE_RIGHT)
+
+            }
+            
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_GAME_STATE, GS_CENTRE_GOING_AFTER_DRAMPA {
@@ -54,6 +71,9 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
         }
         VAR_GAME_STATE, GS_CENTRE_AFTER_BRIDGE {
             goto(JurassicPark_Visitor_Centre_EventScript_TyrantrumScene)
+        }
+        VAR_GAME_STATE, GS_ONE_GENERATOR_CUTSCENE {
+            goto(JurassicPark_Visitor_Centre_EventScript_OneGeneratorCutscene)
         }
     ]
 }
@@ -585,4 +605,114 @@ script JurassicPark_Visitor_Centre_EventScript_TyrantrumScene
     clearflag(FLAG_SPAWN_WEST)
     waitstate
     
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon
+{
+    mnmbox(format("We almost made it back!\nAnd no scary Pokémon to be found.\pHopefully it stays that way!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("(I do wonder were it went, though.)\p(It couldn't have left the island, but…\NMaybe it really won't bother us again.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Let's go back to the centre."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    fadescreen(FADE_TO_BLACK)
+    destroyfollowernpc
+    clearflag(FLAG_HIDE_BAGON_FOREST)
+    setflag(FLAG_SPAWN_WEST)
+    setvar(VAR_GAME_STATE, GS_ONE_GENERATOR_CUTSCENE)
+    warpsilent(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE, 32, 10)
+    waitstate
+    end
+
+}
+
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy
+{
+    mnmbox(format("Whew!\nFinally, no more sand.\pReminds me of that time we went to the desert to look for treasure…\NAnd we fell in a pit, and Jiggly got sand up his nose!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("(I didn't even know he had a nose.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("After this is over, let's go on vacation somewhere… calmer.\pBut first, let's go back to the centre."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    fadescreen(FADE_TO_BLACK)
+    destroyfollowernpc
+    clearflag(FLAG_HIDE_PHANPY_FOREST)
+    setflag(FLAG_SPAWN_WEST)
+    setvar(VAR_GAME_STATE, GS_ONE_GENERATOR_CUTSCENE)
+    warpsilent(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE, 32, 10)
+    waitstate
+    end
+
+}
+
+
+script JurassicPark_Visitor_Centre_EventScript_OneGeneratorCutscene
+{
+    switch(var(VAR_FIRST_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("Hey, Larvy…\pWould it be…\nOkay, if I stayed here while you look for the others…?"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            mnmbox(format("(Sure, I guess so, but…\nWhy's that?)"), localId=LOCALID_PLAYER)
+            mnmbox(format("I… I wish I could do more, but…\nI think… I may need a rest.\pI'm sorry, I…\nI know I'm not too useful, and, and…\lI'm not as strong as you guys, and…"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+            mnmbox(format("(Bagon, it's okay.\nYou're too tired to keep going.)\p(Taking breaks to avoid injuries is important.)"), localId=LOCALID_PLAYER)
+            mnmbox(format("I'll make up for it, I swear!\pOnce I've rested, I'm gonna back to kicking some prehistoric butts!\pOne day, Larvy, one day I will become a Salamence, and…\NI'll never be tired and scared again!"), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            applymovement(LOCALID_BAGON_FOREST, moves(walk_up*2))
+            waitmovement(0)
+            removeobject(LOCALID_BAGON_FOREST)
+            clearflag(FLAG_HIDE_BAGON_CENTRE)
+            clearflag(FLAG_SPAWN_WEST)
+            playse(SE_EXIT)
+            waitse
+            mnmbox(format("(Bagon…\nShe's working so hard.)\p(She was the last one to join our group.\NAnd she's really eager to prove herself.)\p(I don't blame her for needing rest.\nBut I DO wish there was someone else helping me right now.)\p(Speaking of, I should go and find the others.)"), localId=LOCALID_PLAYER)
+            
+        case CHAR_PHANPY:
+            mnmbox(format("Larvy, can I ask you something…?\pWould you mind if I stayed here at the centre FOR NOW?"), localId=LOCALID_PHANPY_FOREST)
+            mnmbox(format("(Sure, I guess so, but…\nWhy's that?)"), localId=LOCALID_PLAYER)
+            mnmbox(format("Well, I just thought…\nWe've been encountering dangerous Pokémon we've never seen before.\pI figure, maybe there's some  information in the centre that that could be useful."), localId=LOCALID_PHANPY_FOREST)
+            mnmbox(format("(I see.\nThat does make sense.)"), localId=LOCALID_PLAYER)
+            mnmbox(format("I don't want to leave you alone for too long!\pI just want to make sure we're smart about this.\pMaybe these Pokémon don't need to be our enemies.\pMaybe, we can find a way to get them to understand us.\pI don't like what the Doctor is doing.\pHe brought these Pokémon to life, but he hasn't been treating them like living beings.\pI would…\nI would like to change that."), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            applymovement(LOCALID_PHANPY_FOREST, moves(walk_up*2))
+            waitmovement(0)
+            removeobject(LOCALID_PHANPY_FOREST)
+            clearflag(FLAG_HIDE_PHANPY_CENTRE)
+            clearflag(FLAG_SPAWN_WEST)
+            playse(SE_EXIT)
+            waitse
+            mnmbox(format("(I've known Phanpy longer than anyone else.)\p(It wouldn't be wrong to say that she's been the driving force of our adventures.)\p(She wants to know everything there is to know about the world…)\p(Maybe too much, sometimes.)\p(While she's looking for more information, I should go and see if I can find the others.)"), localId=LOCALID_PLAYER)
+
+          case CHAR_JIGGLYPUFF:
+            mnmbox(format("I hate to say this, but…\pI may tap out for a bit."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+            mnmbox(format("(Uh, sure, I guess, but…\nWhy's that?)"), localId=LOCALID_PLAYER)
+            mnmbox(format("I hurt my floatation sack."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+            mnmbox(format("(That wasn't a joke?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+            mnmbox(format("Why would I joke about something like that?!\pI'm a very serious person, I'll let you know!"), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+            mnmbox(format("(I suppose…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+            mnmbox(format("No, look, I'll be honest with you.\NIt's hurting pretty bad.\nI don't want to make it seem like I'm bailing on you.\pI just need…\nI just need to catch my breath for a bit, is all.\pI can…\nCount on you finding Phanpy and Bagon, can I?"), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+            mnmbox(format("(Of course.)"), localId=LOCALID_PLAYER)
+            mnmbox(format("I know I can rely on you, Larvy.\pI'll be back in no time, and these brutes will know the wrath of Jigglypuff!"), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            applymovement(LOCALID_JIGGLYPUFF_FOREST, moves(walk_up*2))
+            waitmovement(0)
+            removeobject(LOCALID_JIGGLYPUFF_FOREST)
+            clearflag(FLAG_HIDE_JIGGLYPUFF_CENTRE)
+            clearflag(FLAG_SPAWN_WEST)
+            playse(SE_EXIT)
+            waitse
+            mnmbox(format("(Jiggly…)\p(He was the first one to join the adventuring team that Phanpy and I founded.)\p(He can be abrasive, and unserious, but…\nHe cares a lot about everyone.)\p(He wants to ensure sure that everyone is safe…)\p(And overdoes it, sometimes.)\p(But he wants us to succeed, more than anyone else.)\p(While he's recovering, I should go look for the others.)"), localId=LOCALID_PLAYER)
+
+    }
+    closemessage
+    setvar(VAR_GAME_STATE, GS_POST_ONE_GENERATOR)
+    end
+}
+
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly
+{
+    mnmbox(format("And here we are, safe and sound.\nObviously.\pYou did fairly good, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    mnmbox(format("(Uh, thanks…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("Yes, anyway.\pLet's not linger here too much.\nI don't want to see that ugly brute show up again.\pLet's go to the visitor centre, yeah?"), localId=LOCALID_JIGGLYPUFF_FOREST)
+    fadescreen(FADE_TO_BLACK)
+    destroyfollowernpc
+    clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
+    setflag(FLAG_SPAWN_WEST)
+    setvar(VAR_GAME_STATE, GS_ONE_GENERATOR_CUTSCENE)
+    warpsilent(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE, 32, 10)
+    waitstate
+    end
+
 }

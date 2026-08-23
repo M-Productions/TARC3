@@ -5,6 +5,7 @@ mapscripts JurassicPark_Visitor_Centre_MapScripts {
             case GS_DRAMPA_EXPLAINER:
                 goto(JurassicPark_Visitor_Centre_EventScript_CentreSecondVisit)
                 
+            
             default:
                 end
         }
@@ -57,6 +58,11 @@ script JurassicPark_Visitor_Centre_EventScript_Bagon
             faceplayer
             mnmbox(format("Now that I've met a real one, this skeleton is kind of scary."), localId=LOCALID_BAGON_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
             closemessage
+        case GS_POST_ONE_GENERATOR:
+            faceplayer
+            mnmbox(format("Hi, Larvy.\pOur adventure was really fun!\nFlying around was surprisingly tiring…\pI wonder if it's going to be as tiring when I'm a Salamence."), localId=LOCALID_BAGON_CENTRE)
+            closemessage
+            end
     }
     release
     end
@@ -97,6 +103,9 @@ script JurassicPark_Visitor_Centre_EventScript_Phanpy
             delay(32)
             warpsilent(MAP_JURASSIC_PARK_VISITOR_CENTRE_RED, VAR_TEMP_1, VAR_TEMP_2)
             waitstate
+        case GS_POST_ONE_GENERATOR:
+            mnmbox(format("Hmm…\nThey haven't evolved the ability to talk…\pBut maybe, if…"), localId=LOCALID_PHANPY_CENTRE)
+            closemessage
 
     }
     release
@@ -113,6 +122,12 @@ script JurassicPark_Visitor_Centre_EventScript_Jigglypuff
             closemessage
         case GS_CENTRE_SECOND_VISIT:
             mnmbox(format("Is that so…"), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            closemessage
+        case GS_POST_ONE_GENERATOR:
+            faceplayer
+            mnmbox(format("'Sup.\nI'm feeling a bit better.\pI'll be back to floating in no ti-"), localId=LOCALID_JIGGLYPUFF_CENTRE)
+            mnmbox(format("Owwww…"), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+            mnmbox(format("…No time at all."), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
             closemessage
 
     }

@@ -107,33 +107,6 @@
       "flag": "FLAG_HIDE_PHANPY_FOREST"
     },
     {
-      "local_id": "LOCALID_BASTIODON",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
-      "x": 21,
-      "y": 33,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
-      "flag": "FLAG_HIDE_BASTIODON_1"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
-      "x": 22,
-      "y": 33,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
-      "flag": "FLAG_HIDE_BASTIODON_2"
-    },
-    {
       "local_id": "LOCALID_ARCHEN",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCHEN)",
       "x": 42,
@@ -174,6 +147,33 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDE_TYRANTRUM_FOREST"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
+      "x": 22,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
+      "flag": "FLAG_HIDE_BASTIODON_2"
+    },
+    {
+      "local_id": "LOCALID_BASTIODON",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
+      "x": 21,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
+      "flag": "FLAG_HIDE_BASTIODON_1"
     }
   ],
   "warp_events": [
@@ -422,7 +422,7 @@
     {
       "type": "trigger",
       "x": 31,
-      "y": 22,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
       "var_value": "GS_GOING_TO_PLATFORM",
@@ -589,6 +589,150 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_PRE_MEETING_DRAMPA",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
     }
   ],
   "bg_events": [

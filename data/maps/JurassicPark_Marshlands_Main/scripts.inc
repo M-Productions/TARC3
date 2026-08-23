@@ -393,7 +393,7 @@ JurassicPark_Marshlands_EventScript_Jigglypuff_Text_9:
 	.string "full of barriers.\p"
 	.string "Now, I COULD flutter over them, but…\n"
 	.string "I, uh…\p"
-	.string "Hurt my floatation organ.\n"
+	.string "Hurt my floatation sack.\n"
 	.string "While running away.$"
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_10:

@@ -647,7 +647,9 @@ JurassicPark_Desert_Main_EventScript_PhanpyJoins_Text_0:
 # 61 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Larvy!\n"
 	.string "I'm so glad to see you!\p"
-	.string "How are the others doing?$"
+	.string "How are the others doing?\p"
+	.string "We all kind of ran away in different\n"
+	.string "directions…$"
 
 JurassicPark_Desert_Main_EventScript_PhanpyJoins_Text_1:
 # 65 "data/maps/JurassicPark_Desert_Main/scripts.pory"

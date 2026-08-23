@@ -340,7 +340,9 @@ JurassicPark_Mountain_Top_EventScript_Generator_Text_0:
 	.string "describe Jiggly.\p"
 	.string "But, but, this time I was useful!\p"
 	.string "I can't wait to tell everyone!\p"
-	.string "Come on, let's go back!$"
+	.string "Come on, let's go back!\p"
+	.string "Hopefully we don't run into that scary\n"
+	.string "Pokémon again.$"
 
 JurassicPark_Mountain_Top_EventScript_Generator_Text_1:
 # 77 "data/maps/JurassicPark_Mountain_Top/scripts.pory"

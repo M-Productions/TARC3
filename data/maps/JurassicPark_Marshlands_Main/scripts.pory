@@ -106,7 +106,7 @@ script JurassicPark_Marshlands_EventScript_Jigglypuff
                 mnmbox(format("What, Meowth got your tongue?\pYou're even quieter than usual."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
 
         }
-        mnmbox(format("Anyway, as you can see, I survived.\pI figure that brute won't be able to come in here.\pAs a matter of fact, there should be a generator around here, but the place is full of barriers.\pNow, I COULD flutter over them, but…\nI, uh…\pHurt my floatation organ.\nWhile running away."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        mnmbox(format("Anyway, as you can see, I survived.\pI figure that brute won't be able to come in here.\pAs a matter of fact, there should be a generator around here, but the place is full of barriers.\pNow, I COULD flutter over them, but…\nI, uh…\pHurt my floatation sack.\nWhile running away."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
         mnmbox(format("(Is that even a thing?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
         mnmbox(format("I was thinking that maybe, somehow get some of these Pokémon with sharp-looking claws to cut them down for us.\pThe problem is, they're in what I would describe as a…\NVegetative state.\pBut hey, you're the smart one, right?\pNo talk, no brawns, all brains?\pMaybe you can figure out how to goad them into doing our work for us?"), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
         mnmbox(format("(I'll see what I can do…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)

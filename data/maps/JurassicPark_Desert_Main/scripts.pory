@@ -58,7 +58,7 @@ script JurassicPark_Desert_Main_EventScript_PhanpyJoins
     waitmovement(0)
     applymovement(LOCALID_PLAYER, moves(face_left))
     waitmovement(0)
-    mnmbox(format("Larvy!\nI'm so glad to see you!\pHow are the others doing?"), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("Larvy!\nI'm so glad to see you!\pHow are the others doing?\pWe all kind of ran away in different directions…"), localId=LOCALID_PHANPY_DESERT, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
         switch(var(VAR_GAME_STATE))
         {
             case GS_NO_GENERATORS:

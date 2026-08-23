@@ -71,7 +71,7 @@ script JurassicPark_Mountain_Top_EventScript_Generator
     }
     setvar(VAR_MOUNTAIN_STATE, 7)
     setvar(VAR_MOUNTAIN_COMPLETE, 1)
-    mnmbox(format("Did it work?\pYes, it did!\pLarvy, I…\nThis was the most fun I've ever had on an adventure!\pI know I'm not as smart as you…\NOr resourceful like Phanpy…\NOr, uh…\pOkay, I don't really know how to describe Jiggly.\pBut, but, this time I was useful!\pI can't wait to tell everyone!\pCome on, let's go back!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("Did it work?\pYes, it did!\pLarvy, I…\nThis was the most fun I've ever had on an adventure!\pI know I'm not as smart as you…\NOr resourceful like Phanpy…\NOr, uh…\pOkay, I don't really know how to describe Jiggly.\pBut, but, this time I was useful!\pI can't wait to tell everyone!\pCome on, let's go back!\pHopefully we don't run into that scary Pokémon again."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     if(var(VAR_GAME_STATE) == GS_THREE_GENERATORS)
         {
             mnmbox(format("… … …"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
