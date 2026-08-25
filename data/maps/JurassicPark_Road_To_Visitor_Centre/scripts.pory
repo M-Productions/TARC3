@@ -141,7 +141,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial {
     mnmboxdelay
     playse(SE_M_SNORE)
     mnmboxdelay
-    callnative(StartPuzzleTutorialBattle)
+    puzzlebattle(BP_TUTORIAL)
     waitstate
     helpwindow(HELP_BATTLE_TUTORIAL)
     mnmbox("You're a very interesting Pokémon,\nwho are you?")

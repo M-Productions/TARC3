@@ -285,7 +285,7 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial::
 # 143 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	mnmboxdelay
 # 144 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	callnative StartPuzzleTutorialBattle
+	puzzlebattle BP_TUTORIAL
 # 145 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	waitstate
 # 146 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"

@@ -510,13 +510,6 @@ struct BattlePuzzle
     AiScoreFunc aiFunc;
 };
 
-enum BattlePuzzles
-{
-    BP_TUTORIAL,
-    BP_HEADBUTT,
-    BP_COUNT
-};
-
 static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
     u32 targetSlot = min(gBattleResults.battleTurnCounter, MAX_MON_MOVES - 1);
@@ -649,9 +642,10 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
-void StartPuzzleTutorialBattle(void)
+void StartPuzzleBattleScript(struct ScriptContext *ctx)
 {
-    StartPuzzleBattle(BP_TUTORIAL);
+    enum BattlePuzzles puzzle = ScriptReadByte(ctx);
+    StartPuzzleBattle(puzzle);
 }
 
 void BattleSetup_StartScriptedWildBattle(void)

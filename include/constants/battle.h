@@ -857,4 +857,11 @@ enum SubmoveState
     SUBMOVE_FAILURE,
 };
 
+enum BattlePuzzles
+{
+    BP_TUTORIAL,
+    BP_HEADBUTT,
+    BP_COUNT
+};
+
 #endif // GUARD_CONSTANTS_BATTLE_H
