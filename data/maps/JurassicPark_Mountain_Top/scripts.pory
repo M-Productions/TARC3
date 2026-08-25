@@ -1,1 +1,94 @@
 mapscripts JurassicPark_Mountain_Top_MapScripts {}
+
+script JurassicPark_Mountain_Top_EventScript_Volcano
+{
+    mnmbox(format("Wow!\nA volcano!\pAnd, and!\nThe generator is right there!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    closemessage
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_fast_up*19, delay_16*3, walk_fast_down*19))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    mnmbox(format("(Looks like it's being guarded by a powerful-looking Pokémon…)\p(And it looks like there's some really strong air currents.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Wait, I remember Phanpy telling me something about this.\pIt was like…\nHot air goes down…\pNo, maybe it goes up?\nAnd cold air…\pWell, y'know, yeah!\nThat!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("(… … …)\p(Anyway, physics aside, we need to get to the middle of this crater.)\p(Maybe that Pokémon could help us…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    closemessage
+    setvar(VAR_MOUNTAIN_STATE, 4)
+    release
+    end
+}
+
+script JurassicPark_Mountain_Top_EventScript_Archeops
+{
+    msgbox(format("PLACEHOLDER"))
+    closemessage
+    msgbox(format("Archeops will now help you fly over the lava!"))
+    closemessage
+    lock
+    removeobject(LOCALID_ARCHEOPS)
+    release
+    end
+}
+
+script JurassicPark_Mountain_Top_EventScript_Aerodactyl
+{
+    playse(SE_PIN)
+    applymovement(LOCALID_AERODACTYL, moves(emote_exclamation_mark, delay_16))
+    waitmovement(0)
+    msgbox(format("PLACEHOLDER\pBattle against Aerodactly."))
+    closemessage
+    removeobject(LOCALID_AERODACTYL)
+    mnmbox(format("We…\nDid it?\pWe did it!\nLarvy, we did it!\pAnd I helped!\nI was useful!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("(You were.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("If only the others could have seen it…\pAh!\nSpeaking of!\pLet's restart the generator, so we can get out of here!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    closemessage
+    setvar(VAR_MOUNTAIN_STATE, 5)
+    end
+}
+
+
+script JurassicPark_Mountain_Top_EventScript_Generator
+{
+    if(var(VAR_MOUNTAIN_STATE) == 5)
+    {
+    playse(SE_M_STRENGTH)
+    setvar(VAR_0x8004, 1)  // vertical pan
+	setvar(VAR_0x8005, 1)  // horizontal pan
+	setvar(VAR_0x8006, 20) // num shakes
+	setvar(VAR_0x8007, 5)  // shake delay
+    special(ShakeCamera)
+    waitstate
+    switch(var(VAR_GAME_STATE))
+    {
+        case GS_NO_GENERATORS:
+            setvar(VAR_GAME_STATE, GS_ONE_GENERATOR)
+            setvar(VAR_FIRST_SAVED, CHAR_BAGON)
+        case GS_POST_ONE_GENERATOR:
+            setvar(VAR_GAME_STATE, GS_TWO_GENERATORS)
+            setvar(VAR_SECOND_SAVED, CHAR_BAGON)
+        case GS_POST_TWO_GENERATORS:
+            setvar(VAR_GAME_STATE, GS_THREE_GENERATORS)
+            setvar(VAR_THIRD_SAVED, CHAR_BAGON)
+    }
+    setvar(VAR_MOUNTAIN_STATE, 7)
+    setvar(VAR_MOUNTAIN_COMPLETE, 1)
+    mnmbox(format("Did it work?\pYes, it did!\pLarvy, I…\nThis was the most fun I've ever had on an adventure!\pI know I'm not as smart as you…\NOr resourceful like Phanpy…\NOr, uh…\pOkay, I don't really know how to describe Jiggly.\pBut, but, this time I was useful!\pI can't wait to tell everyone!\pCome on, let's go back!\pHopefully we don't run into that scary Pokémon again."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    if(var(VAR_GAME_STATE) == GS_THREE_GENERATORS)
+        {
+            mnmbox(format("… … …"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        }
+    closemessage
+    clearflag(FLAG_HIDE_ARCHEOPS_BASE)
+    }
+    end
+}
+
+script JurassicPark_Mountain_Base_EventScript_ArcheopsBase
+{
+    msgbox(format("Seems like it wants to take you down the mountain.\pAccept the lift?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        warp(MAP_JURASSIC_PARK_MOUNTAIN_BASE, 67, 25)
+        waitstate
+    }
+    end
+}

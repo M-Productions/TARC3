@@ -1765,3 +1765,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/JurassicPark_Visitor_Centre/scripts.inc"
 
 	.include "data/maps/JurassicPark_Visitor_Centre_Red/scripts.inc"
+
+	.include "data/maps/JurassicPark_Black_Cutscene/scripts.inc"

@@ -3288,10 +3288,13 @@ static u8 InitFieldMoveMonSprite(enum Species species, bool8 isShiny, u32 person
     struct Sprite *sprite;
     noDucking = (species & SHOW_MON_CRY_NO_DUCKING) >> 16;
     species &= ~SHOW_MON_CRY_NO_DUCKING;
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
+    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
+    ||
+    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)))
     {
-        species = SPECIES_KABUTO;
+        species = SPECIES_ANORITH;
         isShiny = FALSE;
         personality = Random32();
     }
@@ -3380,26 +3383,28 @@ static void SurfFieldEffect_Init(struct Task *task)
 
 static void SurfFieldEffect_FieldMovePose(struct Task *task)
 {
-    struct ObjectEvent *objectEvent;
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
-    {
-        SetPlayerAvatarFieldMove();
-        ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
-        task->tState++;
-    }
+    //struct ObjectEvent *objectEvent;
+    //objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    //if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
+    //{
+        //SetPlayerAvatarFieldMove();
+        //ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
+    task->tState++;
+    
 }
 
 static void SurfFieldEffect_ShowMon(struct Task *task)
 {
-    struct ObjectEvent *objectEvent;
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    if (ObjectEventCheckHeldMovementStatus(objectEvent))
-    {
-        gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
-        task->tState++;
-    }
+    //This should show Archeops ideally
+    
+    //struct ObjectEvent *objectEvent;
+    //objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    //if (ObjectEventCheckHeldMovementStatus(objectEvent))
+    //{
+        //gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+    task->tState++;
+    
 }
 
 static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)

@@ -4266,7 +4266,13 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_FOREST_FIELD)             \
     X(MUS_FORGOTTEN_SWAMP)          \
     X(MUS_ANCIENT_DESERT)           \
-    X(MUS_LOST_MOUNTAINS)
+    X(MUS_LOST_MOUNTAINS)           \
+    X(MUS_MYSTERIOUS_BEACH)         \
+    X(MUS_JURASSIC_PARK_MAIN_THEME) \
+    X(MUS_CALM_CUTSCENE)            \
+    X(MUS_CUTSCENE_MYSTERIOUS)      \
+    X(MUS_VISITOR_CENTRE)           \
+    X(MUS_VS_BOSS_POWERFUL)
 
 #define SOUND_LIST_SE               \
     X(SE_USE_ITEM)                  \

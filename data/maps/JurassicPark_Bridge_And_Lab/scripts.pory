@@ -1,1 +1,221 @@
-mapscripts JurassicPark_Bridge_And_Lab_MapScripts {}
+mapscripts JurassicPark_Bridge_And_Lab_MapScripts {
+    MAP_SCRIPT_ON_LOAD{
+        if(flag(FLAG_HIDE_BRIDGE)){
+            setmetatile(28, 14, METATILE_Forest_Primary_TopRightCornerRock, FALSE)
+            setmetatile(28, 15, METATILE_Forest_Primary_FloorRock, FALSE)
+            setmetatile(28, 16, METATILE_Forest_Primary_FloorRock, FALSE)
+            setmetatile(28, 17, METATILE_Forest_Primary_FloorRock, FALSE)
+
+            setmetatile(29, 14, METATILE_Secret_Lab_Secondary_TopRightRockWater, TRUE)
+            setmetatile(29, 15, METATILE_Secret_Lab_Secondary_RightRockWater, TRUE)
+            setmetatile(29, 16, METATILE_Secret_Lab_Secondary_RightRockWater, TRUE)
+            setmetatile(29, 17, METATILE_Secret_Lab_Secondary_RightRockWater, TRUE)
+
+            setmetatile(30, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(30, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(30, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(30, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+            setmetatile(31, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(31, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(31, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(31, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+            setmetatile(32, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(32, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(32, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(32, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+            setmetatile(33, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(33, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(33, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(33, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    
+            setmetatile(34, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(34, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(34, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(34, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+            setmetatile(35, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(35, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(35, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(35, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+            setmetatile(36, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(36, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(36, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(36, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+
+            setmetatile(37, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(37, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(37, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(37, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+            setmetatile(38, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(38, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(38, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(38, 17, METATILE_Secret_Lab_Secondary_TopLeftRockWater, TRUE)
+
+            setmetatile(39, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(39, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(39, 16, METATILE_Secret_Lab_Secondary_TopLeftRockWater, TRUE)
+            setmetatile(39, 17, METATILE_Forest_Primary_LeftRock, TRUE)
+
+            setmetatile(40, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+            setmetatile(40, 15, METATILE_Secret_Lab_Secondary_TopLeftRockWater, TRUE)
+            setmetatile(40, 16, METATILE_Forest_Primary_LeftRock, TRUE)
+            setmetatile(40, 17, METATILE_Forest_Primary_LeftRock, TRUE)
+
+            setmetatile(41, 14, METATILE_Forest_Primary_LeftRock, TRUE)
+            setmetatile(41, 15, METATILE_Forest_Primary_LeftRock, TRUE)
+            setmetatile(41, 16, METATILE_Forest_Primary_LeftRock, TRUE)
+            setmetatile(41, 17, METATILE_Forest_Primary_LeftRock, TRUE)
+
+            setmetatile(42, 14, METATILE_Forest_Primary_FloorRock, TRUE)
+            setmetatile(42, 15, METATILE_Forest_Primary_FloorRock, TRUE)
+            setmetatile(42, 16, METATILE_Forest_Primary_FloorRock, TRUE)
+            setmetatile(42, 17, METATILE_Forest_Primary_FloorRock, TRUE)
+            special(DrawWholeMapView)
+        }
+
+    }
+}
+
+
+script JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa
+{
+    lockall
+    mnmbox(format("Doctor, where are you going?!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    closemessage
+    playse(SE_PIN)
+    applymovement(LOCALID_DRAMPA_BRIDGE, moves(emote_exclamation_mark, delay_16, walk_in_place_left))
+    waitmovement(0)
+    mnmbox(format("…I'm sorry.\nThere's no more time."), localId=LOCALID_DRAMPA_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_right))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_right))
+    applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_fast_right*2))
+    waitmovement(LOCALID_DRAMPA_BRIDGE)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_fast_right*3))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_right*3))
+    waitmovement(0)
+
+    setmetatile(28, 14, METATILE_Forest_Primary_TopRightCornerRock, FALSE)
+    setmetatile(28, 15, METATILE_Forest_Primary_FloorRock, FALSE)
+    setmetatile(28, 16, METATILE_Forest_Primary_FloorRock, FALSE)
+    setmetatile(28, 17, METATILE_Forest_Primary_FloorRock, FALSE)
+
+    setmetatile(29, 14, METATILE_Secret_Lab_Secondary_TopRightRockWater, TRUE)
+    setmetatile(29, 15, METATILE_Secret_Lab_Secondary_RightRockWater, TRUE)
+    setmetatile(29, 16, METATILE_Secret_Lab_Secondary_RightRockWater, TRUE)
+    setmetatile(29, 17, METATILE_Secret_Lab_Secondary_RightRockWater, TRUE)
+
+    setmetatile(30, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(30, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(30, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(30, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+    setmetatile(31, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(31, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(31, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(31, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    
+    
+    playse(SE_UNLOCK)
+    special(DrawWholeMapView)
+    
+    applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_fast_right*4))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_right*4))
+    waitmovement(0)
+
+    setmetatile(32, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(32, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(32, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(32, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+    setmetatile(33, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(33, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(33, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(33, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    
+    setmetatile(34, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(34, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(34, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(34, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+    setmetatile(35, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(35, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(35, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(35, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+    playse(SE_UNLOCK)
+    special(DrawWholeMapView)
+
+    applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_fast_right*4))
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_fast_right*4))
+    waitmovement(0)
+
+    setmetatile(36, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(36, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(36, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(36, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+
+    setmetatile(37, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(37, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(37, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(37, 17, METATILE_Secret_Lab_Secondary_Water, TRUE)
+
+    setmetatile(38, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(38, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(38, 16, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(38, 17, METATILE_Secret_Lab_Secondary_TopLeftRockWater, TRUE)
+
+    setmetatile(39, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(39, 15, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(39, 16, METATILE_Secret_Lab_Secondary_TopLeftRockWater, TRUE)
+    setmetatile(39, 17, METATILE_Forest_Primary_LeftRock, TRUE)
+
+    playse(SE_UNLOCK)
+    special(DrawWholeMapView)
+
+    applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_fast_right*6))
+    waitmovement(0)
+
+    setmetatile(40, 14, METATILE_Secret_Lab_Secondary_Water, TRUE)
+    setmetatile(40, 15, METATILE_Secret_Lab_Secondary_TopLeftRockWater, TRUE)
+    setmetatile(40, 16, METATILE_Forest_Primary_LeftRock, TRUE)
+    setmetatile(40, 17, METATILE_Forest_Primary_LeftRock, TRUE)
+
+    setmetatile(41, 14, METATILE_Forest_Primary_LeftRock, TRUE)
+    setmetatile(41, 15, METATILE_Forest_Primary_LeftRock, TRUE)
+    setmetatile(41, 16, METATILE_Forest_Primary_LeftRock, TRUE)
+    setmetatile(41, 17, METATILE_Forest_Primary_LeftRock, TRUE)
+
+    setmetatile(42, 14, METATILE_Forest_Primary_FloorRock, TRUE)
+    setmetatile(42, 15, METATILE_Forest_Primary_FloorRock, TRUE)
+    setmetatile(42, 16, METATILE_Forest_Primary_FloorRock, TRUE)
+    setmetatile(42, 17, METATILE_Forest_Primary_FloorRock, TRUE)
+
+    playse(SE_UNLOCK)
+    special(DrawWholeMapView)
+
+    setflag(FLAG_HIDE_BRIDGE)
+    applymovement(LOCALID_CAMERA, moves(walk_fast_left*11))
+    waitmovement(0)
+    mnmbox(format("The bridge…\nRetracted?\pW-What…\pLarvy, we…\nThe Doctor…\lWhat is happening…\pWe need to check on the others…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    closemessage
+    special(RemoveCameraObject)
+    removeobject(LOCALID_DRAMPA_BRIDGE)
+    setflag(FLAG_HIDE_TYRANTRUM_PLATFORM)
+    setvar(VAR_GAME_STATE, GS_CENTRE_AFTER_BRIDGE)
+    clearflag(FLAG_HIDE_DINOS_WILDS)
+    setflag(FLAG_HIDE_DINOS_PLATFORM)
+    releaseall
+    end
+
+
+
+}

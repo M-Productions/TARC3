@@ -35,20 +35,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Raging_Bolt",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(RAGING_BOLT)",
-      "x": 27,
-      "y": 47,
+      "x": 28,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Raging_Bolt",
       "flag": "0"
     },
     {
@@ -61,7 +61,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Raging_Bolt",
       "flag": "0"
     },
     {
@@ -76,51 +76,681 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DRAMPA_FOREST"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
+      "local_id": "LOCALID_JIGGLYPUFF_FOREST",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF)",
       "x": 31,
-      "y": 11,
+      "y": 52,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_DrampaStartTutorial",
-      "flag": "0"
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Jigglypuff",
+      "flag": "FLAG_HIDE_JIGGLYPUFF_FOREST"
+    },
+    {
+      "local_id": "LOCALID_PHANPY_FOREST",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PHANPY)",
+      "x": 32,
+      "y": 52,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Phanpy",
+      "flag": "FLAG_HIDE_PHANPY_FOREST"
+    },
+    {
+      "local_id": "LOCALID_ARCHEN",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCHEN)",
+      "x": 42,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Archen",
+      "flag": "FLAG_HIDE_ARCHEN_FOREST"
+    },
+    {
+      "local_id": "LOCALID_BAGON_FOREST",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BAGON)",
+      "x": 31,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_BAGON_FOREST"
+    },
+    {
+      "local_id": "LOCALID_TYRANTRUM_FOREST",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRANTRUM)",
+      "x": 45,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_TYRANTRUM_FOREST"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
+      "x": 22,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
+      "flag": "FLAG_HIDE_BASTIODON_2"
+    },
+    {
+      "local_id": "LOCALID_BASTIODON",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BASTIODON)",
+      "x": 21,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon",
+      "flag": "FLAG_HIDE_BASTIODON_1"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_VISITOR_CENTRE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_VISITOR_CENTRE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_DESERT_MAIN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_DESERT_MAIN",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MOUNTAIN_BASE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MOUNTAIN_BASE",
+      "dest_warp_id": "2"
+    }
+  ],
   "coord_events": [
     {
       "type": "trigger",
       "x": 30,
-      "y": 57,
+      "y": 55,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
-      "var_value": "GS_WOKEN_UP",
+      "var_value": "GS_MET_EVERYONE",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest"
     },
     {
       "type": "trigger",
       "x": 31,
-      "y": 57,
+      "y": 55,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
-      "var_value": "GS_WOKEN_UP",
+      "var_value": "GS_MET_EVERYONE",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest"
     },
     {
       "type": "trigger",
       "x": 32,
-      "y": 57,
+      "y": 55,
       "elevation": 0,
       "var": "VAR_GAME_STATE",
-      "var_value": "GS_WOKEN_UP",
+      "var_value": "GS_MET_EVERYONE",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOREST_ROAD",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOREST_ROAD",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_FOREST_ROAD",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkWest"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkWest"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkWest"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkWest"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoAfterHim"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoAfterHim"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWayNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_NotThisWaySouth"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_GOING_TO_PLATFORM",
+      "script": "JurassicPark_Road_To_Visitor_Centre_Too_Dangerous_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_PRE_MEETING_DRAMPA",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenBagon"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ONE_GENERATOR",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Sign"
+    }
+  ]
 }

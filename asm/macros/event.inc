@@ -3034,7 +3034,7 @@
 	.endm
 
 	@ Buffers the given text and calls the relevant message, name and mugshot script (see gStdScripts).
-	.macro mnmbox text:req, mugshotEmotion=MUGSHOT_EMOTE_NORMAL, nameKnown=TRUE, nameSame=FALSE, localId, lock=FALSE, waitbuttonpress=TRUE, remain=FALSE, direction
+	.macro mnmbox text:req, mugshotEmotion=MUGSHOT_EMOTE_NORMAL, nameKnown=TRUE, nameSame=FALSE, localId, lock=FALSE, waitbuttonpress=TRUE, remain=TRUE, direction
 	.if \lock == TRUE
 		lock
 	.endif
@@ -3045,11 +3045,6 @@
 	.endif
 	.ifnb \localId
 		setselectedobjectevent \localId
-	.endif
-	.ifb \direction
-		faceplayer
-	.else
-		objectface \localId \direction
 	.endif
 	automugshot emote=\mugshotEmotion
 	.if \nameKnown == TRUE
@@ -3078,3 +3073,9 @@
 	.macro mnmboxdelay
 	delay 30
 	.endm
+
+    .macro teleportcamera x:req, y:req
+    callnative ScrCmd_teleportcamera
+    .2byte \x
+    .2byte \y
+    .endm

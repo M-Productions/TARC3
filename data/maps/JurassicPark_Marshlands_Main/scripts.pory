@@ -1,1 +1,156 @@
-mapscripts JurassicPark_Marshlands_Main_MapScripts {}
+mapscripts JurassicPark_Marshlands_Main_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_MARSH_STATE, 0
+        {
+            mnmbox(format("(…A marsh, huh.\nI think Jiggly went this way.)\p(I need to find him, quickly.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            closemessage
+            applymovement(LOCALID_PLAYER, moves(walk_down*2))
+            waitmovement(0)
+            setvar(VAR_MARSH_STATE, 1)
+            release
+            setflag(FLAG_HIDE_ARMALDO)
+            end
+        }
+        VAR_MARSH_STATE, 4
+        {
+            lockall
+            playse(SE_PIN)
+            applymovement(LOCALID_ARMALDO, moves(emote_exclamation_mark, delay_16))
+            waitmovement(0)
+            msgbox(format("PLACEHOLDER\pYou shouldn't be able to escape here since Armaldo is in front of you."))
+            closemessage
+            removeobject(LOCALID_ARMALDO)
+            setvar(VAR_MARSH_STATE, 5)
+            applymovement(LOCALID_PLAYER, moves(walk_down*2))
+            applymovement(LOCALID_JIGGLYPUFF_MARSH, moves(walk_down*2))
+            waitmovement(0)
+            mnmbox(format("Hah!\nWe make a pretty good team, after all!\pWe REALLY should be hanging out together more often outside of our treasure hunts.\NJust the two of us, yeah?\pWe can make Phanpy a little jealous, as a joke.\NC'mon, it'd be funny."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            if(var(VAR_GAME_STATE) == GS_THREE_GENERATORS)
+            {
+                mnmbox(format("… … …"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("What, not in the mood for jokes?\pWhatever."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            }
+            else
+            {
+                mnmbox(format("(Making Phanpy…\nJealous…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            }
+            mnmbox(format("C'mon, let's go back."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            setfollowernpc(LOCALID_JIGGLYPUFF_MARSH, FOLLOWER_NPC_FLAG_ALL)
+            closemessage
+            release
+            end
+        }
+
+    ]
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_MARSH_STATE) >= 3)
+        {
+            setobjectmovementtype(LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE)
+            setobjectmovementtype(LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE)
+        }
+        if(var(VAR_MARSH_STATE) == 4)
+        {
+            destroyfollowernpc
+            clearflag(FLAG_HIDE_JIGGLYPUFF_MARSH)
+            getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+            if(var(VAR_TEMP_A) == 20)
+            {
+                setobjectxyperm(LOCALID_JIGGLYPUFF_MARSH, 21, 37)
+                setobjectxy(LOCALID_JIGGLYPUFF_MARSH, 21, 37)
+            }
+            else
+            {
+                setobjectxyperm(LOCALID_JIGGLYPUFF_MARSH, 20, 37)
+                setobjectxy(LOCALID_JIGGLYPUFF_MARSH, 20, 37)
+            }
+        }
+    }
+}
+
+script JurassicPark_Marshlands_Main_EventScript_GoBack
+{
+    mnmbox(format("(There's no time to waste.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    waitmovement(0)
+    release
+    end
+}
+
+
+script JurassicPark_Marshlands_EventScript_Jigglypuff
+{
+    lockall
+    if(var(VAR_MARSH_STATE)  == 1 )
+    {
+        faceplayer
+        mnmbox(format("Hey, look who just showed up.\nI was worried you'd be a goner by now.\pHow's the others?"), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        switch(var(VAR_GAME_STATE))
+        {
+            case GS_NO_GENERATORS:
+                mnmbox(format("(I haven't found anyone else yet…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                mnmbox(format("Still missing in action, eh?\nI'm sure they'll be fine."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+            case GS_POST_ONE_GENERATOR:
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_PHANPY:
+                        mnmbox(format("(I only managed to find Phanpy so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("Bagon is still missing, eh?\nThat's a bit concerning.\pShe was always the clueless one.\pBut I'm sure it'll be fine, as always."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+
+                    case CHAR_BAGON:
+                        mnmbox(format("(I only managed to find Bagon so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("Phanpy is still missing, eh?\nMeh, I wouldn't worry too much.\pShe's probably off somewhere exploring."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+                }
+            case GS_POST_TWO_GENERATORS:
+                mnmbox(format("(I can't…\nBring myself to say it…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("What, Meowth got your tongue?\pYou're even quieter than usual."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+
+        }
+        mnmbox(format("Anyway, as you can see, I survived.\pI figure that brute won't be able to come in here.\pAs a matter of fact, there should be a generator around here, but the place is full of barriers.\pNow, I COULD flutter over them, but…\nI, uh…\pHurt my floatation sack.\nWhile running away."), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        mnmbox(format("(Is that even a thing?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        mnmbox(format("I was thinking that maybe, somehow get some of these Pokémon with sharp-looking claws to cut them down for us.\pThe problem is, they're in what I would describe as a…\NVegetative state.\pBut hey, you're the smart one, right?\pNo talk, no brawns, all brains?\pMaybe you can figure out how to goad them into doing our work for us?"), localId=LOCALID_JIGGLYPUFF_MARSH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        mnmbox(format("(I'll see what I can do…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        closemessage
+        setvar(VAR_MARSH_STATE, 2)
+        destroyfollowernpc
+        setfollowernpc(LOCALID_JIGGLYPUFF_MARSH, FOLLOWER_NPC_FLAG_ALL)
+        releaseall
+        end
+    }
+    faceplayer
+    mnmbox(format("Let's go, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    release
+    end
+
+}
+
+script JurassicPark_Marshlands_EventScript_Anorith
+{
+    if(var(VAR_MARSH_STATE) == 2)
+    {
+    lockall
+    msgbox(format("PLACEHOLDER\pIn this battle the puzzle is that you have to perform an action on Jiggly, making him do a funny face and scaring the Anorith."))
+    mnmbox(format("…Now, that's funny.\pWhatever, as long as it works.\nLet's just go."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    closemessage
+    removeobject(LOCALID_ANORITH_1)
+    setobjectmovementtype(LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE)
+    clearflag(FLAG_TEMP_3)
+    addobject(LOCALID_ANORITH_1)
+    removeobject(LOCALID_ANORITH_2)
+    setobjectmovementtype(LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE)
+    clearflag(FLAG_TEMP_1)
+    addobject(LOCALID_ANORITH_2)
+    setvar(VAR_MARSH_STATE, 3)
+    releaseall
+    }
+    end
+}
+
+script JurassicPark_Marshlands_EventScript_NotGoingThere
+{
+    mnmbox(format("(I'm DEFINITELY not going back in there.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    end
+}

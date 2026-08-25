@@ -19,8 +19,60 @@
       "direction": "left"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_DRAMPA_BRIDGE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
+      "x": 27,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_DRAMPA_BRIDGE"
+    }
+  ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_HEADING_TOWARDS_LAB",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa"
+    }
+  ],
   "bg_events": []
 }

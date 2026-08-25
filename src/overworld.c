@@ -916,17 +916,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ResetFieldTasksArgs();
     RunOnResumeMapScript();
 
-    if (OW_HIDE_REPEAT_MAP_POPUP)
-    {
-        if (gMapHeader.regionMapSectionId != sLastMapSectionId)
-            ShowMapNamePopup();
-    }
-    else
-    {
-        if (gMapHeader.regionMapSectionId != MAPSEC_BATTLE_FRONTIER
-         || gMapHeader.regionMapSectionId != sLastMapSectionId)
-            ShowMapNamePopup();
-    }
+    
     SetMinimumOWESpawnTimer();
 }
 
@@ -1062,8 +1052,8 @@ bool8 MetatileBehavior_IsSurfableInSeafoamIslands(u16 metatileBehavior)
 
 static enum Direction GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u8 transitionFlags, u16 metatileBehavior, enum MapType mapType)
 {
-    if (FlagGet(FLAG_SPAWN_NORTH))
-        return DIR_NORTH;
+    if (FlagGet(FLAG_SPAWN_WEST))
+        return DIR_WEST;
     if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
         return DIR_EAST;
     else if (MetatileBehavior_IsDeepSouthWarp(metatileBehavior) == TRUE)
@@ -1229,6 +1219,12 @@ u16 GetLocationMusic(struct WarpData *warp)
         return MUS_ENCOUNTER_MAGMA;
     else if (IsInfiltratedWeatherInstitute(warp) == TRUE)
         return MUS_MT_CHIMNEY;
+    else if (FlagGet(FLAG_NO_OW_MUSIC))
+        return MUS_DUMMY;
+    else if (FlagGet(FLAG_PANIC_OW_MUSIC))
+        return MUS_VS_BOSS_POWERFUL;
+    else if (FlagGet(FLAG_MUSIC_RAIN))
+        return SE_THUNDERSTORM;
     else
         return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
@@ -1917,10 +1913,10 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    if (IS_FRLG)
-        gFieldCallback = FieldCB_WarpExitFadeFromBlack;
-    else
-        gFieldCallback = ExecuteTruckSequence;
+    //if (IS_FRLG)
+        //gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+    //else
+        //gFieldCallback = ExecuteTruckSequence;
     gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
@@ -2087,8 +2083,7 @@ void CB2_ReturnToFieldFadeFromBlack(void)
 
 static void FieldCB_FadeTryShowMapPopup(void)
 {
-    if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
-        ShowMapNamePopup();
+    
     FieldCB_WarpExitFadeFromBlack();
 }
 
@@ -2340,8 +2335,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
             MapPreview_LoadGfx(gMapHeader.regionMapSectionId);
             RunMapPreviewScreenFadeIn(gMapHeader.regionMapSectionId);
         }
-        else if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
-            ShowMapNamePopup();
+        
         (*state)++;
         break;
     case 12:
