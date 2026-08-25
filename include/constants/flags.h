@@ -56,40 +56,40 @@
 #define FLAG_HIDE_BAGON_BEACH    0x22 // Unused Flag
 #define FLAG_HIDE_JIGGLYPUFF_BEACH    0x23 // Unused Flag
 #define FLAG_HIDE_PHANPY_BEACH    0x24 // Unused Flag
-#define FLAG_NO_SHINY    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_HIDE_JIGGLYPUFF_FOREST    0x25 // Unused Flag
+#define FLAG_HIDE_PHANPY_FOREST    0x26 // Unused Flag
+#define FLAG_HIDE_BAGON_FOREST    0x27 // Unused Flag
+#define FLAG_HIDE_DRAMPA_FOREST    0x28 // Unused Flag
+#define FLAG_HIDE_PHANPY_CENTRE    0x29 // Unused Flag
+#define FLAG_HIDE_JIGGLYPUFF_CENTRE    0x2A // Unused Flag
+#define FLAG_HIDE_BAGON_CENTRE    0x2B // Unused Flag
+#define FLAG_HIDE_DRAMPA_CENTRE    0x2C // Unused Flag
+#define FLAG_NO_OW_MUSIC    0x2D // Unused Flag
+#define FLAG_HIDE_CHARACTERS_PLATFORM    0x2E // Unused Flag
+#define FLAG_HIDE_KABUTO_PLATFORM    0x2F // Unused Flag
+#define FLAG_MUSIC_RAIN    0x30 // Unused Flag
+#define FLAG_HIDE_DINOS_PLATFORM    0x31 // Unused Flag
+#define FLAG_HIDE_TYRANTRUM_PLATFORM    0x32 // Unused Flag
+#define FLAG_ALWAYS_RAINING    0x33 // Unused Flag
+#define FLAG_HIDE_DRAMPA_BRIDGE    0x34 // Unused Flag
+#define FLAG_HIDE_BRIDGE    0x35 // Unused Flag
+#define FLAG_HIDE_DINOS_WILDS    0x36 // Unused Flag
+#define FLAG_PANIC_OW_MUSIC    0x37 // Unused Flag
+#define FLAG_HIDE_TYRANTRUM_FOREST    0x38 // Unused Flag
+#define FLAG_HIDE_BASTIODON_1    0x39 // Unused Flag
+#define FLAG_HIDE_BASTIODON_2    0x3A // Unused Flag
+#define FLAG_HIDE_ARCHEN_FOREST    0x3B // Unused Flag
+#define FLAG_HIDE_JIGGLYPUFF_MARSH    0x3C // Unused Flag
+#define FLAG_HIDE_ARMALDO    0x3D // Unused Flag
+#define FLAG_HIDE_PHANPY_DESERT    0x3E // Unused Flag
+#define FLAG_HIDE_RAMPARDOS    0x3F // Unused Flag
+#define FLAG_HIDE_CRADILY    0x40 // Unused Flag
+#define FLAG_HIDE_BRUTE_BONNET    0x41 // Unused Flag
+#define FLAG_HIDE_BAGON_MOUNTAIN    0x42 // Unused Flag
+#define FLAG_HIDE_ARCHEOPS    0x43 // Unused Flag
+#define FLAG_HIDE_AERODACTYL    0x44 // Unused Flag
+#define FLAG_HIDE_ARCHEOPS_BASE    0x45 // Unused Flag
+#define FLAG_NO_SHINY    0x46 // Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
@@ -1650,7 +1650,7 @@
 #define FLAG_STORING_ITEMS_IN_PYRAMID_BAG       (SPECIAL_FLAGS_START + 0x4)
 #define FLAG_SAFE_FOLLOWER_MOVEMENT             (SPECIAL_FLAGS_START + 0x5) // When set, applymovement does not put the follower inside a pokeball
                                                                             // Also, scripted movements on the player will move follower(s), too
-#define FLAG_SPAWN_NORTH                        (SPECIAL_FLAGS_START + 0x6)
+#define FLAG_SPAWN_WEST                        (SPECIAL_FLAGS_START + 0x6)
 #define FLAG_SUPPRESS_SPEAKER_NAME_CHANGE       (SPECIAL_FLAGS_START + 0x7)
 #define FLAG_ANTI_PIRACY_INSTANT_TEXT           (SPECIAL_FLAGS_START + 0x8)
 // FLAG_SPECIAL_FLAG_0x4005 - 0x407F also exist and are unused

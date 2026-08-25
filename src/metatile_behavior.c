@@ -202,7 +202,7 @@ bool8 MetatileBehavior_IsSandOrDeepSand(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsDeepSand(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_DEEP_SAND)
+    if (metatileBehavior == MB_DEEP_SAND || metatileBehavior == MB_QUICKSAND)
         return TRUE;
     else
         return FALSE;
@@ -210,14 +210,6 @@ bool8 MetatileBehavior_IsDeepSand(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_POND_WATER
-     || metatileBehavior == MB_PUDDLE
-     || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2
-     || metatileBehavior == MB_ICE
-     || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER
-     || metatileBehavior == MB_REFLECTION_UNDER_BRIDGE)
-        return TRUE;
-    else
         return FALSE;
 }
 
@@ -844,8 +836,11 @@ bool8 MetatileBehavior_IsLandWildEncounter(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsWaterWildEncounter(u8 metatileBehavior)
 {
-    if (MetatileBehavior_IsSurfableWaterOrUnderwater(metatileBehavior) == TRUE
-     && MetatileBehavior_IsEncounterTile(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsDeepSand(metatileBehavior)
+    || MetatileBehavior_IsNorthwardCurrent(metatileBehavior)
+    || MetatileBehavior_IsSouthwardCurrent(metatileBehavior)
+    || MetatileBehavior_IsEastwardCurrent(metatileBehavior)
+    || MetatileBehavior_IsWestwardCurrent(metatileBehavior))
         return TRUE;
     else
         return FALSE;
@@ -1299,6 +1294,8 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
     if (metatileBehavior == MB_NO_RUNNING
      || metatileBehavior == MB_LONG_GRASS
      || metatileBehavior == MB_HOT_SPRINGS
+     || metatileBehavior == MB_SHALLOW_WATER
+     || metatileBehavior == MB_QUICKSAND
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
     else

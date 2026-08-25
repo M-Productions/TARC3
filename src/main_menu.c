@@ -953,7 +953,7 @@ static void Task_HandleMainMenuInput(u8 taskId)
         gTasks[taskId].func = Task_HighlightSelectedMainMenuItem;
 }
 
-const u8 gText_DefaultPlayerName[] = _("Larvesta");
+const u8 gText_DefaultPlayerName[] = _("Larvy ");
 static void Task_NewGameNoBirchSpeech(u8 taskId)
 {
     const u8 *name;

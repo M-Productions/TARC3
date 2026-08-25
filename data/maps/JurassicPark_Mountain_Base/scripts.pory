@@ -1,1 +1,229 @@
-mapscripts JurassicPark_Mountain_Base_MapScripts {}
+mapscripts JurassicPark_Mountain_Base_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE
+    [
+        VAR_MOUNTAIN_STATE, 0
+        {
+            lock
+            mnmbox(format("(…Snow?\nThe climate on this island really is strange.)\p(I wonder if it was the Doctor's doing.)\p(Either way, I need to find Bagon.)"), localId=LOCALID_PLAYER)
+            closemessage
+            applymovement(LOCALID_PLAYER, moves(walk_left*2))
+            waitmovement(0)
+            setvar(VAR_MOUNTAIN_STATE, 1)
+            release
+            end
+        }
+    ]
+}
+
+script JurassicPark_Mountain_Base_GoLeft
+{
+    mnmbox(format("(I still have things to do here.)"))
+    applymovement(LOCALID_PLAYER, moves(walk_left))
+    waitmovement(0)
+}
+
+script JurassicPark_Mountain_Base_EventScript_Archen_1
+{
+    faceplayer
+    if(var(VAR_MOUNTAIN_STATE) == 1)
+    {
+        msgbox(format("Placeholder battle."))
+        closemessage
+        mnmbox(format("(This Pokémon…\nIt wants me to ride it?)"), localId=LOCALID_PLAYER)
+        mnmbox(format("(Wait, I mean-\nNevermind.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        mnmbox(format("(…Ahem.\nRegardless, I should try giving it a shot.)"), localId=LOCALID_PLAYER)
+        closemessage
+        setvar(VAR_MOUNTAIN_STATE, 2)
+    }
+    lockall
+    call(JurassicPark_Mountain_Base_EventScript_ArchenSetup)
+    if(var(VAR_0x8004) == 17)
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_right*7, walk_in_place_right))
+        applymovement(LOCALID_PLAYER, moves(walk_right*7, set_visible, walk_right))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 24, 56)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_RIGHT)
+    }
+    else
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_left*7, walk_in_place_left))
+        applymovement(LOCALID_PLAYER, moves(walk_left*7, set_visible, walk_left))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 17, 56)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+    }
+    releaseall
+    end
+}
+    
+script JurassicPark_Mountain_Base_EventScript_Archen_2
+{
+    lockall
+    call(JurassicPark_Mountain_Base_EventScript_ArchenSetup)
+    if(var(VAR_0x8005) == 47)
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_up*15, walk_in_place_left))
+        applymovement(LOCALID_PLAYER, moves(walk_up*15, set_visible, walk_left))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 29, 32)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+    }
+    else
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_down*15, walk_in_place_down))
+        applymovement(LOCALID_PLAYER, moves(walk_down*15, set_visible, walk_down))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 29, 47)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+    }
+    releaseall
+    end
+
+}
+
+script JurassicPark_Mountain_Base_EventScript_Archen_3
+{
+    lockall
+    call(JurassicPark_Mountain_Base_EventScript_ArchenSetup)
+    if(var(VAR_0x8004) == 25)
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_left*5, walk_in_place_down))
+        applymovement(LOCALID_PLAYER, moves(walk_left*5, set_visible, walk_down))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 20, 38)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+    }
+    else
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_right*5, walk_in_place_right))
+        applymovement(LOCALID_PLAYER, moves(walk_right*5, set_visible, walk_right))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 25, 38)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_RIGHT)
+    }
+    releaseall
+    end
+
+}
+
+script JurassicPark_Mountain_Base_EventScript_Archen_4
+{
+    call(JurassicPark_Mountain_Base_EventScript_ArchenSetup)
+    if(var(VAR_0x8004) == 31)
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_right*16, walk_in_place_down))
+        applymovement(LOCALID_PLAYER, moves(walk_right*16, set_visible, walk_down))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 47, 39)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_RIGHT)
+    }
+    else
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_left*16, walk_in_place_left))
+        applymovement(LOCALID_PLAYER, moves(walk_left*16, set_visible, walk_left))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 31, 39)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+    }
+    releaseall
+    end
+
+}
+
+script JurassicPark_Mountain_Base_EventScript_Archen_5
+{
+    lockall
+    call(JurassicPark_Mountain_Base_EventScript_ArchenSetup)
+    if(var(VAR_0x8005) == 32)
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_up*24, walk_in_place_left))
+        applymovement(LOCALID_PLAYER, moves(walk_up*24, set_visible, walk_left))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 54, 8)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+    }
+    else
+    {
+        applymovement(VAR_LAST_TALKED, moves(walk_down*24, walk_in_place_down))
+        applymovement(LOCALID_PLAYER, moves(walk_down*24, set_visible, walk_down))
+        waitmovement(LOCALID_PLAYER)
+        setobjectxyperm(VAR_LAST_TALKED, 54, 32)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+    }
+    releaseall
+    end
+
+}
+
+
+script JurassicPark_Mountain_Base_EventScript_ArchenSetup
+{
+    hidefollowernpc
+    switch(var(VAR_FACING))
+    {
+        case DIR_NORTH:
+            applymovement(LOCALID_PLAYER, moves(walk_up, set_invisible))
+            waitmovement(0)
+        case DIR_EAST:
+            applymovement(LOCALID_PLAYER, moves(walk_right, set_invisible))
+            waitmovement(0)
+        case DIR_WEST:
+            applymovement(LOCALID_PLAYER, moves(walk_left, set_invisible))
+            waitmovement(0)
+        case DIR_SOUTH:
+            applymovement(LOCALID_PLAYER, moves(walk_down, set_invisible))
+            waitmovement(0)
+    }
+    getplayerxy(VAR_0x8004, VAR_0x8005)
+    return
+}
+
+script JurassicPark_Mountain_Base_BruteBonnet
+{
+    msgbox(format("PLACEHOLDER.\pFor this battle, Bagon would be necessary. PLEASE DONT KEEP GOING WITHOUT BAGON OR THINGS WILL BREAK"))
+    closemessage
+    removeobject(LOCALID_BRUTE_BONNET)
+    end
+}
+
+script JurassicPark_Mountain_Base_Bagon
+{
+    if(var(VAR_MOUNTAIN_STATE) == 2)
+    {
+        faceplayer
+        mnmbox(format("Laaaaaaarvy!\pLarvy Larvy Larvy Larvy Larvy!"), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+        mnmbox(format("(…Yes, Bagon?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        mnmbox(format("I flew, Larvy!\nI flew on the back of those birds!\pThis place is amazing!"), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+        mnmbox(format("…Wait, where's the others?"), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        switch(var(VAR_GAME_STATE))
+        {
+            case GS_NO_GENERATORS:
+                mnmbox(format("(I haven't seen anyone else yet…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                mnmbox(format("Oh, okay.\nHey, don't worry, Larvy, I'm sure they found a cozy spot to hide in!\pI can't wait to see them and tell them about this place."), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            case GS_POST_ONE_GENERATOR:
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_JIGGLYPUFF:
+                        mnmbox(format("(I only managed to find Jiggly so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("Oh, Phanpy's still missing?\pWhen we find her, I bet Jiggly is gonna yell at her for making him worry, hehe."), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+                    case CHAR_PHANPY:
+                        mnmbox(format("(I only managed to find Phanpy so far…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                        mnmbox(format("Oh, Jiggly's still missing?\pWhen we find him, I bet he's gonna yell at us for taking too long, hehe."), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)                
+            case GS_POST_TWO_GENERATORS:
+                mnmbox(format("(I can't…\nBring myself to say it…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("…What's wrong Larvy?\nWorried about something?\p…Whatever it it, it'll be okay.\pI wish I had wings like these Pokémon, so I could fly around and save everyone.\pOne day, I will!\nBut for now, we have to do what wew can."), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+
+            }
+        }
+        mnmbox(format("Anyway, earlier Jiggly told me that there should be a generator on top of this mountain.\pLet's go find it, so we can go home!"), localId=LOCALID_BAGON_MOUNTAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+        closemessage
+        setfollowernpc(LOCALID_BAGON_MOUNTAIN, FOLLOWER_NPC_FLAG_ALL)
+        setvar(VAR_MOUNTAIN_STATE, 3)
+        end
+    }
+    else
+    {
+        mnmbox(format("Let's go, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    }
+}

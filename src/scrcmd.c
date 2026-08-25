@@ -66,6 +66,7 @@
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
+#include "field_camera.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -2317,21 +2318,8 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
     if (doUnlockedCheck && !IsFieldMoveUnlocked(fieldMove))
         return FALSE;
 
-    move = FieldMove_GetMoveId(fieldMove);
-    for (u32 i = 0; i < PARTY_SIZE; i++)
-    {
-        enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
-        if (!species)
-            break;
-        if (!GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && MonKnowsMove(&gParties[B_TRAINER_PLAYER][i], move) == TRUE)
-        {
-            gSpecialVar_Result = i;
-            gSpecialVar_0x8004 = species;
-            break;
-        }
-    }
 
-    return FALSE;
+    return TRUE;
 }
 
 bool8 ScrCmd_addmoney(struct ScriptContext *ctx)
@@ -3432,5 +3420,14 @@ bool8 ScrCmd_setselectedobjectevent(struct ScriptContext *ctx)
     u16 localId = VarGet(ScriptReadHalfword(ctx));
 
     gSelectedObjectEvent = GetObjectEventIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    return FALSE;
+}
+
+bool8 ScrCmd_teleportcamera(struct ScriptContext *ctx)
+{
+    s16 x = VarGet(ScriptReadHalfword(ctx)) - gSaveBlock1Ptr->pos.x;
+    s16 y = VarGet(ScriptReadHalfword(ctx)) - gSaveBlock1Ptr->pos.y;
+
+    MoveCameraAndRedrawMap(x, y);
     return FALSE;
 }

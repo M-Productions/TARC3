@@ -1,1 +1,136 @@
-mapscripts JurassicPark_Dino_Enclosure_MapScripts {}
+mapscripts JurassicPark_Dino_Enclosure_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_GAME_STATE)==GS_HEADING_TOWARDS_LAB){
+            setobjectmovementtype(LOCALID_TYRANTRUM_PLATFORM, MOVEMENT_TYPE_RAM)
+            setobjectmovementtype(3, MOVEMENT_TYPE_WATCH_PLAYER_OWE)
+            setobjectxyperm(LOCALID_TYRANTRUM_PLATFORM, 11, 21)
+        }
+        
+    }
+    MAP_SCRIPT_ON_LOAD{
+        if(var(VAR_GAME_STATE) >= GS_CENTRE_AFTER_BRIDGE)
+        {
+            setmetatile(10, 18, METATILE_Dino_Enclosure_Secondary_CageRightTop, FALSE)
+            setmetatile(10, 19, METATILE_Dino_Enclosure_Secondary_CageRightMid, FALSE)
+            setmetatile(10, 20, METATILE_Dino_Enclosure_Secondary_CageRightBottom, FALSE)
+
+            setmetatile(11, 18, METATILE_Forest_Primary_Grass, FALSE)
+            setmetatile(11, 19, METATILE_Forest_Primary_Grass, FALSE)
+            setmetatile(11, 20, METATILE_Forest_Primary_Grass, FALSE)
+
+            setmetatile(12, 18, METATILE_Forest_Primary_Grass, FALSE)
+            setmetatile(12, 19, METATILE_Forest_Primary_Grass, FALSE)
+            setmetatile(12, 20, METATILE_Forest_Primary_Grass, FALSE)
+
+            setmetatile(13, 18, METATILE_Dino_Enclosure_Secondary_CageLeftTop, FALSE)
+            setmetatile(13, 19, METATILE_Dino_Enclosure_Secondary_CageLeftMid, FALSE)
+            setmetatile(13, 20, METATILE_Dino_Enclosure_Secondary_CageLeftBottom, FALSE)
+
+            special(DrawWholeMapView)
+        }
+    }
+}
+
+script JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer
+{
+    mnmbox(format("Ah!\nHere you are!\pCome, come!"), localId=LOCALID_DRAMPA_PLATFORM)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_right, walk_down*4))
+    waitmovement(0)
+    fadenewbgm(MUS_CUTSCENE_MYSTERIOUS)
+    mnmbox(format("What's with the cage?!"), localId=LOCALID_BAGON_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("It's to contain beasts most ferocious.\NLook!"), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_down*4))
+    waitmovement(0)
+    mnmbox(format("The terrifying king of prehistory.\NTyrantrum!"), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("Why are you keeping them locked in cages?!"), localId=LOCALID_PHANPY_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("Yes, that's the trouble, isn't it?\pWhen I revived these ancient Pokémon, I was hoping to talk to them.\pLearn their language, if needed.\nBut…\pIt soon became apparent that prehistoric Pokémon…\NAre unable to talk."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    mnmbox(format("They can't talk?\nAs in, at all?"), localId=LOCALID_PHANPY_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("Yes.\nTheir brains simply have not evolved the capacity for language.\pAnd not only that, but they don't…\nThink.\lNot much, anyways.\pNothing but mindless creatures.\pA shame, truly."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Like zombies?!"), localId=LOCALID_BAGON_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("I would not quite say that.\nIt's more like…\pBabies."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("You'd put babies in a cage?"), localId=LOCALID_JIGGLYPUFF_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("I said LIKE babies, not that they're literally babies!\pThese are dangerous monsters!"), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    mnmbox(format("Isn't there a risk of them escaping, then?"), localId=LOCALID_PHANPY_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("Ah, no.\nThe cage is electrified, you see.\pHere, let me show you.\pAhem.\p(Fweeeeee)"), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    playse(SE_PIN)
+    applymovement(LOCALID_TYRANTRUM_PLATFORM, moves(emote_exclamation_mark, delay_16, walk_in_place_up, lock_facing_direction, delay_16, walk_down*2, delay_16, walk_fast_up*3))
+    waitmovement(0)
+    fadescreen(FADE_TO_WHITE)
+    playse(SE_M_THUNDER_WAVE)
+    waitse
+    applymovement(LOCALID_TYRANTRUM_PLATFORM, moves(walk_faster_down, walk_in_place_up))
+    waitmovement(0)
+    fadescreen(FADE_FROM_WHITE)
+    delay(16)
+    applymovement(LOCALID_CAMERA, moves(walk_up*4))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    mnmbox(format("See?\nNothing to worry about."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    applymovement(LOCALID_JIGGLYPUFF_PLATFORM, moves(face_up))
+    applymovement(LOCALID_PHANPY_PLATFORM, moves(face_up))
+    applymovement(LOCALID_BAGON_PLATFORM, moves(face_up))
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    waitmovement(0)
+    mnmbox(format("Suppose the power fails…"), localId=LOCALID_JIGGLYPUFF_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("It won't.\nThere's three backup generators."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    mnmbox(format("Sure, Doc, but if it does…"), localId=LOCALID_JIGGLYPUFF_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+    mnmbox(format("I SAID it won't!\pI'll be!\nDo you entertain yourself by acting like a little-"), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    closemessage
+    setweather(WEATHER_RAIN)
+    doweather
+    setflag(FLAG_MUSIC_RAIN)
+    setflag(FLAG_HIDE_CHARACTERS_PLATFORM)
+    setvar(VAR_GAME_STATE, GS_DRAMPA_EXPLAINER)
+    delay(32)
+    mnmbox(format("Oh!\nIt's raining!"), localId=LOCALID_BAGON_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("W-well!\nWhy don't we head back indoors?\pWe can wait out the rain there and discuss your…\lLeaving.\pThere's a boat by my laboratory that can take you back."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Aw, you want us to leave already?"), localId=LOCALID_PHANPY_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Don't get me wrong, you're quite the lively bunch!\NBut I got a grand opening to prepare.\pBut come, let us talk inside."), localId=LOCALID_DRAMPA_PLATFORM, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmboxdelay
+    closemessage
+    warp(MAP_JURASSIC_PARK_VISITOR_CENTRE, 9, 11)
+}
+
+script JurassicPark_Dino_Enclosure_EventScript_GoBack
+{
+    msgbox(format("Larvy!\nThis way!"), MSGBOX_DEFAULT)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_left))
+    waitmovement(0)
+    release
+    end
+}
+
+script JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke
+{
+    lock
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(emote_exclamation_mark, delay_16, face_down))
+    waitmovement(0)
+    waitse
+    fadenewbgm(MUS_VS_BOSS_POWERFUL)
+    mnmbox(format("Larvy, look!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    waitmovement(0)
+    mnmbox(format("(The cage…\nIt's broken!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("No…\nIs it too late?\pWe have to go, now!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    closemessage
+    clearflag(FLAG_NO_OW_MUSIC)
+    setflag(FLAG_PANIC_OW_MUSIC)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_PLAYER, moves(walk_fast_left*10))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_fast_left*10))
+    waitmovement(0)
+    fadescreen(FADE_TO_BLACK)
+    delay(16)
+    destroyfollowernpc
+    warpsilent(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE, 50, 17)
+    setflag(FLAG_SPAWN_WEST)
+    waitstate
+}

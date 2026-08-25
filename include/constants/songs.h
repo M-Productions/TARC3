@@ -549,6 +549,7 @@
 #define MUS_ANCIENT_DESERT         613
 #define MUS_LOST_MOUNTAINS           614
 #define MUS_MYSTERIOUS_BEACH                 615
+#define MUS_JURASSIC_PARK_MAIN_THEME 616
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
@@ -559,5 +560,10 @@
 #define NUM_PHONEME_SONGS           (LAST_PHONEME_SONG - FIRST_PHONEME_SONG + 1)
 #define PHONEME_ID(song)            ((song) - FIRST_PHONEME_SONG)
 #define PHONEME_ID_NONE             0xFF
+#define MUS_CALM_CUTSCENE           617
+#define MUS_CUTSCENE_MYSTERIOUS     618
+#define MUS_VISITOR_CENTRE          619
+#define MUS_VS_BOSS_POWERFUL        620
+
 
 #endif  // GUARD_CONSTANTS_SONGS_H

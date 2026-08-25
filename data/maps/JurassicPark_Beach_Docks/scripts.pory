@@ -2,7 +2,6 @@ mapscripts JurassicPark_Beach_Docks_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_GAME_STATE, GS_INTRO {
             setvar(VAR_GAME_STATE, GS_WOKEN_UP)
-            clearflag(FLAG_SPAWN_NORTH)
             goto(JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp)
         }
     ]
@@ -27,6 +26,7 @@ script JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp {
     mnmbox(format("(But…\nWhere am I…?)\p(I better go look for the others.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     closemessage
     releaseall
+    end
 }
 
 
@@ -86,7 +86,15 @@ script JurassicPark_Beach_Docks_EventScript_Bagon
 {
     lockall
     faceplayer
-    mnmbox(format("Let's meet up with the others, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    if(var(VAR_GAME_STATE) == GS_FOREST_ROAD)
+    {
+        mnmbox(format("Let's look around a bit more, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    }
+    else
+    {
+        mnmbox(format("Let's meet up with the others, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+
+    }
     closemessage
     release
     end
@@ -151,7 +159,7 @@ script JurassicPark_Beach_Docks_EventScript_Phanpy
 {
     lockall
     mnmbox(format("Larvy, my ship…\nIt's completely wrecked…"), localId=LOCALID_PHANPY_BEACH, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
-    mnmbox(format("It's, uh…\nGood to see you too, Phanpy…"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("(It's, uh…\nGood to see you too, Phanpy…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     mnmbox(format("Phanpy, it'll be ok!\pIf we find treasure, we can buy you a new one!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
     mnmbox(format("Sniffle…\nYou're right."), localId=LOCALID_PHANPY_BEACH, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED)
     mnmbox(format(
@@ -162,7 +170,7 @@ script JurassicPark_Beach_Docks_EventScript_Phanpy
         "But as you can see, we're standing on a pier.\NIt's pretty well made, too.\p"
         "This could mean that there's an undocumented civilization living here, or…"
         ), localId=LOCALID_PHANPY_BEACH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
-    mnmbox(format("(That someone got here before us…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+    mnmbox(format("(That someone got here before us…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     mnmbox(format("Whatever the case, we need to find how to get back home.\pI'll be scouting what's ahead."), localId=LOCALID_PHANPY_BEACH, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     getobjectfacingdirection(LOCALID_PLAYER, VAR_RESULT)

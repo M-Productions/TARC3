@@ -274,6 +274,10 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	call EventScript_ResetAllBerries
 	setflag FLAG_SYS_B_DASH
+	setflag FLAG_HIDE_DINOS_WILDS
+	setflag FLAG_HIDE_TYRANTRUM_FOREST
+	setflag FLAG_HIDE_BAGON_FOREST
+	setflag(FLAG_HIDE_ARCHEOPS_BASE)
 	end
 
 EventScript_ResetAllMapFlagsFrlg::

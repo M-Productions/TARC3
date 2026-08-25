@@ -10046,7 +10046,7 @@ static u8 ObjectEventGetNearbyReflectionType(struct ObjectEvent *objEvent)
 static u8 GetReflectionTypeByMetatileBehavior(u32 behavior)
 {
     if (MetatileBehavior_IsIce(behavior))
-        return REFL_TYPE_ICE;
+        return REFL_TYPE_NONE;
     else if (MetatileBehavior_IsReflective(behavior))
         return REFL_TYPE_WATER;
     else
@@ -12130,7 +12130,7 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step8(struct ObjectEvent *o
 extern const u8 EventScript_CutTree_Kabuto[];
 extern const u8 Movement_CutTreeDown[];
 
-#define NUM_MARSH_BARRIERS 4
+#define NUM_MARSH_BARRIERS 7
 #define NUM_OBJECTS_PER_BARRIER 3
 #define LOCALID_BARRIER_INVALID LOCALID_PLAYER
 static const u32 MarshPuzzleBarrierLocalIds[NUM_MARSH_BARRIERS][NUM_OBJECTS_PER_BARRIER] =
@@ -12138,7 +12138,11 @@ static const u32 MarshPuzzleBarrierLocalIds[NUM_MARSH_BARRIERS][NUM_OBJECTS_PER_
     { LOCALID_MARSH_BARRIER_1L, LOCALID_MARSH_BARRIER_1R, LOCALID_BARRIER_INVALID },
     { LOCALID_MARSH_BARRIER_2L, LOCALID_MARSH_BARRIER_2M, LOCALID_MARSH_BARRIER_2R   },
     { LOCALID_MARSH_BARRIER_3L, LOCALID_MARSH_BARRIER_3R, LOCALID_BARRIER_INVALID },
-    { LOCALID_MARSH_BARRIER_4L, LOCALID_MARSH_BARRIER_4R, LOCALID_BARRIER_INVALID }
+    { LOCALID_MARSH_BARRIER_4L, LOCALID_MARSH_BARRIER_4R, LOCALID_BARRIER_INVALID },
+    { LOCALID_MARSH_BARRIER_5L, LOCALID_MARSH_BARRIER_5R, LOCALID_BARRIER_INVALID   },
+    { LOCALID_MARSH_BARRIER_6L, LOCALID_MARSH_BARRIER_6M, LOCALID_MARSH_BARRIER_6R   },
+    { LOCALID_MARSH_BARRIER_7L, LOCALID_MARSH_BARRIER_7R, LOCALID_BARRIER_INVALID },
+
 };
 
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -12147,13 +12151,13 @@ bool8 MovementType_OverworldWildEncounter_FleePlayer_Step10(struct ObjectEvent *
     if (IS_OW_MON_OBJ(objectEvent))
         species = OW_SPECIES(objectEvent);
 
-    if (species != SPECIES_KABUTO && WE_OWE_FLEE_DESPAWN && sCollisionTimer >= OWE_FLEE_COLLISION_TIME && CanRemoveObjectForOWEMovement(objectEvent))
+    if (species != SPECIES_ANORITH && WE_OWE_FLEE_DESPAWN && sCollisionTimer >= OWE_FLEE_COLLISION_TIME && CanRemoveObjectForOWEMovement(objectEvent))
     {
         RemoveObjectEvent(objectEvent);
         return FALSE;
     }
 
-    if (species == SPECIES_KABUTO)
+    if (species == SPECIES_ANORITH)
     {
         s32 x = objectEvent->currentCoords.x;
         s32 y = objectEvent->currentCoords.y;
@@ -12272,7 +12276,15 @@ void RemoveMarshPuzzleBarriers(void)
         if (localId != LOCALID_BARRIER_INVALID)
         {
             object = &gObjectEvents[GetObjectEventIdByLocalId(localId)];
-            MapGridSetMetatileIdAt(object->currentCoords.x, object->currentCoords.y, METATILE_Marshlands_Primary_Grass);
+            if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)){
+                MapGridSetMetatileIdAt(object->currentCoords.x, object->currentCoords.y, METATILE_Marshlands_Primary_Grass);
+
+            }
+            else
+            {
+                MapGridSetMetatileIdAt(object->currentCoords.x, object->currentCoords.y, METATILE_Marshlands_Primary_Water);
+
+            }
             RemoveObjectEventByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
         }
     }
