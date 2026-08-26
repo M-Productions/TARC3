@@ -103,7 +103,7 @@ script JurassicPark_Visitor_Centre_EventScript_Bagon
             else
             {
                 faceplayer
-                mnmbox(format("Larvy, I'll take care of this.\pYou go look of the last generator, okay?"), localId=LOCALID_BAGON_CENTRE)
+                mnmbox(format("Larvy, I'll take care of this.\pYou go look for the last generator, okay?"), localId=LOCALID_BAGON_CENTRE)
             }
             closemessage
     }
