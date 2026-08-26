@@ -5,7 +5,38 @@ mapscripts JurassicPark_Visitor_Centre_MapScripts {
             case GS_DRAMPA_EXPLAINER:
                 goto(JurassicPark_Visitor_Centre_EventScript_CentreSecondVisit)
                 
-            
+            case GS_TWO_GENERATORS_CUTSCENE:
+            case GS_POST_TWO_GENERATORS:
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_PHANPY:
+                        clearflag(FLAG_HIDE_PHANPY_CENTRE)
+                        setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_CENTRE)
+                    case CHAR_BAGON:
+                        clearflag(FLAG_HIDE_BAGON_CENTRE)
+                        setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_CENTRE)
+                    case CHAR_JIGGLYPUFF:
+                        clearflag(FLAG_HIDE_JIGGLYPUFF_CENTRE)
+                        setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_CENTRE)
+                }
+                setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 17, 6)
+                setobjectmovementtype(VAR_LOCALID_CUTSCENE_SECOND, MOVEMENT_TYPE_SLEEP)
+                addobject(VAR_LOCALID_CUTSCENE_SECOND)
+                switch(var(VAR_SECOND_SAVED))
+                {
+                    case CHAR_PHANPY:
+                        clearflag(FLAG_HIDE_PHANPY_CENTRE)
+                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_CENTRE)
+                    case CHAR_BAGON:
+                        clearflag(FLAG_HIDE_BAGON_CENTRE)
+                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_CENTRE)
+                    case CHAR_JIGGLYPUFF:
+                        clearflag(FLAG_HIDE_JIGGLYPUFF_CENTRE)
+                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_CENTRE)
+                }
+                setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 17, 7)
+                setobjectmovementtype(VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_UP)
+                addobject(VAR_LOCALID_CUTSCENE_MAIN)
             default:
                 end
         }
@@ -18,6 +49,7 @@ mapscripts JurassicPark_Visitor_Centre_MapScripts {
             
             goto(JurassicPark_Visitor_Centre_EventScript_LarvyPanic)
         }
+        
     ]
     
 }
@@ -63,6 +95,17 @@ script JurassicPark_Visitor_Centre_EventScript_Bagon
             mnmbox(format("Hi, Larvy.\pOur adventure was really fun!\nFlying around was surprisingly tiring…\pI wonder if it's going to be as tiring when I'm a Salamence."), localId=LOCALID_BAGON_CENTRE)
             closemessage
             end
+        case GS_POST_TWO_GENERATORS:
+            if(var(VAR_FIRST_SAVED) == CHAR_BAGON)
+            {
+                msgbox(format("There's no response."))
+            } 
+            else
+            {
+                faceplayer
+                mnmbox(format("Larvy, I'll take care of this.\pYou go look of the last generator, okay?"), localId=LOCALID_BAGON_CENTRE)
+            }
+            closemessage
     }
     release
     end
@@ -106,6 +149,17 @@ script JurassicPark_Visitor_Centre_EventScript_Phanpy
         case GS_POST_ONE_GENERATOR:
             mnmbox(format("Hmm…\nThey haven't evolved the ability to talk…\pBut maybe, if…"), localId=LOCALID_PHANPY_CENTRE)
             closemessage
+        case GS_POST_TWO_GENERATORS:
+            if(var(VAR_FIRST_SAVED) == CHAR_PHANPY)
+            {
+                msgbox(format("There's no response."))
+            } 
+            else
+            {
+                faceplayer
+                mnmbox(format("Larvy, I appreciate your company, but you should look for the last generator."), localId=LOCALID_BAGON_CENTRE)
+            }
+            closemessage
 
     }
     release
@@ -128,6 +182,17 @@ script JurassicPark_Visitor_Centre_EventScript_Jigglypuff
             mnmbox(format("'Sup.\nI'm feeling a bit better.\pI'll be back to floating in no ti-"), localId=LOCALID_JIGGLYPUFF_CENTRE)
             mnmbox(format("Owwww…"), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
             mnmbox(format("…No time at all."), localId=LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+            closemessage
+        case GS_POST_TWO_GENERATORS:
+            if(var(VAR_FIRST_SAVED) == CHAR_JIGGLYPUFF)
+            {
+                msgbox(format("There's no response."))
+            } 
+            else
+            {
+                faceplayer
+                mnmbox(format("Still here?\nWe need to get out, pronto.\pLook for the final generator, will you?"), localId=LOCALID_BAGON_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            }
             closemessage
 
     }
@@ -302,10 +367,105 @@ script JurassicPark_Visitor_Centre_EventScript_LarvyPanic
     fadenewbgm(MUS_DUMMY)
     mnmbox(format("(No…\nI guess it's too big.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
     mnmbox(format("(But, the others!\nDid they make it?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
-    mnmbox(format("(I have to find them…\nAnd restart the generators.)\p(But the only way is…\nGoing outside.)\p(Gulp…\nCan I even… Do this?)\p(…No, I don't have a choice.\nI need to.)\p(For my friends…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("(I have to find them…\nAnd restart the generators.)\p(But the only way is…\nGoing outside.)\p(Gulp…\nCan I even… Do this?)\p(…I don't have a choice.\nI need to.)\p(I just hope…\nI'm able to do it.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     closemessage
     clearflag(FLAG_PANIC_OW_MUSIC)
     setvar(VAR_GAME_STATE, GS_NO_GENERATORS)
     release
     end
+}
+
+script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor
+{
+    delay(16)
+    fadescreen(FADE_FROM_BLACK)
+    switch(var(VAR_FIRST_SAVED))
+    {
+        case CHAR_PHANPY:
+        case CHAR_BAGON:
+            mnmbox(format("(Will she…\nBe okay?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("(Will he…\nBe okay?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    }
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            switch(var(VAR_FIRST_SAVED))
+            {
+                case CHAR_PHANPY:
+                    mnmbox(format("I-I don't know, Larvy.\nI don't know much about medicine.\pPhanpy would know, but…\nOh, poor Phanpy…\pIf I wasn't so weak, she wouldn't have had to…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                case CHAR_BAGON:
+                    mnmbox(format("I-I don't know, Larvy.\nI don't know much about medicine.\pPhanpy would know, but she's not here right now…\pIf I wasn't so weak, Jiggly wouldn't have had to…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+            }
+        case CHAR_JIGGLYPUFF:
+            switch(var(VAR_FIRST_SAVED))
+            {
+                case CHAR_PHANPY:
+                    mnmbox(format("…She will be.\nShe HAS to.\pWe've gone through so much worse together.\pThis is nothing, you understand?\nNothing!\pI can't believe she would go ahead and pull this one me…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+                case CHAR_JIGGLYPUFF:
+                    mnmbox(format("…I got sloppy.\nThis is all my fault.\pI let my guard down and this…\nAnd this…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            }
+        case CHAR_PHANPY:
+            switch(var(VAR_FIRST_SAVED))
+            {
+                case CHAR_BAGON:
+                    mnmbox(format("I-I don't know…\nThere was barely any medicine here…\pOh, Bagon, why did you have to…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                case CHAR_JIGGLYPUFF:
+                    mnmbox(format("I-I don't know…\nThere was barely any medicine here…\pOh, Jiggly, I…\nIt can't end like this…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+            }
+        
+    }
+        mnmbox(format("(This was all my fault.)\p(If there is someone to take the blame…\nIt should be me.)\p(If I didn't freeze up, I could have…\nI should have…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        switch(var(VAR_SECOND_SAVED))
+        {
+            case CHAR_BAGON:
+                mnmbox(format("Larvy, no!\nYou've been doing so much!\pSo much more than me.\pThis…\nWas too much for all of us.\pIt's not your fault.\pI think…\nWe have to get out of here…\lAs soon as possible."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_PHANPY:
+                        mnmbox(format("(But Phanpy…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                        mnmbox(format("I'll look after her, okay?\pI don't know if there's anything here that can make her feel better, but…\pOnce we leave the island, we can take her to a hospital.\pI think you should…\nStart looking for the final generator."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                    case CHAR_JIGGLYPUFF:
+                        mnmbox(format("(But Jiggly…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                        mnmbox(format("I'll look after him, okay?\pI don't know if there's anything here that can make him feel better, but…\pOnce we leave the island, we can take him to a hospital.\pI think you should…\nStart looking for the final generator."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                }
+                mnmbox(format("(But if that Pokémon showed up again, I don't know if…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("Larvy.\nI know how you feel.\pBut we need you.\nI know you can do it, okay?"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                mnmbox(format("(You're right.\nMy friends need me.)\p(Okay.\nI will look for the last generator, now.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_PHANPY:
+                        mnmbox(format("Thank you.\nI promise, Phanpy will be okay."), localId=VAR_LOCALID_CUTSCENE_MAIN)
+                    case CHAR_JIGGLYPUFF:
+                        mnmbox(format("Thank you.\nI promise, Jiggly will be okay."), localId=VAR_LOCALID_CUTSCENE_MAIN)
+                }
+            case CHAR_JIGGLYPUFF:
+                mnmbox(format("Oh no no no, don't you start.\pDon't you START blaming yourself.\pDon't you know how egoistical that is?\nIt drives me insane."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+                mnmbox(format("(You were JUST blaming yourself.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+                mnmbox(format("Oh, I know that look.\nYou're thinking I'm a hypocrite."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                mnmbox(format("…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_PHANPY:
+                        mnmbox(format("I know, okay?\nI know I am!\pI drive myself insane!\pI'm just-\nI'm just-\pI'm just trying to keep everything running!\pAnd I didn't, and now Phanpy…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+                    case CHAR_BAGON:
+                        mnmbox(format("I know, okay?\nI know I am!\pI drive myself insane!\pI'm just-\nI'm just-\pI'm just trying to keep everything running!\pAnd I didn't, and now Phanpy…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+                }
+                mnmbox(format("(Jiggly…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                mnmbox(format("…I don't know if there's anything here that can help with the wounds.\pLarvy, could you…\nTry and find the last generator…?\NWe need to leave.\pI want to…\nStay here and make sure that…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                mnmbox(format("(…I understand.\pI don't know what I'll do if that Pokémon shows up again, but…\pI will try.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            case CHAR_PHANPY:
+                mnmbox(format("No, Larvy, please.\nDon't blame yourself.\pThis adventure was my idea.\nI'm the one who pushed for it.\pI thought it was going to be easy.\nI thought it was going to be fun.\pI thought we were going to make amazing discoveries.\pAnd instead…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+                mnmbox(format("(You didn't know…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                mnmbox(format("Of COURSE I didn't know, did I?!\pThat's the problem!\nThat's always the problem!\pPeople rely on me to know everything!\nAnd when I don't…\NAnd when I don't…!\pPokémon get hurt!\nOr…\NWorse…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+                mnmbox(format("(Phanpy…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                mnmbox(format("I-I'm sorry.\pI-I'd like to stay here.\nSee what I can do.\pCould you look for the last generator…?"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                mnmbox(format("(…I understand.\pI don't know what I'll do if that Pokémon shows up again, but…\pI will try.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+
+        }
+        setvar(VAR_GAME_STATE, GS_POST_TWO_GENERATORS)
+        clearflag(FLAG_NO_OW_MUSIC)
+        clearflag(FLAG_SPAWN_WEST)
+        releaseall
+        end
 }

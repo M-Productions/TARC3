@@ -79,6 +79,8 @@ JurassicPark_Mountain_Top_EventScript_Generator::
 	compare VAR_MOUNTAIN_STATE, 5
 	goto_if_eq JurassicPark_Mountain_Top_EventScript_Generator_2
 JurassicPark_Mountain_Top_EventScript_Generator_1:
+# 82 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+	clearflag FLAG_HIDE_ARCHEOPS_BASE
 	end
 
 JurassicPark_Mountain_Top_EventScript_Generator_2:
@@ -117,8 +119,6 @@ JurassicPark_Mountain_Top_EventScript_Generator_4:
 JurassicPark_Mountain_Top_EventScript_Generator_9:
 # 79 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	closemessage
-# 80 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	clearflag FLAG_HIDE_ARCHEOPS_BASE
 	goto JurassicPark_Mountain_Top_EventScript_Generator_1
 
 JurassicPark_Mountain_Top_EventScript_Generator_6:
@@ -149,18 +149,18 @@ JurassicPark_Mountain_Top_EventScript_Generator_10:
 
 
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase::
-# 87 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	msgbox JurassicPark_Mountain_Base_EventScript_ArcheopsBase_Text_0, MSGBOX_YESNO
 # 88 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+	msgbox JurassicPark_Mountain_Base_EventScript_ArcheopsBase_Text_0, MSGBOX_YESNO
+# 89 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq JurassicPark_Mountain_Base_EventScript_ArcheopsBase_2
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase_1:
 	end
 
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase_2:
-# 90 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	warp MAP_JURASSIC_PARK_MOUNTAIN_BASE, 67, 25
 # 91 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+	warp MAP_JURASSIC_PARK_MOUNTAIN_BASE, 67, 25
+# 92 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	waitstate
 	goto JurassicPark_Mountain_Base_EventScript_ArcheopsBase_1
 
@@ -349,7 +349,7 @@ JurassicPark_Mountain_Top_EventScript_Generator_Text_1:
 	.string "… … …$"
 
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase_Text_0:
-# 87 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 88 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "Seems like it wants to take you down\n"
 	.string "the mountain.\p"
 	.string "Accept the lift?$"

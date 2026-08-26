@@ -109,8 +109,8 @@ script JurassicPark_Desert_Main_EventScript_House
         closemessage
         special(SpawnCameraObject)
         applymovement(LOCALID_CAMERA, moves(walk_up*4, delay_16*3, walk_down*4))
-        waitmovement(0)
-        special(RemoveCameraObject)
+        waitmovement(LOCALID_CAMERA)
+
         mnmbox(format("But this house is in the way…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
         mnmbox(format("(Wait, she hasn't noticed yet…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
         mnmbox(format("… … …\pHey, wait a minute.\nThere's something… Off."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
@@ -118,6 +118,7 @@ script JurassicPark_Desert_Main_EventScript_House
         mnmbox(format("(There we go.)"), localId=LOCALID_PLAYER)
         mnmbox(format("Which means, we just need to find a way to knock it down.\pLet's look around!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
         closemessage
+        special(RemoveCameraObject)
         setvar(VAR_DESERT_STATE, 3)
         end
     }
