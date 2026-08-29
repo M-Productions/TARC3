@@ -9,7 +9,7 @@ script JurassicPark_Marshlands_Maze_Armaldo
 
 script JurassicPark_Marshlands_Generator
 {
-    if(var(VAR_MARSH_STATE) == 3)
+    if(var(VAR_MARSH_STATE) <= 3)
     {
         mnmbox(format("Splendid.\nWe found a generator.\pShould be easy enough to restart.\nJust press the button, aaaand-"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
         closemessage

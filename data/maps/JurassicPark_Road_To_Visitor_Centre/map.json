@@ -738,6 +738,78 @@
       "var": "VAR_MOUNTAIN_COMPLETE",
       "var_value": "1",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GeneratorMountain"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_THREE_GENERATORS",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Cutscene_Three_Generators"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_THREE_GENERATORS",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Cutscene_Three_Generators"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_THREE_GENERATORS",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Cutscene_Three_Generators"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_THREE_GENERATORS",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Cutscene_Three_Generators"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_DESERT_COMPLETE",
+      "var_value": "2",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Desert_WalkBack"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_DESERT_COMPLETE",
+      "var_value": "2",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Desert_WalkBack"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_MOUNTAIN_COMPLETE",
+      "var_value": "2",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Mountain_WalkBack"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_MOUNTAIN_COMPLETE",
+      "var_value": "2",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Mountain_WalkBack"
     }
   ],
   "bg_events": [

@@ -134,3 +134,14 @@ script JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke
     setflag(FLAG_SPAWN_WEST)
     waitstate
 }
+
+
+script JurassicPark_Dino_Enclosure_EventScript_WalkBack
+{
+    lock
+    mnmbox(format("(I'm not going back in there.)"), localId=LOCALID_PLAYER)
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    release
+    end
+}

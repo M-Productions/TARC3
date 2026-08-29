@@ -402,7 +402,7 @@ JurassicPark_Marshlands_EventScript_Jigglypuff_Text_10:
 
 JurassicPark_Marshlands_EventScript_Jigglypuff_Text_11:
 # 111 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	.string "I was thinking that maybe, somehow get\n"
+	.string "I was thinking that maybe, we could get\n"
 	.string "some of these Pokémon with\l"
 	.string "sharp-looking claws to cut them down\l"
 	.string "for us.\p"

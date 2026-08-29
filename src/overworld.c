@@ -1221,6 +1221,8 @@ u16 GetLocationMusic(struct WarpData *warp)
         return MUS_MT_CHIMNEY;
     else if (FlagGet(FLAG_NO_OW_MUSIC))
         return MUS_DUMMY;
+    else if (FlagGet(FLAG_DETERMINATION))
+        return MUS_DETERMINATION;
     else if (FlagGet(FLAG_PANIC_OW_MUSIC))
         return MUS_VS_BOSS_POWERFUL;
     else if (FlagGet(FLAG_MUSIC_RAIN))

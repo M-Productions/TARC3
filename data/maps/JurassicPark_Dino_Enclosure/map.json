@@ -212,6 +212,15 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_GOING_TO_PLATFORM",
       "script": "JurassicPark_Dino_Enclosure_EventScript_WhereAreYouGoing"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_MARSH_COMPLETE",
+      "var_value": "2",
+      "script": "JurassicPark_Dino_Enclosure_EventScript_WalkBack"
     }
   ],
   "bg_events": []

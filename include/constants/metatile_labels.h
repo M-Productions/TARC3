@@ -231,6 +231,15 @@
 #define METATILE_Fallarbor_RedRockWall               0x869
 
 // gTileset_Forest_Primary
+#define METATILE_Forest_Primary_Dirt                0x061
+#define METATILE_Forest_Primary_DirtBottom          0x069
+#define METATILE_Forest_Primary_DirtBottomLeft      0x068
+#define METATILE_Forest_Primary_DirtBottomRight     0x06A
+#define METATILE_Forest_Primary_DirtLeft            0x060
+#define METATILE_Forest_Primary_DirtRight           0x062
+#define METATILE_Forest_Primary_DirtTop             0x059
+#define METATILE_Forest_Primary_DirtTopLeft         0x058
+#define METATILE_Forest_Primary_DirtTopRight        0x05A
 #define METATILE_Forest_Primary_FloorRock           0x0EC
 #define METATILE_Forest_Primary_Grass               0x000
 #define METATILE_Forest_Primary_LeftRock            0x078

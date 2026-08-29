@@ -89,7 +89,7 @@
 #define FLAG_HIDE_ARCHEOPS    0x43 // Unused Flag
 #define FLAG_HIDE_AERODACTYL    0x44 // Unused Flag
 #define FLAG_HIDE_ARCHEOPS_BASE    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_DETERMINATION    0x46 // Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
