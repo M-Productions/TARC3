@@ -42,6 +42,10 @@ mapscripts JurassicPark_Marshlands_Main_MapScripts {
         }
 
     ]
+    MAP_SCRIPT_ON_LOAD
+    {
+        callnative(RestoreMarshPuzzleBarriers)
+    }
     MAP_SCRIPT_ON_TRANSITION{
         if(var(VAR_MARSH_STATE) >= 3)
         {

@@ -1,5 +1,9 @@
-mapscripts JurassicPark_Marshlands_Maze_Test_MapScripts {}
-
+mapscripts JurassicPark_Marshlands_Maze_Test_MapScripts {
+    MAP_SCRIPT_ON_LOAD
+    {
+        callnative(RestoreMarshPuzzleBarriers)
+    }
+}
 
 script JurassicPark_Marshlands_Maze_Armaldo
 {
