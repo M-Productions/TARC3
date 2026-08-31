@@ -860,6 +860,7 @@ enum SubmoveState
 
 enum BattlePuzzles
 {
+    BP_NONE,
     BP_TUTORIAL,
     BP_HEADBUTT,
     BP_SING,

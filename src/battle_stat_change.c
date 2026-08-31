@@ -480,16 +480,6 @@ static void StatChanged(struct BattleCalcValues *cv, struct StatChange *st, bool
             gBattleMons[cv->battlerDef].statStages[st->stat] = MIN_STAT_STAGE;
     }
 
-    // Rampardos Puzzle
-    if (st->stat == STAT_ATK && gBattleMons[cv->battlerDef].species == SPECIES_RAMPARDOS)
-    {
-        if (gBattleMons[cv->battlerDef].statStages[STAT_ATK] == MAX_STAT_STAGE)
-            gBattleOutcome |= B_OUTCOME_PUZZLE_COMPLETE;
-
-        if (gBattleMons[cv->battlerDef].statStages[STAT_ATK] == MIN_STAT_STAGE)
-            gBattleOutcome |= B_OUTCOME_LOST;
-    }
-
     if (cv->moveEffect == EFFECT_STOCKPILE && st->stage > 0)
     {
         switch (st->stat)

@@ -4314,8 +4314,8 @@ static void Cmd_checkteamslost(void)
         gBattleOutcome |= B_OUTCOME_LOST;
     if (NoAliveMonsForOpponent())
     {
-        if (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES) == SPECIES_RAMPARDOS)
-            gBattleOutcome |= B_OUTCOME_RAN;
+        if (DoesBattleHavePuzzle())
+            SetBattlePuzzleOutcome();
         else
             gBattleOutcome |= B_OUTCOME_WON;
     }

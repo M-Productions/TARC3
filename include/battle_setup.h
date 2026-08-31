@@ -118,4 +118,8 @@ s32 FirstBattleTrainerIdToRematchTableId(const struct RematchTrainer *table, u16
 u16 GetRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBattleTrainerId);
 u8 GetRivalBattleFlags(void);
 
+void SetBattlePuzzleOutcome(void);
+bool32 DoesBattleHavePuzzle(void);
+void ClearBattlePuzzle(void);
+
 #endif // GUARD_BATTLE_SETUP_H

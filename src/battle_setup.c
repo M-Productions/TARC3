@@ -96,6 +96,7 @@ EWRAM_DATA u16 gPartnerTrainerId = 0;
 EWRAM_DATA static u8 *sTrainerBattleEndScript = NULL;
 EWRAM_DATA static bool8 sShouldCheckTrainerBScript = FALSE;
 EWRAM_DATA static u8 sNoOfPossibleTrainerRetScripts = 0;
+static EWRAM_DATA enum BattlePuzzles sActivePuzzle = BP_NONE;
 
 // The first transition is used if the enemy Pokémon are lower level than our Pokémon.
 // Otherwise, the second transition is used.
@@ -514,6 +515,7 @@ struct BattlePuzzle
 
     u32 battleFlags;
     AiScoreFunc aiFunc;
+    u32 (*puzzleFunc)(void);
 };
 
 static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
@@ -576,6 +578,47 @@ static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef
     return score;
 }
 
+static enum BattlerId GetPuzzleEnemyBattler(void)
+{
+    return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+}
+
+static bool32 IsPuzzlePartnerAlive(void)
+{
+    return IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT));
+}
+
+static u32 PuzzleOutcome_Rampardos(void)
+{
+    enum BattlerId enemy = GetPuzzleEnemyBattler();
+
+    if (gBattleMons[enemy].statStages[STAT_ATK] == MAX_STAT_STAGE)
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (gBattleMons[enemy].statStages[STAT_ATK] == MIN_STAT_STAGE)
+        return B_OUTCOME_LOST;
+
+    if (!IsBattlerAlive(enemy))
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
+static u32 PuzzleOutcome_Armaldo(void)
+{
+    enum BattlerId enemy = GetPuzzleEnemyBattler();
+
+    if (gBattleMons[enemy].status1 & STATUS1_SLEEP)
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (!IsPuzzlePartnerAlive())
+        return B_OUTCOME_LOST;
+
+    if (!IsBattlerAlive(enemy))
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
 
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
@@ -611,6 +654,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_RampardosRandom,
+        .puzzleFunc = PuzzleOutcome_Rampardos,
     },
 
     [BP_SING] =
@@ -632,8 +676,25 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_AttackPartner,
+        .puzzleFunc = PuzzleOutcome_Armaldo,
     }
 };
+
+void SetBattlePuzzleOutcome(void)
+{
+    if (sBattlePuzzles[sActivePuzzle].puzzleFunc != NULL)
+        gBattleOutcome |= sBattlePuzzles[sActivePuzzle].puzzleFunc();
+}
+
+bool32 DoesBattleHavePuzzle(void)
+{
+    return sBattlePuzzles[sActivePuzzle].puzzleFunc != NULL;
+}
+
+void ClearBattlePuzzle(void)
+{
+    sActivePuzzle = BP_NONE;
+}
 
 #define HP_MAX_DEFAULT 100
 void StartPuzzleBattle(enum BattlePuzzles puzzle)
@@ -683,6 +744,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = puzzlesData->battleFlags;
+    sActivePuzzle = puzzle;
     ResetRampardosRandomAI();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
