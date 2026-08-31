@@ -23886,4 +23886,21 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         }),
         .battleAnimScript = gBattleAnimMove_Tickle,
     },
+
+    [MOVE_LARVESTA_TICKLE_ANORITH] =
+    {
+        .name = COMPOUND_STRING("Tickle"),
+        .description = COMPOUND_STRING(
+            "Pulls a funny face on an ally,\n"
+            "scaring off startled foes."),
+        .effect = EFFECT_TICKLE_ANORITH,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 3,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Tickle,
+    },
 };

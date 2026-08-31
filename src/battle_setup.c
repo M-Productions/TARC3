@@ -513,6 +513,15 @@ struct BattlePuzzle
     u32 enemyHP;
     u32 enemyMaxHP;
 
+    enum Species enemyTwoSpecies;
+    enum Move enemyTwoAttackMove;
+    enum Move enemyTwoDefendMove;
+    enum Move enemyTwoStatusMove;
+    enum Move enemyTwoAceMove;
+    u32 enemyTwoStatusEffect;
+    u32 enemyTwoHP;
+    u32 enemyTwoMaxHP;
+
     u32 battleFlags;
     AiScoreFunc aiFunc;
     u32 (*puzzleFunc)(void);
@@ -620,6 +629,30 @@ static u32 PuzzleOutcome_Armaldo(void)
     return 0;
 }
 
+static s32 AI_AnorithBurrowCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    enum BattlerId anorithTwo = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+
+    if (battlerAtk == anorithTwo && gBattleResults.battleTurnCounter == 0)
+        return (move == MOVE_HARDEN) ? 100 : 0;
+
+    return (move == MOVE_DIG) ? 100 : 0;
+}
+
+static u32 PuzzleOutcome_Anorith(void)
+{
+    enum BattlerId anorithOne = GetPuzzleEnemyBattler();
+    enum BattlerId anorithTwo = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+
+    if (!IsBattlerAlive(anorithOne) && !IsBattlerAlive(anorithTwo))
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (!IsPuzzlePartnerAlive())
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -677,6 +710,33 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_AttackPartner,
         .puzzleFunc = PuzzleOutcome_Armaldo,
+    },
+
+    [BP_ANORITH] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_TICKLE_ANORITH,
+
+        .partnerSpecies = SPECIES_JIGGLYPUFF,
+        .partnerAttackMove = MOVE_TACKLE,
+        .partnerDefendMove = MOVE_PROTECT,
+        .partnerStatusMove = MOVE_SPLASH,
+        .partnerHP = 60,
+        .partnerMaxHP = 100,
+
+        .enemySpecies = SPECIES_ANORITH,
+        .enemyAttackMove = MOVE_DIG,
+        .enemyDefendMove = MOVE_HARDEN,
+
+        .enemyTwoSpecies = SPECIES_ANORITH,
+        .enemyTwoAttackMove = MOVE_DIG,
+        .enemyTwoDefendMove = MOVE_HARDEN,
+
+        .battleFlags = BATTLE_TYPE_DOUBLE,
+        .aiFunc = AI_AnorithBurrowCycle,
+        .puzzleFunc = PuzzleOutcome_Anorith,
     }
 };
 
@@ -740,6 +800,21 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     hpStart = puzzlesData->enemyHP ? puzzlesData->enemyHP : hpMax;
     SetMonData(enemy, MON_DATA_HP, &hpStart);
     SetMonData(enemy, MON_DATA_MAX_HP, &hpMax);
+
+    if (puzzlesData->enemyTwoSpecies)
+    {
+        struct Pokemon *enemyTwo = &gParties[B_TRAINER_OPPONENT_A][1];
+        CreateMon(enemyTwo, puzzlesData->enemyTwoSpecies, PUZZLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+        SetMonMoveSlot(enemyTwo, puzzlesData->enemyTwoAttackMove, 0);
+        SetMonMoveSlot(enemyTwo, puzzlesData->enemyTwoDefendMove, 1);
+        SetMonMoveSlot(enemyTwo, puzzlesData->enemyTwoStatusMove, 2);
+        SetMonMoveSlot(enemyTwo, puzzlesData->enemyTwoAceMove, 3);
+        SetMonData(enemyTwo, MON_DATA_STATUS, &puzzlesData->enemyTwoStatusEffect);
+        hpMax = puzzlesData->enemyTwoMaxHP ? puzzlesData->enemyTwoMaxHP : HP_MAX_DEFAULT;
+        hpStart = puzzlesData->enemyTwoHP ? puzzlesData->enemyTwoHP : hpMax;
+        SetMonData(enemyTwo, MON_DATA_HP, &hpStart);
+        SetMonData(enemyTwo, MON_DATA_MAX_HP, &hpMax);
+    }
 
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;

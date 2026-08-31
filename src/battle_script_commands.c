@@ -12594,6 +12594,42 @@ void BS_EndDrampaTutorialBattle(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+static void TickleZeroBattlerHP(enum BattlerId battler)
+{
+    gBattleMons[battler].hp = 0;
+    BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_HP_BATTLE, 0, sizeof(gBattleMons[battler].hp), &gBattleMons[battler].hp);
+    MarkBattlerForControllerExec(battler);
+}
+
+void BS_TickleScareAnorith(void)
+{
+    NATIVE_ARGS();
+    enum BattlerId partner = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+    enum BattlerId anorith1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    enum BattlerId anorith2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    bool32 scaredAny = FALSE;
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    if (gBattleMons[partner].hp != gBattleMons[partner].maxHP)
+    {
+        if (IsBattlerAlive(anorith1) && !IsSemiInvulnerable(anorith1, CHECK_ALL) && gBattleMons[anorith1].hp == gBattleMons[anorith1].maxHP)
+        {
+            TickleZeroBattlerHP(anorith1);
+            scaredAny = TRUE;
+        }
+        if (IsBattlerAlive(anorith2) && !IsSemiInvulnerable(anorith2, CHECK_ALL) && gBattleMons[anorith2].hp == gBattleMons[anorith2].maxHP)
+        {
+            TickleZeroBattlerHP(anorith2);
+            scaredAny = TRUE;
+        }
+    }
+
+    gBattleCommunication[0] = scaredAny;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_IsRunningImpossible(void)
 {
     NATIVE_ARGS();

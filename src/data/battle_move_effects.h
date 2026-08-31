@@ -113,6 +113,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleFactoryStyle = FACTORY_STYLE_HIGH_RISK,
     },
 
+    [EFFECT_TICKLE_ANORITH] =
+    {
+        .battleScript = BattleScript_EffectTickleAnorith,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_ROAR] =
     {
         .battleScript = BattleScript_EffectRoar,

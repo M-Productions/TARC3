@@ -1949,6 +1949,24 @@ BattleScript_EffectDoNothing::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectTickleAnorith::
+	attackcanceler
+	attackanimation
+	waitanimation
+	callnative BS_TickleScareAnorith
+	jumpifbyte CMP_EQUAL, gBattleCommunication, FALSE, BattleScript_TickleAnorithCancel
+	healthbarupdate BS_OPPONENT1, PASSIVE_HP_UPDATE
+	datahpupdate BS_OPPONENT1, PASSIVE_HP_UPDATE
+	tryfaintmon BS_OPPONENT1
+	healthbarupdate BS_OPPONENT2, PASSIVE_HP_UPDATE
+	datahpupdate BS_OPPONENT2, PASSIVE_HP_UPDATE
+	tryfaintmon BS_OPPONENT2
+	goto BattleScript_MoveEnd
+BattleScript_TickleAnorithCancel::
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_SpecialArchenTutorial::
 	attackcanceler
 	attackanimation
