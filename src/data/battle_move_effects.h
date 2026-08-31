@@ -772,6 +772,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleScript = BattleScript_EffectFollowMe,
         .battleTvScore = 5,
         .encourageEncore = TRUE,
+        .usesProtectCounter = TRUE,
     },
 
     [EFFECT_NATURE_POWER] =

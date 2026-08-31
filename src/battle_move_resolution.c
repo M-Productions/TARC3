@@ -1259,8 +1259,13 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
             battleScript = BattleScript_ButItFailed;
         break;
     case EFFECT_FOLLOW_ME:
+        TryResetConsecutiveUseCounter(cv->battlerAtk);
         if (B_UPDATED_MOVE_DATA >= GEN_8 && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
             battleScript = BattleScript_ButItFailed;
+        else if (!CanUseMoveConsecutively(cv->battlerAtk))
+            battleScript = BattleScript_ButItFailed;
+        if (battleScript != NULL)
+            gBattleMons[cv->battlerAtk].volatiles.consecutiveMoveUses = 0;
         break;
     case EFFECT_LAST_RESORT:
         if (!CanUseLastResort(cv->battlerAtk))

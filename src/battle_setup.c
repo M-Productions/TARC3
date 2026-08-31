@@ -491,6 +491,8 @@ struct BattlePuzzle
     enum Move playerStatusMove;
     enum Move playerAceMove;
     u32 playerStatusEffect;
+    u32 playerHP;
+    u32 playerMaxHP;
 
     enum Species partnerSpecies;
     enum Move partnerAttackMove;
@@ -498,6 +500,8 @@ struct BattlePuzzle
     enum Move partnerStatusMove;
     enum Move partnerAceMove;
     u32 partnerStatusEffect;
+    u32 partnerHP;
+    u32 partnerMaxHP;
 
     enum Species enemySpecies;
     enum Move enemyAttackMove;
@@ -505,6 +509,8 @@ struct BattlePuzzle
     enum Move enemyStatusMove;
     enum Move enemyAceMove;
     u32 enemyStatusEffect;
+    u32 enemyHP;
+    u32 enemyMaxHP;
 
     u32 battleFlags;
     AiScoreFunc aiFunc;
@@ -560,6 +566,17 @@ static s32 AI_RampardosRandom(enum BattlerId battlerAtk, enum BattlerId battlerD
     return score;
 }
 
+static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    enum BattlerId desiredTarget = BATTLE_PARTNER(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT));
+
+    if (battlerDef != desiredTarget)
+        return 0;
+
+    return score;
+}
+
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -583,7 +600,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerStatusMove = MOVE_LARVESTA_STATUS_2,
         .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
 
-        .partnerSpecies = SPECIES_TURTWIG,
+        .partnerSpecies = SPECIES_PHANPY,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_TAUNT,
@@ -594,13 +611,36 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_RampardosRandom,
+    },
+
+    [BP_SING] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_FOLLOW_ME,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+
+        .partnerSpecies = SPECIES_JIGGLYPUFF,
+        .partnerAttackMove = MOVE_TACKLE,
+        .partnerDefendMove = MOVE_PROTECT,
+        .partnerStatusMove = MOVE_SING,
+        .partnerHP = 75,
+        .partnerMaxHP = 150,
+
+        .enemySpecies = SPECIES_ARMALDO,
+        .enemyAttackMove = MOVE_ANCIENT_POWER,
+
+        .battleFlags = BATTLE_TYPE_DOUBLE,
+        .aiFunc = AI_AttackPartner,
     }
 };
 
+#define HP_MAX_DEFAULT 100
 void StartPuzzleBattle(enum BattlePuzzles puzzle)
 {
     const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[puzzle];
-    u32 hp = 100;
+    u32 hpMax;
+    u32 hpStart;
 
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
     SetMonMoveSlot(player, puzzlesData->playerAttackMove, 0);
@@ -608,8 +648,10 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
     SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
     SetMonData(player, MON_DATA_STATUS, &puzzlesData->playerStatusEffect);
-    SetMonData(player, MON_DATA_HP, &hp);
-    SetMonData(player, MON_DATA_MAX_HP, &hp);
+    hpMax = puzzlesData->playerMaxHP ? puzzlesData->playerMaxHP : HP_MAX_DEFAULT;
+    hpStart = puzzlesData->playerHP ? puzzlesData->playerHP : hpMax;
+    SetMonData(player, MON_DATA_HP, &hpStart);
+    SetMonData(player, MON_DATA_MAX_HP, &hpMax);
 
     if (puzzlesData->partnerSpecies)
     {
@@ -620,8 +662,10 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         SetMonMoveSlot(partner, puzzlesData->partnerStatusMove, 2);
         SetMonMoveSlot(partner, puzzlesData->partnerAceMove, 3);
         SetMonData(partner, MON_DATA_STATUS, &puzzlesData->partnerStatusEffect);
-        SetMonData(partner, MON_DATA_HP, &hp);
-        SetMonData(partner, MON_DATA_MAX_HP, &hp);
+        hpMax = puzzlesData->partnerMaxHP ? puzzlesData->partnerMaxHP : HP_MAX_DEFAULT;
+        hpStart = puzzlesData->partnerHP ? puzzlesData->partnerHP : hpMax;
+        SetMonData(partner, MON_DATA_HP, &hpStart);
+        SetMonData(partner, MON_DATA_MAX_HP, &hpMax);
     }
 
     struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
@@ -631,8 +675,10 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     SetMonMoveSlot(enemy, puzzlesData->enemyStatusMove, 2);
     SetMonMoveSlot(enemy, puzzlesData->enemyAceMove, 3);
     SetMonData(enemy, MON_DATA_STATUS, &puzzlesData->enemyStatusEffect);
-    SetMonData(enemy, MON_DATA_HP, &hp);
-    SetMonData(enemy, MON_DATA_MAX_HP, &hp);
+    hpMax = puzzlesData->enemyMaxHP ? puzzlesData->enemyMaxHP : HP_MAX_DEFAULT;
+    hpStart = puzzlesData->enemyHP ? puzzlesData->enemyHP : hpMax;
+    SetMonData(enemy, MON_DATA_HP, &hpStart);
+    SetMonData(enemy, MON_DATA_MAX_HP, &hpMax);
 
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;

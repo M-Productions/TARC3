@@ -6726,8 +6726,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "An attack that may raise\n"
             "all stats."),
-        .effect = EFFECT_HIT,
-        .power = 60,
+        .effect = EFFECT_FIXED_HP_DAMAGE,
+        .power = 1,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 5,
@@ -6735,16 +6735,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .makesContact = B_UPDATED_MOVE_DATA < GEN_4,
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_STAT_PLUS,
-            .attack = 1,
-            .defense = 1,
-            .spDef = 1,
-            .spAtk = 1,
-            .speed = 1,
-            .self = TRUE,
-            .chance = 10,
-        }),
+        .argument = { .fixedDamage = 60 },
         .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,

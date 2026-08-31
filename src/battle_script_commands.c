@@ -8748,6 +8748,7 @@ static void Cmd_setforcedtarget(void)
     gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 1;
     gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget = gBattlerTarget;
     gSideTimers[GetBattlerSide(gBattlerTarget)].followmePowder = IsPowderMove(gCurrentMove);
+    gBattleMons[gBattlerAttacker].volatiles.consecutiveMoveUses++;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

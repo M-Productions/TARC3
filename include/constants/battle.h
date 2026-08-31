@@ -862,6 +862,7 @@ enum BattlePuzzles
 {
     BP_TUTORIAL,
     BP_HEADBUTT,
+    BP_SING,
     BP_COUNT
 };
 
