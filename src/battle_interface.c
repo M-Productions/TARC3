@@ -861,6 +861,7 @@ void InitBattlerHealthboxCoords(enum BattlerId battler)
 
 static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
 {
+    return;
     u8 text[16];
     enum BattlerId battler = gSprites[healthboxSpriteId].hMain_Battler;
     u32 spriteId = gSprites[healthboxSpriteId].oam.affineParam;
@@ -1717,6 +1718,7 @@ void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
         StringCopy(ptr, gText_HealthboxGender_Female);
         break;
     }
+    StringCopy(ptr, COMPOUND_STRING(""));
 
     //  Don't assume that healthbox sprites don't have data in the fields used for sprite printing
     //  and set up temporary values with what's needed
