@@ -668,6 +668,59 @@ static u32 PuzzleOutcome_Anorith(void)
     return 0;
 }
 
+static EWRAM_DATA bool8 sBastiodonApproachFromBehind = FALSE;
+static EWRAM_DATA bool8 sBastiodonGuardRolled = FALSE;
+static EWRAM_DATA u8 sBastiodonGuardRolledTurn = 0;
+static EWRAM_DATA bool8 sBastiodonGuardUpThisTurn = FALSE;
+static EWRAM_DATA u32 sBastiodonPrevHP = 0;
+
+#define BP_BP_BASTIODON_ENEMY_MOVE_DEFEND MOVE_BASTIODON_GUARD_1
+#define BP_BP_BASTIODON_ENEMY_MOVE_STATUS MOVE_HARDEN
+static void ResetBastiodonGuardAI(void)
+{
+    sBastiodonApproachFromBehind = (VarGet(VAR_0x8004) == DIR_SOUTH);
+    sBastiodonGuardRolled = FALSE;
+    sBastiodonGuardRolledTurn = 0;
+    sBastiodonGuardUpThisTurn = FALSE;
+    sBastiodonPrevHP = 0;
+}
+
+static s32 AI_BastiodonFlankGuard(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    u32 turn = gBattleResults.battleTurnCounter;
+
+    if (!sBastiodonGuardRolled || turn != sBastiodonGuardRolledTurn)
+    {
+        sBastiodonGuardRolled = TRUE;
+        sBastiodonGuardRolledTurn = turn;
+        gBattleMons[battlerAtk].volatiles.consecutiveMoveUses = 0;
+        sBastiodonGuardUpThisTurn = !sBastiodonApproachFromBehind && RandomPercentage(RNG_NONE, 50);
+    }
+
+    if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
+        return sBastiodonGuardUpThisTurn ? 100 : 0;
+    if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
+        return sBastiodonGuardUpThisTurn ? 0 : 100;
+
+    return score;
+}
+
+static u32 PuzzleOutcome_Bastiodon(void)
+{
+    enum BattlerId enemy = GetPuzzleEnemyBattler();
+    u32 currentHP = gBattleMons[enemy].hp;
+
+    if (sBastiodonPrevHP != 0 && currentHP > sBastiodonPrevHP)
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    sBastiodonPrevHP = currentHP;
+
+    if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -774,6 +827,21 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_BruteBonnetSporeCycle,
+    },
+
+    [BP_BASTIODON] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_BASTIODON,
+        .enemyDefendMove = BP_BP_BASTIODON_ENEMY_MOVE_DEFEND,
+        .enemyStatusMove = BP_BP_BASTIODON_ENEMY_MOVE_STATUS,
+
+        .aiFunc = AI_BastiodonFlankGuard,
+        .puzzleFunc = PuzzleOutcome_Bastiodon,
     }
 };
 
@@ -858,6 +926,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     gBattleTypeFlags = puzzlesData->battleFlags;
     sActivePuzzle = puzzle;
     ResetRampardosRandomAI();
+    ResetBastiodonGuardAI();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }

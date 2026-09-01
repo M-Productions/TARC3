@@ -106,6 +106,8 @@ enum BattleSide
 #define BIT_SIDE        1
 #define BIT_FLANK       2
 
+#define STURDY_DAMAGE   10
+
 // Battle Type Flags
 #define BATTLE_TYPE_DOUBLE             (1 << 0)
 #define BATTLE_TYPE_LINK               (1 << 1)
@@ -866,6 +868,7 @@ enum BattlePuzzles
     BP_SING,
     BP_ANORITH,
     BP_BRUTE_BONNET,
+    BP_BASTIODON,
     BP_COUNT
 };
 

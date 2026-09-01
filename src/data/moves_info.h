@@ -23907,4 +23907,27 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_STATUS,
         .battleAnimScript = gBattleAnimMove_Tickle,
     },
+
+    [MOVE_BASTIODON_GUARD_1] =
+    {
+        .name = COMPOUND_STRING("Half-Guard"),
+        .description = COMPOUND_STRING(
+            "Raises an unbreakable shield,\n"
+            "blocking anything thrown at it."),
+        .effect = EFFECT_PROTECT,
+        .power = 0,
+        .type = TYPE_STEEL,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_USER,
+        .priority = 4,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .protectMethod = PROTECT_NORMAL },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .assistBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Protect,
+    },
 };

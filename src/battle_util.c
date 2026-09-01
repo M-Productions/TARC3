@@ -7958,6 +7958,14 @@ s32 GetAdjustedDamage(struct DamageContext *ctx, s32 damage)
      || DoesIceFaceBlockMove(ctx->battlerDef, ctx->move))
         return damage; // No damage will be dealt
 
+    if (GetConfig(B_STURDY) >= GEN_5 && ctx->abilities[ctx->battlerDef] == ABILITY_STURDY && damage > STURDY_DAMAGE)
+    {
+        RecordAbilityBattle(ctx->battlerDef, ABILITY_STURDY);
+        gLastUsedAbility = ABILITY_STURDY;
+        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_STURDIED;
+        return STURDY_DAMAGE;
+    }
+
     if (gBattleMons[ctx->battlerDef].hp > damage)
         return damage;
 
@@ -7973,13 +7981,6 @@ s32 GetAdjustedDamage(struct DamageContext *ctx, s32 damage)
     else if (GetMoveEffect(ctx->move) == EFFECT_FALSE_SWIPE)
     {
         enduredHit = TRUE;
-    }
-    else if (GetConfig(B_STURDY) >= GEN_5 && ctx->abilities[ctx->battlerDef] == ABILITY_STURDY && IsBattlerAtMaxHp(ctx->battlerDef))
-    {
-        enduredHit = TRUE;
-        RecordAbilityBattle(ctx->battlerDef, ABILITY_STURDY);
-        gLastUsedAbility = ABILITY_STURDY;
-        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_STURDIED;
     }
     else if (ctx->holdEffects[ctx->battlerDef] == HOLD_EFFECT_FOCUS_BAND && rand < GetBattlerHoldEffectParam(ctx->battlerDef))
     {
