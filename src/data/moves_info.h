@@ -4021,7 +4021,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 15,
-        .target = TARGET_SELECTED,
+        .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
         .argument = { .nonVolatileStatus = MOVE_EFFECT_SLEEP },
@@ -23733,8 +23733,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Status"),
         .description = COMPOUND_STRING(
-            "Recovers the target's\n"
-            "HP and resets all stats."),
+            "Recovers the target's HP,\n"
+            "resets stats, cures sleep."),
         .effect = EFFECT_HEAL_PULSE,
         .power = 0,
         .type = TYPE_GRASS,
@@ -23743,6 +23743,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .status = STATUS1_SLEEP },
         .zMove = { .effect = Z_EFFECT_RESET_STATS },
         .magicCoatAffected = TRUE,
         .mirrorMoveBanned = TRUE,
@@ -23755,6 +23756,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Synthesis,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_HAZE,
+        },
+        {
+            .moveEffect = MOVE_EFFECT_REMOVE_STATUS,
         }),
     },
 

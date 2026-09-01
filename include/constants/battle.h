@@ -865,6 +865,7 @@ enum BattlePuzzles
     BP_HEADBUTT,
     BP_SING,
     BP_ANORITH,
+    BP_BRUTE_BONNET,
     BP_COUNT
 };
 

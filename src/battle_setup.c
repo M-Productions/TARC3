@@ -587,6 +587,21 @@ static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef
     return score;
 }
 
+#define BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK MOVE_FALSE_SURRENDER
+#define BP_BRUTE_BONNET_ENEMY_MOVE_STATUS MOVE_SPORE
+static s32 AI_BruteBonnetSporeCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    bool32 bagonAsleep = gBattleMons[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)].status1 & STATUS1_SLEEP;
+
+    if (move == BP_BRUTE_BONNET_ENEMY_MOVE_STATUS)
+        return bagonAsleep ? 0 : 100;
+
+    if (move == BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK)
+        return bagonAsleep ? 100 : 0;
+
+    return score;
+}
+
 static enum BattlerId GetPuzzleEnemyBattler(void)
 {
     return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -737,6 +752,28 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_AnorithBurrowCycle,
         .puzzleFunc = PuzzleOutcome_Anorith,
+    },
+
+    [BP_BRUTE_BONNET] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS_2,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerStatusEffect = STATUS1_POISON,
+
+        .partnerSpecies = SPECIES_BAGON,
+        .partnerAttackMove = MOVE_DRAGON_BREATH,
+        .partnerDefendMove = MOVE_PROTECT,
+        .partnerStatusMove = MOVE_SPLASH,
+        .partnerStatusEffect = STATUS1_POISON,
+
+        .enemySpecies = SPECIES_BRUTE_BONNET,
+        .enemyAttackMove = BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK,
+        .enemyStatusMove = BP_BRUTE_BONNET_ENEMY_MOVE_STATUS,
+
+        .battleFlags = BATTLE_TYPE_DOUBLE,
+        .aiFunc = AI_BruteBonnetSporeCycle,
     }
 };
 

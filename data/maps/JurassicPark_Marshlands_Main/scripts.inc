@@ -238,40 +238,55 @@ JurassicPark_Marshlands_EventScript_Anorith_2:
 # 136 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	lockall
 # 137 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	msgbox JurassicPark_Marshlands_EventScript_Anorith_Text_0
+	mnmbox JurassicPark_Marshlands_EventScript_Anorith_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 138 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	mnmbox JurassicPark_Marshlands_EventScript_Anorith_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
-# 139 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	closemessage
+# 139 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	puzzlebattle BP_ANORITH
 # 140 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	removeobject LOCALID_ANORITH_1
+	waitstate
 # 141 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectmovementtype LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE
-# 142 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	clearflag FLAG_TEMP_3
-# 143 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	addobject LOCALID_ANORITH_1
-# 144 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	removeobject LOCALID_ANORITH_2
+	compare VAR_RESULT, B_OUTCOME_PUZZLE_COMPLETE
+	goto_if_ne JurassicPark_Marshlands_EventScript_Anorith_5
+JurassicPark_Marshlands_EventScript_Anorith_4:
 # 145 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setobjectmovementtype LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE
+	mnmbox JurassicPark_Marshlands_EventScript_Anorith_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 146 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	clearflag FLAG_TEMP_1
+	closemessage
 # 147 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	addobject LOCALID_ANORITH_2
+	removeobject LOCALID_ANORITH_1
 # 148 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	setvar VAR_MARSH_STATE, 3
+	setobjectmovementtype LOCALID_ANORITH_1, MOVEMENT_TYPE_FLEE_PLAYER_OWE
 # 149 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	clearflag FLAG_TEMP_3
+# 150 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	addobject LOCALID_ANORITH_1
+# 151 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	removeobject LOCALID_ANORITH_2
+# 152 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setobjectmovementtype LOCALID_ANORITH_2, MOVEMENT_TYPE_FLEE_PLAYER_OWE
+# 153 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	clearflag FLAG_TEMP_1
+# 154 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	addobject LOCALID_ANORITH_2
+# 155 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	setvar VAR_MARSH_STATE, 3
+# 156 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	releaseall
 	goto JurassicPark_Marshlands_EventScript_Anorith_1
 
+JurassicPark_Marshlands_EventScript_Anorith_5:
+# 143 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	msgbox JurassicPark_Marshlands_EventScript_Anorith_Text_1
+	goto JurassicPark_Marshlands_EventScript_Anorith_4
+
 
 JurassicPark_Marshlands_EventScript_NotGoingThere::
-# 156 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	mnmbox JurassicPark_Marshlands_EventScript_NotGoingThere_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
-# 157 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 164 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	closemessage
-# 158 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 165 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	applymovement LOCALID_PLAYER, JurassicPark_Marshlands_Main_EventScript_GoBack_Movement_0
 	end
 
@@ -431,19 +446,22 @@ JurassicPark_Marshlands_EventScript_Jigglypuff_Text_13:
 
 JurassicPark_Marshlands_EventScript_Anorith_Text_0:
 # 137 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
-	.string "PLACEHOLDER\p"
-	.string "In this battle the puzzle is that you\n"
-	.string "have to perform an action on Jiggly,\l"
-	.string "making him do a funny face and scaring\l"
-	.string "the Anorith.$"
+	.string "(If I can get Jiggly to pull one of his\n"
+	.string "funny faces, that ought to scare them\l"
+	.string "off.)$"
 
 JurassicPark_Marshlands_EventScript_Anorith_Text_1:
-# 138 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 143 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+	.string "PLACEHOLDER\n"
+	.string "Anorith battle other outcomes here.$"
+
+JurassicPark_Marshlands_EventScript_Anorith_Text_2:
+# 145 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "…Now, that's funny.\p"
 	.string "Whatever, as long as it works.\n"
 	.string "Let's just go.$"
 
 JurassicPark_Marshlands_EventScript_NotGoingThere_Text_0:
-# 156 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Marshlands_Main/scripts.pory"
 	.string "(I'm DEFINITELY not going back in\n"
 	.string "there.)$"
