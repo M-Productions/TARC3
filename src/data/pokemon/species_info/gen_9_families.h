@@ -5643,6 +5643,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isParadox = TRUE,
         .levelUpLearnset = sGreatTuskLevelUpLearnset,
         .teachableLearnset = sGreatTuskTeachableLearnset,
+        .mugshotId = MUGSHOT_GREAT_TUSK,
     },
 #endif //P_FAMILY_GREAT_TUSK
 
@@ -5710,6 +5711,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isParadox = TRUE,
         .levelUpLearnset = sScreamTailLevelUpLearnset,
         .teachableLearnset = sScreamTailTeachableLearnset,
+        .mugshotId = MUGSHOT_SCREAM_TAIL,
     },
 #endif //P_FAMILY_SCREAM_TAIL
 
@@ -5913,6 +5915,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isParadox = TRUE,
         .levelUpLearnset = sSlitherWingLevelUpLearnset,
         .teachableLearnset = sSlitherWingTeachableLearnset,
+        .mugshotId = MUGSHOT_SLITHER_WING,
     },
 #endif //P_FAMILY_SLITHER_WING
 
@@ -7162,6 +7165,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isParadox = TRUE,
         .levelUpLearnset = sRoaringMoonLevelUpLearnset,
         .teachableLearnset = sRoaringMoonTeachableLearnset,
+        .mugshotId = MUGSHOT_ROARING_MOON,
     },
 #endif //P_FAMILY_ROARING_MOON
 
