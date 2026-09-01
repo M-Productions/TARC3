@@ -619,8 +619,8 @@ static u32 PuzzleOutcome_Rampardos(void)
     if (gBattleMons[enemy].statStages[STAT_ATK] == MAX_STAT_STAGE)
         return B_OUTCOME_PUZZLE_COMPLETE;
 
-    if (gBattleMons[enemy].statStages[STAT_ATK] == MIN_STAT_STAGE)
-        return B_OUTCOME_LOST;
+    // if (gBattleMons[enemy].statStages[STAT_ATK] == MIN_STAT_STAGE)
+    //     return B_OUTCOME_LOST;
 
     if (!IsBattlerAlive(enemy))
         return B_OUTCOME_LOST;
