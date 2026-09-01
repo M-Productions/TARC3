@@ -89,6 +89,13 @@
       "elevation": 0,
       "dest_map": "MAP_JURASSIC_PARK_MOUNTAIN_BASE",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_MOUNTAIN_TOP",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

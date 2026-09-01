@@ -116,7 +116,7 @@ script JurassicPark_Mountain_Base_EventScript_Archen_4
         applymovement(LOCALID_PLAYER, moves(walk_right*16, set_visible, walk_down))
         waitmovement(LOCALID_PLAYER)
         setobjectxyperm(VAR_LAST_TALKED, 47, 39)
-        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_RIGHT)
+        setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
     }
     else
     {

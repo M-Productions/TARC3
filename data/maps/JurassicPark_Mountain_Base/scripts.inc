@@ -201,7 +201,7 @@ JurassicPark_Mountain_Base_EventScript_Archen_4_2:
 # 118 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	setobjectxyperm VAR_LAST_TALKED, 47, 39
 # 119 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	setobjectmovementtype VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectmovementtype VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN
 	goto JurassicPark_Mountain_Base_EventScript_Archen_4_1
 
 

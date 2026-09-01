@@ -13,7 +13,7 @@ JurassicPark_Marshlands_Maze_Armaldo::
 JurassicPark_Marshlands_Generator::
 # 12 "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.pory"
 	compare VAR_MARSH_STATE, 3
-	goto_if_eq JurassicPark_Marshlands_Generator_2
+	goto_if_le JurassicPark_Marshlands_Generator_2
 JurassicPark_Marshlands_Generator_1:
 	end
 

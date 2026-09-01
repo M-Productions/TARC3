@@ -77,8 +77,9 @@ script JurassicPark_Mountain_Top_EventScript_Generator
             mnmbox(format("… … …"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
         }
     closemessage
-    clearflag(FLAG_HIDE_ARCHEOPS_BASE)
+    
     }
+    clearflag(FLAG_HIDE_ARCHEOPS_BASE)
     end
 }
 
