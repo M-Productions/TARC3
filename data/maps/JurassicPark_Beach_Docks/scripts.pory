@@ -55,12 +55,48 @@ script General_EventScript_Cutout
     end
 }
 
-script JurassicPark_Beach_Docks_EventScript_Meet_Bagon
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Walk
 {
     lockall
     playse(SE_PIN)
     applymovement(LOCALID_BAGON_BEACH, moves(emote_exclamation_mark, delay_16, walk_down*2))
     waitmovement(0)
+}
+
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon_WalkLeft
+{
+    applymovement(LOCALID_BAGON_BEACH, moves(walk_left, face_down))
+    waitmovement(0)
+}
+
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon_WalkRight
+{
+    applymovement(LOCALID_BAGON_BEACH, moves(walk_right, face_down))
+    waitmovement(0)
+}
+
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Left
+{
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Walk)
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon_WalkLeft)
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon)
+}
+
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Middle
+{
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Walk)
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon)
+}
+
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Right
+{
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Walk)
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon_WalkRight)
+    call(JurassicPark_Beach_Docks_EventScript_Meet_Bagon)
+}
+
+script JurassicPark_Beach_Docks_EventScript_Meet_Bagon
+{
     mnmbox(format("Larvy!\nYou're okay!"), localId=LOCALID_BAGON_BEACH, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
     mnmbox(format("(I'm glad to see you too, Bagon.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
     mnmbox(format("That was quite the storm, wasn't it?\N"
