@@ -11,9 +11,9 @@ JurassicPark_Marshlands_Maze_Test_MapScripts_MAP_SCRIPT_ON_LOAD:
 
 JurassicPark_Marshlands_Maze_Armaldo::
 # 10 "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.pory"
-	msgbox JurassicPark_Marshlands_Maze_Armaldo_Text_0
+	puzzlebattle BP_SING
 # 11 "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.pory"
-	closemessage
+	waitstate
 	return
 
 
@@ -97,12 +97,6 @@ JurassicPark_Marshlands_EventScript_ArmaldoFinal::
 	setflag FLAG_HIDE_ARMALDO
 	return
 
-
-JurassicPark_Marshlands_Maze_Armaldo_Text_0:
-# 10 "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.pory"
-	.string "PLACEHOLDER\p"
-	.string "Battle in which you need to make the\n"
-	.string "Armaldo fall asleep.$"
 
 JurassicPark_Marshlands_Generator_Text_0:
 # 18 "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.pory"

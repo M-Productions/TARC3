@@ -730,4 +730,6 @@ extern const u8 BattleScript_TakeHeart[];
 
 extern const u8 BattleScript_TryNonVolatileStatus[];
 
+extern const u8 BattleScript_EffectTickleAnorith[];
+
 #endif // GUARD_BATTLE_SCRIPTS_H
