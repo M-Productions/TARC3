@@ -10385,6 +10385,18 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/JurassicPark_Final_Lab/border.bin",
       "blockdata_filepath": "data/layouts/JurassicPark_Final_Lab/map.bin"
+    },
+    {
+      "id": "LAYOUT_JURASSIC_PARK_PRISON",
+      "name": "JurassicPark_Prison_Layout",
+      "width": 10,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Final_Lab_Interior_Primary",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/JurassicPark_Prison/border.bin",
+      "blockdata_filepath": "data/layouts/JurassicPark_Prison/map.bin"
     }
   ]
 }

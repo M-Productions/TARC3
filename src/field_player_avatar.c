@@ -1733,6 +1733,11 @@ void InitPlayerAvatar(s16 x, s16 y, enum Direction direction, enum Gender gender
     gPlayerAvatar.gender = gender;
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_CONTROLLABLE | PLAYER_AVATAR_FLAG_ON_FOOT);
     CreateFollowerNPCAvatar();
+    if (FlagGet(FLAG_SPAWN_INVISIBLE))
+        {
+    FlagClear(FLAG_SPAWN_INVISIBLE);
+    objectEvent->invisible = TRUE;
+        }
 }
 
 void SetPlayerInvisibility(bool8 invisible)

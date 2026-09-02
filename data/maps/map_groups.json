@@ -84,7 +84,8 @@
   ],
   "gMapGroup_JurassicPark_Test": [
     "Forest_Test",
-    "JurassicPark_Black_Cutscene"
+    "JurassicPark_Black_Cutscene",
+    "JurassicPark_Prison"
   ],
   "gMapGroup_JurassicPark_Beach": [
     "JurassicPark_Beach_Docks"

@@ -37,6 +37,9 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     fadenewbgm(MUS_CUTSCENE_MYSTERIOUS)
     applymovement(LOCALID_PLAYER, moves(walk_left, walk_up))
     waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_up))
+    waitmovement(0)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
@@ -50,6 +53,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     applymovement(LOCALID_PLAYER, moves(walk_up))
     applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up))
     applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_up))
+    applymovement(LOCALID_CAMERA, moves(walk_up))
     waitmovement(0)
     switch(var(VAR_LOCALID_CUTSCENE_SECOND))
     {
@@ -65,8 +69,8 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     waitmovement(0)
     mnmbox(format("You!\nYou're…"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     mnmbox(format("You're alive.\pThat's… Good.\nThat's good.\pBut, weren't there four of you?"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
-    mnmbox(format("(… … …)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
-    mnmbox(format("…Ah.\nI see.\pRegrettable.\nVery, very, regrettable."), localId=LOCALID_DRAMPA_LAB)
+    mnmbox(format("(… … …!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    mnmbox(format("…Ah.\nRight.\pRegrettable.\nVery, very, regrettable."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up))
     waitmovement(0)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
@@ -78,11 +82,11 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         case LOCALID_JIGGLYPUFF_LAB:
             mnmbox(format("Your little mad science experiment ends now."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     }
-    mnmbox(format("…So this is how it is?\pHmm.\nLet me tell you a story."), localId=LOCALID_DRAMPA_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("…So this is how it is?\pHmm.\nLet me tell you a story."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     closemessage
     applymovement(LOCALID_DRAMPA_LAB, moves(walk_right))
     waitmovement(0)
-    mnmbox(format("Have you ever felt like our society was…\nDegenerate?\pRotten to the core?"), localId=LOCALID_JIGGLYPUFF_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Have you ever felt like our society was…\nDegenerate?\lRotten to the core?"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     switch(var(VAR_LOCALID_CUTSCENE_SECOND))
     {
         case LOCALID_BAGON_LAB:
@@ -95,17 +99,17 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     closemessage
     applymovement(LOCALID_DRAMPA_LAB, moves(walk_left, walk_in_place_down))
     waitmovement(0)
-    mnmbox(format("…I'm quite serious.\pSociety is heading to its collapse.\pWeak Pokémon rule over weak Pokémon.\pLawlessness and banditism are everywhere.\pEven this…\nTreasure hunting of yours.\pWho is that supposed to benefit?\nSociety?\pNo, I don't think so.\pCommon ruffians, the lot of you."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("…I'm quite serious.\nSociety is heading to its collapse.\pWeak Pokémon rule over weak Pokémon.\nLawlessness and banditism are everywhere.\pEven this…\nTreasure hunting of yours.\pWho is that supposed to benefit?\nSociety?\pNo, I don't think so.\pCommon ruffians, the lot of you."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     mnmbox(format("Hey!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     mnmbox(format("(This is quite a strange way to see things…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     closemessage
     applymovement(LOCALID_DRAMPA_LAB, moves(walk_left))
     waitmovement(0)
-    mnmbox(format("Of course, with my intellect, I foresaw all of this.\pAnd so I looked to the past.\pYes, at a time before recorded history.\pWhen powerful Pokémon ruled the world.\pThe strong consumed the weak.\pSimple.\nBeautiful.\nEffective.\pBut this wonderful civilisation…\nDid not have a chance to thrive.\pWiped out by a cataclysm.\pQuite unfair, don't you think?\pAnd so I decided…\pTo bring them back."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("Of course, with my intellect, I foresaw all of this.\pAnd so I looked to the past.\pYes, at a time before recorded history.\nWhen powerful Pokémon ruled the world.\pThe strong consumed the weak.\pSimple.\nBeautiful.\nEffective.\pBut this wonderful civilisation…\nDid not have a chance to thrive.\pWiped out by a cataclysm.\pQuite unfair, don't you think?\pAnd so I decided…\nTo bring them back."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     closemessage
     applymovement(LOCALID_DRAMPA_LAB, moves(walk_right, walk_in_place_down))
     waitmovement(0)
-    mnmbox(format("I spent all my fortunes, and decades of my life, to study genetic engineering.\pAnd finally, the breakthrough.\pI could bring them back, so they could rule again."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("I spent all my fortunes, and decades of my life, to study genetic engineering.\pAnd finally, the breakthrough.\pI could resurrect them, so they could rule again."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
@@ -115,11 +119,11 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         case LOCALID_JIGGLYPUFF_LAB:
             mnmbox(format("Your enlightened rulers have the intelligence of a rock.\pNo offense to rocks."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     }
-    mnmbox(format("…Indeed.\nI was confronted with the reality.\pThey were strong, yes.\nStronger than any Pokémon of today.\pBut they were…\nMindless.\pStrength, without wisdom, is nothing.\pI brought back ancient Pokémon after ancient Pokémon, and they were all disappointments.\pEven Tyrantrum, the mighty king of the prehistoric world…\pI will be honest with you.\pWhen I discovered that it possessed no intellect, I was thrown into the deepest despair.\pBut then…"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    mnmbox(format("…Indeed.\nI was confronted with the reality.\pThey were strong, yes.\nStronger than any Pokémon of today.\pBut they were…\nMindless.\pStrength, without wisdom, is nothing.\pI brought back ancient Pokémon after ancient Pokémon, and they were all disappointments.\pEven Tyrantrum, the mighty king of the prehistoric world…\pWhen I discovered that it possessed no intellect, I was thrown into the deepest despair.\pBut then…"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     closemessage
     applymovement(LOCALID_DRAMPA_LAB, moves(walk_left))
     waitmovement(0)
-    mnmbox(format("I realised how powerful I myself had become.\pI unlocked the secrets of genetic engineering.\pI could…\nCreate my own gods.\pThere were so many avenues to explore!\pCloning.\nSplicing.\lCreation of entirely new lifeforms.\pBut before long, I ran out of money.\pAnd so, I had an idea.\pWhat if I took all my failures, and exhibited them for the world to see…\NFor a price, of course.\pAnd through this, not only will I cover all my fundings…\pBut I will be sure to have access to plenty of…\nTest subjects."), localId=LOCALID_DRAMPA_LAB)
+    mnmbox(format("I realised how powerful I myself had become.\pI unlocked the secrets of life.\pI could…\nCreate my own gods.\pThere were so many avenues to explore!\nBut before long, I ran out of money.\pAnd so, I had an idea.\pWhat if I took all my failures, and exhibited them for the world to see…\NFor a price, of course."), localId=LOCALID_DRAMPA_LAB)
     mnmbox(format("You're insane."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     mnmbox(format("What did you say about…\pCreating gods?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     closemessage
@@ -134,7 +138,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         
         case LOCALID_BAGON_LAB:
             mnmbox(format("Genetic…\nWhat?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
-            mnmbox(format("Genetic cross-over.\pThe exchange of genetic material between chromosomes during reproduction."), localId=LOCALID_DRAMPA_LAB)
+            mnmbox(format("Genetic cross-over.\pThe exchange of genetic material between different chromosomes."), localId=LOCALID_DRAMPA_LAB)
         
         case LOCALID_PHANPY_LAB:
             mnmbox(format("Isn't that…\pWhat causes babies to be a mix of their parents…?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
@@ -144,26 +148,24 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
             mnmbox(format("Isn't that like, a sex thing."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
             mnmbox(format("…In a sense.\pMore accurately, it's the exchange of genetic material between chromosomes during reproduction."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     }
-    mnmbox(format("You see, I developed a virus capable of altering the genetic makeup of Pokémon.\pYou take a Pokémon with knowledge, wisdom, and intellect…\pAnd inject them with a retrovirus containing prehistoric DNA.\pThe result is the transformation into a superior lifeform.\pBelieve it or not, much easier than growing one from scratch.\pI call it the cross-over virus.\nOr C.O.V., if you prefer."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("You see, I developed a virus capable of altering the genetic makeup of Pokémon, on the fly.\pYou take a Pokémon with knowledge, wisdom, and intellect…\pAnd inject them with a retrovirus containing prehistoric DNA.\pThe result is the transformation into a superior lifeform.\pI call it the {COLOR RED}cross-over virus{COLOR DARK_GRAY}.\nOr {COLOR RED}C.O.V.{COLOR DARK_GRAY}, if you prefer."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
     mnmbox(format("Why are you telling us all this…?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     closemessage
     applymovement(LOCALID_DRAMPA_LAB, moves(walk_right*2, walk_in_place_down))
     waitmovement(0)
-    mnmbox(format("…You know, I really was intending on letting you leave.\pThe park needs some good publicity, before its opening.\pBut you've seen too much.\pYou've seen the…\nFlaws.\pI can't let this chance be ruined, you see."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    mnmbox(format("…You know, I really was intending on letting you leave.\pThe park needs some good publicity, before its opening.\pBut you've seen too much.\pYou've seen the…\nFlaws."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     closemessage
-    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up))
-    waitmovement(0)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
-            mnmbox(format("Are you going to…\nKill us?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+            mnmbox(format("Are you going to…\nKill us?!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
         case LOCALID_PHANPY_LAB:
-            mnmbox(format("…You're planning to get rid of us."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            mnmbox(format("…You're planning to get rid of us."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
         case LOCALID_JIGGLYPUFF_LAB:
-            mnmbox(format("How classic.\pMonologuing before you kill us."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            mnmbox(format("How classic.\pMonologuing before you kill us."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     }
     mnmbox(format("What?!\pOf course not!\nDo you take me for a common murderer?!"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
-    mnmbox(format("Ahem.\nAs I said, what happened to your friend was an accident.\pA regrettable one, too.\pAnd, good heavens, why would I waste time explaining everything if I was planning to kill you?\pNo, I will just be taking you as my assistants.\pIt's hard to run a park by myself, after all.\pAnd you have proven yourselves to be more than capable to handle the job."), localId=LOCALID_DRAMPA_LAB)
+    mnmbox(format("Ahem.\pAs I said, what happened to your friend was an accident.\pAnd, good heavens, why would I waste time explaining everything if I was planning to kill you?\pNo, I will just be taking you as my assistants.\pIt's hard to run a park by myself, after all.\pAnd you have proven yourselves to be more than capable to handle the job."), localId=LOCALID_DRAMPA_LAB)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
@@ -177,12 +179,16 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     mnmbox(format("(As if we would do this for any amount of money in the world!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     mnmbox(format("Money?\nYou seem to misunderstand.\pNo, what I mean is…"), localId=LOCALID_DRAMPA_LAB)
     closemessage
-    applymovement(LOCALID_DRAMPA_LAB, moves(walk_down*2))
+    applymovement(LOCALID_DRAMPA_LAB, moves(walk_down))
     waitmovement(0)
     playbgm(MUS_DUMMY, 0)
     playse(SE_M_ABSORB)
     waitse
+    delay(64)
     mnmbox(format("This."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    playse(SE_PIN)
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(emote_exclamation_mark, delay_16, lock_facing_direction, walk_fast_down, unlock_facing_direction))
+    waitmovement(0)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
@@ -199,8 +205,8 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(emote_exclamation_mark, delay_16))
     applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(emote_exclamation_mark, delay_16))
     waitmovement(0)
-    mnmbox(format("(No…\pWhat's gonna happen now?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
-    mnmbox(format("I had to stop my research, but I did manage to get some batches made.\pStill highly experimental, of course.\pYour friend here will transmute into something greater.\pOf course, they won't be the same Pokémon you've known them as.\pNow, theoretically, a vaccine could be made.\pBut only if I'm allowed to continue my research.\pAnd you'll help me, won't you?"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("(No…\nWhat's gonna happen now?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("I had to stop my research, but I did manage to get some batches made.\pYour friend here will transmute into something greater.\pOf course, they won't be the same Pokémon you've known them as.\pNow, theoretically, a vaccine could be made.\pBut only if I'm allowed to continue my research.\pAnd you'll help me, won't you?"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     switch(var(VAR_LOCALID_CUTSCENE_SECOND))
     {
         case LOCALID_BAGON_LAB:
@@ -210,7 +216,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         case LOCALID_JIGGLYPUFF_LAB:
             mnmbox(format("You…\nWe'll find someone else that can make a vaccine!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     }
-    mnmbox(format("Leave and I'll destroy my research.\nAll of it.\pI'm deadly serious.\pI spent more than half my life on this.\pMaybe someone will be able to make a vaccine.\pHow long will it take?\nFifty years?\pA century, without my genius?\pSuit yourselves.\nBut I think I know what you will choose."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    mnmbox(format("Leave and I'll destroy my research.\nAll of it.\pI spent more than half my life on this.\pMaybe someone will be able to make a vaccine.\pHow long will it take?\nFifty years?\lA century, without my genius?\pSuit yourselves.\nBut I think I know what you will choose."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
@@ -218,15 +224,14 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         case LOCALID_PHANPY_LAB:
             mnmbox(format("WHAT DID YOU DO?!\pTAKE IT BACK!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
         case LOCALID_JIGGLYPUFF_LAB:
-            mnmbox(format("GRAAAH!\pHOW DARE YOU STAB ME!\pHOW D-\pGRAHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+            mnmbox(format("WAAAAA!\pHOW DARE YOU STAB ME!\pHOW D-\nWAAAAAAAH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
     }
-    mnmbox(format("Oh, my.\pPlease, calm yourself down.\pYour mental state does affect the result of the metamorphosis."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
-    mnmbox(format("AAAAAAAH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    mnmbox(format("Please, calm yourself down.\pYour mental state will affect the result of the metamorphosis."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    mnmbox(format("WAAAAAAAH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
     mnmbox(format("Settle down, I said!\pIt's going to happen soon!\pYou wouldn't want to…!"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     closemessage
-    special(SpawnCameraObject)
     applymovement(LOCALID_DRAMPA_LAB, moves(lock_facing_direction, walk_up, unlock_facing_direction))
-    applymovement(LOCALID_CAMERA, moves(walk_right, walk_up))
+    applymovement(LOCALID_CAMERA, moves(walk_right))
     waitmovement(LOCALID_CAMERA)
     dofieldeffectsparkle(10, 7, 0)
 	waitfieldeffect(FLDEFF_SPARKLE)
@@ -234,7 +239,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
 	playbgm(MUS_VS_BOSS_POWERFUL, 0)
 	playse(SE_ORB)
 	special(DoOrbEffect)
-    delay(150)
+    delay(300)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_BAGON_LAB:
@@ -249,4 +254,179 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     }
     setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 10, 7)
     addobject(VAR_LOCALID_CUTSCENE_MAIN)
+    special(FadeOutOrbEffect)
+    mnmbox(format("GRAAAAAH!\nGRAAAAAH!!!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    switch(var(VAR_LOCALID_CUTSCENE_MAIN))
+    {
+        case LOCALID_ROARING_MOON_LAB:
+            mnmbox(format("No!\nBagon!\pCan can you hear me, Bagon?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+        case LOCALID_GREAT_TUSK_LAB:
+            mnmbox(format("No!\nPhanpy!\pCan can you hear me, Phanpy?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+        case LOCALID_SCREAM_TAIL_LAB:
+            mnmbox(format("No!\nJiggly!\pCan can you hear me, Jiggly?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    }
+    mnmbox(format("GWOOOOH!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up, walk_fast_right*3))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    waitse
+    mnmbox(format("GRAHHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_right, walk_fast_up*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    waitse
+    delay(32)
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(lock_facing_direction, walk_down, unlock_facing_direction, walk_fast_down*4))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    waitse
+    delay(32)
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up*3, walk_fast_left*3))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    waitse
+    delay(32)
+    mnmbox(format("GRAHHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_right, walk_fast_up*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    waitse
+    switch(var(VAR_LOCALID_CUTSCENE_MAIN))
+    {
+        case LOCALID_ROARING_MOON_LAB:
+            mnmbox(format("Bagon…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case LOCALID_GREAT_TUSK_LAB:
+            mnmbox(format("Phanpy…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case LOCALID_SCREAM_TAIL_LAB:
+            mnmbox(format("Jiggly…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+    }
+    mnmbox(format("I said to stay still!"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    mnmbox(format("Well, this is a problem.\pIf the metamorphosis happens under stress, the resulting specimen tends to…\pSelf destruct."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    switch(var(VAR_LOCALID_CUTSCENE_SECOND))
+    {
+        case LOCALID_BAGON_LAB:
+            mnmbox(format("What?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case LOCALID_PHANPY_LAB:
+            mnmbox(format("What?!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case LOCALID_JIGGLYPUFF_LAB:
+            mnmbox(format("You're joking…!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    }
+    mnmbox(format("And here I was hoping to find an agreeable solution.\p…Hmmm.\nUnless."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    switch(var(VAR_LOCALID_CUTSCENE_SECOND))
+    {
+        case LOCALID_BAGON_LAB:
+            mnmbox(format("Please, tell us how to save our friend!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+        case LOCALID_PHANPY_LAB:
+            mnmbox(format("Unless…?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case LOCALID_JIGGLYPUFF_LAB:
+            mnmbox(format("Out with it, old man!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    }
+    mnmbox(format("Well, if one of you was willing to let me inject them with C.O.V.…\pIf they didn't panic during the operation, they could mantain their senses.\pMaybe find a way to communicate?"), localId=LOCALID_DRAMPA_LAB)
+    mnmbox(format("Ah, communication!\nThis will be a brand new experiment!\pOh, the data I will get from this!"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    switch(var(VAR_LOCALID_CUTSCENE_SECOND))
+    {
+        case LOCALID_BAGON_LAB:
+            mnmbox(format("I…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+        case LOCALID_PHANPY_LAB:
+            mnmbox(format("This is ridiculous!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+        case LOCALID_JIGGLYPUFF_LAB:
+            mnmbox(format("I swear, I will kill you with my bare hands."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    }
+    playbgm(MUS_DUMMY, 0)
+    mnmbox(format("(… … …\nI'll do it.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(face_right))
+    waitmovement(0)
+    mnmbox(format("Larvy, no…!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("Phenomenal!\pA willing subject!"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("Larvy, why would you…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    playbgm(MUS_CALM_CUTSCENE, 0)
+    mnmbox(format("(…I'm not going to let someone die again.)\p(If this is what it takes to protect my friends…\NI will do it.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    switch(var(VAR_LOCALID_CUTSCENE_SECOND))
+    {
+        case LOCALID_BAGON_LAB:
+            mnmbox(format("Phanpy, please!\pNot you too!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+        case LOCALID_PHANPY_LAB:
+            mnmbox(format("Phanpy, no!\pThere has to be another way…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+        case LOCALID_JIGGLYPUFF_LAB:
+            mnmbox(format("I'll kill you too!\nI will!."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+    }
+    mnmbox(format("Now, now, they made their choice.\pCome here.\nFuture generations will thank you."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_right))
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    applymovement(LOCALID_CAMERA, moves(walk_up))
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(face_up))
+    waitmovement(0)
+    mnmbox(format("Say goodbye to your friend, now."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("(Please forgive me.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+    mnmbox(format("LARVY!!!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    closemessage
+    applymovement(LOCALID_DRAMPA_LAB, moves(walk_down))
+    waitmovement(0)
+    playse(SE_M_ABSORB)
+    waitse
+    applymovement(LOCALID_DRAMPA_LAB, moves(lock_facing_direction, walk_up, unlock_facing_direction))
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(lock_facing_direction, walk_down, unlock_facing_direction))
+    waitmovement(0)
+    delay(64)
+    dofieldeffectsparkle(10, 7, 0)
+	waitfieldeffect(FLDEFF_SPARKLE)
+	setvar(VAR_RESULT, 0)
+	playbgm(MUS_VS_DINO, 0)
+	playse(SE_ORB)
+	special(DoOrbEffect)
+    delay(300)
+    applymovement(LOCALID_PLAYER, moves(set_invisible))
+    setobjectxyperm(LOCALID_SLITHER_WING_LAB, 10, 7)
+    addobject(LOCALID_SLITHER_WING_LAB)
+    special(FadeOutOrbEffect)
+    mnmbox(format("GRAAAAAAAH!"), localId=LOCALID_SLITHER_WING_LAB)
+    mnmbox(format("({COLOR RED}KILL. CRUSH.\nDESTROY. ATTACK.{COLOR DARK_GRAY})\p(!!!)\p(What… Are… These… Thoughts…?!)\p({COLOR RED}ATTACK. ATTACK.\nKILL. KILL.{COLOR DARK_GRAY})"), localId=LOCALID_SLITHER_WING_LAB)
+    mnmbox(format("… … …!"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+    mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+    mnmbox(format("(I… {COLOR RED}DESTROY.{COLOR DARK_GRAY}\nCan't… {COLOR RED}KILL.{COLOR DARK_GRAY}\lUnderstand them… {COLOR RED}CRUSH.{COLOR DARK_GRAY})"), localId=LOCALID_SLITHER_WING_LAB)
+    closemessage
+    mnmbox(format("({COLOR RED}PAIN. HELP. KILL.{COLOR DARK_GRAY})"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    mnmbox(format("(!!!)\p(I can hear… {COLOR RED}KILL.{COLOR DARK_GRAY}\nI can hear… You!)"), localId=LOCALID_SLITHER_WING_LAB)
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(face_down))
+    waitmovement(0)
+    mnmbox(format("(Larvy…!)\p(Larvy… {COLOR RED}PAIN{COLOR DARK_GRAY}\nHelp…{COLOR RED}FEAR.{COLOR DARK_GRAY}\lMe…{COLOR RED}KILL KILL KILL.{COLOR DARK_GRAY})"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    mnmbox(format("GRAHHHHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_fast_down, walk_fast_left*2, face_down))
+    waitmovement(0)
+    mnmbox(format("GRAHHHHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    closemessage
+    msgbox(format("PLACEHOLDER BATTLE.\pIdeally, the music should not transition."))
+    playbgm(MUS_CALM_CUTSCENE, 0)
+    mnmbox(format("(Larvy…)\p(Calmed…\nDown…)\p(Going…\nHome…?)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    mnmbox(format("(Sorry…\nMust… Stay, for now…)"), localId=LOCALID_PLAYER)
+    mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    mnmbox(format("… … …"), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+    switch(var(VAR_LOCALID_CUTSCENE_SECOND))
+    {
+        case LOCALID_BAGON_LAB:
+            mnmbox(format("(Bagon…\nOkay…?)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+        case LOCALID_PHANPY_LAB:
+            mnmbox(format("(Phanpy…\nOkay…?)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+        case LOCALID_JIGGLYPUFF_LAB:
+            mnmbox(format("(Jiggly…\nOkay…?)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    }
+    mnmbox(format("(Yes…)\p(But… Must, stay…\nOn island.)"), localId=LOCALID_SLITHER_WING_LAB)
+    mnmbox(format("(As long, as…\nTogether.)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+    mnmbox(format("(…Yes.\nTogether.)"), localId=LOCALID_SLITHER_WING_LAB)
+    delay(100)
+    setflag(FLAG_NO_OW_MUSIC)
+    clearflag(FLAG_ALWAYS_RAINING)
+    setvar(VAR_GAME_STATE, GS_AFTER_DRAMPA)
+    setflag(FLAG_SPAWN_INVISIBLE)
+    warp(MAP_JURASSIC_PARK_BRIDGE_AND_LAB, 48, 16)
+    waitstate
+
+    
 }   

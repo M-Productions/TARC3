@@ -81,496 +81,894 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene::
 # 39 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitmovement 0
 # 40 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	special SpawnCameraObject
+# 41 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_CAMERA, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
 # 42 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 43 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 45 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_3
-# 44 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 47 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_4
-# 46 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 49 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_5
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_1:
-# 49 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 50 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
-# 51 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
 # 52 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+	closemessage
 # 53 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
 # 54 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_SECOND
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+# 55 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
 # 56 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_8
+	applymovement LOCALID_CAMERA, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+# 57 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
 # 58 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_9
+	switch VAR_LOCALID_CUTSCENE_SECOND
 # 60 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_8
+# 62 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_9
+# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_10
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_6:
-# 63 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	playse SE_PIN
-# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_2
-# 65 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
-# 66 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_6, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 67 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_7, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	playse SE_PIN
 # 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_8, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_2
 # 69 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_9, localId = LOCALID_DRAMPA_LAB
-# 70 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
-# 71 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitmovement 0
+# 70 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_6, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 71 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_7, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 72 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_8, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+# 73 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_9, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SAD
 # 74 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_13
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+# 75 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
 # 76 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_14
+	switch VAR_LOCALID_CUTSCENE_MAIN
 # 78 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_13
+# 80 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_14
+# 82 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_15
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_11:
-# 81 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_13, localId = LOCALID_DRAMPA_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 82 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 83 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_3
-# 84 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
 # 85 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_14, localId = LOCALID_JIGGLYPUFF_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_13, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 86 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_SECOND
+	closemessage
+# 87 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_3
 # 88 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_18
+	waitmovement 0
+# 89 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_14, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 90 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_19
+	switch VAR_LOCALID_CUTSCENE_SECOND
 # 92 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_18
+# 94 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_19
+# 96 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_20
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_16:
-# 95 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 96 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_4
-# 97 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
-# 98 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_18, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 99 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_19, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 100 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_20, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 101 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	closemessage
-# 102 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_5
-# 103 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 100 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_4
+# 101 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitmovement 0
+# 102 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_18, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+# 103 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_19, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 104 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_21, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_20, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 105 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	closemessage
 # 106 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_6
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_5
 # 107 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitmovement 0
 # 108 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_22, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_21, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 109 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	closemessage
+# 110 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_6
 # 111 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_23
+	waitmovement 0
+# 112 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_22, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 113 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_24
+	switch VAR_LOCALID_CUTSCENE_MAIN
 # 115 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_23
+# 117 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_24
+# 119 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_25
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_21:
-# 118 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_26, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SAD
-# 119 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 120 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_5
-# 121 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
 # 122 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_27, localId = LOCALID_DRAMPA_LAB
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_26, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SAD
 # 123 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_28, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 124 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_29, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
-# 125 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	closemessage
-# 126 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_7
-# 127 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 124 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_5
+# 125 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitmovement 0
+# 126 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_27, localId = LOCALID_DRAMPA_LAB
+# 127 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_28, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 128 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_30, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_29, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 129 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	closemessage
 # 130 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_4
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_7
 # 131 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_31, localId = LOCALID_DRAMPA_LAB
+	waitmovement 0
 # 132 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_SECOND
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_30, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
+# 133 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 134 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_4
 # 135 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_28
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_31, localId = LOCALID_DRAMPA_LAB
+# 136 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
 # 139 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_29
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_28
 # 143 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_29
+# 147 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_30
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_26:
-# 147 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_38, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
-# 148 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_39, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 149 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 150 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_8
 # 151 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_38, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
 # 152 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_40, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SAD
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_39, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 153 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	closemessage
 # 154 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_8
 # 155 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitmovement 0
 # 156 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_40, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SAD
+# 157 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
 # 158 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_33
+	switch VAR_LOCALID_CUTSCENE_MAIN
 # 160 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_34
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_33
 # 162 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_34
+# 164 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_35
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_31:
-# 165 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_44, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
-# 166 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_45, localId = LOCALID_DRAMPA_LAB
 # 167 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_44, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+# 168 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_45, localId = LOCALID_DRAMPA_LAB
 # 169 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_38
+	switch VAR_LOCALID_CUTSCENE_MAIN
 # 171 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_39
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_38
 # 173 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_39
+# 175 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_40
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_36:
-# 176 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_49, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
-# 177 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_50, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 # 178 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_51, localId = LOCALID_DRAMPA_LAB
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_49, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
 # 179 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_50, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 # 180 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_9
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_51, localId = LOCALID_DRAMPA_LAB
 # 181 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
+	closemessage
 # 182 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	playbgm MUS_DUMMY, 0
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_9
 # 183 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	playse SE_M_ABSORB
+	waitmovement 0
 # 184 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitse
+	playbgm MUS_DUMMY, 0
 # 185 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_52, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+	playse SE_M_ABSORB
 # 186 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	waitse
+# 187 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 64
 # 188 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_43
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_52, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+# 189 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_PIN
 # 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_44
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_10
+# 191 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
 # 192 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 194 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_43
+# 196 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_44
+# 198 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_45
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_41:
-# 195 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_56, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
-# 196 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 197 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	playse SE_PIN
-# 198 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_10
-# 199 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_10
-# 200 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_10
 # 201 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement 0
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_56, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 202 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_57, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	closemessage
 # 203 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_58, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+	playse SE_PIN
 # 204 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_SECOND
+	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_11
+# 205 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_11
 # 206 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_48
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_11
+# 207 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
 # 208 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_49
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_57, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 209 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_58, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 210 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 212 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_48
+# 214 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_49
+# 216 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_50
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_46:
-# 213 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 219 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_62, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
-# 214 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
-# 216 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_53
-# 218 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_54
 # 220 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 222 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_53
+# 224 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_54
+# 226 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_55
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_51:
-# 223 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_66, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 224 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_67, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
-# 225 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_68, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
-# 226 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	closemessage
-# 227 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	special SpawnCameraObject
-# 228 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_11
 # 229 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	applymovement LOCALID_CAMERA, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_12
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_66, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 230 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitmovement LOCALID_CAMERA
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_67, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 # 231 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	dofieldeffectsparkle 10, 7, 0
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_68, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 # 232 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	waitfieldeffect FLDEFF_SPARKLE
+	closemessage
 # 233 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	setvar VAR_RESULT, 0
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_12
 # 234 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	playbgm MUS_VS_BOSS_POWERFUL, 0
+	applymovement LOCALID_CAMERA, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_3
 # 235 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	playse SE_ORB
+	waitmovement LOCALID_CAMERA
 # 236 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	special DoOrbEffect
+	dofieldeffectsparkle 10, 7, 0
 # 237 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	delay 150
+	waitfieldeffect FLDEFF_SPARKLE
 # 238 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	setvar VAR_RESULT, 0
+# 239 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playbgm MUS_VS_BOSS_POWERFUL, 0
 # 240 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_58
+	playse SE_ORB
+# 241 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	special DoOrbEffect
+# 242 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 300
 # 243 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 245 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_58
+# 248 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_59
-# 246 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 251 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_60
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_56:
-# 250 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 255 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	setobjectxyperm VAR_LOCALID_CUTSCENE_MAIN, 10, 7
-# 251 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 256 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	addobject VAR_LOCALID_CUTSCENE_MAIN
+# 257 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	special FadeOutOrbEffect
+# 258 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_69, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 259 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 261 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_ROARING_MOON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_63
+# 263 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_GREAT_TUSK_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_64
+# 265 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_SCREAM_TAIL_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_65
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_61:
+# 268 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_73, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 269 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 270 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_13
+# 271 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 272 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 273 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitse
+# 274 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_74, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 275 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 276 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_14
+# 277 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 278 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 279 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitse
+# 280 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 32
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_15
+# 282 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 283 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 284 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitse
+# 285 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 32
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_16
+# 287 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 288 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 289 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitse
+# 290 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 32
+# 291 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_74, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 292 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 293 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_14
+# 294 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 295 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 296 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitse
+# 297 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 299 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_ROARING_MOON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_68
+# 301 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_GREAT_TUSK_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_69
+# 303 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_SCREAM_TAIL_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_70
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_66:
+# 306 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_78, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+# 307 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_79, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_SAD
+# 308 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 310 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_73
+# 312 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_74
+# 314 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_75
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_71:
+# 317 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_82, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 318 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 320 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_78
+# 322 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_79
+# 324 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_80
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_76:
+# 327 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_86, localId = LOCALID_DRAMPA_LAB
+# 328 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_87, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+# 329 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 331 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_83
+# 333 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_84
+# 335 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_85
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_81:
+# 338 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playbgm MUS_DUMMY, 0
+# 339 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_91, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+# 340 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_17
+# 341 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 342 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_92, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 343 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_93, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+# 344 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_94, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 345 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playbgm MUS_CALM_CUTSCENE, 0
+# 346 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_95, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
+# 347 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 349 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_88
+# 351 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_89
+# 353 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_90
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_86:
+# 356 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_99, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+# 357 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 358 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_3
+# 359 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 360 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+# 361 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_CAMERA, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1
+# 362 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_18
+# 363 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 364 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_100, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+# 365 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_101, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
+# 366 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_102, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+# 367 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 368 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_9
+# 369 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 370 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_M_ABSORB
+# 371 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitse
+# 372 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_DRAMPA_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_12
+# 373 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 374 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_19
+# 375 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 376 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 64
+# 377 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	dofieldeffectsparkle 10, 7, 0
+# 378 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitfieldeffect FLDEFF_SPARKLE
+# 379 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	setvar VAR_RESULT, 0
+# 380 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playbgm MUS_VS_DINO, 0
+# 381 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playse SE_ORB
+# 382 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	special DoOrbEffect
+# 383 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 300
+# 384 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_20
+# 385 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	setobjectxyperm LOCALID_SLITHER_WING_LAB, 10, 7
+# 386 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	addobject LOCALID_SLITHER_WING_LAB
+# 387 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	special FadeOutOrbEffect
+# 388 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_103, localId = LOCALID_SLITHER_WING_LAB
+# 389 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_104, localId = LOCALID_SLITHER_WING_LAB
+# 390 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_105, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+# 391 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_106, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+# 392 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_107, localId = LOCALID_SLITHER_WING_LAB
+# 393 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 394 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_108, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 395 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_109, localId = LOCALID_SLITHER_WING_LAB
+# 396 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_21
+# 397 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 398 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_110, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 399 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_111, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 400 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 401 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_22
+# 402 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitmovement 0
+# 403 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_111, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 404 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	closemessage
+# 405 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	msgbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_112
+# 406 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	playbgm MUS_CALM_CUTSCENE, 0
+# 407 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_113, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 408 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_114, localId = LOCALID_PLAYER
+# 409 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_106, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SAD
+# 410 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_106, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
+# 411 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 413 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_BAGON_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_93
+# 415 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_PHANPY_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_94
+# 417 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	case LOCALID_JIGGLYPUFF_LAB, JurassicPark_Final_Lab_EventScript_Drampa_Scene_95
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_91:
+# 420 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_118, localId = LOCALID_SLITHER_WING_LAB
+# 421 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_119, localId = VAR_LOCALID_CUTSCENE_MAIN
+# 422 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_120, localId = LOCALID_SLITHER_WING_LAB
+# 423 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay 100
+# 424 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	setflag FLAG_NO_OW_MUSIC
+# 425 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	clearflag FLAG_ALWAYS_RAINING
+# 426 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	setvar VAR_GAME_STATE, GS_AFTER_DRAMPA
+# 427 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	setflag FLAG_SPAWN_INVISIBLE
+# 428 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	warp MAP_JURASSIC_PARK_BRIDGE_AND_LAB, 48, 16
+# 429 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	waitstate
 	return
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_3:
-# 43 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 46 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_0, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_1
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_4:
-# 45 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 48 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_1, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SAD
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_1
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_5:
-# 47 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 50 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_2, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_1
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_8:
-# 57 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 61 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_3, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_6
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_9:
-# 59 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 63 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_4, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_6
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_10:
-# 61 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 65 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_5, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_6
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_13:
-# 75 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 79 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_10, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_11
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_14:
-# 77 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 81 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_11, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_11
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_15:
-# 79 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 83 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_12, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_11
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_18:
-# 89 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 93 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_15, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_16
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_19:
-# 91 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 95 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_16, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_16
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_20:
-# 93 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 97 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_17, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SIGH
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_16
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_23:
-# 112 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 116 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_23, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_21
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_24:
-# 114 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 118 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_24, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_21
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_25:
-# 116 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 120 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_25, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_21
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_28:
-# 136 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 140 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_32, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 137 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 141 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_33, localId = LOCALID_DRAMPA_LAB
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_26
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_29:
-# 140 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 144 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_34, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 141 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 145 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_35, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_26
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_30:
-# 144 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 148 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_36, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 145 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 149 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_37, localId = LOCALID_DRAMPA_LAB, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_26
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_33:
-# 159 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_41, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 161 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_41, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_31
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_34:
-# 161 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_42, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+# 163 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_42, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_31
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_35:
-# 163 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_43, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 165 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_43, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_31
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_38:
-# 170 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 172 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_46, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_36
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_39:
-# 172 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 174 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_47, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_36
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_40:
-# 174 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 176 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_48, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_36
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_43:
-# 189 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 195 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_53, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_41
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_44:
-# 191 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 197 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_54, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_41
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_45:
-# 193 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 199 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_55, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_41
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_48:
-# 207 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 213 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_59, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_46
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_49:
-# 209 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 215 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_60, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_46
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_50:
-# 211 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 217 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_61, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_46
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_53:
-# 217 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 223 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_63, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_51
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_54:
-# 219 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 225 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_64, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_51
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_55:
-# 221 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 227 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_65, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_51
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_58:
-# 241 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 246 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	removeobject LOCALID_BAGON_LAB
-# 242 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 247 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_ROARING_MOON_LAB
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_56
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_59:
-# 244 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 249 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	removeobject LOCALID_PHANPY_LAB
-# 245 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 250 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_GREAT_TUSK_LAB
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_56
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_60:
-# 247 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 252 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	removeobject LOCALID_JIGGLYPUFF_LAB
-# 248 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 253 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_SCREAM_TAIL_LAB
 	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_56
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_63:
+# 262 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_70, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_61
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_64:
+# 264 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_71, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_61
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_65:
+# 266 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_72, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_61
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_68:
+# 300 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_75, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_66
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_69:
+# 302 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_76, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_66
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_70:
+# 304 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_77, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_66
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_73:
+# 311 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_80, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_71
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_74:
+# 313 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_80, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_71
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_75:
+# 315 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_81, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_71
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_78:
+# 321 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_83, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_76
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_79:
+# 323 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_84, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_76
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_80:
+# 325 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_85, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_76
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_83:
+# 332 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_88, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_81
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_84:
+# 334 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_89, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_81
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_85:
+# 336 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_90, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_81
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_88:
+# 350 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_96, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_86
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_89:
+# 352 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_97, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_86
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_90:
+# 354 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_98, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_86
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_93:
+# 414 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_115, localId = VAR_LOCALID_CUTSCENE_MAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_91
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_94:
+# 416 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_116, localId = VAR_LOCALID_CUTSCENE_MAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_91
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_95:
+# 418 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	mnmbox JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_117, localId = VAR_LOCALID_CUTSCENE_MAIN
+	goto JurassicPark_Final_Lab_EventScript_Drampa_Scene_91
 
 
 # 38 "data/maps/JurassicPark_Final_Lab/scripts.pory"
@@ -581,196 +979,302 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_0:
 	walk_up
 	step_end
 
-# 50 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 41 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_1:
-# 50 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 41 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_up
 	step_end
 
-# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_2:
-# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	emote_exclamation_mark
-# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	delay_16
-# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	delay_16
-# 64 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_down
 	step_end
 
-# 83 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 87 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_3:
-# 83 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 87 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_right
 	step_end
 
-# 96 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 100 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_4:
-# 96 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 100 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_left
-# 96 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 100 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 102 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 106 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_5:
-# 102 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 106 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_left
 	step_end
 
-# 106 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 110 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_6:
-# 106 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 110 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_right
-# 106 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 110 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 126 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 130 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_7:
-# 126 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 130 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 150 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 154 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_8:
-# 150 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 154 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_right
-# 150 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 154 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_right
-# 150 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 154 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 180 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 182 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_9:
-# 180 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	walk_down
-# 180 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 182 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_down
 	step_end
 
-# 198 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_10:
-# 198 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	emote_exclamation_mark
-# 198 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	delay_16
-	step_end
-
-# 228 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_11:
-# 228 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	lock_facing_direction
-# 228 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	walk_up
-# 228 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_down
+# 190 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	unlock_facing_direction
 	step_end
 
-# 229 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 204 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_11:
+# 204 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	emote_exclamation_mark
+# 204 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	delay_16
+	step_end
+
+# 233 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_12:
-# 229 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	walk_right
-# 229 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 233 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	lock_facing_direction
+# 233 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	walk_up
+# 233 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	unlock_facing_direction
+	step_end
+
+# 270 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_13:
+# 270 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_up
+# 270 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_right
+# 270 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_right
+# 270 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_right
+	step_end
+
+# 276 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_14:
+# 276 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_right
+# 276 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_up
+# 276 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_up
+	step_end
+
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_15:
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	lock_facing_direction
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_down
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	unlock_facing_direction
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_down
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_down
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_down
+# 281 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_down
+	step_end
+
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_16:
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_up
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_up
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_up
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_left
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_left
+# 286 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_left
+	step_end
+
+# 340 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_17:
+# 340 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	face_right
+	step_end
+
+# 362 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_18:
+# 362 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	face_up
+	step_end
+
+# 374 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_19:
+# 374 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	lock_facing_direction
+# 374 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_down
+# 374 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	unlock_facing_direction
+	step_end
+
+# 384 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_20:
+# 384 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	set_invisible
+	step_end
+
+# 396 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_21:
+# 396 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	face_down
+	step_end
+
+# 401 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Movement_22:
+# 401 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_down
+# 401 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_left
+# 401 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	walk_fast_left
+# 401 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	face_down
 	step_end
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_0:
-# 43 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 46 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Ah!\n"
 	.string "He's there!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_1:
-# 45 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 48 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…There he is.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_2:
-# 47 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 50 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Well, well, well.\p"
 	.string "Look who we have there.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_3:
-# 57 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 61 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "H-hey, you!!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_4:
-# 59 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 63 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Doctor!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_5:
-# 61 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 65 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "John Drampa, we meet again.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_6:
-# 66 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 70 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "You!\n"
 	.string "You're…$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_7:
-# 67 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 71 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "You're alive.\p"
 	.string "That's… Good.\n"
 	.string "That's good.\p"
 	.string "But, weren't there four of you?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_8:
-# 68 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "(… … …)$"
+# 72 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(… … …!)$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_9:
-# 69 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 73 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Ah.\n"
-	.string "I see.\p"
+	.string "Right.\p"
 	.string "Regrettable.\n"
 	.string "Very, very, regrettable.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_10:
-# 75 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 79 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "We won't forgive you for what you did\n"
 	.string "for our friend!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_11:
-# 77 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 81 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Doctor, we won't let you open this park!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_12:
-# 79 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 83 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Your little mad science experiment ends\n"
 	.string "now.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_13:
-# 81 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 85 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…So this is how it is?\p"
 	.string "Hmm.\n"
 	.string "Let me tell you a story.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_14:
-# 85 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 89 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Have you ever felt like our society\n"
 	.string "was…\n"
-	.string "Degenerate?\p"
+	.string "Degenerate?\l"
 	.string "Rotten to the core?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_15:
-# 89 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 93 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Not, really…?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_16:
-# 91 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 95 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "What are you even talking about…?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_17:
-# 93 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 97 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Oh, great, here we go.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_18:
-# 98 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "…I'm quite serious.\p"
+# 102 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "…I'm quite serious.\n"
 	.string "Society is heading to its collapse.\p"
-	.string "Weak Pokémon rule over weak Pokémon.\p"
-	.string "Lawlessness and banditism are\n"
+	.string "Weak Pokémon rule over weak Pokémon.\n"
+	.string "Lawlessness and banditism are\l"
 	.string "everywhere.\p"
 	.string "Even this…\n"
 	.string "Treasure hunting of yours.\p"
@@ -780,20 +1284,20 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_18:
 	.string "Common ruffians, the lot of you.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_19:
-# 99 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 103 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Hey!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_20:
-# 100 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 104 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "(This is quite a strange way to see\n"
 	.string "things…)$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_21:
-# 104 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 108 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Of course, with my intellect, I foresaw\n"
 	.string "all of this.\p"
 	.string "And so I looked to the past.\p"
-	.string "Yes, at a time before recorded history.\p"
+	.string "Yes, at a time before recorded history.\n"
 	.string "When powerful Pokémon ruled the world.\p"
 	.string "The strong consumed the weak.\p"
 	.string "Simple.\n"
@@ -803,35 +1307,35 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_21:
 	.string "Did not have a chance to thrive.\p"
 	.string "Wiped out by a cataclysm.\p"
 	.string "Quite unfair, don't you think?\p"
-	.string "And so I decided…\p"
+	.string "And so I decided…\n"
 	.string "To bring them back.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_22:
-# 108 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 112 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "I spent all my fortunes, and decades of\n"
 	.string "my life, to study genetic engineering.\p"
 	.string "And finally, the breakthrough.\p"
-	.string "I could bring them back, so they could\n"
+	.string "I could resurrect them, so they could\n"
 	.string "rule again.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_23:
-# 112 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 116 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "These aren't rulers!\p"
 	.string "These are monsters!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_24:
-# 114 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 118 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…That didn't turn out the way you\n"
 	.string "wanted, did it?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_25:
-# 116 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 120 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Your enlightened rulers have the\n"
 	.string "intelligence of a rock.\p"
 	.string "No offense to rocks.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_26:
-# 118 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 122 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Indeed.\n"
 	.string "I was confronted with the reality.\p"
 	.string "They were strong, yes.\n"
@@ -844,51 +1348,41 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_26:
 	.string "disappointments.\p"
 	.string "Even Tyrantrum, the mighty king of the\n"
 	.string "prehistoric world…\p"
-	.string "I will be honest with you.\p"
 	.string "When I discovered that it possessed no\n"
 	.string "intellect, I was thrown into the\l"
 	.string "deepest despair.\p"
 	.string "But then…$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_27:
-# 122 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 126 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "I realised how powerful I myself had\n"
 	.string "become.\p"
-	.string "I unlocked the secrets of genetic\n"
-	.string "engineering.\p"
+	.string "I unlocked the secrets of life.\p"
 	.string "I could…\n"
 	.string "Create my own gods.\p"
-	.string "There were so many avenues to explore!\p"
-	.string "Cloning.\n"
-	.string "Splicing.\l"
-	.string "Creation of entirely new lifeforms.\p"
+	.string "There were so many avenues to explore!\n"
 	.string "But before long, I ran out of money.\p"
 	.string "And so, I had an idea.\p"
 	.string "What if I took all my failures, and\n"
 	.string "exhibited them for the world to see…\l"
-	.string "For a price, of course.\p"
-	.string "And through this, not only will I cover\n"
-	.string "all my fundings…\p"
-	.string "But I will be sure to have access to\n"
-	.string "plenty of…\n"
-	.string "Test subjects.$"
+	.string "For a price, of course.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_28:
-# 123 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 127 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "You're insane.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_29:
-# 124 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 128 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "What did you say about…\p"
 	.string "Creating gods?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_30:
-# 128 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 132 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Ah!\n"
 	.string "Piqued your interest, didn't I!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_31:
-# 131 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 135 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Yes, there were many options I\n"
 	.string "experimented with.\p"
 	.string "But one of them was particularly\n"
@@ -898,97 +1392,91 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_31:
 	.string "{COLOR RED}Genetic cross-over?{COLOR DARK_GRAY}$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_32:
-# 136 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 140 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Genetic…\n"
 	.string "What?!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_33:
-# 137 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 141 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Genetic cross-over.\p"
 	.string "The exchange of genetic material\n"
-	.string "between chromosomes during\l"
-	.string "reproduction.$"
+	.string "between different chromosomes.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_34:
-# 140 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 144 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Isn't that…\p"
 	.string "What causes babies to be a mix of their\n"
 	.string "parents…?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_35:
-# 141 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 145 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "An imprecise definition, but in a\n"
 	.string "nutshell, yes!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_36:
-# 144 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 148 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Isn't that like, a sex thing.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_37:
-# 145 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 149 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…In a sense.\p"
 	.string "More accurately, it's the exchange of\n"
 	.string "genetic material between chromosomes\l"
 	.string "during reproduction.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_38:
-# 147 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 151 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "You see, I developed a virus capable of\n"
 	.string "altering the genetic makeup of\l"
-	.string "Pokémon.\p"
+	.string "Pokémon, on the fly.\p"
 	.string "You take a Pokémon with knowledge,\n"
 	.string "wisdom, and intellect…\p"
 	.string "And inject them with a retrovirus\n"
 	.string "containing prehistoric DNA.\p"
 	.string "The result is the transformation into a\n"
 	.string "superior lifeform.\p"
-	.string "Believe it or not, much easier than\n"
-	.string "growing one from scratch.\p"
-	.string "I call it the cross-over virus.\n"
-	.string "Or C.O.V., if you prefer.$"
+	.string "I call it the {COLOR RED}cross-over virus{COLOR DARK_GRAY}.\n"
+	.string "Or {COLOR RED}C.O.V.{COLOR DARK_GRAY}, if you prefer.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_39:
-# 148 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 152 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Why are you telling us all this…?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_40:
-# 152 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 156 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…You know, I really was intending on\n"
 	.string "letting you leave.\p"
 	.string "The park needs some good publicity,\n"
 	.string "before its opening.\p"
 	.string "But you've seen too much.\p"
 	.string "You've seen the…\n"
-	.string "Flaws.\p"
-	.string "I can't let this chance be ruined, you\n"
-	.string "see.$"
+	.string "Flaws.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_41:
-# 159 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 161 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Are you going to…\n"
 	.string "Kill us?!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_42:
-# 161 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 163 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…You're planning to get rid of us.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_43:
-# 163 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 165 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "How classic.\p"
 	.string "Monologuing before you kill us.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_44:
-# 165 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 167 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "What?!\p"
 	.string "Of course not!\n"
 	.string "Do you take me for a common murderer?!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_45:
-# 166 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "Ahem.\n"
-	.string "As I said, what happened to your friend\l"
+# 168 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Ahem.\p"
+	.string "As I said, what happened to your friend\n"
 	.string "was an accident.\p"
-	.string "A regrettable one, too.\p"
 	.string "And, good heavens, why would I waste\n"
 	.string "time explaining everything if I was\l"
 	.string "planning to kill you?\p"
@@ -1000,74 +1488,73 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_45:
 	.string "more than capable to handle the job.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_46:
-# 170 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 172 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Ok, and what if we just refuse?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_47:
-# 172 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 174 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Assistants?\p"
 	.string "I don't think so!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_48:
-# 174 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 176 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Are you stupid?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_49:
-# 176 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 178 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Of course, I am perfectly aware that\n"
 	.string "you would not be willing to take this\l"
 	.string "opportunity without some…\p"
 	.string "Incentive.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_50:
-# 177 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 179 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "(As if we would do this for any amount\n"
 	.string "of money in the world!)$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_51:
-# 178 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 180 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Money?\n"
 	.string "You seem to misunderstand.\p"
 	.string "No, what I mean is…$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_52:
-# 185 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 188 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "This.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_53:
-# 189 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 195 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Owww!\p"
 	.string "A needle?\p"
 	.string "What…\n"
 	.string "What was in it…?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_54:
-# 191 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 197 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Ow!\p"
 	.string "What was that f-…\p"
 	.string "Wait…\n"
 	.string "Don't tell me, in this needle…$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_55:
-# 193 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 199 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "…Ow!\n"
 	.string "Hey!\p"
 	.string "What did you inject me with?!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_56:
-# 195 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 201 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "The C.O.V., of course.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_57:
-# 202 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "(No…\p"
+# 208 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(No…\n"
 	.string "What's gonna happen now?!)$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_58:
-# 203 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 209 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "I had to stop my research, but I did\n"
 	.string "manage to get some batches made.\p"
-	.string "Still highly experimental, of course.\p"
 	.string "Your friend here will transmute into\n"
 	.string "something greater.\p"
 	.string "Of course, they won't be the same\n"
@@ -1079,66 +1566,331 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_58:
 	.string "And you'll help me, won't you?$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_59:
-# 207 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 213 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Larvy, we need to get out of this island\n"
 	.string "and find help, now!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_60:
-# 209 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 215 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "We'll find someone else…\p"
 	.string "That can make the vaccine!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_61:
-# 211 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 217 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "You…\n"
 	.string "We'll find someone else that can make a\l"
 	.string "vaccine!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_62:
-# 213 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 219 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Leave and I'll destroy my research.\n"
 	.string "All of it.\p"
-	.string "I'm deadly serious.\p"
 	.string "I spent more than half my life on this.\p"
 	.string "Maybe someone will be able to make a\n"
 	.string "vaccine.\p"
 	.string "How long will it take?\n"
-	.string "Fifty years?\p"
+	.string "Fifty years?\l"
 	.string "A century, without my genius?\p"
 	.string "Suit yourselves.\n"
 	.string "But I think I know what you will choose.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_63:
-# 217 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 223 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "WAAAAA!\p"
 	.string "MAKE IT STOP!\n"
 	.string "MAKE IT STOP!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_64:
-# 219 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 225 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "WHAT DID YOU DO?!\p"
 	.string "TAKE IT BACK!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_65:
-# 221 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "GRAAAH!\p"
+# 227 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "WAAAAA!\p"
 	.string "HOW DARE YOU STAB ME!\p"
-	.string "HOW D-\p"
-	.string "GRAHHHH!$"
+	.string "HOW D-\n"
+	.string "WAAAAAAAH!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_66:
-# 223 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "Oh, my.\p"
+# 229 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Please, calm yourself down.\p"
-	.string "Your mental state does affect the\n"
+	.string "Your mental state will affect the\n"
 	.string "result of the metamorphosis.$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_67:
-# 224 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	.string "AAAAAAAH!$"
+# 230 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "WAAAAAAAH!$"
 
 JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_68:
-# 225 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+# 231 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	.string "Settle down, I said!\p"
 	.string "It's going to happen soon!\p"
 	.string "You wouldn't want to…!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_69:
+# 258 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "GRAAAAAH!\n"
+	.string "GRAAAAAH!!!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_70:
+# 262 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "No!\n"
+	.string "Bagon!\p"
+	.string "Can can you hear me, Bagon?!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_71:
+# 264 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "No!\n"
+	.string "Phanpy!\p"
+	.string "Can can you hear me, Phanpy?!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_72:
+# 266 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "No!\n"
+	.string "Jiggly!\p"
+	.string "Can can you hear me, Jiggly?!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_73:
+# 268 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "GWOOOOH!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_74:
+# 274 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "GRAHHHHH!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_75:
+# 300 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Bagon…$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_76:
+# 302 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Phanpy…$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_77:
+# 304 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Jiggly…$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_78:
+# 306 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "I said to stay still!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_79:
+# 307 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Well, this is a problem.\p"
+	.string "If the metamorphosis happens under\n"
+	.string "stress, the resulting specimen tends\l"
+	.string "to…\p"
+	.string "Self destruct.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_80:
+# 311 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "What?!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_81:
+# 315 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "You're joking…!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_82:
+# 317 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "And here I was hoping to find an\n"
+	.string "agreeable solution.\p"
+	.string "…Hmmm.\n"
+	.string "Unless.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_83:
+# 321 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Please, tell us how to save our friend!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_84:
+# 323 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Unless…?$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_85:
+# 325 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Out with it, old man!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_86:
+# 327 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Well, if one of you was willing to let me\n"
+	.string "inject them with C.O.V.…\p"
+	.string "If they didn't panic during the\n"
+	.string "operation, they could mantain their\l"
+	.string "senses.\p"
+	.string "Maybe find a way to communicate?$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_87:
+# 328 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Ah, communication!\n"
+	.string "This will be a brand new experiment!\p"
+	.string "Oh, the data I will get from this!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_88:
+# 332 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "I…$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_89:
+# 334 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "This is ridiculous!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_90:
+# 336 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "I swear, I will kill you with my bare\n"
+	.string "hands.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_91:
+# 339 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(… … …\n"
+	.string "I'll do it.)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_92:
+# 342 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Larvy, no…!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_93:
+# 343 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Phenomenal!\p"
+	.string "A willing subject!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_94:
+# 344 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Larvy, why would you…$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_95:
+# 346 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(…I'm not going to let someone die\n"
+	.string "again.)\p"
+	.string "(If this is what it takes to protect my\n"
+	.string "friends…\l"
+	.string "I will do it.)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_96:
+# 350 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Phanpy, please!\p"
+	.string "Not you too!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_97:
+# 352 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Phanpy, no!\p"
+	.string "There has to be another way…$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_98:
+# 354 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "I'll kill you too!\n"
+	.string "I will!.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_99:
+# 356 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Now, now, they made their choice.\p"
+	.string "Come here.\n"
+	.string "Future generations will thank you.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_100:
+# 364 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "Say goodbye to your friend, now.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_101:
+# 365 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Please forgive me.)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_102:
+# 366 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "LARVY!!!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_103:
+# 388 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "GRAAAAAAAH!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_104:
+# 389 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "({COLOR RED}KILL. CRUSH.\n"
+	.string "DESTROY. ATTACK.{COLOR DARK_GRAY})\p"
+	.string "(!!!)\p"
+	.string "(What… Are… These… Thoughts…?!)\p"
+	.string "({COLOR RED}ATTACK. ATTACK.\n"
+	.string "KILL. KILL.{COLOR DARK_GRAY})$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_105:
+# 390 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "… … …!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_106:
+# 391 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "… … …$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_107:
+# 392 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(I… {COLOR RED}DESTROY.{COLOR DARK_GRAY}\n"
+	.string "Can't… {COLOR RED}KILL.{COLOR DARK_GRAY}\l"
+	.string "Understand them… {COLOR RED}CRUSH.{COLOR DARK_GRAY})$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_108:
+# 394 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "({COLOR RED}PAIN. HELP. KILL.{COLOR DARK_GRAY})$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_109:
+# 395 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(!!!)\p"
+	.string "(I can hear… {COLOR RED}KILL.{COLOR DARK_GRAY}\n"
+	.string "I can hear… You!)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_110:
+# 398 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Larvy…!)\p"
+	.string "(Larvy… {COLOR RED}PAIN{COLOR DARK_GRAY}\n"
+	.string "Help…{COLOR RED}FEAR.{COLOR DARK_GRAY}\l"
+	.string "Me…{COLOR RED}KILL KILL KILL.{COLOR DARK_GRAY})$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_111:
+# 399 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "GRAHHHHHHH!$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_112:
+# 405 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "PLACEHOLDER BATTLE.\p"
+	.string "Ideally, the music should not\n"
+	.string "transition.$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_113:
+# 407 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Larvy…)\p"
+	.string "(Calmed…\n"
+	.string "Down…)\p"
+	.string "(Going…\n"
+	.string "Home…?)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_114:
+# 408 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Sorry…\n"
+	.string "Must… Stay, for now…)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_115:
+# 414 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Bagon…\n"
+	.string "Okay…?)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_116:
+# 416 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Phanpy…\n"
+	.string "Okay…?)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_117:
+# 418 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Jiggly…\n"
+	.string "Okay…?)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_118:
+# 420 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(Yes…)\p"
+	.string "(But… Must, stay…\n"
+	.string "On island.)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_119:
+# 421 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(As long, as…\n"
+	.string "Together.)$"
+
+JurassicPark_Final_Lab_EventScript_Drampa_Scene_Text_120:
+# 422 "data/maps/JurassicPark_Final_Lab/scripts.pory"
+	.string "(…Yes.\n"
+	.string "Together.)$"
