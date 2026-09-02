@@ -5643,7 +5643,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isParadox = TRUE,
         .levelUpLearnset = sGreatTuskLevelUpLearnset,
         .teachableLearnset = sGreatTuskTeachableLearnset,
-        .mugshotId = MUGSHOT_GREAT_TUSK
+        .mugshotId = MUGSHOT_GREAT_TUSK,
     },
 #endif //P_FAMILY_GREAT_TUSK
 

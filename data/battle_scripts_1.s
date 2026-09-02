@@ -1949,6 +1949,24 @@ BattleScript_EffectDoNothing::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectTickleAnorith::
+	attackcanceler
+	attackanimation
+	waitanimation
+	callnative BS_TickleScareAnorith
+	jumpifbyte CMP_EQUAL, gBattleCommunication, FALSE, BattleScript_TickleAnorithCancel
+	healthbarupdate BS_OPPONENT1, PASSIVE_HP_UPDATE
+	datahpupdate BS_OPPONENT1, PASSIVE_HP_UPDATE
+	tryfaintmon BS_OPPONENT1
+	healthbarupdate BS_OPPONENT2, PASSIVE_HP_UPDATE
+	datahpupdate BS_OPPONENT2, PASSIVE_HP_UPDATE
+	tryfaintmon BS_OPPONENT2
+	goto BattleScript_MoveEnd
+BattleScript_TickleAnorithCancel::
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_SpecialArchenTutorial::
 	attackcanceler
 	attackanimation
@@ -1957,6 +1975,18 @@ BattleScript_SpecialArchenTutorial::
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	setadditionaleffects
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTalkTutorial::
+	attackcanceler
+	attackanimation
+	waitanimation
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_TalkTutorial_StillAsleep
+	callnative BS_EndDrampaTutorialBattle
+	goto BattleScript_MoveEnd
+BattleScript_TalkTutorial_StillAsleep::
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectHoldHands::
@@ -2470,6 +2500,7 @@ BattleScript_EffectTorment::
 
 BattleScript_EffectNonVolatileStatus::
 	attackcanceler
+BattleScript_TryNonVolatileStatus::
 	trynonvolatilestatus
 	accuracycheck
 	attackanimation

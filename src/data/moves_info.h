@@ -1272,10 +1272,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A soothing song lulls the\n"
             "foe into a deep slumber."),
-        .effect = EFFECT_NON_VOLATILE_STATUS,
+        .effect = EFFECT_SING_ARMALDO,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 55,
+        .accuracy = 0,
         .pp = 15,
         .target = TARGET_SELECTED,
         .priority = 0,
@@ -4021,7 +4021,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 15,
-        .target = TARGET_SELECTED,
+        .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
         .argument = { .nonVolatileStatus = MOVE_EFFECT_SLEEP },
@@ -6726,8 +6726,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "An attack that may raise\n"
             "all stats."),
-        .effect = EFFECT_HIT,
-        .power = 60,
+        .effect = EFFECT_FIXED_HP_DAMAGE,
+        .power = 1,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 5,
@@ -6735,16 +6735,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .makesContact = B_UPDATED_MOVE_DATA < GEN_4,
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_STAT_PLUS,
-            .attack = 1,
-            .defense = 1,
-            .spDef = 1,
-            .spAtk = 1,
-            .speed = 1,
-            .self = TRUE,
-            .chance = 10,
-        }),
+        .argument = { .fixedDamage = 60 },
         .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
@@ -23742,8 +23733,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Status"),
         .description = COMPOUND_STRING(
-            "Recovers the target's\n"
-            "HP and resets all stats."),
+            "Recovers the target's HP,\n"
+            "resets stats, cures sleep."),
         .effect = EFFECT_HEAL_PULSE,
         .power = 0,
         .type = TYPE_GRASS,
@@ -23752,6 +23743,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .status = STATUS1_SLEEP },
         .zMove = { .effect = Z_EFFECT_RESET_STATS },
         .magicCoatAffected = TRUE,
         .mirrorMoveBanned = TRUE,
@@ -23764,6 +23756,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Synthesis,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_HAZE,
+        },
+        {
+            .moveEffect = MOVE_EFFECT_REMOVE_STATUS,
         }),
     },
 
@@ -23839,5 +23834,100 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
         .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
+    [MOVE_LARVESTA_ATTACK_TUTORIAL] =
+    {
+        .name = COMPOUND_STRING("Attack"),
+        .description = COMPOUND_STRING(
+            "Attempts to fight back,\n"
+            "but nothing happens."),
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_VineWhip,
+    },
+
+    [MOVE_LARVESTA_TALK_TUTORIAL] =
+    {
+        .name = COMPOUND_STRING("Talk"),
+        .description = COMPOUND_STRING(
+            "Talks to the target. Only\n"
+            "works once it's calm."),
+        .effect = EFFECT_TALK_TUTORIAL,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Growl,
+    },
+
+    [MOVE_LARVESTA_TICKLE_TUTORIAL] =
+    {
+        .name = COMPOUND_STRING("Tickle"),
+        .description = COMPOUND_STRING(
+            "Distracts the target,\n"
+            "waking it up."),
+        .effect = EFFECT_DO_NOTHING_TUTORIAL,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .status = STATUS1_SLEEP },
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_REMOVE_STATUS,
+        }),
+        .battleAnimScript = gBattleAnimMove_Tickle,
+    },
+
+    [MOVE_LARVESTA_TICKLE_ANORITH] =
+    {
+        .name = COMPOUND_STRING("Tickle"),
+        .description = COMPOUND_STRING(
+            "Pulls a funny face on an ally,\n"
+            "scaring off startled foes."),
+        .effect = EFFECT_TICKLE_ANORITH,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 0,
+        .pp = 3,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Tickle,
+    },
+
+    [MOVE_BASTIODON_GUARD_1] =
+    {
+        .name = COMPOUND_STRING("Half-Guard"),
+        .description = COMPOUND_STRING(
+            "Raises an unbreakable shield,\n"
+            "blocking anything thrown at it."),
+        .effect = EFFECT_PROTECT,
+        .power = 0,
+        .type = TYPE_STEEL,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_USER,
+        .priority = 4,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .protectMethod = PROTECT_NORMAL },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .assistBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Protect,
     },
 };

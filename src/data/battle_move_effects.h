@@ -106,6 +106,20 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleFactoryStyle = FACTORY_STYLE_HIGH_RISK,
     },
 
+    [EFFECT_SING_ARMALDO] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 5,
+        .battleFactoryStyle = FACTORY_STYLE_HIGH_RISK,
+    },
+
+    [EFFECT_TICKLE_ANORITH] =
+    {
+        .battleScript = BattleScript_EffectTickleAnorith,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_ROAR] =
     {
         .battleScript = BattleScript_EffectRoar,
@@ -269,6 +283,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_DO_NOTHING_TUTORIAL] =
     {
         .battleScript = BattleScript_SpecialArchenTutorial,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_TALK_TUTORIAL] =
+    {
+        .battleScript = BattleScript_EffectTalkTutorial,
         .battleTvScore = 1,
         .encourageEncore = TRUE,
     },
@@ -758,6 +779,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleScript = BattleScript_EffectFollowMe,
         .battleTvScore = 5,
         .encourageEncore = TRUE,
+        .usesProtectCounter = TRUE,
     },
 
     [EFFECT_NATURE_POWER] =

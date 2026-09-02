@@ -181,7 +181,17 @@ script JurassicPark_Mountain_Base_EventScript_ArchenSetup
 
 script JurassicPark_Mountain_Base_BruteBonnet
 {
-    msgbox(format("PLACEHOLDER.\pFor this battle, Bagon would be necessary. PLEASE DONT KEEP GOING WITHOUT BAGON OR THINGS WILL BREAK"))
+    if (var(VAR_MOUNTAIN_STATE) < 3)
+    {
+        msgbox(format("PLACEHOLDER.\pSomething's growing here, but it doesn't seem interested in you yet."))
+        closemessage
+        end
+    }
+    faceplayer
+    msgbox(format("PLACEHOLDER.\pBrute Bonnet fight intro dialogue here."))
+    closemessage
+    puzzlebattle(BP_BRUTE_BONNET)
+    waitstate
     closemessage
     removeobject(LOCALID_BRUTE_BONNET)
     end

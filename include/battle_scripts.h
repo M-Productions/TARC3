@@ -567,6 +567,7 @@ extern const u8 BattleScript_EffectMimic[];
 extern const u8 BattleScript_EffectLeechSeed[];
 extern const u8 BattleScript_EffectDoNothing[];
 extern const u8 BattleScript_SpecialArchenTutorial[];
+extern const u8 BattleScript_EffectTalkTutorial[];
 extern const u8 BattleScript_EffectHoldHands[];
 extern const u8 BattleScript_EffectCelebrate[];
 extern const u8 BattleScript_EffectHappyHour[];
@@ -726,5 +727,9 @@ extern const u8 BattleScript_TarShotMessage[];
 extern const u8 BattleScript_Stockpile[];
 extern const u8 BattleScript_Memento[];
 extern const u8 BattleScript_TakeHeart[];
+
+extern const u8 BattleScript_TryNonVolatileStatus[];
+
+extern const u8 BattleScript_EffectTickleAnorith[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

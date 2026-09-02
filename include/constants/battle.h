@@ -106,6 +106,8 @@ enum BattleSide
 #define BIT_SIDE        1
 #define BIT_FLANK       2
 
+#define STURDY_DAMAGE   10
+
 // Battle Type Flags
 #define BATTLE_TYPE_DOUBLE             (1 << 0)
 #define BATTLE_TYPE_LINK               (1 << 1)
@@ -172,6 +174,7 @@ enum BattleSide
 #define B_OUTCOME_NO_SAFARI_BALLS      8
 #define B_OUTCOME_FORFEITED            9
 #define B_OUTCOME_MON_TELEPORTED       10
+#define B_OUTCOME_PUZZLE_COMPLETE      11
 #define B_OUTCOME_LINK_BATTLE_RAN      (1 << 7) // 128
 
 // Non-volatile status conditions
@@ -855,6 +858,18 @@ enum SubmoveState
     SUBMOVE_NO_EFFECT,
     SUBMOVE_SUCCESS,
     SUBMOVE_FAILURE,
+};
+
+enum BattlePuzzles
+{
+    BP_NONE,
+    BP_TUTORIAL,
+    BP_HEADBUTT,
+    BP_SING,
+    BP_ANORITH,
+    BP_BRUTE_BONNET,
+    BP_BASTIODON,
+    BP_COUNT
 };
 
 #endif // GUARD_CONSTANTS_BATTLE_H

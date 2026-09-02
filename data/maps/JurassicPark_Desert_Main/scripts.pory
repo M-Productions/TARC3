@@ -151,7 +151,11 @@ script JurassicPark_Desert_Main_EventsScript_RampardosFight
     mnmbox(format("(Well…\nIt could work.)\p(We get it mad at us, and then lure it to the house.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("Hehe.\pLet's go, team!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
     closemessage
-    msgbox(format("PLACEHOLDER\nInsert Rampardos battle here."))
+    puzzlebattle(BP_HEADBUTT)
+    waitstate
+    if (var(VAR_RESULT) != B_OUTCOME_PUZZLE_COMPLETE) {
+        msgbox(format("PLACEHOLDER\nRampardos battle other outcomes here."))
+    }
     mnmbox(format("Run, Larvy, run!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
     lockall
     closemessage

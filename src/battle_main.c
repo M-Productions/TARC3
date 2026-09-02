@@ -453,6 +453,7 @@ static void (*const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_NO_SAFARI_BALLS]   = HandleEndTurn_FinishBattle,
     [B_OUTCOME_FORFEITED]         = HandleEndTurn_FinishBattle,
     [B_OUTCOME_MON_TELEPORTED]    = HandleEndTurn_FinishBattle,
+    [B_OUTCOME_PUZZLE_COMPLETE]   = HandleEndTurn_FinishBattle,
 };
 
 const u8 gStatusConditionString_PoisonJpn[] = _("どく$$$$$");
@@ -3939,6 +3940,8 @@ bool32 EndTurnEvents(void) // Called from Battle Script
     for (u32 i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
 
+    SetBattlePuzzleOutcome();
+
     if (gBattleOutcome != 0)
     {
         gCurrentActionFuncId = B_ACTION_FINISHED;
@@ -5494,6 +5497,7 @@ static void HandleEndTurn_FinishBattle(void)
 {
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
+        ClearBattlePuzzle();
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_RECORDED_LINK
                                   | BATTLE_TYPE_FIRST_BATTLE
