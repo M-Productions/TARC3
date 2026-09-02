@@ -142,7 +142,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         
         case LOCALID_JIGGLYPUFF_LAB:
             mnmbox(format("Isn't that like, a sex thing."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
-            mnmbox(format("…In a sense.\pMore accurately, it's the exchange of genetic material between chromosomes during reproduction.), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            mnmbox(format("…In a sense.\pMore accurately, it's the exchange of genetic material between chromosomes during reproduction."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     }
     mnmbox(format("You see, I developed a virus capable of altering the genetic makeup of Pokémon.\pYou take a Pokémon with knowledge, wisdom, and intellect…\pAnd inject them with a retrovirus containing prehistoric DNA.\pThe result is the transformation into a superior lifeform.\pBelieve it or not, much easier than growing one from scratch.\pI call it the cross-over virus.\nOr C.O.V., if you prefer."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
     mnmbox(format("Why are you telling us all this…?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
@@ -218,7 +218,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
         case LOCALID_PHANPY_LAB:
             mnmbox(format("WHAT DID YOU DO?!\pTAKE IT BACK!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
         case LOCALID_JIGGLYPUFF_LAB:
-            mnmbox(format("GRAAAH!\pHOW DARE YOU STAB ME!\pHOW D-\PGRAHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+            mnmbox(format("GRAAAH!\pHOW DARE YOU STAB ME!\pHOW D-\pGRAHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
     }
     mnmbox(format("Oh, my.\pPlease, calm yourself down.\pYour mental state does affect the result of the metamorphosis."), localId=LOCALID_DRAMPA_LAB, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     mnmbox(format("AAAAAAAH!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)

@@ -709,8 +709,10 @@ JurassicPark_Bridge_And_Lab_EventScript_EnterLab_1:
 # 414 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	playse SE_EXIT
 # 415 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setvar VAR_GAME_STATE, GS_ENTERING_LAB
+	removeobject VAR_LOCALID_CUTSCENE_SECOND
 # 416 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	setvar VAR_GAME_STATE, GS_ENTERING_LAB
+# 417 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	release
 	end
 

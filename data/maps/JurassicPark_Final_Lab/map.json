@@ -67,6 +67,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_DRAMPA_LAB",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
       "x": 10,
       "y": 3,
