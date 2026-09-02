@@ -535,6 +535,20 @@ const u16 sFieldMugshotPal_BastiodonWorriedShiny[] = INCGFX_U16("graphics/pokemo
 const u32 sFieldMugshotGfx_RagingBoltNormal[] = INCGFX_U32("graphics/pokemon/raging_bolt/mugshot/Normal.png", ".4bpp.smol");
 const u16 sFieldMugshotPal_RagingBoltNormal[] = INCGFX_U16("graphics/pokemon/raging_bolt/mugshot/Normal.pal", ".gbapal");
 const u16 sFieldMugshotPal_RagingBoltNormalShiny[] = INCGFX_U16("graphics/pokemon/raging_bolt/mugshot/Normal-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_GreatTuskNormal[] = INCGFX_U32("graphics/pokemon/great_tusk/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_GreatTuskNormal[] = INCGFX_U16("graphics/pokemon/great_tusk/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_GreatTuskNormalShiny[] = INCGFX_U16("graphics/pokemon/great_tusk/mugshot/Normal-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ScreamTailNormal[] = INCGFX_U32("graphics/pokemon/scream_tail/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ScreamTailNormal[] = INCGFX_U16("graphics/pokemon/scream_tail/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_ScreamTailNormalShiny[] = INCGFX_U16("graphics/pokemon/scream_tail/mugshot/Normal-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_RoaringMoonNormal[] = INCGFX_U32("graphics/pokemon/roaring_moon/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_RoaringMoonNormal[] = INCGFX_U16("graphics/pokemon/roaring_moon/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_RoaringMoonNormalShiny[] = INCGFX_U16("graphics/pokemon/roaring_moon/mugshot/Normal-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_SlitherWingNormal[] = INCGFX_U32("graphics/pokemon/slither_wing/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_SlitherWingNormal[] = INCGFX_U16("graphics/pokemon/slither_wing/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_SlitherWingNormalShiny[] = INCGFX_U16("graphics/pokemon/slither_wing/mugshot/Normal-shiny.pal", ".gbapal");
+
+
 
 struct MugshotGfx
 {
@@ -1660,4 +1674,46 @@ static const struct MugshotGfx sFieldMugshots[MUGSHOT_COUNT][MUGSHOT_EMOTE_COUNT
             .palShiny = sFieldMugshotPal_RagingBoltNormalShiny,
         },
     },
+
+    [MUGSHOT_GREAT_TUSK] =
+    {
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_GreatTuskNormal,
+            .pal = sFieldMugshotPal_GreatTuskNormal,
+            .palShiny = sFieldMugshotPal_GreatTuskNormalShiny,
+        },
+    },
+
+    [MUGSHOT_SCREAM_TAIL] =
+    {
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_ScreamTailNormal,
+            .pal = sFieldMugshotPal_ScreamTailNormal,
+            .palShiny = sFieldMugshotPal_ScreamTailNormalShiny,
+        },
+    },
+
+    [MUGSHOT_ROARING_MOON] =
+    {
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_RoaringMoonNormal,
+            .pal = sFieldMugshotPal_RoaringMoonNormal,
+            .palShiny = sFieldMugshotPal_RoaringMoonNormalShiny,
+        },
+    },
+
+    [MUGSHOT_SLITHER_WING] =
+    {
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_SlitherWingNormal,
+            .pal = sFieldMugshotPal_SlitherWingNormal,
+            .palShiny = sFieldMugshotPal_SlitherWingNormalShiny,
+        },
+    },
+
+
 };

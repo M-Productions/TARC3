@@ -10373,6 +10373,18 @@
       "secondary_tileset": "gTileset_Visitor_Centre_Indoor_Secondary",
       "border_filepath": "data/layouts/JurassicPark_Black_Cutscene/border.bin",
       "blockdata_filepath": "data/layouts/JurassicPark_Black_Cutscene/map.bin"
+    },
+    {
+      "id": "LAYOUT_JURASSIC_PARK_FINAL_LAB",
+      "name": "JurassicPark_Final_Lab_Layout",
+      "width": 20,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Final_Lab_Interior_Primary",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/JurassicPark_Final_Lab/border.bin",
+      "blockdata_filepath": "data/layouts/JurassicPark_Final_Lab/map.bin"
     }
   ]
 }

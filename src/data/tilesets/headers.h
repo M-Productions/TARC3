@@ -1707,3 +1707,14 @@ const struct Tileset gTileset_Visitor_Centre_Red_Indoor_Secondary =
     .metatileAttributes = gMetatileAttributes_Visitor_Centre_Red_Indoor_Secondary,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Final_Lab_Interior_Primary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Final_Lab_Interior_Primary,
+    .palettes = gTilesetPalettes_Final_Lab_Interior_Primary,
+    .metatiles = gMetatiles_Final_Lab_Interior_Primary,
+    .metatileAttributes = gMetatileAttributes_Final_Lab_Interior_Primary,
+    .callback = NULL,
+};

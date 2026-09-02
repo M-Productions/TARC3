@@ -2543,28 +2543,30 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_6:
 	case CHAR_BAGON, JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_15
 JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_11:
 # 1385 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	clearflag FLAG_NO_OW_MUSIC
+	closemessage
 # 1386 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	setflag FLAG_DETERMINATION
+	clearflag FLAG_NO_OW_MUSIC
 # 1387 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	fadenewbgm MUS_DETERMINATION
+	setflag FLAG_DETERMINATION
 # 1388 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	setvar VAR_GAME_STATE, GS_POST_THREE_GENERATORS
+	fadenewbgm MUS_DETERMINATION
 # 1389 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	fadescreenswapbuffers FADE_TO_BLACK
+	setvar VAR_GAME_STATE, GS_POST_THREE_GENERATORS
 # 1390 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	removeobject LOCALID_PHANPY_FOREST
+	fadescreenswapbuffers FADE_TO_BLACK
 # 1391 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	removeobject LOCALID_JIGGLYPUFF_FOREST
+	removeobject LOCALID_PHANPY_FOREST
 # 1392 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	removeobject LOCALID_BAGON_FOREST
+	removeobject LOCALID_JIGGLYPUFF_FOREST
 # 1393 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	clearflag FLAG_HIDE_BRIDGE
+	removeobject LOCALID_BAGON_FOREST
 # 1394 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	delay 16
+	clearflag FLAG_HIDE_BRIDGE
 # 1395 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	fadescreenswapbuffers FADE_FROM_BLACK
+	delay 16
 # 1396 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	fadescreenswapbuffers FADE_FROM_BLACK
+# 1397 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	releaseall
 	end
 
@@ -2730,6 +2732,34 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_15:
 # 1383 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_Text_55, localId = LOCALID_BAGON_FOREST, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 	goto JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_11
+
+
+JurassicPark_Road_To_Visitor_Centre_EventScript_Desert_WalkBack::
+# 1403 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	lock
+# 1404 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_Desert_WalkBack_Text_0, localId = LOCALID_PLAYER
+# 1405 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Movement_1
+# 1406 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	waitmovement 0
+# 1407 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	release
+	end
+
+
+JurassicPark_Road_To_Visitor_Centre_EventScript_Mountain_WalkBack::
+# 1413 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	lock
+# 1414 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_Desert_WalkBack_Text_0, localId = LOCALID_PLAYER
+# 1415 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa_Movement_1
+# 1416 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	waitmovement 0
+# 1417 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	release
+	end
 
 
 # 158 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -4982,3 +5012,7 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene_Text_55:
 	.string "The bridge should be back now.\p"
 	.string "We need to…\n"
 	.string "We need to finish this adventure.$"
+
+JurassicPark_Road_To_Visitor_Centre_EventScript_Desert_WalkBack_Text_0:
+# 1404 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	.string "(I'm not going back in there.)$"

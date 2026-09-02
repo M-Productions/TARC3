@@ -46,9 +46,73 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_TYRANTRUM_BRIDGE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRANTRUM)",
+      "x": 10,
+      "y": 9,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_BRIDGE_NPCS"
+    },
+    {
+      "local_id": "LOCALID_JIGGLYPUFF_BRIDGE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF)",
+      "x": 5,
+      "y": 25,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_EnterLab",
+      "flag": "FLAG_HIDE_BRIDGE_NPCS"
+    },
+    {
+      "local_id": "LOCALID_BAGON_BRIDGE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BAGON)",
+      "x": 6,
+      "y": 25,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_EnterLab",
+      "flag": "FLAG_HIDE_BRIDGE_NPCS"
+    },
+    {
+      "local_id": "LOCALID_PHANPY_BRIDGE",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PHANPY)",
+      "x": 7,
+      "y": 25,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_EnterLab",
+      "flag": "FLAG_HIDE_BRIDGE_NPCS"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 48,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_JURASSIC_PARK_FINAL_LAB",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [
     {
       "type": "trigger",
@@ -85,6 +149,24 @@
       "var": "VAR_GAME_STATE",
       "var_value": "GS_HEADING_TOWARDS_LAB",
       "script": "JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_POST_THREE_GENERATORS",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_POST_THREE_GENERATORS",
+      "script": "JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum"
     }
   ],
   "bg_events": []

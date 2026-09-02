@@ -314,7 +314,7 @@ script JurassicPark_Visitor_Centre_EventScript_Drampa
     mnmbox(format("What?!"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
     mnmbox(format("Yes!\nWith this machine here…\lWell, this one is a replica.\pBut with a machine like this, my life's work…\pI can bring fossilized remains back to life!"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     mnmbox(format("That's impossible!"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
-    mnmbox(format("And yet you've seen it with your very own eyes!\pI am in the final stages of setting up this island to be an educational park.\pI call it…\nJurassic Park!"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+    mnmbox(format("And yet you've seen it with your very own eyes!\pI am in the final stages of setting up this island to be an educational park.\pI call it…\nJurassic PokéPark!"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
     mnmbox(format("So… What are these Pokémon like?\pWe tried talking to them, but…"), localId=LOCALID_PHANPY_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     mnmbox(format("…"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
     mnmbox(format("Well, why don't you come and take a look for yourselves?"), localId=LOCALID_DRAMPA_CENTRE, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)

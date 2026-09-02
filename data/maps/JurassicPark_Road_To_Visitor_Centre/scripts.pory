@@ -1382,6 +1382,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene
         case CHAR_BAGON:
             mnmbox(format("Larvy, I know you're scared.\nI'm scared too.\pBut, we managed to reactivate the genreators.\pThe bridge should be back now.\pWe need to…\nWe need to finish this adventure."), localId=LOCALID_BAGON_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     }
+    closemessage
     clearflag(FLAG_NO_OW_MUSIC)
     setflag(FLAG_DETERMINATION)
     fadenewbgm(MUS_DETERMINATION)

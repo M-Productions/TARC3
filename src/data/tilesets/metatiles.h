@@ -453,3 +453,6 @@ const u16 gMetatileAttributes_Visitor_Centre_Red_Primary[] = INCBIN_U16("data/ti
 
 const u16 gMetatiles_Visitor_Centre_Red_Indoor_Secondary[] = INCBIN_U16("data/tilesets/secondary/visitor_centre_red_indoor_secondary/metatiles.bin");
 const u16 gMetatileAttributes_Visitor_Centre_Red_Indoor_Secondary[] = INCBIN_U16("data/tilesets/secondary/visitor_centre_red_indoor_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_Final_Lab_Interior_Primary[] = INCBIN_U16("data/tilesets/primary/final_lab_interior_primary/metatiles.bin");
+const u16 gMetatileAttributes_Final_Lab_Interior_Primary[] = INCBIN_U16("data/tilesets/primary/final_lab_interior_primary/metatile_attributes.bin");

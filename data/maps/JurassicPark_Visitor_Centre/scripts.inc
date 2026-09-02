@@ -1276,7 +1276,7 @@ JurassicPark_Visitor_Centre_EventScript_Drampa_Text_15:
 	.string "I am in the final stages of setting up\n"
 	.string "this island to be an educational park.\p"
 	.string "I call it…\n"
-	.string "Jurassic Park!$"
+	.string "Jurassic PokéPark!$"
 
 JurassicPark_Visitor_Centre_EventScript_Drampa_Text_16:
 # 318 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
