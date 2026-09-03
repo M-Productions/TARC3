@@ -613,36 +613,9 @@ u8 CreateBattlerHealthboxSprites(enum BattlerId battler)
     u8 healthbarSpriteId;
     struct Sprite *healthBarSpritePtr;
 
-    switch (GetBattlerCoordsIndex(battler))
+    switch (BATTLE_COORDS_DOUBLES)
     {
     default:
-    case BATTLE_COORDS_SINGLES:
-    {
-        if (IsOnPlayerSide(battler))
-        {
-            healthboxLeftSpriteId = CreateSprite(&sHealthboxPlayerSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
-            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxPlayerSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
-
-            gSprites[healthboxLeftSpriteId].oam.shape = ST_OAM_SQUARE;
-
-            gSprites[healthboxRightSpriteId].oam.shape = ST_OAM_SQUARE;
-            gSprites[healthboxRightSpriteId].oam.tileNum += 64;
-        }
-        else
-        {
-            healthboxLeftSpriteId = CreateSprite(&sHealthboxOpponentSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
-            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxOpponentSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
-
-            gSprites[healthboxRightSpriteId].oam.tileNum += 32;
-
-            data6 = 2;
-        }
-        gSprites[healthboxLeftSpriteId].oam.affineParam = healthboxRightSpriteId;
-
-        gSprites[healthboxRightSpriteId].hOther_HealthBoxSpriteId = healthboxLeftSpriteId;
-        gSprites[healthboxRightSpriteId].callback = SpriteCB_HealthBoxOther;
-        break;
-    }
     case BATTLE_COORDS_DOUBLES:
     {
         if (IsOnPlayerSide(battler))
@@ -837,8 +810,8 @@ static const s16 sBattlerHealthboxCoords[BATTLE_COORDS_COUNT][MAX_BATTLERS_COUNT
     {
         [B_POSITION_PLAYER_LEFT]    = {  24, 42 },
         [B_POSITION_PLAYER_RIGHT]   = { 170, 42 },
-        [B_POSITION_OPPONENT_LEFT]  = { 44,  19 },
-        [B_POSITION_OPPONENT_RIGHT] = { 32,  44 },
+        [B_POSITION_OPPONENT_LEFT]  = { 170, 16 },
+        [B_POSITION_OPPONENT_RIGHT] = {  44, 16 },
     },
 };
 
@@ -1008,6 +981,9 @@ static void UpdateOpponentHpTextSingles(u32 healthboxSpriteId, s16 value, u32 ma
 
 void UpdateHpTextInHealthbox(u32 healthboxSpriteId, u32 maxOrCurrent, s16 currHp, s16 maxHp)
 {
+    UpdateHpTextInHealthboxInDoubles(healthboxSpriteId, maxOrCurrent, currHp, maxHp);
+    return;
+    
     enum BattlerId battler = gSprites[healthboxSpriteId].hMain_Battler;
     switch (GetBattlerCoordsIndex(battler))
     {
@@ -1785,15 +1761,17 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     status = GetMonData(GetBattlerMon(battler), MON_DATA_STATUS);
     if (IsOnPlayerSide(battler))
     {
-        switch (GetBattlerCoordsIndex(battler))
-        {
-        case BATTLE_COORDS_SINGLES:
-            tileNumAdder = 0x1A;
-            break;
-        default:
-            tileNumAdder = 0x12;
-            break;
-        }
+        // switch (GetBattlerCoordsIndex(battler))
+        // {
+        // case BATTLE_COORDS_SINGLES:
+        //     tileNumAdder = 0x1A;
+        //     break;
+        // default:
+        //     tileNumAdder = 0x12;
+        //     break;
+        // }
+
+        tileNumAdder = 0x12;
     }
     else
     {
@@ -1850,7 +1828,8 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     FillPalette(sStatusIconColors[statusPalId], OBJ_PLTT_OFFSET + pltAdder, PLTT_SIZEOF(1));
     CpuCopy16(&gPlttBufferUnfaded[OBJ_PLTT_OFFSET + pltAdder], (u16 *)OBJ_PLTT + pltAdder, PLTT_SIZEOF(1));
     CpuCopy32(statusGfxPtr, (void *)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder) * TILE_SIZE_4BPP), 96);
-    if (GetBattlerCoordsIndex(battler) == BATTLE_COORDS_DOUBLES || !IsOnPlayerSide(battler))
+    // if (GetBattlerCoordsIndex(battler) == BATTLE_COORDS_DOUBLES || !IsOnPlayerSide(battler))
+    if (TRUE)
     {
         if (!gBattleSpritesDataPtr->battlerData[battler].hpNumbersNoBars)
         {

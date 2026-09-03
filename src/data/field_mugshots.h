@@ -640,6 +640,54 @@ const u16 sFieldMugshotPal_RoaringMoonTearyEyedShiny[] = INCGFX_U16("graphics/po
 const u32 sFieldMugshotGfx_RoaringMoonWorried[] = INCGFX_U32("graphics/pokemon/roaring_moon/mugshot/Worried.png", ".4bpp.smol");
 const u16 sFieldMugshotPal_RoaringMoonWorried[] = INCGFX_U16("graphics/pokemon/roaring_moon/mugshot/Worried.pal", ".gbapal");
 const u16 sFieldMugshotPal_RoaringMoonWorriedShiny[] = INCGFX_U16("graphics/pokemon/roaring_moon/mugshot/Worried-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyAngry[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Angry.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyAngry[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Angry.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyAngryShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Angry-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyCrying[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Crying.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyCrying[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Crying.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyCryingShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Crying-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyDetermined[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Determined.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyDetermined[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Determined.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyDeterminedShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Determined-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyDizzy[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Dizzy.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyDizzy[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Dizzy.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyDizzyShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Dizzy-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyHappy[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Happy.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyHappy[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Happy.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyHappyShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Happy-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyInspired[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Inspired.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyInspired[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Inspired.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyInspiredShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Inspired-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyJoyous[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Joyous.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyJoyous[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Joyous.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyJoyousShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Joyous-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyNormal[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Normal.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyNormal[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Normal.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyNormalShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Normal-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyPain[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Pain.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyPain[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Pain.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyPainShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Pain-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseySad[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Sad.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseySad[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Sad.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseySadShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Sad-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyShouting[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Shouting.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyShouting[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Shouting.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyShoutingShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Shouting-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseySigh[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Sigh.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseySigh[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Sigh.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseySighShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Sigh-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyStunned[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Stunned.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyStunned[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Stunned.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyStunnedShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Stunned-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseySurprised[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Surprised.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseySurprised[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Surprised.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseySurprisedShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Surprised-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyTearyEyed[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Teary-Eyed.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyTearyEyed[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Teary-Eyed.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyTearyEyedShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Teary-Eyed-shiny.pal", ".gbapal");
+const u32 sFieldMugshotGfx_ChanseyWorried[] = INCGFX_U32("graphics/pokemon/chansey/mugshot/Worried.png", ".4bpp.smol");
+const u16 sFieldMugshotPal_ChanseyWorried[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Worried.pal", ".gbapal");
+const u16 sFieldMugshotPal_ChanseyWorriedShiny[] = INCGFX_U16("graphics/pokemon/chansey/mugshot/Worried-shiny.pal", ".gbapal");
 
 struct MugshotGfx
 {
@@ -1985,6 +2033,105 @@ static const struct MugshotGfx sFieldMugshots[MUGSHOT_COUNT][MUGSHOT_EMOTE_COUNT
             .gfx = sFieldMugshotGfx_RoaringMoonWorried,
             .pal = sFieldMugshotPal_RoaringMoonWorried,
             .palShiny = sFieldMugshotPal_RoaringMoonWorriedShiny,
+        },
+    },
+    [MUGSHOT_CHANSEY] =
+    {
+        [MUGSHOT_EMOTE_ANGRY] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyAngry,
+            .pal = sFieldMugshotPal_ChanseyAngry,
+            .palShiny = sFieldMugshotPal_ChanseyAngryShiny,
+        },
+        [MUGSHOT_EMOTE_CRYING] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyCrying,
+            .pal = sFieldMugshotPal_ChanseyCrying,
+            .palShiny = sFieldMugshotPal_ChanseyCryingShiny,
+        },
+        [MUGSHOT_EMOTE_DETERMINED] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyDetermined,
+            .pal = sFieldMugshotPal_ChanseyDetermined,
+            .palShiny = sFieldMugshotPal_ChanseyDeterminedShiny,
+        },
+        [MUGSHOT_EMOTE_DIZZY] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyDizzy,
+            .pal = sFieldMugshotPal_ChanseyDizzy,
+            .palShiny = sFieldMugshotPal_ChanseyDizzyShiny,
+        },
+        [MUGSHOT_EMOTE_HAPPY] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyHappy,
+            .pal = sFieldMugshotPal_ChanseyHappy,
+            .palShiny = sFieldMugshotPal_ChanseyHappyShiny,
+        },
+        [MUGSHOT_EMOTE_INSPIRED] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyInspired,
+            .pal = sFieldMugshotPal_ChanseyInspired,
+            .palShiny = sFieldMugshotPal_ChanseyInspiredShiny,
+        },
+        [MUGSHOT_EMOTE_JOYOUS] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyJoyous,
+            .pal = sFieldMugshotPal_ChanseyJoyous,
+            .palShiny = sFieldMugshotPal_ChanseyJoyousShiny,
+        },
+        [MUGSHOT_EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyNormal,
+            .pal = sFieldMugshotPal_ChanseyNormal,
+            .palShiny = sFieldMugshotPal_ChanseyNormalShiny,
+        },
+        [MUGSHOT_EMOTE_PAIN] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyPain,
+            .pal = sFieldMugshotPal_ChanseyPain,
+            .palShiny = sFieldMugshotPal_ChanseyPainShiny,
+        },
+        [MUGSHOT_EMOTE_SAD] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseySad,
+            .pal = sFieldMugshotPal_ChanseySad,
+            .palShiny = sFieldMugshotPal_ChanseySadShiny,
+        },
+        [MUGSHOT_EMOTE_SHOUTING] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyShouting,
+            .pal = sFieldMugshotPal_ChanseyShouting,
+            .palShiny = sFieldMugshotPal_ChanseyShoutingShiny,
+        },
+        [MUGSHOT_EMOTE_SIGH] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseySigh,
+            .pal = sFieldMugshotPal_ChanseySigh,
+            .palShiny = sFieldMugshotPal_ChanseySighShiny,
+        },
+        [MUGSHOT_EMOTE_STUNNED] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyStunned,
+            .pal = sFieldMugshotPal_ChanseyStunned,
+            .palShiny = sFieldMugshotPal_ChanseyStunnedShiny,
+        },
+        [MUGSHOT_EMOTE_SURPRISED] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseySurprised,
+            .pal = sFieldMugshotPal_ChanseySurprised,
+            .palShiny = sFieldMugshotPal_ChanseySurprisedShiny,
+        },
+        [MUGSHOT_EMOTE_TEARY_EYED] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyTearyEyed,
+            .pal = sFieldMugshotPal_ChanseyTearyEyed,
+            .palShiny = sFieldMugshotPal_ChanseyTearyEyedShiny,
+        },
+        [MUGSHOT_EMOTE_WORRIED] =
+        {
+            .gfx = sFieldMugshotGfx_ChanseyWorried,
+            .pal = sFieldMugshotPal_ChanseyWorried,
+            .palShiny = sFieldMugshotPal_ChanseyWorriedShiny,
         },
     },
 };
