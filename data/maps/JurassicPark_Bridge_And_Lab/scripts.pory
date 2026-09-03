@@ -257,9 +257,17 @@ mapscripts JurassicPark_Bridge_And_Lab_MapScripts {
             mnmbox(format("(Sorry…\nCan't…\lUnderstand…)\p(I'm…\nSorry…)"), localId=LOCALID_SLITHER_WING_BRIDGE)
             mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
             delay(64)
+            closemessage
             fadescreen(FADE_TO_BLACK)
+            clearflag(FLAG_ALWAYS_RAINING)
+            clearflag(FLAG_DETERMINATION)
+            setflag(FLAG_NO_OW_MUSIC)
             setflag(FLAG_SPAWN_INVISIBLE)
-            msgbox("There will be a teleport to the final scene here later.")
+            fadenewbgm(MUS_DUMMY)
+            delay(120)
+            msgbox(format("Many months later…"))
+            closemessage
+            warpsilent(MAP_JURASSIC_PARK_PRISON, 4, 4)
             
 
 

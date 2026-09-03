@@ -32,7 +32,7 @@
       "local_id": "LOCALID_ROARING_MOON_JAIL",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ROARING_MOON)",
       "x": 3,
-      "y": 11,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -40,13 +40,13 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "TRUE"
     },
     {
       "local_id": "LOCALID_GREAT_TUSK_JAIL",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GREAT_TUSK)",
       "x": 4,
-      "y": 11,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -54,13 +54,13 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "TRUE"
     },
     {
       "local_id": "LOCALID_SCREAM_TAIL_JAIL",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SCREAM_TAIL)",
       "x": 5,
-      "y": 11,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -68,13 +68,13 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "TRUE"
     },
     {
       "local_id": "LOCALID_BAGON_JAIL",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(BAGON)",
-      "x": 3,
-      "y": 12,
+      "x": 5,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -87,8 +87,8 @@
     {
       "local_id": "LOCALID_PHANPY_JAIL",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PHANPY)",
-      "x": 4,
-      "y": 12,
+      "x": 5,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -102,7 +102,7 @@
       "local_id": "LOCALID_JIGGLYPUFF_JAIL",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(JIGGLYPUFF)",
       "x": 5,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -117,6 +117,20 @@
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHANSEY)",
       "x": 5,
       "y": 10,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_KLEFKI_JAIL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KLEFKI)",
+      "x": 3,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,

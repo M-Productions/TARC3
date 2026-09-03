@@ -230,6 +230,10 @@
 #define METATILE_Fallarbor_RedCaveEntrance_Top       0x947
 #define METATILE_Fallarbor_RedRockWall               0x869
 
+// gTileset_Final_Lab_Interior_Primary
+#define METATILE_Final_Lab_Interior_Primary_FloorNoShadow  0x00A
+#define METATILE_Final_Lab_Interior_Primary_FloorShadow    0x00D
+
 // gTileset_Forest_Primary
 #define METATILE_Forest_Primary_Dirt                0x061
 #define METATILE_Forest_Primary_DirtBottom          0x069
