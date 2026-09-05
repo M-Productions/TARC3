@@ -250,6 +250,20 @@ JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke::
 	return
 
 
+JurassicPark_Dino_Enclosure_EventScript_WalkBack::
+# 141 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	lock
+# 142 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	mnmbox JurassicPark_Dino_Enclosure_EventScript_WalkBack_Text_0, localId = LOCALID_PLAYER
+# 143 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	applymovement LOCALID_PLAYER, JurassicPark_Dino_Enclosure_EventScript_WalkBack_Movement_0
+# 144 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	waitmovement 0
+# 145 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	release
+	end
+
+
 # 38 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
 JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer_Movement_0:
 # 38 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
@@ -372,6 +386,12 @@ JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke_Movement_2:
 	walk_fast_left
 # 127 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
 	walk_fast_left
+	step_end
+
+# 143 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+JurassicPark_Dino_Enclosure_EventScript_WalkBack_Movement_0:
+# 143 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	walk_up
 	step_end
 
 JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer_Text_0:
@@ -529,3 +549,7 @@ JurassicPark_Dino_Enclosure_EventScript_EnclosureBroke_Text_2:
 	.string "No…\n"
 	.string "Is it too late?\p"
 	.string "We have to go, now!$"
+
+JurassicPark_Dino_Enclosure_EventScript_WalkBack_Text_0:
+# 142 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
+	.string "(I'm not going back in there.)$"

@@ -80,6 +80,200 @@ mapscripts JurassicPark_Bridge_And_Lab_MapScripts {
         }
 
     }
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        if(var(VAR_GAME_STATE) == GS_POST_THREE_GENERATORS)
+        {
+            clearflag(FLAG_HIDE_BRIDGE_NPCS)
+            switch(var(VAR_FIRST_SAVED))
+            {
+                
+                case CHAR_BAGON:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE)
+                
+                case CHAR_PHANPY:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
+                
+                case CHAR_JIGGLYPUFF:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
+
+            }
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 4, 7)
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 6, 10)
+            setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 4, 7)
+            setobjectxy(VAR_LOCALID_CUTSCENE_SECOND, 6, 10)
+            addobject(VAR_LOCALID_CUTSCENE_MAIN)
+            addobject(VAR_LOCALID_CUTSCENE_SECOND)
+        }
+
+        if(var(VAR_GAME_STATE) == GS_TYRANTRUM_DEFEATED)
+        {
+            setobjectxyperm(LOCALID_TYRANTRUM_BRIDGE, 8, 25)
+            switch(var(VAR_FIRST_SAVED))
+            {
+                
+                case CHAR_BAGON:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE)
+                
+                case CHAR_PHANPY:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
+                
+                case CHAR_JIGGLYPUFF:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
+
+            }
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 48, 16)
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 47, 16)
+            setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 48, 16)
+            setobjectxy(VAR_LOCALID_CUTSCENE_SECOND, 47, 16)
+            setobjectmovementtype(VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_UP)
+            addobject(VAR_LOCALID_CUTSCENE_MAIN)
+            addobject(VAR_LOCALID_CUTSCENE_SECOND)
+        }
+        
+        end
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAME_STATE, GS_AFTER_DRAMPA
+        {
+            removeobject(LOCALID_PHANPY_BRIDGE)
+            removeobject(LOCALID_BAGON_BRIDGE)
+            removeobject(LOCALID_JIGGLYPUFF_BRIDGE)
+            switch(var(VAR_SECOND_SAVED))
+            {
+                case CHAR_PHANPY:
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
+                case CHAR_BAGON:
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
+                case CHAR_JIGGLYPUFF:
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE)
+            }
+            switch(var(VAR_THIRD_SAVED))
+            {
+                case CHAR_PHANPY:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_GREAT_TUSK_BRIDGE)
+                case CHAR_BAGON:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_ROARING_MOON_BRIDGE)
+                case CHAR_JIGGLYPUFF:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_SCREAM_TAIL_BRIDGE)
+            }
+            delay(16)
+            setobjectxyperm(LOCALID_DRAMPA_BRIDGE, 48, 15)
+            setobjectmovementtype(LOCALID_DRAMPA_BRIDGE, MOVEMENT_TYPE_FACE_DOWN)
+            playse(SE_EXIT)
+            addobject(LOCALID_DRAMPA_BRIDGE)
+            applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_down))
+            waitmovement(0)
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 48, 15)
+            setobjectmovementtype(VAR_LOCALID_CUTSCENE_SECOND, MOVEMENT_TYPE_FACE_DOWN)
+            playse(SE_EXIT)
+            addobject(VAR_LOCALID_CUTSCENE_SECOND)
+            applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_down))
+            applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_down))
+            waitmovement(0)
+            setobjectxyperm(LOCALID_SLITHER_WING_BRIDGE, 48, 15)
+            setobjectmovementtype(LOCALID_SLITHER_WING_BRIDGE, MOVEMENT_TYPE_FACE_DOWN)
+            playse(SE_EXIT)
+            addobject(LOCALID_SLITHER_WING_BRIDGE)
+            applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_left))
+            applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_down))
+            applymovement(LOCALID_SLITHER_WING_BRIDGE, moves(walk_down))
+            waitmovement(0)
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 48, 15)
+            setobjectmovementtype(VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_DOWN)
+            playse(SE_EXIT)
+            addobject(VAR_LOCALID_CUTSCENE_MAIN)
+            applymovement(LOCALID_DRAMPA_BRIDGE, moves(walk_down, walk_in_place_up))
+            applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_down, face_up))
+            applymovement(LOCALID_SLITHER_WING_BRIDGE, moves(walk_left, face_right))
+            applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_down, face_left))
+            waitmovement(LOCALID_SLITHER_WING_BRIDGE)
+            mnmbox(format("(Larvy…)\p({COLOR RED}KILL. KILL. KILL.{COLOR DARK_GRAY})"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+            mnmbox(format("(You have to…\nResist…)"), localId=LOCALID_SLITHER_WING_BRIDGE)
+            closemessage
+            playmoncry(SPECIES_TYRANTRUM, CRY_MODE_NORMAL)
+            waitmoncry
+            playse(SE_PIN)
+            applymovement(LOCALID_SLITHER_WING_BRIDGE, moves(emote_exclamation_mark, delay_16, face_down))
+            applymovement(LOCALID_DRAMPA_BRIDGE, moves(emote_exclamation_mark, delay_16, walk_in_place_down))
+            applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(emote_exclamation_mark, delay_16, face_down))
+            applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(emote_exclamation_mark, delay_16, face_down))
+            removeobject(LOCALID_TYRANTRUM_BRIDGE)
+            setobjectxyperm(LOCALID_TYRANTRUM_BRIDGE, 47, 22)
+            addobject(LOCALID_TYRANTRUM_BRIDGE)
+            playbgm(MUS_VS_BOSS_POWERFUL, 0)
+            playse(SE_M_STRENGTH)
+            applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_up, delay_16*2))
+            waitmovement(0)
+            playse(SE_M_STRENGTH)
+            applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_up, delay_16*2))
+            waitmovement(0)
+            playse(SE_M_STRENGTH)
+            applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_up, delay_16*2))
+            waitmovement(0)
+            special(SpawnCameraObject)
+            applymovement(LOCALID_CAMERA, moves(walk_down))
+            waitmovement(0)
+            mnmbox(format("GRAAAAAH!"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            mnmbox(format("({COLOR RED}I… See… You!{COLOR DARK_GRAY})"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            mnmbox(format("(…I can understand?!)"), localId=LOCALID_SLITHER_WING_BRIDGE)
+            mnmbox(format("{COLOR RED}(Away…\nAway!)\p(My land…\nMy people…)\p(Leave them!){COLOR DARK_GRAY}"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            mnmbox(format("(…We will.\nWe… will leave.)\p(But, you have to help.)\p(That Pokémon…\nIs responsible.\lWe must…)"), localId=LOCALID_SLITHER_WING_BRIDGE)
+            mnmbox(format("({COLOR RED}KILL.{COLOR DARK_GRAY})"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            mnmbox(format("(… … …)\p({COLOR RED}YES.{COLOR DARK_GRAY})"), localId=LOCALID_SLITHER_WING_BRIDGE)
+            mnmbox(format("…!"), localId=LOCALID_DRAMPA_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+            closemessage
+            msgbox(format("PLACEHOLDER."))
+            playbgm(MUS_DUMMY, 0)
+            mnmbox(format("!!!"), localId=LOCALID_DRAMPA_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
+            closemessage
+            applymovement(LOCALID_DRAMPA_BRIDGE, moves(set_invisible, delay_16, set_visible, delay_16, set_invisible, delay_16, set_visible, delay_16, set_invisible, delay_16, set_visible, delay_16))
+            waitmovement(0)
+            removeobject(LOCALID_DRAMPA_BRIDGE)
+            mnmbox(format("{COLOR RED}(Gone.\nLeave, now.)\p(Leave!){COLOR DARK_GRAY}"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+            applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_up, walk_left*2, walk_up*2, walk_left*6))
+            waitmovement(0)
+            removeobject(LOCALID_TYRANTRUM_BRIDGE)
+            playbgm(MUS_CALM_CUTSCENE, 0)
+            mnmbox(format("…!!!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+            applymovement(LOCALID_SLITHER_WING_BRIDGE, moves(face_right))
+            applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(face_left))
+            waitmovement(0)
+            mnmbox(format("(Now…\nWhat…?)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+            mnmbox(format("(Don't know…\nBut…)\p(We leave…\nTogether.)"), localId=LOCALID_SLITHER_WING_BRIDGE)
+            mnmbox(format("(Yes…\nTogether.)\p(Will be ok.)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+            closemessage
+            applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_up))
+            applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(face_down))
+            applymovement(LOCALID_SLITHER_WING_BRIDGE, moves(face_down))
+            waitmovement(VAR_LOCALID_CUTSCENE_SECOND)
+            mnmbox(format("… … …?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+            mnmbox(format("(Sorry…\nCan't…\lUnderstand…)\p(I'm…\nSorry…)"), localId=LOCALID_SLITHER_WING_BRIDGE)
+            mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+            delay(64)
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            clearflag(FLAG_ALWAYS_RAINING)
+            clearflag(FLAG_DETERMINATION)
+            setflag(FLAG_NO_OW_MUSIC)
+            setflag(FLAG_SPAWN_INVISIBLE)
+            fadenewbgm(MUS_DUMMY)
+            delay(120)
+            msgbox(format("Many months later…"))
+            closemessage
+            warpsilent(MAP_JURASSIC_PARK_PRISON, 4, 4)
+            
+
+
+
+        }
+    ]
 }
 
 
@@ -218,4 +412,143 @@ script JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa
 
 
 
+}
+
+script JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum
+{
+    lockall
+    getplayerxy(VAR_0x8004, VAR_0x8005)
+    setobjectxyperm(LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005)
+    setobjectxy(LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005)
+    addobject(LOCALID_TYRANTRUM_BRIDGE)
+    mnmbox(format("Larvy, stop!!!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SHOUTING)
+    closemessage
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*4, walk_in_place_down, delay_16*4))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*4, walk_in_place_up, delay_16*4))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*2))
+    waitmovement(0)
+    playse(SE_M_STRENGTH)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left, delay_16*2))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(emote_exclamation_mark, delay_16))
+    waitse
+    mnmbox(format("Groargh?"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    closemessage
+    msgbox(format("PLACEHOLDER:\pSome battle in which you win by standing still idk"))
+    closemessage
+    mnmbox(format("Graaaaaah?!"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+    closemessage
+    if(var(VAR_0x8005) == 9){
+        applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_up))
+    }
+    else
+    {
+        applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_down))
+    }
+    waitmovement(0)
+    applymovement(LOCALID_TYRANTRUM_BRIDGE, moves(walk_left*10))
+    waitmovement(0)
+    removeobject(LOCALID_TYRANTRUM_BRIDGE)
+    switch(var(VAR_LOCALID_CUTSCENE_MAIN))
+    {
+        case LOCALID_JIGGLYPUFF_BRIDGE:
+            mnmbox(format("Well I'll be damned.\nIt really worked."), localId=LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            mnmbox(format("…Now let's kick Drampa's ass."), localId=LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+        case LOCALID_PHANPY_BRIDGE:
+            mnmbox(format("… … …\pCan we really blame this Tyrantrum for what happened…?\pLet's go and find the Doctor."), localId=LOCALID_PHANPY_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+        case LOCALID_BAGON_BRIDGE:
+            mnmbox(format("That was terrifying!\pI'm glad you're ok, Larvy.\nWe're close to the end, now."), localId=LOCALID_BAGON_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    }
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_down*2, walk_right*8))
+    waitmovement(0)
+    removeobject(VAR_LOCALID_CUTSCENE_MAIN)
+    switch(var(VAR_LOCALID_CUTSCENE_SECOND))
+    {
+        case LOCALID_JIGGLYPUFF_BRIDGE:
+            mnmbox(format("Well I'll be damned.\nIt really worked."), localId=LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+            mnmbox(format("…Now let's kick Drampa's ass."), localId=LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+        case LOCALID_PHANPY_BRIDGE:
+            mnmbox(format("… … …\pCan we really blame this Tyrantrum for what happened…?\pLet's go and find the Doctor."), localId=LOCALID_PHANPY_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+        case LOCALID_BAGON_BRIDGE:
+            mnmbox(format("That was terrifying!\pI'm glad you're ok, Larvy.\nWe're close to the end, now."), localId=LOCALID_BAGON_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    }
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_right*8))
+    waitmovement(0)
+    removeobject(VAR_LOCALID_CUTSCENE_SECOND)
+    setobjectxyperm(LOCALID_TYRANTRUM_BRIDGE, 8, 25)
+    clearflag(FLAG_HIDE_BRIDGE_NPCS)
+    switch(var(VAR_FIRST_SAVED))
+        {
+                
+            case CHAR_BAGON:
+                setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_BRIDGE)
+                setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE)
+                
+            case CHAR_PHANPY:
+                setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
+                
+            case CHAR_JIGGLYPUFF:
+                setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
+
+        }
+    setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 48, 16)
+    setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 47, 16)
+    setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 48, 16)
+    setobjectxy(VAR_LOCALID_CUTSCENE_SECOND, 47, 16)
+    setobjectmovementtype(VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_UP)
+    addobject(VAR_LOCALID_CUTSCENE_MAIN)
+    addobject(VAR_LOCALID_CUTSCENE_SECOND)
+    setvar(VAR_GAME_STATE, GS_TYRANTRUM_DEFEATED)
+    release
+    end
+        
+}
+
+script JurassicPark_Bridge_And_Lab_EventScript_EnterLab
+{
+    lock
+    switch(var(VAR_LOCALID_CUTSCENE_MAIN))
+    {
+        case LOCALID_BAGON_BRIDGE:
+            mnmbox(format("… … …\nThis is it.\pThe Doctor's boat is there, but…\pThere's no key inside.\pWe have to talk to him.\pThere's a part of me that still hopes that…\nHe didn't…\lIntend for all this.\pMaybe we can…\nI don't know.\pI just want to go back.\pI just want to go back home, but…\nIt won't be the same without…\p… … …\pLet's end this, Larvy."), localId=LOCALID_BAGON_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+        case LOCALID_PHANPY_BRIDGE:
+            mnmbox(format("… … …\pThe doctor's boat is docked there.\pThere's no key inside\nAnd the only place he could be is inside.\p…I won't forgive him.\nI'll never forgive him.\pI don't think I…\nI don't think it's set in properly, yet.\p…We'll have time to grieve later.\pBut we need to finish this, now."), localId=LOCALID_PHANPY_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+        case LOCALID_JIGGLYPUFF_BRIDGE:
+            mnmbox(format("… … …\pDrampa's boat is right there.\pNo key, of course.\nWe'll have to get it from him.\pIn better circumstances, I would have loved to do a little speech.\p…I'm not in the mood.\nLet's just go."), localId=LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    }
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up))
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_right))
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(VAR_LOCALID_CUTSCENE_MAIN)
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_up))
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(VAR_LOCALID_CUTSCENE_SECOND)
+    setvar(VAR_GAME_STATE, GS_ENTERING_LAB)
+    release
+    end
 }

@@ -1,0 +1,306 @@
+mapscripts JurassicPark_Prison_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION
+    {
+        switch(var(VAR_THIRD_SAVED))
+    {
+        case CHAR_JIGGLYPUFF:
+            setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_SCREAM_TAIL_JAIL)
+        case CHAR_PHANPY:
+            setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_GREAT_TUSK_JAIL)
+        case CHAR_BAGON:
+            setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_ROARING_MOON_JAIL)
+    }
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_JIGGLYPUFF:
+            setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_JAIL)
+        case CHAR_PHANPY:
+            setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_JAIL)
+        case CHAR_BAGON:
+            setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_JAIL)
+    }
+    setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 5, 3)
+    setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 5, 3)
+    addobject(VAR_LOCALID_CUTSCENE_MAIN)
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_GAME_STATE, GS_AFTER_DRAMPA
+        {
+            goto(JurassicPark_EventScript_Prison_FinalCutscene)
+        }
+    ]
+}
+
+
+script JurassicPark_EventScript_Prison_FinalCutscene
+{
+    delay(200)
+    applymovement(LOCALID_CHANSEY_JAIL, moves(walk_up*3))
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_up*3))
+    waitmovement(0)
+    applymovement(LOCALID_CHANSEY_JAIL, moves(delay_16, face_left, delay_16, walk_in_place_left))
+    applymovement(LOCALID_KLEFKI_JAIL, moves(face_right))
+    waitmovement(LOCALID_CHANSEY_JAIL)
+    applymovement(LOCALID_KLEFKI_JAIL, moves(walk_right, face_up, delay_16, walk_in_place_up))
+    waitmovement(LOCALID_KLEFKI_JAIL)
+    setmetatile(4, 6, METATILE_Final_Lab_Interior_Primary_FloorShadow, FALSE)
+    setmetatile(4, 5, METATILE_Final_Lab_Interior_Primary_FloorNoShadow, FALSE)
+    setmetatile(5, 6, METATILE_Final_Lab_Interior_Primary_FloorNoShadow, FALSE)
+    setmetatile(5, 5, METATILE_Final_Lab_Interior_Primary_FloorNoShadow, FALSE)
+    special(DrawWholeMapView)
+    playse(SE_UNLOCK)
+    waitse
+    playse(SE_PIN)
+    applymovement(LOCALID_SLITHER_WING_JAIL, moves(emote_exclamation_mark, delay_16, face_down))
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(emote_exclamation_mark, delay_16, face_down))
+    waitmovement(0)
+    applymovement(LOCALID_KLEFKI_JAIL, moves(walk_left, face_down))
+    applymovement(LOCALID_CHANSEY_JAIL, moves(walk_up*3, delay_16*2, walk_in_place_up))
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_up*3, walk_left, face_up))
+    waitmovement(LOCALID_CHANSEY_JAIL)
+    playse(SE_M_ABSORB)
+    waitse
+    delay(60)
+    mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    closemessage
+    delay(32)
+    removeobject(VAR_LOCALID_CUTSCENE_MAIN)
+    switch(var(VAR_THIRD_SAVED))
+    {
+        case CHAR_JIGGLYPUFF:
+            setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_JAIL)
+        case CHAR_PHANPY:
+            setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_JAIL)
+        case CHAR_BAGON:
+            setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_JAIL)
+    }
+    setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 5, 3)
+    setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 5, 3)
+    setobjectmovementtype(VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_DOWN)
+    addobject(VAR_LOCALID_CUTSCENE_MAIN)
+    playfanfare(MUS_LEVEL_UP)
+    waitfanfare
+    delay(16)
+    playse(SE_PIN)
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(emote_exclamation_mark, delay_16, walk_fast_up*2, face_right))
+    waitmovement(0)
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(face_left))
+    waitmovement(0)
+    mnmbox(format("… … …!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    mnmbox(format("… … …!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+    closemessage
+    applymovement(LOCALID_CHANSEY_JAIL, moves(walk_left*2, face_up, delay_16, walk_in_place_up))
+    waitmovement(0)
+    playse(SE_M_ABSORB)
+    waitse
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(face_left))
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(face_left))
+    waitmovement(0)
+    delay(32)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_PLAYER, moves(walk_fast_left, walk_fast_up, face_down, set_visible))
+    waitmovement(0)
+    removeobject(LOCALID_SLITHER_WING_JAIL)
+    playfanfare(MUS_LEVEL_UP)
+    waitfanfare
+    playbgm(MUS_CALM_CUTSCENE, 0)
+    mnmbox(format("(!!!)\p(I'm…\nBack?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("You guys!!!\nYou're back!!!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_CRYING)
+        case CHAR_PHANPY:
+            mnmbox(format("Oh, thank goodness!\nI was scared it wasn't going to work!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("Look who's back to normal.\nTook you long enough."), localId=VAR_LOCALID_CUTSCENE_SECOND)
+    }
+    applymovement(LOCALID_PLAYER, moves(face_right))
+    waitmovement(0)
+    switch(var(VAR_THIRD_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("The voices!\pT-They're finally gone!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+        case CHAR_PHANPY:
+            mnmbox(format("I can finally think straight!\pI-\nWow."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_DIZZY)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("That was the MOST unpleasant experience of my life."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+    }
+    mnmbox(format("Hmm!\pThe antidote worked.\nVery good.\p…You get some time alone with the subjects, but make it quick."), localId=LOCALID_CHANSEY_JAIL)
+    closemessage
+    applymovement(LOCALID_CHANSEY_JAIL, moves(walk_right, walk_down*8))
+    waitmovement(0)
+    removeobject(LOCALID_CHANSEY_JAIL)
+    mnmbox(format("(Subjects…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("Guys, so much happened!\pAfter we found the people that were willing to take you in…\pThey went back to the island and found the Doctor's notes.\pThey managed to create a vaccine, and now you're back to normal!\pBut, they said they want to study you more…"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+        case CHAR_PHANPY:
+            mnmbox(format("Well, after we want back to the mainland, and we sorta got…\NArrested.\pSome scientists went back to the island, and raided the whole place.\pThey found how to develop a vaccine, but not they want to run more tests on you."), localId=VAR_LOCALID_CUTSCENE_SECOND)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("Sigh.\pThese…\nScientists, if you want to call them that.\pAfter they took you in, they went back to the island, and I guess they figured out how to develop a vaccine.\pI think they still want to inject you with all sorts of stuff, though, just to check."), localId=VAR_LOCALID_CUTSCENE_SECOND)
+    }
+    mnmbox(format("(What happened to the prehistoric Pokémon?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("Uhm, I think…\pLots of people are fighting on what to do with them.\pAnd, what to do with you, and the virus."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        case CHAR_PHANPY:
+            mnmbox(format("They're okay.\pBut a lot of people are arguing over what should be done.\pSome want to get rid of them.\NSome want to study them\NThere's even those who want to reintegrate them into society.\pAnd the new technology…\pIt's all a bit of a mess."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("Yeah, so, we kinda became a bit of an international incident.\pLots of people are very opinionated about what happened.\pThe Pokémon are fine for now, but there's all sorts of different ideas on what to do with them.\pNot to mention the virus."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    }
+    switch(var(VAR_THIRD_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("Wow…\nI guess that means our adventures are famous!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+        case CHAR_PHANPY:
+            mnmbox(format("…I could have never imagined this adventure could have turned into something like this."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("Politics, am I right?"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
+    }
+    mnmbox(format("(So, wait…\nCan we even leave from here…?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("I…\nDon't think that they're going to just let you leave.\pYou're also, uhm, potentially connected to the death of several Pokémon.\NBut…"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+        case CHAR_PHANPY:
+            mnmbox(format("The scientists want to keep you two locked to study you.\pAnd on top of that, they're still investigating the…\NDeaths, of some of the Pokémon of the island.\NBut…"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("Sorry, no can do.\pI wouldn't be surprised if these guys wanted to cut you open and look inside you.\pNot to mention, Larvy, you did kinda kill a guy.\NBut…"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+    }
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(face_up))
+    waitmovement(0)
+
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("I, uhm, stole the blueprints for this building.\pIt took me a long time to understand them, but…\pThat vent over there…"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+        case CHAR_PHANPY:
+            mnmbox(format("Would you guys be dissuaded at all if I told you that escaping a prison from the vents usually doesn't work?"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("That vent looks mightly crawlable, doesn't it?"), localId=VAR_LOCALID_CUTSCENE_SECOND)
+    }
+    playse(SE_PIN)
+    applymovement(LOCALID_PLAYER, moves(emote_exclamation_mark, delay_16, face_up))
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(emote_exclamation_mark, delay_16, face_up))
+    waitmovement(0)
+    mnmbox(format("(How did we manage to miss that?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
+    switch(var(VAR_THIRD_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("…To be fair, I don't think we could have fit in there before!\pY'know, in that form, I could fly, but…\NI don't think it was worth it.\pEspecially not in here.\pI'm very glad to be back to normal."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+        case CHAR_PHANPY:
+            mnmbox(format("Well, in our defense we couldn't have fit in there in our prehistoric forms.\pYou know, I think the metamorphosis gave me some new perspective on things.\pBut, I'm glad to be back to normal."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("Hey, what the-\nLarvy, I could have fit through there!\pIf it wasn't for you and your fat ass…!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    }
+    mnmbox(format("(I guess that would make us fugitives…?)\p(Maybe the Doctor was right.\nWe're no more that common ruffians.)\p(But, is that so bad…?)\p(No, I think that as long as we are together…\NIt will all be okay.)"), localId=LOCALID_PLAYER)
+    switch(var(VAR_SECOND_SAVED))
+    {
+        case CHAR_BAGON:
+            mnmbox(format("So guys, I…\nI actually have surprise for you.\pSomething that we can use to escape from here.\pA boat!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+            switch(var(VAR_THIRD_SAVED))
+            {
+                
+                case CHAR_PHANPY:
+                    mnmbox(format("Wha-\nBagon!\pA new boat?!\pThat's…\nThat's amazing!\pWhat do we want to call it?!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+                    mnmbox(format("I was thinking we could call her…\pThe S.S. Jiggly."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+                    mnmbox(format("That's the stupidest name I've ever heard."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+                    mnmbox(format("…!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+                    mnmbox(format("…Is what he would have said!\pBagon, I…\nI don't know what to say.\pI think the only thing we can do now to keep his memory is…\NKeep adventuring!\pCome on, let's go!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+                case CHAR_JIGGLYPUFF:
+                    mnmbox(format("A new boat?!\nPhanpy would have loved it."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                    mnmbox(format("Yes, about that…\pI was thinking of calling her…\nThe S.S. Phanpy."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+                    mnmbox(format("That's the corniest sh-"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                    mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                    mnmbox(format("You know what?\nI like it.\pI think that idiot would have appreciated living on as a boat.\pCome on, what are we waiting for?\pLet's get outta here."), localId=VAR_LOCALID_CUTSCENE_MAIN)
+            }
+
+
+        case CHAR_PHANPY:
+            mnmbox(format("Everyone!\nI have a very important announcement!\pI bought a new boat!\nBigger and better than the old one!\pWith her, we can run away from here and sail the seven seas!\pHow shall we name my new darling?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+            switch(var(VAR_THIRD_SAVED))
+            {
+                case CHAR_BAGON:
+                    mnmbox(format("I think…\nI think we could call her…\pThe S.S. Jiggly."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+                    mnmbox(format("That's the stupidest name I've ever heard."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+                    mnmbox(format("…!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
+                    mnmbox(format("…Is what he would have said!\pI love the name, Bagon!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
+                    mnmbox(format("…Right!\pI think, what he would want us to do is…\nKeep being a team.\pKeep exploring the world.\nKeep causing trouble.\pSo…\nLet's go, everyone!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+
+                case CHAR_JIGGLYPUFF:
+                    mnmbox(format("Isn't it obvious?\pWe should call it…\nThe S.S. Jiggly."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+                    mnmbox(format("…You really can't stay serious, can you."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+                    mnmbox(format("You know she would have laughed.\pAnd you know exactly what name we're going to give this boat, anyway.\pThe S.S. Bagon, of course."), localId=VAR_LOCALID_CUTSCENE_MAIN)
+                    mnmbox(format("That's more like it."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+                    mnmbox(format("I don't think Bagon would have been happy if we stopped adventuring.\pI don't think I will ever stop feeling awful about it.\pBut…\nWhat's done is done.\pThe world is scarier than we thought.\pAnd if in our adventures we can save more people…\nWell, I think it would make up for this, even if a little.\pC'mon, folks, we have a boat waiting for us."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+
+            }
+        
+        
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("So…\pBeing a genius, I figured something that we needed to escape from here.\pA new boat!\nWhich, coincidentally, is parked just outside of here."), localId=VAR_LOCALID_CUTSCENE_SECOND)
+            switch(var(VAR_THIRD_SAVED))
+            {
+                case CHAR_BAGON:
+                    mnmbox(format("Phanpy…\nWould have loved a new boat…"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_SAD)
+                    mnmbox(format("…I know.\pI still can't-\nI still can't believe that we…\NThat I let her…"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                    mnmbox(format("I have an idea!\pWe should call her…\nThe S.S. Phanpy!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+                    mnmbox(format("That's the corniest sh-"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+                    mnmbox(format("… … …"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                    mnmbox(format("You know what?\nI like it.\pI think that idiot would have appreciated living on as a boat."), localId=VAR_LOCALID_CUTSCENE_MAIN)
+                    mnmbox(format("Jiggly, what happened was tragic, but…\pShe-she would have hated it if we stopped adventuring.\pShe would come back from the dead and kill us!\pAnd, if we can save other people from danger…\pI think, it will be worth it.\pSo…\nLet's go, everyone!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
+
+                case CHAR_PHANPY:
+                    mnmbox(format("Jiggly!\nA new boat!\pThat's amazing!\nDid you give her a name?!"), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+                    mnmbox(format("Isn't it obvious?\pWe should call it…\nThe S.S. Jiggly."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+                    mnmbox(format("…You really can't stay serious, can you."), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+                    mnmbox(format("You know she would have laughed.\pAnd you know exactly what name we're going to give this boat, anyway.\pThe S.S. Bagon, of course."), localId=VAR_LOCALID_CUTSCENE_MAIN)
+                    mnmbox(format("That's more like it."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+                    mnmbox(format("Phanpy, we…\nMessed up didn't we…?"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+                    mnmbox(format("…We messed up really bad.\pBut, Jiggly.\nBagon wouldn't have wanted us to stop.\pShe would have wanted us to keep adventuring, and…\NSave people.\pThen, I think…\nWe can make up for it.\pLet's go, gang."), localId=VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            }
+    }
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_MAIN, moves(walk_up, walk_left*3, walk_up))
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(VAR_LOCALID_CUTSCENE_MAIN)
+    waitse
+    mnmbox(format("Hey!\nWait for me!"), localId=VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)
+    closemessage
+    applymovement(VAR_LOCALID_CUTSCENE_SECOND, moves(walk_up, walk_left*2, walk_up))
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(VAR_LOCALID_CUTSCENE_SECOND)
+    waitse
+    applymovement(LOCALID_PLAYER, moves(walk_up, walk_left, face_up, delay_16, face_down))
+    waitmovement(0)
+    mnmbox(format("(Things…\nCan never be the same.)\p(I bet that Drampa's technology is going to change the world in ways we could never imagine.)\p(But, I suppose that's okay.)\p(I think that, if we didn't stumble upon the island…)\p(Things would have turned much, much worse for the world.)"), localId=LOCALID_PLAYER)
+    switch(var(VAR_FIRST_SAVED))
+    {
+        case CHAR_PHANPY:
+            mnmbox(format("(So thank you, Phanpy…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+        case CHAR_BAGON:
+            mnmbox(format("(So thank you, Bagon…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+        case CHAR_JIGGLYPUFF:
+            mnmbox(format("(So thank you, Jiggly…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
+    }
+    mnmbox(format("(And, goodbye.)"), localId=LOCALID_PLAYER)
+    applymovement(LOCALID_PLAYER, moves(walk_up, set_invisible))
+    waitmovement(0)
+    playse(SE_EXIT)
+    waitse
+    delay(100)
+    playbgm(MUS_RG_SS_ANNE, 0)
+    msgbox(format("INSERT CREDITS HERE. PLEASE GO BACK TO TITLE SCREEN AFTER THIS."))
+    
+    setvar(VAR_GAME_STATE, GS_ROLL_CREDITS)
+    end
+    
+
+}

@@ -46,9 +46,9 @@ const struct UCoords8 sBattlerCoords[BATTLE_COORDS_COUNT][MAX_BATTLERS_COUNT] =
     [BATTLE_COORDS_DOUBLES] =
     {
         [B_POSITION_PLAYER_LEFT]    = { 50, 84 },
-        [B_POSITION_OPPONENT_LEFT]  = { 200, 40 },
+        [B_POSITION_OPPONENT_LEFT]  = { 152, 56 },
         [B_POSITION_PLAYER_RIGHT]   = { 190, 84 },
-        [B_POSITION_OPPONENT_RIGHT] = { 152, 32 },
+        [B_POSITION_OPPONENT_RIGHT] = { 88, 56 },
     },
 };
 

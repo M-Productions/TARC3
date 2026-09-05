@@ -3089,3 +3089,9 @@
 	.2byte \Y
 	.4byte \script
 	.endm
+
+	
+	.macro puzzlebattle puzzle:req
+	callnative StartPuzzleBattleScript
+	.byte \puzzle
+	.endm

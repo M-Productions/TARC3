@@ -90,7 +90,7 @@
       "elevation": 0,
       "var": "VAR_BEACH_CHARACTERS_MET",
       "var_value": "0",
-      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon"
+      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Right"
     },
     {
       "type": "trigger",
@@ -99,7 +99,7 @@
       "elevation": 0,
       "var": "VAR_BEACH_CHARACTERS_MET",
       "var_value": "0",
-      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon"
+      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Middle"
     },
     {
       "type": "trigger",
@@ -108,7 +108,7 @@
       "elevation": 0,
       "var": "VAR_BEACH_CHARACTERS_MET",
       "var_value": "0",
-      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon"
+      "script": "JurassicPark_Beach_Docks_EventScript_Meet_Bagon_Left"
     },
     {
       "type": "trigger",

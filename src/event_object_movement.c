@@ -12291,6 +12291,37 @@ void RemoveMarshPuzzleBarriers(void)
     DrawWholeMapView();
 }
 
+void RestoreMarshPuzzleBarriers(void)
+{
+    u32 barrier;
+    u32 metatile = METATILE_Marshlands_Primary_Grass;
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
+        metatile = METATILE_Marshlands_Primary_Water;
+    bool32 restored = FALSE;
+
+    for (barrier = 0; barrier < NUM_MARSH_BARRIERS; barrier++)
+    {
+        for (u32 i = 0; i < NUM_OBJECTS_PER_BARRIER; i++)
+        {
+            u32 localId = MarshPuzzleBarrierLocalIds[barrier][i];
+            const struct ObjectEventTemplate *template;
+
+            if (localId == LOCALID_BARRIER_INVALID)
+                continue;
+
+            template = GetObjectEventTemplateByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+            if (template != NULL && FlagGet(template->flagId))
+            {
+                MapGridSetMetatileIdAt(template->x + MAP_OFFSET, template->y + MAP_OFFSET, metatile);
+                restored = TRUE;
+            }
+        }
+    }
+
+    if (restored)
+        DrawWholeMapView();
+}
+
 bool8 MovementType_OverworldWildEncounter_FleePlayer_Step11(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u32 speciesId = OW_SPECIES(objectEvent);

@@ -28,7 +28,7 @@ SINGLE_BATTLE_TEST("Focus Punch activates only if not damaged")
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("Wobbuffet lost its focus and couldn't move!");
+            MESSAGE("Wobbuffet lost its place in the song!");
             NONE_OF {
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
                 HP_BAR(opponent);
@@ -66,8 +66,8 @@ DOUBLE_BATTLE_TEST("Focus Punch activation is based on Speed")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, playerRight);
         HP_BAR(opponentLeft);
 
-        MESSAGE("Wobbuffet lost its focus and couldn't move!");
-        MESSAGE("The opposing Wobbuffet lost its focus and couldn't move!");
+        MESSAGE("Wobbuffet lost its place in the song!");
+        MESSAGE("The opposing Wobbuffet lost its place in the song!");
     }
 }
 
@@ -127,7 +127,7 @@ SINGLE_BATTLE_TEST("Focus Punch activates when Disguise block a OHKO move (Gen8+
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("Mimikyu lost its focus and couldn't move!");
+            MESSAGE("Mimikyu lost its place in the song!");
             NONE_OF {
                 MESSAGE("Mimikyu used Focus Punch!");
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
@@ -155,7 +155,7 @@ SINGLE_BATTLE_TEST("Focus Punch does not activate when Focus Band/Focus Sash/Stu
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, player);
         MESSAGE("Wobbuffet is tightening its focus!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SEISMIC_TOSS, opponent);
-        MESSAGE("Wobbuffet lost its focus and couldn't move!");
+        MESSAGE("Wobbuffet lost its place in the song!");
         NONE_OF {
             MESSAGE("Wobbuffet used Focus Punch!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
@@ -268,7 +268,7 @@ SINGLE_BATTLE_TEST("Focus Punch failing occurs before flinching (Gen 5+)")
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, player);
         MESSAGE("Wobbuffet is tightening its focus!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent);
-        MESSAGE("Wobbuffet lost its focus and couldn't move!");
+        MESSAGE("Wobbuffet lost its place in the song!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
     }
 }
@@ -330,7 +330,7 @@ DOUBLE_BATTLE_TEST("Focus Punch will lose focus if damaged when used by selectin
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, playerLeft);
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerLeft);
         }
-        MESSAGE("Wobbuffet lost its focus and couldn't move!");
+        MESSAGE("Wobbuffet lost its place in the song!");
     }
 }
 
@@ -358,7 +358,7 @@ DOUBLE_BATTLE_TEST("Focus Punch will NOT lose focus if damaged when used by sele
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, playerLeft);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerLeft);
-            MESSAGE("Wobbuffet lost its focus and couldn't move!");
+            MESSAGE("Wobbuffet lost its place in the song!");
         }
     }
 }
@@ -387,7 +387,7 @@ DOUBLE_BATTLE_TEST("Focus Punch will lose focus if damaged when encored into a d
             ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, playerLeft);
         }
-        MESSAGE("Wobbuffet lost its focus and couldn't move!");
+        MESSAGE("Wobbuffet lost its place in the song!");
     }
 }
 

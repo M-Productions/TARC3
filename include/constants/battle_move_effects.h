@@ -39,6 +39,7 @@ enum  BattleMoveEffects
     EFFECT_LEECH_SEED,
     EFFECT_DO_NOTHING,
     EFFECT_DO_NOTHING_TUTORIAL,
+    EFFECT_TALK_TUTORIAL,
     EFFECT_HOLD_HANDS,
     EFFECT_CELEBRATE,
     EFFECT_HAPPY_HOUR,
@@ -288,6 +289,8 @@ enum  BattleMoveEffects
     EFFECT_CEASELESS_EDGE, // Same applies to spikes
     EFFECT_SPECIES_POWER_OVERRIDE, // Uses argument field to for the species, power and (number of hits, used only for multi hit moves)
     EFFECT_SCALE_SHOT,
+    EFFECT_SING_ARMALDO,
+    EFFECT_TICKLE_ANORITH,
     NUM_BATTLE_MOVE_EFFECTS,
 };
 
