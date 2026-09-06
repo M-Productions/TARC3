@@ -8,6 +8,11 @@ mapscripts JurassicPark_Beach_Docks_MapScripts {
 }
 
 script JurassicPark_Beach_Docks_EventScript_LarvestaWakeUp {
+    checkplayergender
+    if (var(VAR_RESULT) == FEMALE)
+    {
+        playse(SE_SHINY)
+    }
     mnmbox("(.{PAUSE 20}.{PAUSE 20}.)\p…W-what-", localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
     closemessage
     playse(SE_PIN)

@@ -1523,6 +1523,8 @@ bool8 ScrCmd_resetobjectsubpriority(struct ScriptContext *ctx)
 bool8 ScrCmd_faceplayer(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+    if (gSelectedObjectEvent == gPlayerAvatar.objectEventId)
+        return FALSE;
     if (PlayerHasFollowerNPC()
      && gObjectEvents[GetFollowerNPCObjectId()].invisible == FALSE
      && gSelectedObjectEvent == GetFollowerNPCObjectId())

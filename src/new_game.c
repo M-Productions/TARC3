@@ -51,6 +51,7 @@
 #include "constants/items.h"
 #include "difficulty.h"
 #include "follower_npc.h"
+#include "random.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
@@ -239,9 +240,19 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
-    CreateMon(player, SPECIES_LARVESTA, PUZZLE_LEVEL, Random32(), OTID_STRUCT_PLAYER_ID);
-    SetMonData(player, MON_DATA_IS_SHINY, &gSaveBlock2Ptr->playerGender);
+    enum Species playerSpecies = SPECIES_LARVESTA;
+    u32 genderSave = RandomPercentage(RNG_NONE, SHINY_ODDS) ? FEMALE : MALE;
+    u32 genderMon;
+    if (genderSave == MALE)
+        genderMon = MON_MALE;
+    else
+        genderMon = MON_FEMALE;
+    CreateMon(player, playerSpecies, PUZZLE_LEVEL, GetMonPersonality(playerSpecies, genderMon, NATURE_RANDOM, RANDOM_UNOWN_LETTER), OTID_STRUCT_PLAYER_ID);
+    SetMonData(player, MON_DATA_IS_SHINY, &genderSave);
+    gSaveBlock2Ptr->playerGender = genderSave;
+    FlagSet(P_FLAG_FORCE_NO_SHINY);
     gSaveBlock2Ptr->optionsWindowFrameType = 3;
 }
 
