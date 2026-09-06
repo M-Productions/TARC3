@@ -734,6 +734,45 @@ static u32 PuzzleOutcome_Cradily(void)
     return 0;
 }
 
+static EWRAM_DATA u8 sTyrantrumStillStreak = 0;
+#define BP_TYRANTRUM_ENEMY_MOVE_ATTACK MOVE_GIGA_IMPACT
+#define BP_TYRANTRUM_ENEMY_MOVE_IDLE   MOVE_HONE_CLAWS
+
+static void ResetTyrantrumStillStreak(void)
+{
+    sTyrantrumStillStreak = 0;
+}
+
+static s32 AI_TyrantrumMotionSense(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    bool32 playerMoved = (GetBattlerChosenMove(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)) != MOVE_LARVESTA_DEFEND);
+
+    if (move == BP_TYRANTRUM_ENEMY_MOVE_ATTACK)
+        return playerMoved ? 100 : 0;
+    if (move == BP_TYRANTRUM_ENEMY_MOVE_IDLE)
+        return playerMoved ? 0 : 100;
+
+    return score;
+}
+
+static u32 PuzzleOutcome_Tyrantrum(void)
+{
+    enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+
+    if (!IsBattlerAlive(player))
+        return B_OUTCOME_LOST;
+
+    if (GetBattlerChosenMove(player) == MOVE_LARVESTA_DEFEND)
+        sTyrantrumStillStreak++;
+    else
+        sTyrantrumStillStreak = 0;
+
+    if (sTyrantrumStillStreak >= 3)
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    return 0;
+}
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -910,6 +949,21 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = MOVE_CRUNCH,
         .enemyStatusMove = MOVE_HOWL,
         .enemyAceMove = MOVE_SING,
+    },
+
+    [BP_TYRANTRUM] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_TYRANTRUM,
+        .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
+        .enemyDefendMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+
+        .aiFunc = AI_TyrantrumMotionSense,
+        .puzzleFunc = PuzzleOutcome_Tyrantrum,
     }
 };
 
@@ -1027,6 +1081,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     sActivePuzzle = puzzle;
     ResetRampardosRandomAI();
     ResetBastiodonGuardAI();
+    ResetTyrantrumStillStreak();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
