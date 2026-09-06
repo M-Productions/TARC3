@@ -842,6 +842,45 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .aiFunc = AI_BastiodonFlankGuard,
         .puzzleFunc = PuzzleOutcome_Bastiodon,
+    },
+
+    [BP_ROARING_MOON] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_ROARING_MOON,
+        .enemyAttackMove = MOVE_CRUNCH,
+        .enemyStatusMove = MOVE_HOWL,
+        .enemyAceMove = MOVE_BRAVE_BIRD,
+    },
+
+    [BP_GREAT_TUSK] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_GREAT_TUSK,
+        .enemyAttackMove = MOVE_CRUNCH,
+        .enemyStatusMove = MOVE_HOWL,
+        .enemyAceMove = MOVE_BULLDOZE,
+    },
+
+    [BP_SCREAM_TAIL] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_SCREAM_TAIL,
+        .enemyAttackMove = MOVE_CRUNCH,
+        .enemyStatusMove = MOVE_HOWL,
+        .enemyAceMove = MOVE_SING,
     }
 };
 
@@ -859,6 +898,37 @@ bool32 DoesBattleHavePuzzle(void)
 void ClearBattlePuzzle(void)
 {
     sActivePuzzle = BP_NONE;
+}
+
+void AdjustBattleData(enum BattlePuzzles puzzle)
+{
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
+    enum Species speciesPlayer;
+
+    u32 level = PUZZLE_LEVEL - 10;
+
+    switch (puzzle)
+    {
+    case BP_ROARING_MOON:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_GREAT_TUSK:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_SCREAM_TAIL:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    default:
+        speciesPlayer = SPECIES_LARVESTA;
+        level = PUZZLE_LEVEL;
+        break;
+    }
+
+    SetMonData(player, MON_DATA_SPECIES, &speciesPlayer);
+    SetMonData(enemy, MON_DATA_LEVEL, &level);
+    CalculateMonStats(player);
+    CalculateMonStats(enemy);
 }
 
 #define HP_MAX_DEFAULT 100
@@ -921,6 +991,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         SetMonData(enemyTwo, MON_DATA_MAX_HP, &hpMax);
     }
 
+    AdjustBattleData(puzzle);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = puzzlesData->battleFlags;

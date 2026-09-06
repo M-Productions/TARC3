@@ -869,6 +869,9 @@ enum BattlePuzzles
     BP_ANORITH,
     BP_BRUTE_BONNET,
     BP_BASTIODON,
+    BP_ROARING_MOON,
+    BP_GREAT_TUSK,
+    BP_SCREAM_TAIL,
     BP_COUNT
 };
 
