@@ -1550,7 +1550,7 @@ const struct Tileset gTileset_Forest_Primary =
     .palettes = gTilesetPalettes_Forest_Primary,
     .metatiles = gMetatiles_Forest_Primary,
     .metatileAttributes = gMetatileAttributes_Forest_Primary,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Forest_Primary,
 };
 
 
@@ -1562,7 +1562,7 @@ const struct Tileset gTileset_Beach_Secondary =
     .palettes = gTilesetPalettes_Beach_Secondary,
     .metatiles = gMetatiles_Beach_Secondary,
     .metatileAttributes = gMetatileAttributes_Beach_Secondary,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Beach_Secondary,
 };
 
 const struct Tileset gTileset_Visitor_Centre_Secondary =
@@ -1595,7 +1595,7 @@ const struct Tileset gTileset_Secret_Lab_Secondary =
     .palettes = gTilesetPalettes_Secret_Lab_Secondary,
     .metatiles = gMetatiles_Secret_Lab_Secondary,
     .metatileAttributes = gMetatileAttributes_Secret_Lab_Secondary,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Secret_Lab_Secondary,
 };
 
 const struct Tileset gTileset_Marshlands_Primary =
@@ -1661,7 +1661,7 @@ const struct Tileset gTileset_Mountain_Secondary =
     .palettes = gTilesetPalettes_Mountain_Secondary,
     .metatiles = gMetatiles_Mountain_Secondary,
     .metatileAttributes = gMetatileAttributes_Mountain_Secondary,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Mountain_Secondary,
 };
 
 const struct Tileset gTileset_Visitor_Centre_Primary =

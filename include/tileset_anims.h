@@ -7,6 +7,10 @@ void UpdateTilesetAnimations(void);
 void TransferTilesetAnimsBuffer(void);
 
 void InitTilesetAnim_General(void);
+void InitTilesetAnim_Forest_Primary(void);
+void InitTilesetAnim_Beach_Secondary(void);
+void InitTilesetAnim_Secret_Lab_Secondary(void);
+void InitTilesetAnim_Mountain_Secondary(void);
 void InitTilesetAnim_Petalburg(void);
 void InitTilesetAnim_Rustboro(void);
 void InitTilesetAnim_Dewford(void);
