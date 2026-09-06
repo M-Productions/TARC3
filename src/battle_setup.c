@@ -773,6 +773,17 @@ static u32 PuzzleOutcome_Tyrantrum(void)
     return 0;
 }
 
+static u32 PuzzleOutcome_Tyrantrum_Lose(void)
+{
+    if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)))
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -964,6 +975,21 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .aiFunc = AI_TyrantrumMotionSense,
         .puzzleFunc = PuzzleOutcome_Tyrantrum,
+    },
+
+    [BP_TYRANTRUM_LOSE] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK_LOCKED,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND_LOCKED,
+        .playerStatusMove = MOVE_LARVESTA_STATUS_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_TYRANTRUM,
+        .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
+        .enemyDefendMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+
+        .aiFunc = AI_AttackPartner,
+        .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
     }
 };
 
@@ -986,6 +1012,7 @@ void ClearBattlePuzzle(void)
 void AdjustBattleData(enum BattlePuzzles puzzle)
 {
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][1];
     struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
     enum Species speciesPlayer;
 
@@ -1002,6 +1029,35 @@ void AdjustBattleData(enum BattlePuzzles puzzle)
     case BP_SCREAM_TAIL:
         speciesPlayer = SPECIES_SLITHER_WING;
         break;
+    case BP_TYRANTRUM_LOSE:
+        enum BattlePuzzles partnerPuzzle;
+        switch (VarGet(VAR_SECOND_SAVED))
+        {
+        case CHAR_JIGGLYPUFF:
+            partnerPuzzle = BP_SING;
+            break;
+        case CHAR_PHANPY:
+            partnerPuzzle = BP_CRADILY;
+            break;
+        case CHAR_BAGON:
+        default:
+            partnerPuzzle = BP_BRUTE_BONNET;
+            break;
+        }
+        const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[partnerPuzzle];
+        CreateMon(partner, puzzlesData->partnerSpecies, PUZZLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+        SetMonMoveSlot(partner, puzzlesData->partnerAttackMove, 0);
+        SetMonMoveSlot(partner, puzzlesData->partnerDefendMove, 1);
+        SetMonMoveSlot(partner, puzzlesData->partnerStatusMove, 2);
+        SetMonMoveSlot(partner, puzzlesData->partnerAceMove, 3);
+        u32 stat = 100;
+        SetMonData(partner, MON_DATA_HP, &stat);
+        SetMonData(partner, MON_DATA_MAX_HP, &stat);
+        stat = 0;
+        SetMonData(partner, MON_DATA_ATK, &stat);
+        SetMonData(partner, MON_DATA_SPATK, &stat);
+        CalculateMonStats(partner);
+        return;
     default:
         speciesPlayer = SPECIES_LARVESTA;
         level = PUZZLE_LEVEL;

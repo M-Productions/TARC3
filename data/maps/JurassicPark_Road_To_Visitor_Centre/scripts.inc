@@ -1775,11 +1775,11 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_16:
 # 993 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	closemessage
 # 994 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	msgbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_15
+	puzzlebattle BP_TYRANTRUM_LOSE
 # 995 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	closemessage
+	waitstate
 # 996 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_16, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_15, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 997 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	switch VAR_SECOND_SAVED
 # 999 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -1892,7 +1892,7 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41:
 # 1106 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Movement_6
 # 1107 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_34, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_33, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 1108 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	closemessage
 # 1109 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -1900,7 +1900,7 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41:
 # 1110 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	waitmovement 0
 # 1111 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_35, localId = LOCALID_TYRANTRUM_FOREST
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_34, localId = LOCALID_TYRANTRUM_FOREST
 # 1112 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	closemessage
 # 1113 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -1923,7 +1923,7 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41:
 	case CHAR_PHANPY, JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_59
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_55:
 # 1127 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_39, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_38, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 1128 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	delay 64
 # 1129 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -2004,17 +2004,17 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_20:
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_23:
 # 1000 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_17, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_16, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_CRYING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_21
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_24:
 # 1002 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_18, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_17, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_21
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_25:
 # 1004 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_19, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_18, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_CRYING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_21
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_28:
@@ -2034,17 +2034,17 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_30:
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_33:
 # 1025 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_20, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_19, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_31
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_34:
 # 1027 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_21, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_20, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_31
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_35:
 # 1029 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_22, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_21, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_31
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_38:
@@ -2076,7 +2076,7 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_40:
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_43:
 # 1087 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_29, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_28, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_44:
@@ -2099,67 +2099,67 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_45:
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_47:
 # 1041 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_23, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_22, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_36
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_48:
 # 1043 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_24, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_23, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_36
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_50:
 # 1049 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_25, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_24, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_36
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_51:
 # 1051 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_26, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_25, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_36
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_53:
 # 1057 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_27, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_26, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_36
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_54:
 # 1059 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_28, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_27, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_36
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_57:
 # 1121 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_36, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_35, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_55
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_58:
 # 1123 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_37, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_CRYING
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_36, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_CRYING
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_55
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_59:
 # 1125 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_38, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_37, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_55
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_61:
 # 1093 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_30, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_29, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_62:
 # 1095 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_31, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_30, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_64:
 # 1101 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_32, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_31, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_65:
 # 1103 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_33, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_32, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 	goto JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_41
 
 
@@ -4362,15 +4362,6 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_14:
 	.string "Help!$"
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_15:
-# 994 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	.string "PLACEHOLDER.\p"
-	.string "This battle will be unwinnable.\p"
-	.string "Any move selected by Larvy will cause\n"
-	.string "them to not move.\p"
-	.string "Tyrantrum will ONLY attack the other\n"
-	.string "pokemon, not Larvy.$"
-
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_16:
 # 996 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "(What…\n"
 	.string "Is happening to me…)\p"
@@ -4381,113 +4372,113 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_16:
 	.string "(Is this it…?\n"
 	.string "No…)$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_17:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_16:
 # 1000 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "No! No! No!\n"
 	.string "Please!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_18:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_17:
 # 1002 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Not…\n"
 	.string "Like this…!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_19:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_18:
 # 1004 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Waaaaaaa!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_20:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_19:
 # 1025 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "What's all this no-$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_21:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_20:
 # 1027 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Hey, what's happening out he-$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_22:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_21:
 # 1029 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Ohh, are you back, La-$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_23:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_22:
 # 1041 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Larvy!\n"
 	.string "Phanpy!\p"
 	.string "Get out of there, you idiots!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_24:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_23:
 # 1043 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Larvy!\n"
 	.string "Bagon!\p"
 	.string "Get out of there, you idiots!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_25:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_24:
 # 1049 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Jiggly, no!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_26:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_25:
 # 1051 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Bagon, no!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_27:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_26:
 # 1057 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "I'll save you, Jiggly!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_28:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_27:
 # 1059 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "I'll save you, Phanpy!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_29:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_28:
 # 1087 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "…Uh, what happene-\p"
 	.string "No!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_30:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_29:
 # 1093 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "What the…\p"
 	.string "Jiggly!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_31:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_30:
 # 1095 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "What the…\p"
 	.string "Bagon!!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_32:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_31:
 # 1101 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Um, am I dead…?\p"
 	.string "Wait, Jiggly…?$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_33:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_32:
 # 1103 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Um, am I dead…?\p"
 	.string "Wait, Phanpy…?$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_34:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_33:
 # 1107 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "(No…\n"
 	.string "How could I have let it happen…!)\p"
 	.string "(I couldn't move, and, and…!)$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_35:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_34:
 # 1111 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "…Grarg.$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_36:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_35:
 # 1121 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "We have to hurry inside, now!\p"
 	.string "We need to look for medical supplies!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_37:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_36:
 # 1123 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "Larvy! Larvy!\n"
 	.string "This is terrible!\p"
 	.string "We need to find some medicine!$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_38:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_37:
 # 1125 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "This can't be happening…\p"
 	.string "Larvy, we need to find a first aid kit, or\n"
 	.string "something…$"
 
-JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_39:
+JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_38:
 # 1127 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	.string "(This is a nightmare…)$"
 

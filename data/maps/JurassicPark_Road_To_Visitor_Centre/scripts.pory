@@ -991,8 +991,8 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
     waitmovement(0)
     mnmbox(format("GROAAAAAR!"), localId=LOCALID_TYRANTRUM_FOREST, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     closemessage
-    msgbox(format("PLACEHOLDER.\pThis battle will be unwinnable.\pAny move selected by Larvy will cause them to not move.\pTyrantrum will ONLY attack the other pokemon, not Larvy."))
-    closemessage
+    puzzlebattle(BP_TYRANTRUM_LOSE)
+    waitstate
     mnmbox(format("(What…\nIs happening to me…)\p(My legs…\nAren't moving…?)\p(I'm…\nI'm too scared…)\p(Is this it…?\nNo…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
     switch(var(VAR_SECOND_SAVED))
     {

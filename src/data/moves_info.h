@@ -23787,6 +23787,75 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_FlareBlitz,
     },
 
+    [MOVE_LARVESTA_ATTACK_LOCKED] =
+    {
+        .name = COMPOUND_STRING("Attack"),
+        .description = COMPOUND_STRING(
+            "A powerful move."),
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .effect = EFFECT_DO_NOTHING,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .makesContact = TRUE,
+
+        .thawsUser = TRUE,
+        .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
+    [MOVE_LARVESTA_DEFEND_LOCKED] =
+    {
+        .name = COMPOUND_STRING("Special"),
+        .description = COMPOUND_STRING(
+            "A powerful move."),
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .effect = EFFECT_DO_NOTHING,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .makesContact = TRUE,
+
+        .thawsUser = TRUE,
+        .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
+    [MOVE_LARVESTA_STATUS_LOCKED] =
+    {
+        .name = COMPOUND_STRING("Special"),
+        .description = COMPOUND_STRING(
+            "A powerful move."),
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .effect = EFFECT_DO_NOTHING,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .makesContact = TRUE,
+
+        .thawsUser = TRUE,
+        .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
     [MOVE_LARVESTA_SPECIAL_LOCKED] =
     {
         .name = COMPOUND_STRING("Special"),
