@@ -34,9 +34,12 @@ enum {
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
 #define VERSION_BANNER_RIGHT_X 162
-#define VERSION_BANNER_Y 2
-#define VERSION_BANNER_Y_GOAL 66
+#define VERSION_BANNER_Y (2 + 76)
+#define VERSION_BANNER_Y_GOAL (66 + 76)
 #define START_BANNER_X 128
+
+#define POKEMON_LOGO_Y_START (-32 - 76)
+#define POKEMON_LOGO_Y_GOAL (0 - 76)
 
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
 #define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
@@ -623,7 +626,7 @@ void CB2_InitTitleScreen(void)
         gTasks[taskId].tCounter = 256;
         gTasks[taskId].tSkipToNext = FALSE;
         gTasks[taskId].tPointless = -16;
-        gTasks[taskId].tBg2Y = -32;
+        gTasks[taskId].tBg2Y = POKEMON_LOGO_Y_START;
         gMain.state = 3;
         break;
     }
@@ -636,7 +639,7 @@ void CB2_InitTitleScreen(void)
         PanFadeAndZoomScreen(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, 0x100, 0);
         SetGpuReg(REG_OFFSET_BG2X_L, -29 * 256);
         SetGpuReg(REG_OFFSET_BG2X_H, -1);
-        SetGpuReg(REG_OFFSET_BG2Y_L, -32 * 256);
+        SetGpuReg(REG_OFFSET_BG2Y_L, POKEMON_LOGO_Y_START * 256);
         SetGpuReg(REG_OFFSET_BG2Y_H, -1);
         SetGpuReg(REG_OFFSET_WIN0H, 0);
         SetGpuReg(REG_OFFSET_WIN0V, 0);
@@ -765,7 +768,7 @@ static void Task_TitleScreenPhase2(u8 taskId)
 
     if (!(gTasks[taskId].tCounter & 3) && gTasks[taskId].tPointless != 0)
         gTasks[taskId].tPointless++;
-    if (!(gTasks[taskId].tCounter & 1) && gTasks[taskId].tBg2Y != 0)
+    if (!(gTasks[taskId].tCounter & 1) && gTasks[taskId].tBg2Y != POKEMON_LOGO_Y_GOAL)
         gTasks[taskId].tBg2Y++;
 
     // Slide Pokémon logo up
@@ -808,8 +811,8 @@ static void Task_TitleScreenPhase3(u8 taskId)
     }
     else
     {
-        SetGpuReg(REG_OFFSET_BG2Y_L, 0);
-        SetGpuReg(REG_OFFSET_BG2Y_H, 0);
+        SetGpuReg(REG_OFFSET_BG2Y_L, POKEMON_LOGO_Y_GOAL * 256);
+        SetGpuReg(REG_OFFSET_BG2Y_H, -1);
         if (++gTasks[taskId].tCounter & 1)
         {
             gTasks[taskId].tBg1Y++;
