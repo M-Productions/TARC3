@@ -274,7 +274,9 @@ static void CreateBattleStartTask(enum BattleTransition transition, u16 song)
     u8 taskId = CreateTask(Task_BattleStart, 1);
 
     gTasks[taskId].tTransition = transition;
-    PlayMapChosenOrBattleBGM(song);
+    if (!FlagGet(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC))
+        PlayMapChosenOrBattleBGM(song);
+    FlagClear(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC);
 }
 
 static void Task_BattleStart_Debug(u8 taskId)
@@ -2143,6 +2145,9 @@ void ShowTrainerCantBattleSpeech(void)
 
 void PlayTrainerEncounterMusic(void)
 {
+    if (FlagGet(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC))
+        return;
+    
     u16 trainerId;
     u16 music;
 

@@ -631,7 +631,7 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_86:
 # 404 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	closemessage
 # 405 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	setflag FLAG_BATTLE_MUSIC
+	setflag FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC
 # 406 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	switch VAR_LOCALID_CUTSCENE_MAIN
 # 408 "data/maps/JurassicPark_Final_Lab/scripts.pory"
@@ -644,7 +644,7 @@ JurassicPark_Final_Lab_EventScript_Drampa_Scene_91:
 # 415 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	waitstate
 # 416 "data/maps/JurassicPark_Final_Lab/scripts.pory"
-	clearflag FLAG_BATTLE_MUSIC
+	clearflag FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC
 # 417 "data/maps/JurassicPark_Final_Lab/scripts.pory"
 	playbgm MUS_CALM_CUTSCENE, 0
 # 418 "data/maps/JurassicPark_Final_Lab/scripts.pory"

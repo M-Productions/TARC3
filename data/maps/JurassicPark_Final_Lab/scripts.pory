@@ -402,7 +402,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
     waitmovement(0)
     mnmbox(format("GRAHHHHHHH!"), localId=VAR_LOCALID_CUTSCENE_MAIN)
     closemessage
-    setflag(FLAG_BATTLE_MUSIC)
+    setflag(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC)
     switch(var(VAR_LOCALID_CUTSCENE_MAIN))
     {
         case LOCALID_ROARING_MOON_LAB:
@@ -413,7 +413,7 @@ script JurassicPark_Final_Lab_EventScript_Drampa_Scene
             puzzlebattle(BP_SCREAM_TAIL)
     }
     waitstate
-    clearflag(FLAG_BATTLE_MUSIC)
+    clearflag(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC)
     playbgm(MUS_CALM_CUTSCENE, 0)
     mnmbox(format("(Larvy…)\p(Calmed…\nDown…)\p(Going…\nHome…?)"), localId=VAR_LOCALID_CUTSCENE_MAIN)
     mnmbox(format("(Sorry…\nMust… Stay, for now…)"), localId=LOCALID_PLAYER)
