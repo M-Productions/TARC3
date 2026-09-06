@@ -3,6 +3,7 @@
 
 #include "battle_transition.h"
 #include "gym_leader_rematch.h"
+#include "constants/battle.h"
 
 #define REMATCHES_COUNT 5
 
@@ -121,5 +122,6 @@ u8 GetRivalBattleFlags(void);
 void SetBattlePuzzleOutcome(void);
 bool32 DoesBattleHavePuzzle(void);
 void ClearBattlePuzzle(void);
+bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk);
 
 #endif // GUARD_BATTLE_SETUP_H

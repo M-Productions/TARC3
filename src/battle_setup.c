@@ -527,6 +527,7 @@ struct BattlePuzzle
     u32 battleFlags;
     AiScoreFunc aiFunc;
     u32 (*puzzleFunc)(void);
+    bool32 doNothing;
 };
 
 static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
@@ -990,6 +991,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .aiFunc = AI_AttackPartner,
         .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
+        .doNothing = TRUE,
     }
 };
 
@@ -1002,6 +1004,11 @@ void SetBattlePuzzleOutcome(void)
 bool32 DoesBattleHavePuzzle(void)
 {
     return sBattlePuzzles[sActivePuzzle].puzzleFunc != NULL;
+}
+
+bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
+{
+    return sBattlePuzzles[sActivePuzzle].doNothing && IsOnPlayerSide(battlerAtk);
 }
 
 void ClearBattlePuzzle(void)

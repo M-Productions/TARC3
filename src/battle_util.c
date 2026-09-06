@@ -472,6 +472,10 @@ void HandleAction_UseMove(void)
             gBattlescriptCurrInstr = BattleScript_MoveUsedLoafingAround;
         }
     }
+    else if (PuzzleMoveDoNothing(gBattlerAttacker))
+    {
+        gBattlescriptCurrInstr = gBattleMoveEffects[EFFECT_DO_NOTHING].battleScript;
+    }
     else
     {
         gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
