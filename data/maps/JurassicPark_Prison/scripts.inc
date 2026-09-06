@@ -127,7 +127,7 @@ JurassicPark_EventScript_Prison_FinalCutscene::
 # 63 "data/maps/JurassicPark_Prison/scripts.pory"
 	waitse
 # 64 "data/maps/JurassicPark_Prison/scripts.pory"
-	delay 120
+	delay 60
 # 65 "data/maps/JurassicPark_Prison/scripts.pory"
 	mnmbox JurassicPark_EventScript_Prison_FinalCutscene_Text_0, localId = VAR_LOCALID_CUTSCENE_SECOND, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 66 "data/maps/JurassicPark_Prison/scripts.pory"
@@ -343,13 +343,13 @@ JurassicPark_EventScript_Prison_FinalCutscene_46:
 # 275 "data/maps/JurassicPark_Prison/scripts.pory"
 	closemessage
 # 276 "data/maps/JurassicPark_Prison/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_EventScript_Prison_FinalCutscene_Movement_16
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_EventScript_Prison_FinalCutscene_Movement_16
 # 277 "data/maps/JurassicPark_Prison/scripts.pory"
 	waitmovement 0
 # 278 "data/maps/JurassicPark_Prison/scripts.pory"
 	playse SE_EXIT
 # 279 "data/maps/JurassicPark_Prison/scripts.pory"
-	removeobject VAR_LOCALID_CUTSCENE_MAIN
+	removeobject VAR_LOCALID_CUTSCENE_SECOND
 # 280 "data/maps/JurassicPark_Prison/scripts.pory"
 	waitse
 # 281 "data/maps/JurassicPark_Prison/scripts.pory"
@@ -862,7 +862,7 @@ JurassicPark_EventScript_Prison_FinalCutscene_Movement_17:
 # 281 "data/maps/JurassicPark_Prison/scripts.pory"
 	walk_left
 # 281 "data/maps/JurassicPark_Prison/scripts.pory"
-	walk_up
+	face_up
 # 281 "data/maps/JurassicPark_Prison/scripts.pory"
 	delay_16
 # 281 "data/maps/JurassicPark_Prison/scripts.pory"
@@ -872,9 +872,7 @@ JurassicPark_EventScript_Prison_FinalCutscene_Movement_17:
 # 294 "data/maps/JurassicPark_Prison/scripts.pory"
 JurassicPark_EventScript_Prison_FinalCutscene_Movement_18:
 # 294 "data/maps/JurassicPark_Prison/scripts.pory"
-	face_up
-# 294 "data/maps/JurassicPark_Prison/scripts.pory"
-	delay_16
+	walk_up
 # 294 "data/maps/JurassicPark_Prison/scripts.pory"
 	set_invisible
 	step_end
@@ -1329,7 +1327,7 @@ JurassicPark_EventScript_Prison_FinalCutscene_Text_62:
 	.string "Can never be the same.)\p"
 	.string "(I bet that Drampa's technology is\n"
 	.string "going to change the world in ways we\l"
-	.string "couldn't ever imagine.)\p"
+	.string "could never imagine.)\p"
 	.string "(But, I suppose that's okay.)\p"
 	.string "(I think that, if we didn't stumble upon\n"
 	.string "the island…)\p"
