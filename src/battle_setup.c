@@ -721,6 +721,17 @@ static u32 PuzzleOutcome_Bastiodon(void)
     return 0;
 }
 
+static u32 PuzzleOutcome_Cradily(void)
+{
+    if (FlagGet(FLAG_CRADILY_HIT_UNDERGROUND))
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (!IsPuzzlePartnerAlive())
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -745,7 +756,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
 
         .partnerSpecies = SPECIES_PHANPY,
-        .partnerAttackMove = MOVE_TACKLE,
+        .partnerAttackMove = MOVE_BULLDOZE,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_TAUNT,
 
@@ -842,6 +853,22 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .aiFunc = AI_BastiodonFlankGuard,
         .puzzleFunc = PuzzleOutcome_Bastiodon,
+    },
+
+    [BP_CRADILY] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .partnerSpecies = SPECIES_PHANPY,
+        .partnerAttackMove = MOVE_BULLDOZE,
+        .partnerDefendMove = MOVE_PROTECT,
+        .partnerStatusMove = MOVE_TAUNT,
+
+        .enemySpecies = SPECIES_CRADILY,
+        .enemyAttackMove = MOVE_DIG,
     },
 
     [BP_ROARING_MOON] =

@@ -7325,7 +7325,11 @@ static inline uq4_12_t GetMinimizeModifier(enum Move move, enum BattlerId battle
 static inline uq4_12_t GetUndergroundModifier(enum Move move, enum BattlerId battlerDef)
 {
     if (MoveDamagesUnderground(move) && gBattleMons[battlerDef].volatiles.semiInvulnerable == STATE_UNDERGROUND)
+    {
+        if (gBattleMons[GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)].species == SPECIES_CRADILY)
+            FlagSet(FLAG_CRADILY_HIT_UNDERGROUND);
         return UQ_4_12(2.0);
+    }
     return UQ_4_12(1.0);
 }
 
