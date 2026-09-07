@@ -91,11 +91,11 @@ EventScript_UseSurf_Archeops_Movement_1:
 # 31 "data/scripts/surf.pory"
 EventScript_UseSurf_Archeops_Movement_2:
 # 31 "data/scripts/surf.pory"
-	walk_left
+	walk_right
 	step_end
 
 # 33 "data/scripts/surf.pory"
 EventScript_UseSurf_Archeops_Movement_3:
 # 33 "data/scripts/surf.pory"
-	walk_right
+	walk_left
 	step_end
