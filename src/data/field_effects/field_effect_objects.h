@@ -212,6 +212,50 @@ static const struct SpriteFrameImage sPicTable_SurfBlob[] = {
     overworld_ascending_frames(gObjectEventPic_Archeops, 4, 4),
 };
 
+static const union AnimCmd sSurfBlobAnim_ArcheopsSouth[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(1, 6),
+    ANIMCMD_FRAME(1, 6),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sSurfBlobAnim_ArcheopsNorth[] =
+{
+    ANIMCMD_FRAME(2, 6),
+    ANIMCMD_FRAME(3, 6),
+    ANIMCMD_FRAME(3, 6),
+    ANIMCMD_FRAME(2, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sSurfBlobAnim_ArcheopsWest[] =
+{
+    ANIMCMD_FRAME(4, 6),
+    ANIMCMD_FRAME(5, 6),
+    ANIMCMD_FRAME(5, 6),
+    ANIMCMD_FRAME(4, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sSurfBlobAnim_ArcheopsEast[] =
+{
+    ANIMCMD_FRAME(4, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(5, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(5, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(4, 6, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_SurfBlob_Archeops[] =
+{
+    sSurfBlobAnim_ArcheopsSouth,
+    sSurfBlobAnim_ArcheopsNorth,
+    sSurfBlobAnim_ArcheopsWest,
+    sSurfBlobAnim_ArcheopsEast,
+};
+
 static const union AnimCmd sSurfBlobAnim_FaceSouth[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -248,7 +292,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SurfBlob = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_ARCHEOPS_SURF_BLOB,
     .oam = &gObjectEventBaseOam_32x32,
-    .anims = sAnimTable_Following,
+    .anims = sAnimTable_SurfBlob_Archeops,
     .images = sPicTable_SurfBlob,
     .callback = UpdateSurfBlobFieldEffect,
 };

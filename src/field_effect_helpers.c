@@ -1287,6 +1287,10 @@ void UpdateSurfBlobFieldEffect(struct Sprite *sprite)
     SynchronizeSurfPosition(playerObj, sprite);
     UpdateBobbingEffect(playerObj, playerSprite, sprite);
     sprite->oam.priority = playerSprite->oam.priority;
+    if (playerObj->movementDirection == DIR_SOUTH)
+        sprite->subpriority = playerSprite->subpriority - 1;
+    else
+        sprite->subpriority = playerSprite->subpriority + 1;
 }
 
 static void SynchronizeSurfAnim(struct ObjectEvent *playerObj, struct Sprite *sprite)
