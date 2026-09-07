@@ -1194,8 +1194,11 @@ void StartNonPuzzleBattle(void)
     for (s32 i = 1; i < PARTY_SIZE; i++)
         ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
     gPartiesCount[B_TRAINER_PLAYER] = 1;
+    ZeroEnemyPartyMons();
     CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), WILD_BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
     LockPlayerFieldControls();
+    CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
+    CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][0]);
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
