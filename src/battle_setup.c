@@ -1024,7 +1024,7 @@ void AdjustBattleData(enum BattlePuzzles puzzle)
     struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
     enum Species speciesPlayer;
 
-    u32 level = PUZZLE_LEVEL - 10;
+    u32 level = BATTLE_LEVEL;
 
     switch (puzzle)
     {

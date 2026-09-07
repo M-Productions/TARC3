@@ -22,10 +22,10 @@
       "movement_type": "MOVEMENT_TYPE_CHASE_PLAYER_OWE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_AURORUS"
     },
     {
       "local_id": "LOCALID_BRUTE_BONNET",
@@ -49,10 +49,10 @@
       "movement_type": "MOVEMENT_TYPE_CHASE_PLAYER_OWE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_AMAURA_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCHEN)",
@@ -141,10 +141,10 @@
       "movement_type": "MOVEMENT_TYPE_CHASE_PLAYER_OWE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_BRUTE_BONNET_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCHEN)",
@@ -167,10 +167,10 @@
       "movement_type": "MOVEMENT_TYPE_CHASE_PLAYER_OWE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_AMAURA_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCHEN)",
@@ -193,10 +193,10 @@
       "movement_type": "MOVEMENT_TYPE_CHASE_PLAYER_OWE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_AMAURA_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCHEOPS)",
