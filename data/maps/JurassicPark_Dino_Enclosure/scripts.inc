@@ -110,7 +110,7 @@ JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer::
 # 61 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
 	waitmovement 0
 # 62 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
-	fadescreen FADE_TO_WHITE
+	fadescreenswapbuffers FADE_TO_WHITE
 # 63 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
 	playse SE_M_THUNDER_WAVE
 # 64 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
@@ -120,7 +120,7 @@ JurassicPark_Dino_Enclosure_EventScript_DrampaExplainer::
 # 66 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
 	waitmovement 0
 # 67 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
-	fadescreen FADE_FROM_WHITE
+	fadescreenswapbuffers FADE_FROM_WHITE
 # 68 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"
 	delay 16
 # 69 "data/maps/JurassicPark_Dino_Enclosure/scripts.pory"

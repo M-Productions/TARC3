@@ -367,7 +367,7 @@ script JurassicPark_Visitor_Centre_EventScript_LarvyPanic
     fadenewbgm(MUS_DUMMY)
     mnmbox(format("(No…\nI guess it's too big.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SIGH)
     mnmbox(format("(But, the others!\nDid they make it?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
-    mnmbox(format("(I have to find them…\nAnd restart the generators.)\p(But the only way is…\nGoing outside.)\p(Gulp…\nCan I even… Do this?)\p(…I don't have a choice.\nI need to.)\p(I just hope…\nI'm able to do it.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    mnmbox(format("(I have to find them…\nAnd restart the generators.)\p(But the only way is…\nGoing outside.)\p(Gulp…\nCan I even… Do this?)\p(…I don't have a choice.\nI need to.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
     closemessage
     clearflag(FLAG_PANIC_OW_MUSIC)
     setvar(VAR_GAME_STATE, GS_NO_GENERATORS)
