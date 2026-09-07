@@ -209,9 +209,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_Ash = {
 };
 
 static const struct SpriteFrameImage sPicTable_SurfBlob[] = {
-    overworld_frame(gFieldEffectObjectPic_SurfBlob, 4, 4, 0),
-    overworld_frame(gFieldEffectObjectPic_SurfBlob, 4, 4, 1),
-    overworld_frame(gFieldEffectObjectPic_SurfBlob, 4, 4, 2),
+    overworld_ascending_frames(gObjectEventPic_Archeops, 4, 4),
 };
 
 static const union AnimCmd sSurfBlobAnim_FaceSouth[] =
@@ -248,9 +246,9 @@ static const union AnimCmd *const sAnimTable_SurfBlob[] =
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_SurfBlob = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ARCHEOPS_SURF_BLOB,
     .oam = &gObjectEventBaseOam_32x32,
-    .anims = sAnimTable_SurfBlob,
+    .anims = sAnimTable_Following,
     .images = sPicTable_SurfBlob,
     .callback = UpdateSurfBlobFieldEffect,
 };
