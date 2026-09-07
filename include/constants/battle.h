@@ -875,6 +875,7 @@ enum BattlePuzzles
     BP_SCREAM_TAIL,
     BP_TYRANTRUM,
     BP_TYRANTRUM_LOSE,
+    BP_DRAMPA,
     BP_COUNT
 };
 

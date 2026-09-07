@@ -930,7 +930,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
 
         .enemySpecies = SPECIES_ROARING_MOON,
         .enemyAttackMove = MOVE_CRUNCH,
@@ -943,7 +943,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
 
         .enemySpecies = SPECIES_GREAT_TUSK,
         .enemyAttackMove = MOVE_CRUNCH,
@@ -956,7 +956,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
 
         .enemySpecies = SPECIES_SCREAM_TAIL,
         .enemyAttackMove = MOVE_CRUNCH,
@@ -969,11 +969,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
 
         .enemySpecies = SPECIES_TYRANTRUM,
         .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
-        .enemyDefendMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+        .enemyStatusMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
 
         .aiFunc = AI_TyrantrumMotionSense,
         .puzzleFunc = PuzzleOutcome_Tyrantrum,
@@ -988,11 +988,29 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_TYRANTRUM,
         .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
-        .enemyDefendMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+        .enemyStatusMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
 
         .aiFunc = AI_AttackPartner,
         .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
         .doNothing = TRUE,
+    },
+
+    [BP_DRAMPA] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+
+        .partnerSpecies = SPECIES_TYRANTRUM,
+        .partnerAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
+        .partnerDefendMove = MOVE_WIDE_GUARD,
+        .partnerStatusMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+
+        .enemySpecies = SPECIES_DRAMPA,
+        .enemyAttackMove = MOVE_SNORE,
+        .enemyStatusMove = MOVE_NASTY_PLOT,
+        .enemyDefendMove = MOVE_REST,
     }
 };
 
@@ -1035,6 +1053,9 @@ void AdjustBattleData(enum BattlePuzzles puzzle)
         speciesPlayer = SPECIES_SLITHER_WING;
         break;
     case BP_SCREAM_TAIL:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_DRAMPA:
         speciesPlayer = SPECIES_SLITHER_WING;
         break;
     case BP_TYRANTRUM_LOSE:
