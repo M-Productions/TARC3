@@ -4738,7 +4738,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A loud attack that can only\n"
             "be used asleep. May flinch."),
-        .effect = EFFECT_SNORE,
+        .effect = EFFECT_DO_NOTHING,
         .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 50 : 40,
         .type = TYPE_NORMAL,
         .accuracy = 100,

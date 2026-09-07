@@ -796,6 +796,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_DRAMPA,
         .enemyAttackMove = MOVE_SNORE,
+        .enemyStatusMove = MOVE_NASTY_PLOT,
         .enemyStatusEffect = STATUS1_SLEEP_TURN(2),
 
         .aiFunc = AI_SequentialMoves,
