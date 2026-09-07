@@ -3759,7 +3759,8 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_Tyrantrum_Text_0:
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_Tyrantrum_Text_1:
 # 328 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	.string "C'mon Larvy, {PAUSE 40}let's get out of here…$"
+	.string "C'mon Larvy…\n"
+	.string "{PAUSE 40}Let's get out of here…$"
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Text_0:
 # 354 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
