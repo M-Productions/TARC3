@@ -846,9 +846,10 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
 
         .partnerSpecies = SPECIES_PHANPY,
-        .partnerAttackMove = MOVE_BULLDOZE,
+        .partnerAttackMove = MOVE_MUD_SLAP,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_TAUNT,
+        .partnerAceMove = MOVE_BULLDOZE,
 
         .enemySpecies = SPECIES_RAMPARDOS,
         .enemyAttackMove = MOVE_MEDITATE,
@@ -869,7 +870,8 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SING,
+        .partnerStatusMove = MOVE_CHARM,
+        .partnerAceMove = MOVE_SING,
         .partnerHP = 75,
         .partnerMaxHP = 150,
 
@@ -891,7 +893,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SPLASH,
+        .partnerStatusMove = MOVE_CHARM,
         .partnerHP = 60,
         .partnerMaxHP = 100,
 
@@ -919,7 +921,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_BAGON,
         .partnerAttackMove = MOVE_DRAGON_BREATH,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SPLASH,
+        .partnerStatusMove = MOVE_DRAGON_DANCE,
         .partnerStatusEffect = STATUS1_POISON,
 
         .enemySpecies = SPECIES_BRUTE_BONNET,
@@ -954,9 +956,10 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_PHANPY,
-        .partnerAttackMove = MOVE_BULLDOZE,
+        .partnerAttackMove = MOVE_MUD_SLAP,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_TAUNT,
+        .partnerAceMove = MOVE_BULLDOZE,
 
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
