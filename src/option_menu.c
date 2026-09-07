@@ -62,7 +62,7 @@ static u8 BattleStyle_ProcessInput(u8 selection);
 // static void BattleStyle_DrawChoices(u8 selection);
 static u8 Sound_ProcessInput(u8 selection);
 static void Sound_DrawChoices(u8 selection);
-static u8 FrameType_ProcessInput(u8 selection);
+// static u8 FrameType_ProcessInput(u8 selection);
 // static void FrameType_DrawChoices(u8 selection);
 static u8 ButtonMode_ProcessInput(u8 selection);
 static void ButtonMode_DrawChoices(u8 selection);
@@ -527,32 +527,32 @@ static void Sound_DrawChoices(u8 selection)
     DrawOptionMenuChoice(gText_SoundStereo, GetStringRightAlignXOffset(FONT_NORMAL, gText_SoundStereo, 198), YPOS_SOUND, styles[1]);
 }
 
-static u8 FrameType_ProcessInput(u8 selection)
-{
-    if (JOY_NEW(DPAD_RIGHT))
-    {
-        if (selection < WINDOW_FRAMES_COUNT - 1)
-            selection++;
-        else
-            selection = 0;
+// static u8 FrameType_ProcessInput(u8 selection)
+// {
+//     if (JOY_NEW(DPAD_RIGHT))
+//     {
+//         if (selection < WINDOW_FRAMES_COUNT - 1)
+//             selection++;
+//         else
+//             selection = 0;
 
-        LoadBgTiles(1, GetWindowFrameTilesPal(selection)->tiles, 0x120, 0x1A2);
-        LoadPalette(GetWindowFrameTilesPal(selection)->pal, BG_PLTT_ID(7), PLTT_SIZE_4BPP);
-        sArrowPressed = TRUE;
-    }
-    if (JOY_NEW(DPAD_LEFT))
-    {
-        if (selection != 0)
-            selection--;
-        else
-            selection = WINDOW_FRAMES_COUNT - 1;
+//         LoadBgTiles(1, GetWindowFrameTilesPal(selection)->tiles, 0x120, 0x1A2);
+//         LoadPalette(GetWindowFrameTilesPal(selection)->pal, BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+//         sArrowPressed = TRUE;
+//     }
+//     if (JOY_NEW(DPAD_LEFT))
+//     {
+//         if (selection != 0)
+//             selection--;
+//         else
+//             selection = WINDOW_FRAMES_COUNT - 1;
 
-        LoadBgTiles(1, GetWindowFrameTilesPal(selection)->tiles, 0x120, 0x1A2);
-        LoadPalette(GetWindowFrameTilesPal(selection)->pal, BG_PLTT_ID(7), PLTT_SIZE_4BPP);
-        sArrowPressed = TRUE;
-    }
-    return selection;
-}
+//         LoadBgTiles(1, GetWindowFrameTilesPal(selection)->tiles, 0x120, 0x1A2);
+//         LoadPalette(GetWindowFrameTilesPal(selection)->pal, BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+//         sArrowPressed = TRUE;
+//     }
+//     return selection;
+// }
 
 // static void FrameType_DrawChoices(u8 selection)
 // {

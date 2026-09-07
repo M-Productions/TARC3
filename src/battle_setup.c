@@ -527,7 +527,8 @@ struct BattlePuzzle
     u32 battleFlags;
     AiScoreFunc aiFunc;
     u32 (*puzzleFunc)(void);
-    bool32 doNothing;
+    bool32 doNothingPlayer;
+    bool32 doNothingEnemy;
 };
 
 static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
@@ -799,6 +800,8 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyStatusMove = MOVE_NASTY_PLOT,
         .enemyStatusEffect = STATUS1_SLEEP_TURN(2),
 
+        .doNothingEnemy = TRUE,
+
         .aiFunc = AI_SequentialMoves,
     },
 
@@ -923,6 +926,8 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
+
+        .puzzleFunc = PuzzleOutcome_Cradily
     },
 
     [BP_ROARING_MOON] =
@@ -981,9 +986,9 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
     [BP_TYRANTRUM_LOSE] =
     {
-        .playerAttackMove = MOVE_LARVESTA_ATTACK_LOCKED,
-        .playerDefendMove = MOVE_LARVESTA_DEFEND_LOCKED,
-        .playerStatusMove = MOVE_LARVESTA_STATUS_LOCKED,
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
         .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_TYRANTRUM,
@@ -992,7 +997,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .aiFunc = AI_AttackPartner,
         .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
-        .doNothing = TRUE,
+        .doNothingPlayer = TRUE,
     },
 
     [BP_DRAMPA] =
@@ -1027,7 +1032,13 @@ bool32 DoesBattleHavePuzzle(void)
 
 bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
 {
-    return sBattlePuzzles[sActivePuzzle].doNothing && IsOnPlayerSide(battlerAtk);
+    if (sBattlePuzzles[sActivePuzzle].doNothingPlayer)
+        return IsOnPlayerSide(battlerAtk);
+
+    if (sBattlePuzzles[sActivePuzzle].doNothingEnemy)
+        return !IsOnPlayerSide(battlerAtk);
+
+    return FALSE;
 }
 
 void ClearBattlePuzzle(void)
@@ -1175,6 +1186,18 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
 {
     enum BattlePuzzles puzzle = ScriptReadByte(ctx);
     StartPuzzleBattle(puzzle);
+}
+
+void StartNonPuzzleBattle(void)
+{
+    HealPlayerParty();
+    for (s32 i = 1; i < PARTY_SIZE; i++)
+        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), WILD_BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
 
 void BattleSetup_StartScriptedWildBattle(void)
