@@ -592,18 +592,51 @@ static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef
 }
 
 #define BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK MOVE_FALSE_SURRENDER
-#define BP_BRUTE_BONNET_ENEMY_MOVE_STATUS MOVE_SPORE
+#define BP_BRUTE_BONNET_ENEMY_MOVE_STATUS MOVE_POISON_POWDER
 static s32 AI_BruteBonnetSporeCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    bool32 bagonAsleep = gBattleMons[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)].status1 & STATUS1_SLEEP;
+    bool32 bagonPoisoned = gBattleMons[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)].status1 & STATUS1_POISON;
 
     if (move == BP_BRUTE_BONNET_ENEMY_MOVE_STATUS)
-        return bagonAsleep ? 0 : 100;
+        return bagonPoisoned ? 0 : 100;
 
     if (move == BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK)
-        return bagonAsleep ? 100 : 0;
+        return bagonPoisoned ? 100 : 0;
 
     return score;
+}
+
+#define BP_BRUTE_BONNET_POISON_DURATION 3
+static EWRAM_DATA u8 sBruteBonnetPoisonTurns[2] = {0};
+
+static void ResetBruteBonnetPoisonCounter(void)
+{
+    sBruteBonnetPoisonTurns[0] = 0; // Larvesta
+    sBruteBonnetPoisonTurns[1] = 0; // Bagon
+}
+
+static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
+{
+    if (!(gBattleMons[battler].status1 & STATUS1_POISON))
+    {
+        *turns = 0;
+        return;
+    }
+
+    (*turns)++;
+    if (*turns >= BP_BRUTE_BONNET_POISON_DURATION)
+    {
+        gBattleMons[battler].status1 &= ~STATUS1_POISON;
+        *turns = 0;
+    }
+}
+
+static u32 PuzzleOutcome_BruteBonnet(void)
+{
+    BruteBonnetPoisonCounter(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT), &sBruteBonnetPoisonTurns[0]);
+    BruteBonnetPoisonCounter(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT), &sBruteBonnetPoisonTurns[1]);
+
+    return 0;
 }
 
 static enum BattlerId GetPuzzleEnemyBattler(void)
@@ -895,6 +928,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_BruteBonnetSporeCycle,
+        .puzzleFunc = PuzzleOutcome_BruteBonnet,
     },
 
     [BP_BASTIODON] =
@@ -1178,6 +1212,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     ResetRampardosRandomAI();
     ResetBastiodonGuardAI();
     ResetTyrantrumStillStreak();
+    ResetBruteBonnetPoisonCounter();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
