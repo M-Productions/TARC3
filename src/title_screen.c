@@ -32,14 +32,14 @@ enum {
 };
 
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
-#define VERSION_BANNER_LEFT_X 98
-#define VERSION_BANNER_RIGHT_X 162
-#define VERSION_BANNER_Y (2 + 76)
-#define VERSION_BANNER_Y_GOAL (66 + 76)
-#define START_BANNER_X 128
+#define VERSION_BANNER_LEFT_X 88
+#define VERSION_BANNER_RIGHT_X 152
+#define VERSION_BANNER_Y (66 + 81)
+#define VERSION_BANNER_Y_GOAL (2 + 81)
+#define START_BANNER_X 130
 
-#define POKEMON_LOGO_Y_START (-32 - 76)
-#define POKEMON_LOGO_Y_GOAL (0 - 76)
+#define POKEMON_LOGO_Y_GOAL (0 - 86)
+#define POKEMON_LOGO_Y_START (POKEMON_LOGO_Y_GOAL + 32)
 
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
 #define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
@@ -378,7 +378,7 @@ static void SpriteCB_VersionBannerLeft(struct Sprite *sprite)
     else
     {
         if (sprite->y != VERSION_BANNER_Y_GOAL)
-            sprite->y++;
+            sprite->y--;
         if (sprite->sAlphaBlendIdx != 0)
             sprite->sAlphaBlendIdx--;
         SetGpuReg(REG_OFFSET_BLDALPHA, gTitleScreenAlphaBlend[sprite->sAlphaBlendIdx]);
@@ -395,7 +395,7 @@ static void SpriteCB_VersionBannerRight(struct Sprite *sprite)
     else
     {
         if (sprite->y != VERSION_BANNER_Y_GOAL)
-            sprite->y++;
+            sprite->y--;
     }
 }
 
@@ -637,7 +637,7 @@ void CB2_InitTitleScreen(void)
         break;
     case 4:
         PanFadeAndZoomScreen(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, 0x100, 0);
-        SetGpuReg(REG_OFFSET_BG2X_L, -29 * 256);
+        SetGpuReg(REG_OFFSET_BG2X_L, -24 * 256);
         SetGpuReg(REG_OFFSET_BG2X_H, -1);
         SetGpuReg(REG_OFFSET_BG2Y_L, POKEMON_LOGO_Y_START * 256);
         SetGpuReg(REG_OFFSET_BG2Y_H, -1);
@@ -758,7 +758,7 @@ static void Task_TitleScreenPhase2(u8 taskId)
                                     | DISPCNT_BG1_ON
                                     | DISPCNT_BG2_ON
                                     | DISPCNT_OBJ_ON);
-        CreatePressStartBanner(START_BANNER_X, 108);
+        CreatePressStartBanner(START_BANNER_X + 26, 147);
         CreateCopyrightBanner(START_BANNER_X, 148);
         if (QUICKSTART && QUICKSTART_HUD)
             CreateQuickstartHud();
@@ -769,7 +769,7 @@ static void Task_TitleScreenPhase2(u8 taskId)
     if (!(gTasks[taskId].tCounter & 3) && gTasks[taskId].tPointless != 0)
         gTasks[taskId].tPointless++;
     if (!(gTasks[taskId].tCounter & 1) && gTasks[taskId].tBg2Y != POKEMON_LOGO_Y_GOAL)
-        gTasks[taskId].tBg2Y++;
+        gTasks[taskId].tBg2Y--;
 
     // Slide Pokémon logo up
     yPos = gTasks[taskId].tBg2Y * 256;
@@ -863,6 +863,7 @@ static void CB2_GoToBerryFixScreen(void)
 
 static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
+    return;
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
         s32 intensity = Cos(frameNum, Q_8_8(0.5)) + Q_8_8(0.5);
