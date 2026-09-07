@@ -2106,11 +2106,15 @@ const struct ObjectEventTemplate TryGetObjectEventTemplateForOWE(const struct Ob
     if (levelTemplate)
         info.level = levelTemplate;
 
-    assertf((CheckValidOWESpecies(info.speciesId)
+    // assertf((CheckValidOWESpecies(info.speciesId)
+    //     && info.level >= MIN_LEVEL
+    //     && info.level <= MAX_LEVEL)
+    //     || gObjectEvents[GetObjectEventIdByLocalId(template->localId)].active,
+    //     "invalid manual overworld encounter template\nspecies: %d\nlevel: %d\ntemplate x: %d\ntemplate y: %d\ncheck if valid wild mon header exists", info.speciesId, info.level, x, y)
+    if (!((CheckValidOWESpecies(info.speciesId)
         && info.level >= MIN_LEVEL
         && info.level <= MAX_LEVEL)
-        || gObjectEvents[GetObjectEventIdByLocalId(template->localId)].active,
-        "invalid manual overworld encounter template\nspecies: %d\nlevel: %d\ntemplate x: %d\ntemplate y: %d\ncheck if valid wild mon header exists", info.speciesId, info.level, x, y)
+        || gObjectEvents[GetObjectEventIdByLocalId(template->localId)].active))
     {
         if (!CheckValidOWESpecies(info.speciesId))
         {
