@@ -395,17 +395,17 @@ JurassicPark_Desert_Main_EventScript_Cradily::
 # 232 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	waitmovement 0
 # 233 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	msgbox JurassicPark_Desert_Main_EventScript_Cradily_Text_0
+	puzzlebattle BP_CRADILY
 # 234 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
+	waitstate
 # 235 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	removeobject LOCALID_CRADILY_STATIC
 # 236 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_Cradily_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox JurassicPark_Desert_Main_EventScript_Cradily_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 237 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
 # 238 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	msgbox JurassicPark_Desert_Main_EventScript_Cradily_Text_2
+	msgbox JurassicPark_Desert_Main_EventScript_Cradily_Text_1
 # 239 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
 # 240 "data/maps/JurassicPark_Desert_Main/scripts.pory"
@@ -901,12 +901,6 @@ JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_20:
 	.string "Now let's go, Larvy!$"
 
 JurassicPark_Desert_Main_EventScript_Cradily_Text_0:
-# 233 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	.string "PLACEHOLDER\p"
-	.string "The puzzle here is getting Cradily to\n"
-	.string "dig, and using Bulldoze with Phanpy.$"
-
-JurassicPark_Desert_Main_EventScript_Cradily_Text_1:
 # 236 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Wait…\n"
 	.string "I get it!\p"
@@ -917,7 +911,7 @@ JurassicPark_Desert_Main_EventScript_Cradily_Text_1:
 	.string "…I'm sorry, Cradily.\n"
 	.string "But we have a generator to restart.$"
 
-JurassicPark_Desert_Main_EventScript_Cradily_Text_2:
+JurassicPark_Desert_Main_EventScript_Cradily_Text_1:
 # 238 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Phanpy can now use Bulldoze!\p"
 	.string "…But it's not implemented yet, so get\n"

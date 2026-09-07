@@ -472,6 +472,10 @@ void HandleAction_UseMove(void)
             gBattlescriptCurrInstr = BattleScript_MoveUsedLoafingAround;
         }
     }
+    else if (PuzzleMoveDoNothing(gBattlerAttacker))
+    {
+        gBattlescriptCurrInstr = gBattleMoveEffects[EFFECT_DO_NOTHING].battleScript;
+    }
     else
     {
         gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
@@ -5559,6 +5563,7 @@ u32 GetBattleMoveTarget(enum Move move, enum MoveTarget moveTarget)
 
 enum Obedience GetAttackerObedienceForAction(void)
 {
+    return OBEYS;
     s32 rnd;
     s32 calc;
     u8 obedienceLevel = 0;
@@ -7325,7 +7330,11 @@ static inline uq4_12_t GetMinimizeModifier(enum Move move, enum BattlerId battle
 static inline uq4_12_t GetUndergroundModifier(enum Move move, enum BattlerId battlerDef)
 {
     if (MoveDamagesUnderground(move) && gBattleMons[battlerDef].volatiles.semiInvulnerable == STATE_UNDERGROUND)
+    {
+        if (gBattleMons[GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)].species == SPECIES_CRADILY)
+            FlagSet(FLAG_CRADILY_HIT_UNDERGROUND);
         return UQ_4_12(2.0);
+    }
     return UQ_4_12(1.0);
 }
 
@@ -10672,6 +10681,7 @@ bool32 IsBattlerInvalidForSpreadMove(enum BattlerId battlerAtk, enum BattlerId b
 
 bool32 IsAllowedToUseBag(void)
 {
+    return FALSE;
     switch (VarGet(B_VAR_NO_BAG_USE))
     {
     case NO_BAG_RESTRICTION:

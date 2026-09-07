@@ -230,8 +230,8 @@ script JurassicPark_Desert_Main_EventScript_Cradily
     playse(SE_PIN)
     applymovement(LOCALID_CRADILY_STATIC, moves(emote_exclamation_mark, delay_16, face_up))
     waitmovement(0)
-    msgbox(format("PLACEHOLDER\pThe puzzle here is getting Cradily to dig, and using Bulldoze with Phanpy."))
-    closemessage
+    puzzlebattle(BP_CRADILY)
+    waitstate
     removeobject(LOCALID_CRADILY_STATIC)
     mnmbox(format("Wait…\nI get it!\pCradily are attracted by vibration, so if I use Bulldoze…\pIt's going to confuse them, and get them off our tail!\p…I'm sorry, Cradily.\nBut we have a generator to restart."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     closemessage

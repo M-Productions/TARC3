@@ -274,7 +274,9 @@ static void CreateBattleStartTask(enum BattleTransition transition, u16 song)
     u8 taskId = CreateTask(Task_BattleStart, 1);
 
     gTasks[taskId].tTransition = transition;
-    PlayMapChosenOrBattleBGM(song);
+    if (!FlagGet(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC))
+        PlayMapChosenOrBattleBGM(song);
+    FlagClear(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC);
 }
 
 static void Task_BattleStart_Debug(u8 taskId)
@@ -356,7 +358,7 @@ static void DoStandardWildBattle(bool32 isDouble)
     LockPlayerFieldControls();
     FreezeObjectEvents();
     StopPlayerAvatar();
-    gMain.savedCallback = CB2_EndWildBattle;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = 0;
     if (IsNPCFollowerWildBattle())
     {
@@ -381,7 +383,7 @@ void DoStandardWildBattle_Debug(void)
     LockPlayerFieldControls();
     FreezeObjectEvents();
     StopPlayerAvatar();
-    gMain.savedCallback = CB2_EndWildBattle;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = 0;
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
     {
@@ -400,7 +402,7 @@ void BattleSetup_StartRoamerBattle(void)
     LockPlayerFieldControls();
     FreezeObjectEvents();
     StopPlayerAvatar();
-    gMain.savedCallback = CB2_EndWildBattle;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_ROAMER;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
@@ -424,7 +426,7 @@ static void DoGhostBattle(void)
     LockPlayerFieldControls();
     FreezeObjectEvents();
     StopPlayerAvatar();
-    gMain.savedCallback = CB2_EndWildBattle;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_GHOST;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_NICKNAME, gText_Ghost);
@@ -437,7 +439,7 @@ static void DoBattlePikeWildBattle(void)
     LockPlayerFieldControls();
     FreezeObjectEvents();
     StopPlayerAvatar();
-    gMain.savedCallback = CB2_EndWildBattle;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_PIKE;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
@@ -525,6 +527,8 @@ struct BattlePuzzle
     u32 battleFlags;
     AiScoreFunc aiFunc;
     u32 (*puzzleFunc)(void);
+    bool32 doNothingPlayer;
+    bool32 doNothingEnemy;
 };
 
 static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
@@ -721,6 +725,67 @@ static u32 PuzzleOutcome_Bastiodon(void)
     return 0;
 }
 
+static u32 PuzzleOutcome_Cradily(void)
+{
+    if (FlagGet(FLAG_CRADILY_HIT_UNDERGROUND))
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (!IsPuzzlePartnerAlive())
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
+static EWRAM_DATA u8 sTyrantrumStillStreak = 0;
+#define BP_TYRANTRUM_ENEMY_MOVE_ATTACK MOVE_GIGA_IMPACT
+#define BP_TYRANTRUM_ENEMY_MOVE_IDLE   MOVE_HONE_CLAWS
+
+static void ResetTyrantrumStillStreak(void)
+{
+    sTyrantrumStillStreak = 0;
+}
+
+static s32 AI_TyrantrumMotionSense(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
+{
+    bool32 playerMoved = (GetBattlerChosenMove(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)) != MOVE_LARVESTA_DEFEND);
+
+    if (move == BP_TYRANTRUM_ENEMY_MOVE_ATTACK)
+        return playerMoved ? 100 : 0;
+    if (move == BP_TYRANTRUM_ENEMY_MOVE_IDLE)
+        return playerMoved ? 0 : 100;
+
+    return score;
+}
+
+static u32 PuzzleOutcome_Tyrantrum(void)
+{
+    enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+
+    if (!IsBattlerAlive(player))
+        return B_OUTCOME_LOST;
+
+    if (GetBattlerChosenMove(player) == MOVE_LARVESTA_DEFEND)
+        sTyrantrumStillStreak++;
+    else
+        sTyrantrumStillStreak = 0;
+
+    if (sTyrantrumStillStreak >= 3)
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    return 0;
+}
+
+static u32 PuzzleOutcome_Tyrantrum_Lose(void)
+{
+    if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)))
+        return B_OUTCOME_PUZZLE_COMPLETE;
+
+    if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
+        return B_OUTCOME_LOST;
+
+    return 0;
+}
+
 static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 {
     [BP_TUTORIAL] =
@@ -732,7 +797,10 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_DRAMPA,
         .enemyAttackMove = MOVE_SNORE,
+        .enemyStatusMove = MOVE_NASTY_PLOT,
         .enemyStatusEffect = STATUS1_SLEEP_TURN(2),
+
+        .doNothingEnemy = TRUE,
 
         .aiFunc = AI_SequentialMoves,
     },
@@ -745,7 +813,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
 
         .partnerSpecies = SPECIES_PHANPY,
-        .partnerAttackMove = MOVE_TACKLE,
+        .partnerAttackMove = MOVE_BULLDOZE,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_TAUNT,
 
@@ -842,6 +910,112 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .aiFunc = AI_BastiodonFlankGuard,
         .puzzleFunc = PuzzleOutcome_Bastiodon,
+    },
+
+    [BP_CRADILY] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .partnerSpecies = SPECIES_PHANPY,
+        .partnerAttackMove = MOVE_BULLDOZE,
+        .partnerDefendMove = MOVE_PROTECT,
+        .partnerStatusMove = MOVE_TAUNT,
+
+        .enemySpecies = SPECIES_CRADILY,
+        .enemyAttackMove = MOVE_DIG,
+
+        .puzzleFunc = PuzzleOutcome_Cradily
+    },
+
+    [BP_ROARING_MOON] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+
+        .enemySpecies = SPECIES_ROARING_MOON,
+        .enemyAttackMove = MOVE_CRUNCH,
+        .enemyStatusMove = MOVE_HOWL,
+        .enemyAceMove = MOVE_BRAVE_BIRD,
+    },
+
+    [BP_GREAT_TUSK] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+
+        .enemySpecies = SPECIES_GREAT_TUSK,
+        .enemyAttackMove = MOVE_CRUNCH,
+        .enemyStatusMove = MOVE_HOWL,
+        .enemyAceMove = MOVE_BULLDOZE,
+    },
+
+    [BP_SCREAM_TAIL] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+
+        .enemySpecies = SPECIES_SCREAM_TAIL,
+        .enemyAttackMove = MOVE_CRUNCH,
+        .enemyStatusMove = MOVE_HOWL,
+        .enemyAceMove = MOVE_SING,
+    },
+
+    [BP_TYRANTRUM] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+
+        .enemySpecies = SPECIES_TYRANTRUM,
+        .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
+        .enemyStatusMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+
+        .aiFunc = AI_TyrantrumMotionSense,
+        .puzzleFunc = PuzzleOutcome_Tyrantrum,
+    },
+
+    [BP_TYRANTRUM_LOSE] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+
+        .enemySpecies = SPECIES_TYRANTRUM,
+        .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
+        .enemyStatusMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+
+        .aiFunc = AI_AttackPartner,
+        .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
+        .doNothingPlayer = TRUE,
+    },
+
+    [BP_DRAMPA] =
+    {
+        .playerAttackMove = MOVE_LARVESTA_ATTACK,
+        .playerDefendMove = MOVE_LARVESTA_DEFEND,
+        .playerStatusMove = MOVE_LARVESTA_STATUS,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+
+        .partnerSpecies = SPECIES_TYRANTRUM,
+        .partnerAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
+        .partnerDefendMove = MOVE_WIDE_GUARD,
+        .partnerStatusMove = BP_TYRANTRUM_ENEMY_MOVE_IDLE,
+
+        .enemySpecies = SPECIES_DRAMPA,
+        .enemyAttackMove = MOVE_SNORE,
+        .enemyStatusMove = MOVE_NASTY_PLOT,
+        .enemyDefendMove = MOVE_REST,
     }
 };
 
@@ -856,9 +1030,84 @@ bool32 DoesBattleHavePuzzle(void)
     return sBattlePuzzles[sActivePuzzle].puzzleFunc != NULL;
 }
 
+bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
+{
+    if (sBattlePuzzles[sActivePuzzle].doNothingPlayer)
+        return IsOnPlayerSide(battlerAtk);
+
+    if (sBattlePuzzles[sActivePuzzle].doNothingEnemy)
+        return !IsOnPlayerSide(battlerAtk);
+
+    return FALSE;
+}
+
 void ClearBattlePuzzle(void)
 {
     sActivePuzzle = BP_NONE;
+}
+
+void AdjustBattleData(enum BattlePuzzles puzzle)
+{
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][1];
+    struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
+    enum Species speciesPlayer;
+
+    u32 level = BATTLE_LEVEL;
+
+    switch (puzzle)
+    {
+    case BP_ROARING_MOON:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_GREAT_TUSK:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_SCREAM_TAIL:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_DRAMPA:
+        speciesPlayer = SPECIES_SLITHER_WING;
+        break;
+    case BP_TYRANTRUM_LOSE:
+        enum BattlePuzzles partnerPuzzle;
+        switch (VarGet(VAR_SECOND_SAVED))
+        {
+        case CHAR_JIGGLYPUFF:
+            partnerPuzzle = BP_SING;
+            break;
+        case CHAR_PHANPY:
+            partnerPuzzle = BP_CRADILY;
+            break;
+        case CHAR_BAGON:
+        default:
+            partnerPuzzle = BP_BRUTE_BONNET;
+            break;
+        }
+        const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[partnerPuzzle];
+        CreateMon(partner, puzzlesData->partnerSpecies, PUZZLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+        SetMonMoveSlot(partner, puzzlesData->partnerAttackMove, 0);
+        SetMonMoveSlot(partner, puzzlesData->partnerDefendMove, 1);
+        SetMonMoveSlot(partner, puzzlesData->partnerStatusMove, 2);
+        SetMonMoveSlot(partner, puzzlesData->partnerAceMove, 3);
+        u32 stat = 100;
+        SetMonData(partner, MON_DATA_HP, &stat);
+        SetMonData(partner, MON_DATA_MAX_HP, &stat);
+        stat = 0;
+        SetMonData(partner, MON_DATA_ATK, &stat);
+        SetMonData(partner, MON_DATA_SPATK, &stat);
+        CalculateMonStats(partner);
+        return;
+    default:
+        speciesPlayer = SPECIES_LARVESTA;
+        level = PUZZLE_LEVEL;
+        break;
+    }
+
+    SetMonData(player, MON_DATA_SPECIES, &speciesPlayer);
+    SetMonData(enemy, MON_DATA_LEVEL, &level);
+    CalculateMonStats(player);
+    CalculateMonStats(enemy);
 }
 
 #define HP_MAX_DEFAULT 100
@@ -921,12 +1170,14 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         SetMonData(enemyTwo, MON_DATA_MAX_HP, &hpMax);
     }
 
+    AdjustBattleData(puzzle);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = puzzlesData->battleFlags;
     sActivePuzzle = puzzle;
     ResetRampardosRandomAI();
     ResetBastiodonGuardAI();
+    ResetTyrantrumStillStreak();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
@@ -935,6 +1186,21 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
 {
     enum BattlePuzzles puzzle = ScriptReadByte(ctx);
     StartPuzzleBattle(puzzle);
+}
+
+void StartNonPuzzleBattle(void)
+{
+    HealPlayerParty();
+    for (s32 i = 1; i < PARTY_SIZE; i++)
+        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    ZeroEnemyPartyMons();
+    CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), WILD_BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    LockPlayerFieldControls();
+    CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
+    CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][0]);
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
 
 void BattleSetup_StartScriptedWildBattle(void)
@@ -2045,6 +2311,9 @@ void ShowTrainerCantBattleSpeech(void)
 
 void PlayTrainerEncounterMusic(void)
 {
+    if (FlagGet(FLAG_SYS_DONT_TRANSITION_BATTLE_MUSIC))
+        return;
+    
     u16 trainerId;
     u16 music;
 

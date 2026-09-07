@@ -1237,8 +1237,7 @@ u32 FldEff_SurfBlob(void)
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->sPlayerObjId = gFieldEffectArguments[2];
-        // Can use either gender's palette, so try to use the one that should be loaded
-        sprite->oam.paletteNum = LoadPlayerObjectEventPalette(gSaveBlock2Ptr->playerGender);
+        sprite->oam.paletteNum = LoadObjectEventPalette(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SURF_BLOB]->paletteTag);
         sprite->sVelocity = -1;
         sprite->sPrevX = -1;
         sprite->sPrevY = -1;
@@ -1288,6 +1287,10 @@ void UpdateSurfBlobFieldEffect(struct Sprite *sprite)
     SynchronizeSurfPosition(playerObj, sprite);
     UpdateBobbingEffect(playerObj, playerSprite, sprite);
     sprite->oam.priority = playerSprite->oam.priority;
+    if (playerObj->movementDirection == DIR_SOUTH)
+        sprite->subpriority = playerSprite->subpriority - 1;
+    else
+        sprite->subpriority = playerSprite->subpriority + 1;
 }
 
 static void SynchronizeSurfAnim(struct ObjectEvent *playerObj, struct Sprite *sprite)

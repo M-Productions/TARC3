@@ -2458,7 +2458,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .accuracy = 100,
         .pp = 10,
         .target = TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .sleepTalkBanned = TRUE,
@@ -4246,7 +4246,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
-        .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 5 : 10,
+        .pp = 1,
         .target = TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -4738,12 +4738,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A loud attack that can only\n"
             "be used asleep. May flinch."),
-        .effect = EFFECT_SNORE,
         .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 50 : 40,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 15,
-        .target = TARGET_SELECTED,
+        .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ignoresSubstitute = B_UPDATED_MOVE_FLAGS >= GEN_6,
@@ -13937,6 +13936,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_Bulldoze,
+        .damagesUnderground = TRUE,
     },
 
     [MOVE_FROST_BREATH] =
@@ -23776,6 +23776,75 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = -6,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = { .fixedDamage = 100 },
+        .makesContact = TRUE,
+
+        .thawsUser = TRUE,
+        .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
+    [MOVE_LARVESTA_ATTACK_LOCKED] =
+    {
+        .name = COMPOUND_STRING("Attack"),
+        .description = COMPOUND_STRING(
+            "A powerful move."),
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .effect = EFFECT_DO_NOTHING,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .makesContact = TRUE,
+
+        .thawsUser = TRUE,
+        .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
+    [MOVE_LARVESTA_DEFEND_LOCKED] =
+    {
+        .name = COMPOUND_STRING("Special"),
+        .description = COMPOUND_STRING(
+            "A powerful move."),
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .effect = EFFECT_DO_NOTHING,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .makesContact = TRUE,
+
+        .thawsUser = TRUE,
+        .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+    },
+
+    [MOVE_LARVESTA_STATUS_LOCKED] =
+    {
+        .name = COMPOUND_STRING("Special"),
+        .description = COMPOUND_STRING(
+            "A powerful move."),
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .effect = EFFECT_DO_NOTHING,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .makesContact = TRUE,
 
         .thawsUser = TRUE,

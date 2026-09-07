@@ -3415,7 +3415,6 @@ static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
         objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
         ObjectEventClearHeldMovementIfFinished(objectEvent);
-        ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(objectEvent->movementDirection));
         FollowerNPC_FollowerToWater();
 
         gFieldEffectArguments[0] = task->tDestX;

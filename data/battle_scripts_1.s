@@ -3104,6 +3104,10 @@ BattleScript_PrintFullBox::
 	printselectionstring STRINGID_BOXISFULL
 	endselectionscript
 
+BattleScript_NoFriendsMessage::
+	printstring STRINGID_NOFRIENDS
+	endselectionscript
+
 BattleScript_ActionSwitch::
 	hpthresholds2 BS_ATTACKER
 	printstring STRINGID_RETURNMON

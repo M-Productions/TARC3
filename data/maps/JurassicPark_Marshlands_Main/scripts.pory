@@ -17,8 +17,14 @@ mapscripts JurassicPark_Marshlands_Main_MapScripts {
             playse(SE_PIN)
             applymovement(LOCALID_ARMALDO, moves(emote_exclamation_mark, delay_16))
             waitmovement(0)
-            msgbox(format("PLACEHOLDER\pYou shouldn't be able to escape here since Armaldo is in front of you."))
-            closemessage
+            if (flag(FLAG_HIDE_ARMALDO))
+            {
+                playmoncry(SPECIES_ARMALDO, CRY_MODE_WEAK_DOUBLES)
+            }
+            else
+            {
+                call(JurassicPark_Marshlands_Maze_Armaldo)
+            }
             removeobject(LOCALID_ARMALDO)
             setvar(VAR_MARSH_STATE, 5)
             applymovement(LOCALID_PLAYER, moves(walk_down*2))

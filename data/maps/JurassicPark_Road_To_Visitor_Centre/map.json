@@ -140,12 +140,12 @@
       "x": 45,
       "y": 24,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Tyrantrum",
       "flag": "FLAG_HIDE_TYRANTRUM_FOREST"
     },
     {

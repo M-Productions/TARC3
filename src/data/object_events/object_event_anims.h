@@ -1430,7 +1430,6 @@ const union AnimCmd *const sAnimTable_Following_Asym[] = {
     [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast_Asym,
 };
 
-// Detailed (4F) versions: spritesheet has 4 frames per direction (south 0-3, north 4-7, west 8-11).
 const union AnimCmd *const sAnimTable_Following_4F[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth4F,

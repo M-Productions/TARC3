@@ -19,8 +19,7 @@ script JurassicPark_Mountain_Top_EventScript_Volcano
 
 script JurassicPark_Mountain_Top_EventScript_Archeops
 {
-    msgbox(format("PLACEHOLDER"))
-    closemessage
+    nonpuzzlebattle(SPECIES_ARCHEOPS)
     msgbox(format("Archeops will now help you fly over the lava!"))
     closemessage
     lock
@@ -34,8 +33,7 @@ script JurassicPark_Mountain_Top_EventScript_Aerodactyl
     playse(SE_PIN)
     applymovement(LOCALID_AERODACTYL, moves(emote_exclamation_mark, delay_16))
     waitmovement(0)
-    msgbox(format("PLACEHOLDER\pBattle against Aerodactly."))
-    closemessage
+    nonpuzzlebattle(SPECIES_AERODACTYL)
     removeobject(LOCALID_AERODACTYL)
     mnmbox(format("We…\nDid it?\pWe did it!\nLarvy, we did it!\pAnd I helped!\nI was useful!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     mnmbox(format("(You were.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_HAPPY)

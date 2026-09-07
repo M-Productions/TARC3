@@ -1167,6 +1167,9 @@ void CB2_InitCopyrightScreenAfterTitleScreen(void)
 
 void Task_Scene1_Load(u8 taskId)
 {
+    SetMainCallback2(CB2_InitTitleScreen);
+    DestroyTask(taskId);
+    
     SetVBlankCallback(NULL);
     sIntroCharacterGender = MOD(Random(), GENDER_COUNT);
     IntroResetGpuRegs();

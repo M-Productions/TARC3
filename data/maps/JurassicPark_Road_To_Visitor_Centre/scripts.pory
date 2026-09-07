@@ -319,6 +319,18 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Archen
     end
 }
 
+script JurassicPark_Road_To_Visitor_Centre_EventScript_Tyrantrum
+{
+    lock
+    mnmbox(format("Grrrawr!"), localId=LOCALID_TYRANTRUM_FOREST, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
+    closemessage
+    mnmboxdelay
+    mnmbox(format("C'mon Larvy…\n{PAUSE 40}Let's get out of here…"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_WORRIED)
+    closemessage
+    release
+    end
+}
+
 script JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa
 {
     lockall
@@ -468,7 +480,8 @@ script JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa
     mnmbox(format("(If we get them to talk to us, we might learn something about this mysterious island.)\p(Well, here goes nothing!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     mnmboxdelay
-    msgbox(format("Insert battle here"))
+    puzzlebattle(BP_TUTORIAL)
+    waitstate
     fadenewbgm(MUS_CALM_CUTSCENE)
     helpwindow(HELP_BATTLE_TUTORIAL)
     applymovement(LOCALID_DRAMPA_FOREST, moves(walk_in_place_down))
@@ -991,8 +1004,8 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
     waitmovement(0)
     mnmbox(format("GROAAAAAR!"), localId=LOCALID_TYRANTRUM_FOREST, mugshotEmotion=MUGSHOT_EMOTE_ANGRY)
     closemessage
-    msgbox(format("PLACEHOLDER.\pThis battle will be unwinnable.\pAny move selected by Larvy will cause them to not move.\pTyrantrum will ONLY attack the other pokemon, not Larvy."))
-    closemessage
+    puzzlebattle(BP_TYRANTRUM_LOSE)
+    waitstate
     mnmbox(format("(What…\nIs happening to me…)\p(My legs…\nAren't moving…?)\p(I'm…\nI'm too scared…)\p(Is this it…?\nNo…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
     switch(var(VAR_SECOND_SAVED))
     {

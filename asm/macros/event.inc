@@ -3095,3 +3095,9 @@
 	callnative StartPuzzleBattleScript
 	.byte \puzzle
 	.endm
+
+	.macro nonpuzzlebattle species:req
+	setvar VAR_ENCOUNTER_MON, \species
+	callnative StartNonPuzzleBattle
+	waitstate
+	.endm
