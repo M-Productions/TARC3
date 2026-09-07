@@ -843,7 +843,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS_2,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_PHANPY,
         .partnerAttackMove = MOVE_MUD_SLAP,
@@ -865,7 +865,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_FOLLOW_ME,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
@@ -1233,6 +1233,12 @@ void StartNonPuzzleBattle(void)
         ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
     gPartiesCount[B_TRAINER_PLAYER] = 1;
     ZeroEnemyPartyMons();
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];
+    SetMonMoveSlot(player, puzzlesData->playerAttackMove, 0);
+    SetMonMoveSlot(player, puzzlesData->playerDefendMove, 1);
+    SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
+    SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
     CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), WILD_BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
     LockPlayerFieldControls();
     CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
