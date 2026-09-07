@@ -1532,7 +1532,10 @@ static bool8 StartMenuDexNavCallback(void)
 
 static bool8 StartMenuMarshCallback(void)
 {
-    SetWarpDestinationToMapWarp(MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST), MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST), WARP_MARSH_PUZZLE_LEFT);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN))
+        SetWarpDestinationToMapWarp(MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN), MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAIN), 0);
+    else
+        SetWarpDestinationToMapWarp(MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST), MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST), WARP_MARSH_PUZZLE_LEFT);
     DoDiveWarp();
     ResetInitialPlayerAvatarState();
     return TRUE;
