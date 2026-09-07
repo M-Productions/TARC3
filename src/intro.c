@@ -1023,6 +1023,8 @@ static void VBlankCB_Intro(void)
 
 void MainCB2_Intro(void)
 {
+    SetMainCallback2(MainCB2_EndIntro);  //Just immediately end the intro
+    return;
     RunTasks();
     AnimateSprites();
     BuildOamBuffer();

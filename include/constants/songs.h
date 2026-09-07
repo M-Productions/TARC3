@@ -565,6 +565,7 @@
 #define MUS_VISITOR_CENTRE          619
 #define MUS_VS_BOSS_POWERFUL        620
 #define MUS_DETERMINATION           621
+#define MUS_JURASSIC_TITLE          622
 
 
 #endif  // GUARD_CONSTANTS_SONGS_H
