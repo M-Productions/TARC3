@@ -1431,6 +1431,18 @@ static void CB2_EndMarowakBattle(void)
 
 enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 {
+    s32 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+
+    switch (mapGroup)
+    {
+    case MAP_GROUP(MAP_JURASSIC_PARK_BEACH_DOCKS): return BATTLE_ENVIRONMENT_SAND;
+    case MAP_GROUP(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE): return BATTLE_ENVIRONMENT_PLAIN;
+    case MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN): return BATTLE_ENVIRONMENT_POND;
+    case MAP_GROUP(MAP_JURASSIC_PARK_DESERT_MAIN): return BATTLE_ENVIRONMENT_SAND;
+    case MAP_GROUP(MAP_JURASSIC_PARK_MOUNTAIN_BASE): return BATTLE_ENVIRONMENT_MOUNTAIN;
+    default: return BATTLE_ENVIRONMENT_PLAIN;
+    }
+
     u16 tileBehavior;
     s16 x, y;
 
