@@ -1228,8 +1228,8 @@ void TextPrinterClearDownArrow(struct TextPrinter *textPrinter)
     FillWindowPixelRect(
         textPrinter->printerTemplate.windowId,
         textPrinter->printerTemplate.color.background << 4 | textPrinter->printerTemplate.color.background,
-        textPrinter->printerTemplate.currentX,
-        textPrinter->printerTemplate.currentY,
+        ((gWindows[textPrinter->printerTemplate.windowId].window.width * 8) - 10),
+        ((gWindows[textPrinter->printerTemplate.windowId].window.height * 8) - 14),
         8,
         16);
     CopyWindowToVram(textPrinter->printerTemplate.windowId, COPYWIN_GFX);
