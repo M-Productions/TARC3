@@ -19,8 +19,7 @@ script JurassicPark_Mountain_Top_EventScript_Volcano
 
 script JurassicPark_Mountain_Top_EventScript_Archeops
 {
-    msgbox(format("PLACEHOLDER"))
-    closemessage
+    nonpuzzlebattle(SPECIES_ARCHEOPS)
     msgbox(format("Archeops will now help you fly over the lava!"))
     closemessage
     lock

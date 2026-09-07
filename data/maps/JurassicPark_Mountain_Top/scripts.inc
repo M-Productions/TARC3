@@ -32,133 +32,131 @@ JurassicPark_Mountain_Top_EventScript_Volcano::
 
 JurassicPark_Mountain_Top_EventScript_Archeops::
 # 22 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	msgbox JurassicPark_Mountain_Top_EventScript_Archeops_Text_0
+	nonpuzzlebattle SPECIES_ARCHEOPS
 # 23 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	closemessage
+	msgbox JurassicPark_Mountain_Top_EventScript_Archeops_Text_0
 # 24 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	msgbox JurassicPark_Mountain_Top_EventScript_Archeops_Text_1
-# 25 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	closemessage
-# 26 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 25 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	lock
-# 27 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 26 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	removeobject LOCALID_ARCHEOPS
-# 28 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 27 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	release
 	end
 
 
 JurassicPark_Mountain_Top_EventScript_Aerodactyl::
-# 34 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 33 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	playse SE_PIN
-# 35 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 34 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	applymovement LOCALID_AERODACTYL, JurassicPark_Mountain_Top_EventScript_Aerodactyl_Movement_0
-# 36 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 35 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	waitmovement 0
-# 37 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 36 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	nonpuzzlebattle SPECIES_AERODACTYL
-# 38 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 37 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	removeobject LOCALID_AERODACTYL
-# 39 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 38 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	mnmbox JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
-# 40 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 39 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	mnmbox JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
-# 41 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 40 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	mnmbox JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER
-# 42 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 41 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	closemessage
-# 43 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 42 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_MOUNTAIN_STATE, 5
 	end
 
 
 JurassicPark_Mountain_Top_EventScript_Generator::
-# 50 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 49 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	compare VAR_MOUNTAIN_STATE, 5
 	goto_if_eq JurassicPark_Mountain_Top_EventScript_Generator_2
 JurassicPark_Mountain_Top_EventScript_Generator_1:
-# 81 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 80 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	clearflag FLAG_HIDE_ARCHEOPS_BASE
 	end
 
 JurassicPark_Mountain_Top_EventScript_Generator_2:
-# 52 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 51 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	playse SE_M_STRENGTH
-# 53 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 52 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_0x8004, 1
-# 54 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 53 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_0x8005, 1
-# 55 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 54 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_0x8006, 20
-# 56 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 55 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_0x8007, 5
-# 57 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 56 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	special ShakeCamera
-# 58 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 57 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	waitstate
-# 59 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 58 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	switch VAR_GAME_STATE
-# 61 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 60 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	case GS_NO_GENERATORS, JurassicPark_Mountain_Top_EventScript_Generator_6
-# 64 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 63 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	case GS_POST_ONE_GENERATOR, JurassicPark_Mountain_Top_EventScript_Generator_7
-# 67 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 66 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	case GS_POST_TWO_GENERATORS, JurassicPark_Mountain_Top_EventScript_Generator_8
 JurassicPark_Mountain_Top_EventScript_Generator_4:
-# 71 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 70 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_MOUNTAIN_STATE, 7
-# 72 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 71 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_MOUNTAIN_COMPLETE, 1
-# 73 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 72 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	mnmbox JurassicPark_Mountain_Top_EventScript_Generator_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
-# 74 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 73 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	compare VAR_GAME_STATE, GS_THREE_GENERATORS
 	goto_if_eq JurassicPark_Mountain_Top_EventScript_Generator_10
 JurassicPark_Mountain_Top_EventScript_Generator_9:
-# 78 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 77 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	closemessage
 	goto JurassicPark_Mountain_Top_EventScript_Generator_1
 
 JurassicPark_Mountain_Top_EventScript_Generator_6:
-# 62 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 61 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_GAME_STATE, GS_ONE_GENERATOR
-# 63 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 62 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_FIRST_SAVED, CHAR_BAGON
 	goto JurassicPark_Mountain_Top_EventScript_Generator_4
 
 JurassicPark_Mountain_Top_EventScript_Generator_7:
-# 65 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 64 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_GAME_STATE, GS_TWO_GENERATORS
-# 66 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 65 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_SECOND_SAVED, CHAR_BAGON
 	goto JurassicPark_Mountain_Top_EventScript_Generator_4
 
 JurassicPark_Mountain_Top_EventScript_Generator_8:
-# 68 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 67 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_GAME_STATE, GS_THREE_GENERATORS
-# 69 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 68 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	setvar VAR_THIRD_SAVED, CHAR_BAGON
 	goto JurassicPark_Mountain_Top_EventScript_Generator_4
 
 JurassicPark_Mountain_Top_EventScript_Generator_10:
-# 76 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 75 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	mnmbox JurassicPark_Mountain_Top_EventScript_Generator_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 	goto JurassicPark_Mountain_Top_EventScript_Generator_9
 
 
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase::
-# 87 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 86 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	msgbox JurassicPark_Mountain_Base_EventScript_ArcheopsBase_Text_0, MSGBOX_YESNO
-# 88 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 87 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq JurassicPark_Mountain_Base_EventScript_ArcheopsBase_2
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase_1:
 	end
 
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase_2:
-# 90 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 89 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	warp MAP_JURASSIC_PARK_MOUNTAIN_BASE, 67, 25
-# 91 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 90 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	waitstate
 	goto JurassicPark_Mountain_Base_EventScript_ArcheopsBase_1
 
@@ -249,11 +247,11 @@ JurassicPark_Mountain_Top_EventScript_Volcano_Movement_0:
 	walk_fast_down
 	step_end
 
-# 35 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 34 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 JurassicPark_Mountain_Top_EventScript_Aerodactyl_Movement_0:
-# 35 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 34 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	emote_exclamation_mark
-# 35 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 34 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	delay_16
 	step_end
 
@@ -290,16 +288,12 @@ JurassicPark_Mountain_Top_EventScript_Volcano_Text_3:
 	.string "(Maybe that Pokémon could help us…?)$"
 
 JurassicPark_Mountain_Top_EventScript_Archeops_Text_0:
-# 22 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
-	.string "PLACEHOLDER$"
-
-JurassicPark_Mountain_Top_EventScript_Archeops_Text_1:
-# 24 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 23 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "Archeops will now help you fly over the\n"
 	.string "lava!$"
 
 JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_0:
-# 39 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 38 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "We…\n"
 	.string "Did it?\p"
 	.string "We did it!\n"
@@ -308,11 +302,11 @@ JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_0:
 	.string "I was useful!$"
 
 JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_1:
-# 40 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 39 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "(You were.)$"
 
 JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_2:
-# 41 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 40 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "If only the others could have seen it…\p"
 	.string "Ah!\n"
 	.string "Speaking of!\p"
@@ -320,7 +314,7 @@ JurassicPark_Mountain_Top_EventScript_Aerodactyl_Text_2:
 	.string "get out of here!$"
 
 JurassicPark_Mountain_Top_EventScript_Generator_Text_0:
-# 73 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 72 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "Did it work?\p"
 	.string "Yes, it did!\p"
 	.string "Larvy, I…\n"
@@ -338,11 +332,11 @@ JurassicPark_Mountain_Top_EventScript_Generator_Text_0:
 	.string "Pokémon again.$"
 
 JurassicPark_Mountain_Top_EventScript_Generator_Text_1:
-# 76 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 75 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "… … …$"
 
 JurassicPark_Mountain_Base_EventScript_ArcheopsBase_Text_0:
-# 87 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
+# 86 "data/maps/JurassicPark_Mountain_Top/scripts.pory"
 	.string "Seems like it wants to take you down\n"
 	.string "the mountain.\p"
 	.string "Accept the lift?$"

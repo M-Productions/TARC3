@@ -58,7 +58,7 @@ static u8 TextSpeed_ProcessInput(u8 selection);
 static void TextSpeed_DrawChoices(u8 selection);
 static u8 BattleScene_ProcessInput(u8 selection);
 static void BattleScene_DrawChoices(u8 selection);
-static u8 BattleStyle_ProcessInput(u8 selection);
+// static u8 BattleStyle_ProcessInput(u8 selection);
 // static void BattleStyle_DrawChoices(u8 selection);
 static u8 Sound_ProcessInput(u8 selection);
 static void Sound_DrawChoices(u8 selection);
@@ -480,16 +480,16 @@ static void BattleScene_DrawChoices(u8 selection)
     DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleSceneOff, 198), YPOS_BATTLESCENE, styles[1]);
 }
 
-static u8 BattleStyle_ProcessInput(u8 selection)
-{
-    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
-    {
-        selection ^= 1;
-        sArrowPressed = TRUE;
-    }
+// static u8 BattleStyle_ProcessInput(u8 selection)
+// {
+//     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+//     {
+//         selection ^= 1;
+//         sArrowPressed = TRUE;
+//     }
 
-    return selection;
-}
+//     return selection;
+// }
 
 // static void BattleStyle_DrawChoices(u8 selection)
 // {
