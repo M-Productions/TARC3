@@ -236,4 +236,5 @@ script JurassicPark_Mountain_Base_Bagon
     {
         mnmbox(format("Let's go, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
     }
+    end
 }

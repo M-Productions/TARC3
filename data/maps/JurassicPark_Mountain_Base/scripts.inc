@@ -320,12 +320,12 @@ JurassicPark_Mountain_Base_BruteBonnet_2:
 JurassicPark_Mountain_Base_Bagon::
 # 202 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	compare VAR_MOUNTAIN_STATE, 2
-	goto_if_eq JurassicPark_Mountain_Base_Bagon_1
+	goto_if_eq JurassicPark_Mountain_Base_Bagon_2
 # 237 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_13, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
-	return
+	end
 
-JurassicPark_Mountain_Base_Bagon_1:
+JurassicPark_Mountain_Base_Bagon_2:
 # 204 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	faceplayer
 # 205 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
@@ -339,10 +339,10 @@ JurassicPark_Mountain_Base_Bagon_1:
 # 209 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	switch VAR_GAME_STATE
 # 211 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	case GS_NO_GENERATORS, JurassicPark_Mountain_Base_Bagon_6
+	case GS_NO_GENERATORS, JurassicPark_Mountain_Base_Bagon_7
 # 214 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	case GS_POST_ONE_GENERATOR, JurassicPark_Mountain_Base_Bagon_7
-JurassicPark_Mountain_Base_Bagon_4:
+	case GS_POST_ONE_GENERATOR, JurassicPark_Mountain_Base_Bagon_8
+JurassicPark_Mountain_Base_Bagon_5:
 # 229 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_12, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 230 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
@@ -353,44 +353,44 @@ JurassicPark_Mountain_Base_Bagon_4:
 	setvar VAR_MOUNTAIN_STATE, 3
 	end
 
-JurassicPark_Mountain_Base_Bagon_6:
+JurassicPark_Mountain_Base_Bagon_7:
 # 212 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_4, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 213 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_5, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-	goto JurassicPark_Mountain_Base_Bagon_4
+	goto JurassicPark_Mountain_Base_Bagon_5
 
-JurassicPark_Mountain_Base_Bagon_7:
+JurassicPark_Mountain_Base_Bagon_8:
 # 215 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	switch VAR_FIRST_SAVED
 # 217 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	case CHAR_JIGGLYPUFF, JurassicPark_Mountain_Base_Bagon_9
+	case CHAR_JIGGLYPUFF, JurassicPark_Mountain_Base_Bagon_10
 # 220 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	case CHAR_PHANPY, JurassicPark_Mountain_Base_Bagon_10
+	case CHAR_PHANPY, JurassicPark_Mountain_Base_Bagon_11
 # 223 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	case GS_POST_TWO_GENERATORS, JurassicPark_Mountain_Base_Bagon_11
-	goto JurassicPark_Mountain_Base_Bagon_4
+	case GS_POST_TWO_GENERATORS, JurassicPark_Mountain_Base_Bagon_12
+	goto JurassicPark_Mountain_Base_Bagon_5
 
-JurassicPark_Mountain_Base_Bagon_9:
+JurassicPark_Mountain_Base_Bagon_10:
 # 218 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_6, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 219 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_7, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-	goto JurassicPark_Mountain_Base_Bagon_4
+	goto JurassicPark_Mountain_Base_Bagon_5
 
-JurassicPark_Mountain_Base_Bagon_10:
+JurassicPark_Mountain_Base_Bagon_11:
 # 221 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_8, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 222 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_9, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-	goto JurassicPark_Mountain_Base_Bagon_4
+	goto JurassicPark_Mountain_Base_Bagon_5
 
-JurassicPark_Mountain_Base_Bagon_11:
+JurassicPark_Mountain_Base_Bagon_12:
 # 224 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_10, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 225 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_11, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-	goto JurassicPark_Mountain_Base_Bagon_4
+	goto JurassicPark_Mountain_Base_Bagon_5
 
 
 # 9 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
