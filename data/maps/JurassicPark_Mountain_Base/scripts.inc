@@ -294,7 +294,7 @@ JurassicPark_Mountain_Base_BruteBonnet::
 # 189 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	faceplayer
 # 190 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	msgbox JurassicPark_Mountain_Base_BruteBonnet_Text_1
+	mnmbox JurassicPark_Mountain_Base_BruteBonnet_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 191 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	closemessage
 # 192 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
@@ -309,7 +309,7 @@ JurassicPark_Mountain_Base_BruteBonnet::
 
 JurassicPark_Mountain_Base_BruteBonnet_2:
 # 185 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	msgbox JurassicPark_Mountain_Base_BruteBonnet_Text_0
+	mnmbox JurassicPark_Mountain_Base_BruteBonnet_Text_0, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 186 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	closemessage
 	end
@@ -1143,14 +1143,13 @@ JurassicPark_Mountain_Base_EventScript_Archen_1_Text_2:
 
 JurassicPark_Mountain_Base_BruteBonnet_Text_0:
 # 185 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	.string "PLACEHOLDER.\p"
-	.string "Something's growing here, but it doesn't\n"
-	.string "seem interested in you yet.$"
+	.string "(Something's growing over there…)\p"
+	.string "(Wait… Not just growing… It's moving…)$"
 
 JurassicPark_Mountain_Base_BruteBonnet_Text_1:
 # 190 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	.string "PLACEHOLDER.\p"
-	.string "Brute Bonnet fight intro dialogue here.$"
+	.string "(It keeps eyeing Bagon… I need to keep\n"
+	.string "an eye on him…)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_0:
 # 204 "data/maps/JurassicPark_Mountain_Base/scripts.pory"

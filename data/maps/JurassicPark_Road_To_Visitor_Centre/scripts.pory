@@ -241,7 +241,8 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
         end
     }
     copyvar(VAR_0x8004, VAR_RESULT)
-    msgbox("PLACEHOLDER: Bastiodon fight intro dialogue here.")
+    mnmbox(format("(Its never seems to turns…)\p(Maybe its back doesn't even know I'm here.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
     puzzlebattle(BP_BASTIODON)
     waitstate
     if (var(VAR_RESULT) != B_OUTCOME_PUZZLE_COMPLETE) {

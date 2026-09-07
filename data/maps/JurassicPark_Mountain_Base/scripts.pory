@@ -182,12 +182,12 @@ script JurassicPark_Mountain_Base_BruteBonnet
 {
     if (var(VAR_MOUNTAIN_STATE) < 3)
     {
-        msgbox(format("PLACEHOLDER.\pSomething's growing here, but it doesn't seem interested in you yet."))
+        mnmbox(format("(Something's growing over there…)\p(Wait… Not just growing… It's moving…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
         closemessage
         end
     }
     faceplayer
-    msgbox(format("PLACEHOLDER.\pBrute Bonnet fight intro dialogue here."))
+    mnmbox(format("(It keeps eyeing Bagon… I need to keep an eye on him…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     puzzlebattle(BP_BRUTE_BONNET)
     waitstate
