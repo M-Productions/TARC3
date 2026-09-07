@@ -343,21 +343,21 @@ static void BuildNormalStartMenu(void)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)))
         AddStartMenuAction(MENU_ACTION_MARSH_PUZZLE);
     
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKEDEX);
+    // if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    //     AddStartMenuAction(MENU_ACTION_POKEDEX);
 
-    if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
-        AddStartMenuAction(MENU_ACTION_DEXNAV);
+    // if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
+    //     AddStartMenuAction(MENU_ACTION_DEXNAV);
 
-    if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKEMON);
+    // if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
+    //     AddStartMenuAction(MENU_ACTION_POKEMON);
 
-    AddStartMenuAction(MENU_ACTION_BAG);
+    // AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKENAV);
+    // if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    //     AddStartMenuAction(MENU_ACTION_POKENAV);
 
-    AddStartMenuAction(MENU_ACTION_PLAYER);
+    // AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
@@ -619,6 +619,7 @@ void ShowReturnToFieldStartMenu(void)
 
 void Task_ShowStartMenu(u8 taskId)
 {
+    //
     struct Task *task = &gTasks[taskId];
 
     switch (task->data[0])
