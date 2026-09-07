@@ -251,19 +251,14 @@ void Task_HandleExpansionIntro(u8 taskId)
             tState++;
         break;
     case 2:
-        if (tFrameCounter == 208)
+        if (tFrameCounter == 208 || gMain.newKeys != 0)
         {
             tState++;
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        }
-        else if (gMain.newKeys != 0)
-        {
-            CpuFill16(0, gPlttBufferFaded, sizeof(gPlttBufferFaded));
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITE);
             if (IsCryPlaying())
                 StopCry();
             m4aSongNumStop(SE_BIKE_HOP);
             m4aSongNumStop(SE_M_DOUBLE_SLAP);
-            tState++;
         }
         else
         {
