@@ -71,7 +71,7 @@ static void DoBattlePikeWildBattle(void);
 static void DoSafariBattle(void);
 static void DoGhostBattle(void);
 static void DoStandardWildBattle(bool32 isDouble);
-static void CB2_EndWildBattle(void);
+static void UNUSED CB2_EndWildBattle(void);
 static void CB2_EndScriptedWildBattle(void);
 static void CB2_EndMarowakBattle(void);
 static void TryUpdateGymLeaderRematchFromWild(void);
@@ -1363,7 +1363,7 @@ static void DowngradeBadPoison(void)
     }
 }
 
-static void CB2_EndWildBattle(void)
+static void UNUSED CB2_EndWildBattle(void)
 {
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
