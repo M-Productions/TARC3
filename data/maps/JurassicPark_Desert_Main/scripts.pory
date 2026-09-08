@@ -96,7 +96,7 @@ script JurassicPark_Desert_Main_EventScript_PhanpyJoins
 
 script JurassicPark_Desert_Main_EventScript_Phanpy
 {
-    mnmbox(format("Let's go, Larvy"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
+    mnmbox(format("Let's go, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
     closemessage
     end
 }
@@ -230,7 +230,7 @@ script JurassicPark_Desert_Main_EventScript_Cradily
     waitmovement(0)
     puzzlebattle(BP_CRADILY)
     waitstate
-    mnmbox(format("We did it!\p…Hey, it looks like this Cradily could help us get to the other side.\pCome on, we have a generator to restart."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+    mnmbox(format("We did it!\p…Hey, it looks like this Cradily wants to help us get to the other side.\pCome on, we have a generator to restart."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     closemessage
     setvar(VAR_DESERT_STATE, 5)
     warp(MAP_JURASSIC_PARK_DESERT_MAIN, 1)
@@ -240,6 +240,7 @@ script JurassicPark_Desert_Main_EventScript_Cradily
 
 script JurassicPark_Desert_Main_EventScript_CradilyTeleport
 {
+    mnmbox("Grogogaaargh!", localId=LOCALID_CRADILY_STATIC)
     warp(MAP_JURASSIC_PARK_DESERT_MAIN, 1)
     waitstate
     end

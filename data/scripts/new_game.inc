@@ -275,6 +275,8 @@ EventScript_ResetAllMapFlags::
 	call EventScript_ResetAllBerries
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_HIDE_DINOS_WILDS
+	setflag	FLAG_TYRUNT_1
+	setflag	FLAG_TYRUNT_2
 	setflag FLAG_HIDE_TYRANTRUM_FOREST
 	setflag FLAG_HIDE_BAGON_FOREST
 	setflag FLAG_HIDE_ARCHEOPS_BASE

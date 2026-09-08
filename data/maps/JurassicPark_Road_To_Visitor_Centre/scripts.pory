@@ -704,6 +704,8 @@ script JurassicPark_Visitor_Centre_EventScript_TyrantrumScene
     setflag(FLAG_HIDE_ARCHEN_FOREST)
     setflag(FLAG_HIDE_DRAMPA_CENTRE)
     setflag(FLAG_HIDE_DINOS_WILDS)
+    setflag(FLAG_TYRUNT_1)
+    setflag(FLAG_TYRUNT_2)
     clearflag(FLAG_SPAWN_WEST)
     waitstate
     

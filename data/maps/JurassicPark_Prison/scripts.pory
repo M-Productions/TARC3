@@ -296,10 +296,10 @@ script JurassicPark_EventScript_Prison_FinalCutscene
     playse(SE_EXIT)
     waitse
     delay(100)
+    fadescreen(FADE_TO_BLACK)
     playbgm(MUS_RG_SS_ANNE, 0)
-    msgbox(format("INSERT CREDITS HERE. PLEASE GO BACK TO TITLE SCREEN AFTER THIS."))
-    
-    setvar(VAR_GAME_STATE, GS_ROLL_CREDITS)
+    msgbox(format("JURASSIC POKÉPARK.\NA game by Nico and Marky.\pThank you so much for playing!\NWe hope you enjoyed the experience.\pFull credits are available on the hack's download page.\pSee you around!"))
+    special(DoSoftReset)
     end
     
 
