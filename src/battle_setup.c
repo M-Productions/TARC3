@@ -6,7 +6,6 @@
 #include "battle_tower.h"
 #include "battle_transition.h"
 #include "main.h"
-#include "moves.h"
 #include "task.h"
 #include "safari_zone.h"
 #include "script.h"
