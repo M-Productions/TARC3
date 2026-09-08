@@ -52,6 +52,7 @@ script JurassicPark_Mountain_Base_EventScript_Archen_1
         setobjectxyperm(VAR_LAST_TALKED, 17, 56)
         setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
     }
+    forcesave
     releaseall
     end
 }
@@ -193,6 +194,7 @@ script JurassicPark_Mountain_Base_BruteBonnet
     waitstate
     closemessage
     removeobject(LOCALID_BRUTE_BONNET)
+    forcesave
     end
 }
 

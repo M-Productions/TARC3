@@ -11,6 +11,9 @@ script JurassicPark_Marshlands_Maze_Armaldo
     closemessage
     puzzlebattle(BP_SING)
     waitstate
+    forcesave
+    releaseall
+    end
 }
 
 script JurassicPark_Marshlands_Generator

@@ -153,9 +153,6 @@ script JurassicPark_Desert_Main_EventsScript_RampardosFight
     closemessage
     puzzlebattle(BP_HEADBUTT)
     waitstate
-    if (var(VAR_RESULT) != B_OUTCOME_PUZZLE_COMPLETE) {
-        msgbox(format("PLACEHOLDER\nRampardos battle other outcomes here."))
-    }
     mnmbox(format("Run, Larvy, run!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_JOYOUS)
     lockall
     closemessage
@@ -192,6 +189,7 @@ script JurassicPark_Desert_Main_EventsScript_RampardosFight
     }
     mnmbox(format("Now let's go, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
     setvar(VAR_DESERT_STATE, 4)
+    forcesave
     releaseall
     end
 }

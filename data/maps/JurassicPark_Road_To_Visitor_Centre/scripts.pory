@@ -261,11 +261,8 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
     }
     closemessage
     puzzlebattle(BP_BASTIODON)
-    waitstate
-    if (var(VAR_RESULT) != B_OUTCOME_PUZZLE_COMPLETE) {
-        msgbox("PLACEHOLDER\nBastiodon battle other outcomes here.")
-    }
     removeobject(VAR_LAST_TALKED)
+    forcesave
     release
     end
 }
@@ -1165,7 +1162,7 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
     setflag(FLAG_SPAWN_WEST)
     fadescreen(FADE_FROM_BLACK)
     warpcontinuescript(MAP_JURASSIC_PARK_VISITOR_CENTRE, 18, 6, JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor)
-
+    waitstate
     end
 }
 script JurassicPark_Dino_Enclosure_EventScript_WhereAreYouGoing
