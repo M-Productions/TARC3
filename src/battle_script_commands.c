@@ -4311,7 +4311,7 @@ static void Cmd_checkteamslost(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if (NoAliveMonsForPlayer())
+    if (NoAliveMonsForPlayer() || !IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
         gBattleOutcome |= B_OUTCOME_LOST;
     if (NoAliveMonsForOpponent())
     {
