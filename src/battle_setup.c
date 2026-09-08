@@ -769,6 +769,9 @@ static u32 PuzzleOutcome_Bastiodon(void)
 
     sBastiodonPrevHP = currentHP;
 
+    if (!IsBattlerAlive(enemy))
+        return B_OUTCOME_LOST;
+
     if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
         return B_OUTCOME_LOST;
 
@@ -781,6 +784,9 @@ static u32 PuzzleOutcome_Cradily(void)
         return B_OUTCOME_PUZZLE_COMPLETE;
 
     if (!IsPuzzlePartnerAlive())
+        return B_OUTCOME_WON;
+
+    if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
         return B_OUTCOME_LOST;
 
     return 0;
@@ -812,6 +818,9 @@ static u32 PuzzleOutcome_Tyrantrum(void)
     enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
     if (!IsBattlerAlive(player))
+        return B_OUTCOME_LOST;
+
+    if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
         return B_OUTCOME_LOST;
 
     if (GetBattlerChosenMove(player) == MOVE_LARVESTA_DEFEND)
@@ -955,6 +964,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = BP_BP_BASTIODON_ENEMY_MOVE_ATTACK,
         .enemyDefendMove = BP_BP_BASTIODON_ENEMY_MOVE_DEFEND,
         .enemyStatusMove = BP_BP_BASTIODON_ENEMY_MOVE_STATUS,
+        .enemyHP = 90,
 
         .aiFunc = AI_BastiodonFlankGuard,
         .puzzleFunc = PuzzleOutcome_Bastiodon,
@@ -977,6 +987,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
 
+        .battleFlags = BATTLE_TYPE_DOUBLE,
         .puzzleFunc = PuzzleOutcome_Cradily
     },
 
@@ -1066,6 +1077,8 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = MOVE_SNORE,
         .enemyStatusMove = MOVE_NASTY_PLOT,
         .enemyDefendMove = MOVE_REST,
+
+        .battleFlags = BATTLE_TYPE_DOUBLE,
     }
 };
 
@@ -1256,6 +1269,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     ResetTyrantrumStillStreak();
     ResetBruteBonnetPoisonCounter();
     SetDynamicAIFunc(puzzlesData->aiFunc);
+    StoreInitialPlayerAvatarState();
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
@@ -1268,9 +1282,9 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
 void StartNonPuzzleBattle(void)
 {
     HealPlayerParty();
-    for (s32 i = 1; i < PARTY_SIZE; i++)
-        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    // for (s32 i = 1; i < PARTY_SIZE; i++)
+    //     ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    // gPartiesCount[B_TRAINER_PLAYER] = 1;
     ZeroEnemyPartyMons();
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
     const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];
@@ -1279,10 +1293,12 @@ void StartNonPuzzleBattle(void)
     SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
     SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
     CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     LockPlayerFieldControls();
     CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
     CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][0]);
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    StoreInitialPlayerAvatarState();
     CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
 

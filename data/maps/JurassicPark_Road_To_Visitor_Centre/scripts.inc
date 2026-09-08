@@ -3691,8 +3691,9 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_Text_0:
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_Text_1:
 # 245 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	.string "(Its never seems to turn…)\p"
-	.string "(It can certainly see me, for now…)$"
+	.string "(It never seems to turn…\n"
+	.string "It can certainly see me, for now…)\p"
+	.string "(Maybe I can help it out…)$"
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_Text_2:
 # 248 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -3700,8 +3701,9 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_Text_2:
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_Text_3:
 # 258 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	.string "(Its never seems to turn…)\p"
-	.string "(Maybe it doesn't even know I'm here.)$"
+	.string "(It never seems to turn…\n"
+	.string "Maybe it doesn't even know I'm here.)\p"
+	.string "(Maybe I can help it out…)$"
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_Raging_Bolt_Text_0:
 # 272 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"

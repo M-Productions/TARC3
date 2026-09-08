@@ -393,15 +393,16 @@ void StartWildBattleWithOWE(struct ScriptContext *ctx)
     }
 
     ZeroEnemyPartyMons();
-    for (s32 i = 1; i < PARTY_SIZE; i++)
-        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    // for (s32 i = 1; i < PARTY_SIZE; i++)
+    //     ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    // gPartiesCount[B_TRAINER_PLAYER] = 1;
     personality = GetMonPersonality(speciesId, gender, NATURE_RANDOM, RANDOM_UNOWN_LETTER);
     CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], speciesId, WILD_BATTLE_LEVEL, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IS_SHINY, &shiny);
 
     AdjustNonPuzzleLarvestaMoves();
+    StoreInitialPlayerAvatarState();
     
     if (StartWildBattleWithOWE_CheckBattleFrontier(headerId))
         return;

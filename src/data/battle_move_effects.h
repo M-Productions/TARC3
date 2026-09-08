@@ -287,6 +287,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
+    [EFFECT_TICKLE_TUTORIAL] =
+    {
+        .battleScript = BattleScript_TickleTutorial,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_TALK_TUTORIAL] =
     {
         .battleScript = BattleScript_EffectTalkTutorial,

@@ -242,7 +242,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
     }
     mnmboxdelay
     if(var(VAR_RESULT) == DIR_NORTH){
-        mnmbox(format("(Its never seems to turn…)\p(It can certainly see me, for now…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        mnmbox(format("(It never seems to turn…\nIt can certainly see me, for now…)\p(Maybe I can help it out…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
         closemessage
         mnmboxdelay
         msgbox("Approach the Bastiodon?", MSGBOX_YESNO)
@@ -255,7 +255,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
     }
     else
     {
-        mnmbox(format("(Its never seems to turn…)\p(Maybe it doesn't even know I'm here.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        mnmbox(format("(It never seems to turn…\nMaybe it doesn't even know I'm here.)\p(Maybe I can help it out…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     }
     closemessage
     puzzlebattle(BP_BASTIODON)
