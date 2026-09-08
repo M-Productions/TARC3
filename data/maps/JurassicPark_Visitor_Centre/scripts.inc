@@ -1336,9 +1336,7 @@ JurassicPark_Visitor_Centre_EventScript_LarvyPanic_Text_3:
 	.string "(Gulp…\n"
 	.string "Can I even… Do this?)\p"
 	.string "(…I don't have a choice.\n"
-	.string "I need to.)\p"
-	.string "(I just hope…\n"
-	.string "I'm able to do it.)$"
+	.string "I need to.)$"
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor_Text_0:
 # 386 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"

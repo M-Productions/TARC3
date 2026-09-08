@@ -815,7 +815,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_PHANPY,
         .partnerAttackMove = MOVE_BULLDOZE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_TAUNT,
+        .partnerStatusMove = MOVE_ENCORE,
 
         .enemySpecies = SPECIES_RAMPARDOS,
         .enemyAttackMove = MOVE_MEDITATE,
