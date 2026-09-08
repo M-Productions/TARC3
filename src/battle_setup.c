@@ -1232,6 +1232,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         hpStart = puzzlesData->partnerHP ? puzzlesData->partnerHP : hpMax;
         SetMonData(partner, MON_DATA_HP, &hpStart);
         SetMonData(partner, MON_DATA_MAX_HP, &hpMax);
+        CalculateMonStats(partner);
     }
 
     struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
@@ -1245,6 +1246,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     hpStart = puzzlesData->enemyHP ? puzzlesData->enemyHP : hpMax;
     SetMonData(enemy, MON_DATA_HP, &hpStart);
     SetMonData(enemy, MON_DATA_MAX_HP, &hpMax);
+    CalculateMonStats(enemy);
 
     if (puzzlesData->enemyTwoSpecies)
     {
@@ -1259,6 +1261,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         hpStart = puzzlesData->enemyTwoHP ? puzzlesData->enemyTwoHP : hpMax;
         SetMonData(enemyTwo, MON_DATA_HP, &hpStart);
         SetMonData(enemyTwo, MON_DATA_MAX_HP, &hpMax);
+        CalculateMonStats(enemyTwo);
     }
 
     AdjustBattleData(puzzle);
