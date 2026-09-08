@@ -50,7 +50,7 @@ const struct HelpWindow gHelpWindowInfo[] =
                                 "  a protective defensive move,\n"
                                 "  a stat changing status move, and\n"
                                 "  a move unique to the Pokémon who uses it.\n\n"
-                                "Winning a battle will be done by finding\nthe correct combination of these moves."
+                                "Read the move descriptions each battle to\nfind the correct combination and win!"
                             ),
         // .headerFont = FONT_SHORT,
     },
