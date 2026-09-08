@@ -1063,6 +1063,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .aiFunc = AI_AttackPartner,
         .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
         .doNothingPlayer = TRUE,
+        .battleFlags = BATTLE_TYPE_DOUBLE,
     },
 
     [BP_DRAMPA] =
