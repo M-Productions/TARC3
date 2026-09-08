@@ -1082,6 +1082,11 @@ bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
 
 void ClearBattlePuzzle(void)
 {
+    if (sActivePuzzle != BP_TYRANTRUM_LOSE
+     && gBattleOutcome == B_OUTCOME_LOST
+     && IsPlayerDefeated(gBattleOutcome))
+        DoSoftReset();
+
     sActivePuzzle = BP_NONE;
 }
 
