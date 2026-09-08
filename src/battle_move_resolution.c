@@ -973,6 +973,8 @@ static enum CancelerResult CancelerSetTargets(struct BattleCalcValues *cv)
 
 static enum CancelerResult CancelerPPDeduction(struct BattleCalcValues *cv)
 {
+    return CANCELER_RESULT_SUCCESS;
+
     if (gBattleMons[cv->battlerAtk].volatiles.multipleTurns
      || gSpecialStatuses[cv->battlerAtk].dancerUsedMove
      || gBattleStruct->bouncedMoveIsUsed

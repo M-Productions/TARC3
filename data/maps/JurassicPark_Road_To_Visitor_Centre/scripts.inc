@@ -503,6 +503,13 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_5:
 	msgbox JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_Text_2
 	goto JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_4
 
+JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon_8:
+# 253 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	closemessage
+# 254 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	release
+	end
+
 
 JurassicPark_Road_To_Visitor_Centre_EventScript_Raging_Bolt::
 # 255 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -742,13 +749,13 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_4:
 # 398 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	closemessage
 # 399 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playmoncry SPECIES_DRAMPA, CRY_MODE_NORMAL
+	applymovement LOCALID_PHANPY_FOREST, JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Movement_7
 # 400 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	msgbox JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Text_18
 # 401 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playmoncry SPECIES_DRAMPA, CRY_MODE_NORMAL
+	fadescreen FADE_FROM_BLACK
 # 402 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	msgbox JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Text_18
+	special SpawnCameraObject
 # 403 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa_Text_19, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 404 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -955,7 +962,7 @@ JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa_1:
 # 518 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	applymovement LOCALID_PHANPY_FOREST, JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkWest_Movement_0
 # 519 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	waitmovement 0
+	setflag FLAG_HIDE_DRAMPA_FOREST
 # 520 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	applymovement LOCALID_BAGON_FOREST, JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest_Movement_2
 # 521 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -1206,13 +1213,13 @@ JurassicPark_Visitor_Centre_EventScript_TyrantrumScene::
 # 653 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	closemessage
 # 654 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playse SE_M_STRENGTH
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Text_1, localId = LOCALID_BAGON_FOREST, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
 # 655 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Text_2, localId = LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 656 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	waitmovement 0
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Text_3, localId = LOCALID_PHANPY_FOREST, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 657 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playse SE_M_STRENGTH
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Text_4, localId = LOCALID_BAGON_FOREST, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 658 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
 # 659 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -1719,31 +1726,31 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_6:
 # 959 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
 # 960 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	waitmovement 0
+	closemessage
 # 961 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playse SE_M_STRENGTH
+	playmoncry SPECIES_TYRANTRUM, CRY_MODE_NORMAL
 # 962 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
+	waitmoncry
 # 963 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	waitmovement 0
+	mnmbox JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_Text_6, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 964 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playse SE_M_STRENGTH
+	closemessage
 # 965 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
+	playbgm MUS_VS_BOSS_POWERFUL, TRUE
 # 966 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	waitmovement 0
+	playse SE_M_STRENGTH
 # 967 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playse SE_M_STRENGTH
+	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
 # 968 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
+	applymovement LOCALID_PLAYER, JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest_Movement_1
 # 969 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	waitmovement 0
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest_Movement_1
 # 970 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	playse SE_M_STRENGTH
-# 971 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
-# 972 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	waitmovement 0
+# 971 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	playse SE_M_STRENGTH
+# 972 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_FOREST, JurassicPark_Visitor_Centre_EventScript_TyrantrumScene_Movement_1
 # 973 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	playse SE_M_STRENGTH
 # 974 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
@@ -1964,6 +1971,8 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_55:
 	fadescreen FADE_FROM_BLACK
 # 1151 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	warpcontinuescript MAP_JURASSIC_PARK_VISITOR_CENTRE, 18, 6, JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor
+# 1165 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
+	waitstate
 	end
 
 JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene_3:

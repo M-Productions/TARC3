@@ -57,6 +57,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "fishing.h"
+#include "constants/rgb.h"
 
 enum TransitionType
 {
@@ -71,7 +72,7 @@ static void DoBattlePikeWildBattle(void);
 static void DoSafariBattle(void);
 static void DoGhostBattle(void);
 static void DoStandardWildBattle(bool32 isDouble);
-static void CB2_EndWildBattle(void);
+static void UNUSED CB2_EndWildBattle(void);
 static void CB2_EndScriptedWildBattle(void);
 static void CB2_EndMarowakBattle(void);
 static void TryUpdateGymLeaderRematchFromWild(void);
@@ -592,18 +593,51 @@ static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef
 }
 
 #define BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK MOVE_FALSE_SURRENDER
-#define BP_BRUTE_BONNET_ENEMY_MOVE_STATUS MOVE_SPORE
+#define BP_BRUTE_BONNET_ENEMY_MOVE_STATUS MOVE_POISON_POWDER
 static s32 AI_BruteBonnetSporeCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    bool32 bagonAsleep = gBattleMons[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)].status1 & STATUS1_SLEEP;
+    bool32 bagonPoisoned = gBattleMons[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)].status1 & STATUS1_POISON;
 
     if (move == BP_BRUTE_BONNET_ENEMY_MOVE_STATUS)
-        return bagonAsleep ? 0 : 100;
+        return bagonPoisoned ? 0 : 100;
 
     if (move == BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK)
-        return bagonAsleep ? 100 : 0;
+        return bagonPoisoned ? 100 : 0;
 
     return score;
+}
+
+#define BP_BRUTE_BONNET_POISON_DURATION 3
+static EWRAM_DATA u8 sBruteBonnetPoisonTurns[2] = {0};
+
+static void ResetBruteBonnetPoisonCounter(void)
+{
+    sBruteBonnetPoisonTurns[0] = 0; // Larvesta
+    sBruteBonnetPoisonTurns[1] = 0; // Bagon
+}
+
+static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
+{
+    if (!(gBattleMons[battler].status1 & STATUS1_POISON))
+    {
+        *turns = 0;
+        return;
+    }
+
+    (*turns)++;
+    if (*turns >= BP_BRUTE_BONNET_POISON_DURATION)
+    {
+        gBattleMons[battler].status1 &= ~STATUS1_POISON;
+        *turns = 0;
+    }
+}
+
+static u32 PuzzleOutcome_BruteBonnet(void)
+{
+    BruteBonnetPoisonCounter(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT), &sBruteBonnetPoisonTurns[0]);
+    BruteBonnetPoisonCounter(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT), &sBruteBonnetPoisonTurns[1]);
+
+    return 0;
 }
 
 static enum BattlerId GetPuzzleEnemyBattler(void)
@@ -650,21 +684,18 @@ static u32 PuzzleOutcome_Armaldo(void)
 
 static s32 AI_AnorithBurrowCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    enum BattlerId anorithTwo = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    if (gBattleResults.battleTurnCounter == 0)
+        return (move == MOVE_PROTECT) ? 100 : 0;
 
-    if (battlerAtk == anorithTwo && gBattleResults.battleTurnCounter == 0)
-        return (move == MOVE_HARDEN) ? 100 : 0;
-
-    return (move == MOVE_DIG) ? 100 : 0;
+    return (move == MOVE_HARDEN) ? 100 : 0;
 }
 
 static u32 PuzzleOutcome_Anorith(void)
 {
     enum BattlerId anorithOne = GetPuzzleEnemyBattler();
-    enum BattlerId anorithTwo = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
 
-    if (!IsBattlerAlive(anorithOne) && !IsBattlerAlive(anorithTwo))
-        return B_OUTCOME_PUZZLE_COMPLETE;
+    if (!(IsBattlerAlive(anorithOne)))
+        return B_OUTCOME_LOST;
 
     if (!IsPuzzlePartnerAlive())
         return B_OUTCOME_LOST;
@@ -678,6 +709,7 @@ static EWRAM_DATA u8 sBastiodonGuardRolledTurn = 0;
 static EWRAM_DATA bool8 sBastiodonGuardUpThisTurn = FALSE;
 static EWRAM_DATA u32 sBastiodonPrevHP = 0;
 
+#define BP_BP_BASTIODON_ENEMY_MOVE_ATTACK MOVE_HEADBUTT
 #define BP_BP_BASTIODON_ENEMY_MOVE_DEFEND MOVE_BASTIODON_GUARD_1
 #define BP_BP_BASTIODON_ENEMY_MOVE_STATUS MOVE_HARDEN
 static void ResetBastiodonGuardAI(void)
@@ -698,13 +730,23 @@ static s32 AI_BastiodonFlankGuard(enum BattlerId battlerAtk, enum BattlerId batt
         sBastiodonGuardRolled = TRUE;
         sBastiodonGuardRolledTurn = turn;
         gBattleMons[battlerAtk].volatiles.consecutiveMoveUses = 0;
-        sBastiodonGuardUpThisTurn = !sBastiodonApproachFromBehind && RandomPercentage(RNG_NONE, 50);
+        sBastiodonGuardUpThisTurn = RandomPercentage(RNG_NONE, 50);
     }
 
-    if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
-        return sBastiodonGuardUpThisTurn ? 100 : 0;
-    if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
-        return sBastiodonGuardUpThisTurn ? 0 : 100;
+    if (sBastiodonApproachFromBehind)
+    {
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
+            return 0;
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
+            return sBastiodonGuardUpThisTurn ? 100 : 0;
+    }
+    else
+    {
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
+            return 0;
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
+            return sBastiodonGuardUpThisTurn ? 100 : 0;
+    }
 
     return score;
 }
@@ -810,12 +852,13 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS_2,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_PHANPY,
-        .partnerAttackMove = MOVE_BULLDOZE,
+        .partnerAttackMove = MOVE_MUD_SLAP,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_ENCORE,
+        .partnerAceMove = MOVE_BULLDOZE,
 
         .enemySpecies = SPECIES_RAMPARDOS,
         .enemyAttackMove = MOVE_MEDITATE,
@@ -831,12 +874,13 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_FOLLOW_ME,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_TUTORIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SING,
+        .partnerStatusMove = MOVE_CHARM,
+        .partnerAceMove = MOVE_SING,
         .partnerHP = 75,
         .partnerMaxHP = 150,
 
@@ -853,22 +897,18 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_TICKLE_ANORITH,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SPLASH,
+        .partnerStatusMove = MOVE_WHIRLWIND,
         .partnerHP = 60,
         .partnerMaxHP = 100,
 
         .enemySpecies = SPECIES_ANORITH,
-        .enemyAttackMove = MOVE_DIG,
+        .enemyAttackMove = MOVE_DETECT,
         .enemyDefendMove = MOVE_HARDEN,
-
-        .enemyTwoSpecies = SPECIES_ANORITH,
-        .enemyTwoAttackMove = MOVE_DIG,
-        .enemyTwoDefendMove = MOVE_HARDEN,
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_AnorithBurrowCycle,
@@ -886,7 +926,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_BAGON,
         .partnerAttackMove = MOVE_DRAGON_BREATH,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SPLASH,
+        .partnerStatusMove = MOVE_DRAGON_DANCE,
         .partnerStatusEffect = STATUS1_POISON,
 
         .enemySpecies = SPECIES_BRUTE_BONNET,
@@ -895,6 +935,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_BruteBonnetSporeCycle,
+        .puzzleFunc = PuzzleOutcome_BruteBonnet,
     },
 
     [BP_BASTIODON] =
@@ -905,6 +946,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_BASTIODON,
+        .enemyAttackMove = BP_BP_BASTIODON_ENEMY_MOVE_ATTACK,
         .enemyDefendMove = BP_BP_BASTIODON_ENEMY_MOVE_DEFEND,
         .enemyStatusMove = BP_BP_BASTIODON_ENEMY_MOVE_STATUS,
 
@@ -920,9 +962,10 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_PHANPY,
-        .partnerAttackMove = MOVE_BULLDOZE,
+        .partnerAttackMove = MOVE_MUD_SLAP,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_TAUNT,
+        .partnerStatusMove = MOVE_ENCORE,
+        .partnerAceMove = MOVE_BULLDOZE,
 
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
@@ -1041,9 +1084,35 @@ bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
     return FALSE;
 }
 
+static void DoSoftReset_Task(u8 taskId)
+{
+    if (!gPaletteFade.active)
+        DoSoftReset();
+}
+
 void ClearBattlePuzzle(void)
 {
+    if (sActivePuzzle != BP_TYRANTRUM_LOSE
+     && gBattleOutcome == B_OUTCOME_LOST
+     && IsPlayerDefeated(gBattleOutcome))
+    {
+        FadeOutMapMusic(4);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_WHITE);
+        CreateTask(DoSoftReset_Task, 0);
+    }
+
     sActivePuzzle = BP_NONE;
+}
+
+void AdjustNonPuzzleLarvestaMoves(void)
+{
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];
+    SetMonMoveSlot(player, puzzlesData->playerAttackMove, 0);
+    SetMonMoveSlot(player, puzzlesData->playerDefendMove, 1);
+    SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
+    SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
+    CalculateMonStats(player);
 }
 
 void AdjustBattleData(enum BattlePuzzles puzzle)
@@ -1178,6 +1247,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     ResetRampardosRandomAI();
     ResetBastiodonGuardAI();
     ResetTyrantrumStillStreak();
+    ResetBruteBonnetPoisonCounter();
     SetDynamicAIFunc(puzzlesData->aiFunc);
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
@@ -1195,6 +1265,12 @@ void StartNonPuzzleBattle(void)
         ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
     gPartiesCount[B_TRAINER_PLAYER] = 1;
     ZeroEnemyPartyMons();
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];
+    SetMonMoveSlot(player, puzzlesData->playerAttackMove, 0);
+    SetMonMoveSlot(player, puzzlesData->playerDefendMove, 1);
+    SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
+    SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
     CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), WILD_BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
     LockPlayerFieldControls();
     CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
@@ -1363,7 +1439,7 @@ static void DowngradeBadPoison(void)
     }
 }
 
-static void CB2_EndWildBattle(void)
+static void UNUSED CB2_EndWildBattle(void)
 {
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
@@ -1431,6 +1507,18 @@ static void CB2_EndMarowakBattle(void)
 
 enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 {
+    s32 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+
+    switch (mapGroup)
+    {
+    case MAP_GROUP(MAP_JURASSIC_PARK_BEACH_DOCKS): return BATTLE_ENVIRONMENT_SAND;
+    case MAP_GROUP(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE): return BATTLE_ENVIRONMENT_PLAIN;
+    case MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN): return BATTLE_ENVIRONMENT_POND;
+    case MAP_GROUP(MAP_JURASSIC_PARK_DESERT_MAIN): return BATTLE_ENVIRONMENT_SAND;
+    case MAP_GROUP(MAP_JURASSIC_PARK_MOUNTAIN_BASE): return BATTLE_ENVIRONMENT_MOUNTAIN;
+    default: return BATTLE_ENVIRONMENT_PLAIN;
+    }
+
     u16 tileBehavior;
     s16 x, y;
 

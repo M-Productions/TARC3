@@ -2010,8 +2010,10 @@ static void CB2_LoadMapOnReturnToFieldCableClub(void)
     }
 }
 
+#include "script_pokemon_util.h"
 void CB2_ReturnToField(void)
 {
+    HealPlayerParty();
     if (IsOverworldLinkActive() == TRUE)
     {
         SetMainCallback2(CB2_ReturnToFieldLink);

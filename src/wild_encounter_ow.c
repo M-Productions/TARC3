@@ -360,6 +360,7 @@ static enum TypeOWE GetOverworldWildEncounterType(struct ObjectEvent *owe)
     return OWE_MANUAL;
 }
 
+extern void AdjustNonPuzzleLarvestaMoves();
 void StartWildBattleWithOWE(struct ScriptContext *ctx)
 {
     u32 localId = VarGet(ScriptReadHalfword(ctx));
@@ -392,10 +393,15 @@ void StartWildBattleWithOWE(struct ScriptContext *ctx)
     }
 
     ZeroEnemyPartyMons();
+    for (s32 i = 1; i < PARTY_SIZE; i++)
+        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    gPartiesCount[B_TRAINER_PLAYER] = 1;
     personality = GetMonPersonality(speciesId, gender, NATURE_RANDOM, RANDOM_UNOWN_LETTER);
-    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], speciesId, BATTLE_LEVEL, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], speciesId, WILD_BATTLE_LEVEL, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IS_SHINY, &shiny);
+
+    AdjustNonPuzzleLarvestaMoves();
     
     if (StartWildBattleWithOWE_CheckBattleFrontier(headerId))
         return;
@@ -2106,11 +2112,15 @@ const struct ObjectEventTemplate TryGetObjectEventTemplateForOWE(const struct Ob
     if (levelTemplate)
         info.level = levelTemplate;
 
-    assertf((CheckValidOWESpecies(info.speciesId)
+    // assertf((CheckValidOWESpecies(info.speciesId)
+    //     && info.level >= MIN_LEVEL
+    //     && info.level <= MAX_LEVEL)
+    //     || gObjectEvents[GetObjectEventIdByLocalId(template->localId)].active,
+    //     "invalid manual overworld encounter template\nspecies: %d\nlevel: %d\ntemplate x: %d\ntemplate y: %d\ncheck if valid wild mon header exists", info.speciesId, info.level, x, y)
+    if (!((CheckValidOWESpecies(info.speciesId)
         && info.level >= MIN_LEVEL
         && info.level <= MAX_LEVEL)
-        || gObjectEvents[GetObjectEventIdByLocalId(template->localId)].active,
-        "invalid manual overworld encounter template\nspecies: %d\nlevel: %d\ntemplate x: %d\ntemplate y: %d\ncheck if valid wild mon header exists", info.speciesId, info.level, x, y)
+        || gObjectEvents[GetObjectEventIdByLocalId(template->localId)].active))
     {
         if (!CheckValidOWESpecies(info.speciesId))
         {

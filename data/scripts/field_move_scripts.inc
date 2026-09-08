@@ -13,7 +13,7 @@ EventScript_CutTree_Kabuto::
 	removeobject VAR_0x8000
 	callnative RemoveMarshPuzzleBarriers
 	releaseall
-	end
+	return
 
 @ Interact with cuttable tree
 EventScript_CutTree::
