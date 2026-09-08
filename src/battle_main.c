@@ -3940,7 +3940,8 @@ bool32 EndTurnEvents(void) // Called from Battle Script
     for (u32 i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
 
-    SetBattlePuzzleOutcome();
+    if (DoesBattleHavePuzzle())
+        SetBattlePuzzleOutcome();
 
     if (gBattleOutcome != 0)
     {
