@@ -96,8 +96,8 @@
 #define FLAG_HIDE_LAB_DRAMPA    0x4A // Unused Flag
 #define FLAG_SPAWN_INVISIBLE    0x4B // Unused Flag
 #define FLAG_NO_SHINY    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
+#define FLAG_TYRUNT_1    0x4D // Unused Flag
+#define FLAG_TYRUNT_2    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
 
 // Scripts

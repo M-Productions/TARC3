@@ -407,6 +407,8 @@ script JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa
     setflag(FLAG_HIDE_TYRANTRUM_PLATFORM)
     setvar(VAR_GAME_STATE, GS_CENTRE_AFTER_BRIDGE)
     clearflag(FLAG_HIDE_DINOS_WILDS)
+    clearflag(FLAG_TYRUNT_1)
+    clearflag(FLAG_TYRUNT_2)
     setflag(FLAG_HIDE_DINOS_PLATFORM)
     releaseall
     end

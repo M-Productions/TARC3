@@ -36,7 +36,7 @@
       "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_DINOS_WILDS"
+      "flag": "FLAG_TYRUNT_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TYRUNT)",
@@ -49,7 +49,7 @@
       "trainer_type": "TRAINER_TYPE_OW_WILD_ENCOUNTER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_DINOS_WILDS"
+      "flag": "FLAG_TYRUNT_2"
     }
   ],
   "warp_events": [],

@@ -380,11 +380,13 @@ JurassicPark_EventScript_Prison_FinalCutscene_51:
 # 298 "data/maps/JurassicPark_Prison/scripts.pory"
 	delay 100
 # 299 "data/maps/JurassicPark_Prison/scripts.pory"
-	playbgm MUS_RG_SS_ANNE, 0
+	fadescreen FADE_TO_BLACK
 # 300 "data/maps/JurassicPark_Prison/scripts.pory"
+	playbgm MUS_RG_SS_ANNE, 0
+# 301 "data/maps/JurassicPark_Prison/scripts.pory"
 	msgbox JurassicPark_EventScript_Prison_FinalCutscene_Text_67
 # 302 "data/maps/JurassicPark_Prison/scripts.pory"
-	setvar VAR_GAME_STATE, GS_ROLL_CREDITS
+	special DoSoftReset
 	end
 
 JurassicPark_EventScript_Prison_FinalCutscene_3:
@@ -1351,6 +1353,11 @@ JurassicPark_EventScript_Prison_FinalCutscene_Text_66:
 	.string "(And, goodbye.)$"
 
 JurassicPark_EventScript_Prison_FinalCutscene_Text_67:
-# 300 "data/maps/JurassicPark_Prison/scripts.pory"
-	.string "INSERT CREDITS HERE. PLEASE GO BACK TO\n"
-	.string "TITLE SCREEN AFTER THIS.$"
+# 301 "data/maps/JurassicPark_Prison/scripts.pory"
+	.string "JURASSIC POKÉPARK.\n"
+	.string "A game by Nico and Marky.\p"
+	.string "Thank you so much for playing!\n"
+	.string "We hope you enjoyed the experience.\p"
+	.string "Full credits are available on the hack's\n"
+	.string "download page.\p"
+	.string "See you around!$"

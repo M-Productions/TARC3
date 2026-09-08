@@ -725,294 +725,298 @@ JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa::
 # 409 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	clearflag FLAG_HIDE_DINOS_WILDS
 # 410 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setflag FLAG_HIDE_DINOS_PLATFORM
+	clearflag FLAG_TYRUNT_1
 # 411 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	clearflag FLAG_TYRUNT_2
+# 412 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	setflag FLAG_HIDE_DINOS_PLATFORM
+# 413 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	releaseall
 	end
 
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum::
-# 420 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	lockall
-# 421 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	getplayerxy VAR_0x8004, VAR_0x8005
 # 422 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxyperm LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005
+	lockall
 # 423 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxy LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005
+	getplayerxy VAR_0x8004, VAR_0x8005
 # 424 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	addobject LOCALID_TYRANTRUM_BRIDGE
+	setobjectxyperm LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005
 # 425 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_0, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
+	setobjectxy LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005
 # 426 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	closemessage
+	addobject LOCALID_TYRANTRUM_BRIDGE
 # 427 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
+	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_0, localId = VAR_LOCALID_CUTSCENE_MAIN, mugshotEmotion = MUGSHOT_EMOTE_SHOUTING
 # 428 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
-# 429 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 430 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 431 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
-# 432 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 433 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 434 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
-# 435 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 436 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_1
-# 438 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 440 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
-# 441 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 442 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_2
-# 444 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 446 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
-# 447 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 448 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_M_STRENGTH
-# 449 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
-# 450 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 451 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_PIN
-# 452 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_3
-# 453 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitse
-# 454 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_1, localId = LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
-# 455 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	closemessage
+# 429 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 430 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
+# 431 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 432 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 433 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
+# 434 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 435 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 436 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
+# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 438 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_1
+# 440 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 441 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 442 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
+# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 444 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_2
+# 446 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 447 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 448 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
+# 449 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 450 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_M_STRENGTH
+# 451 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0
+# 452 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitmovement 0
+# 453 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	playse SE_PIN
+# 454 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_3
+# 455 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitse
+# 456 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_1, localId = LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 457 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	puzzlebattle BP_TYRANTRUM
-# 458 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitstate
+	closemessage
 # 459 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	puzzlebattle BP_TYRANTRUM
+# 460 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	waitstate
+# 461 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PUZZLE_COMPLETE
 	goto_if_ne JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_2
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_1:
-# 463 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_3, localId = LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 464 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	closemessage
 # 465 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_3, localId = LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 466 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	closemessage
+# 467 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	compare VAR_0x8005, 9
 	goto_if_eq JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_5
-# 470 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 472 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_Movement_0
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_4:
-# 472 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_4
 # 474 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	waitmovement 0
 # 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	removeobject LOCALID_TYRANTRUM_BRIDGE
+	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_4
 # 476 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
+	waitmovement 0
+# 477 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	removeobject LOCALID_TYRANTRUM_BRIDGE
 # 478 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_MAIN
+# 480 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_10
-# 481 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	case LOCALID_PHANPY_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_11
 # 483 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	case LOCALID_PHANPY_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_11
+# 485 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case LOCALID_BAGON_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_12
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_8:
-# 486 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	closemessage
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_5
 # 488 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
+	closemessage
 # 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	removeobject VAR_LOCALID_CUTSCENE_MAIN
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_5
 # 490 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_SECOND
+	waitmovement 0
+# 491 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	removeobject VAR_LOCALID_CUTSCENE_MAIN
 # 492 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	switch VAR_LOCALID_CUTSCENE_SECOND
+# 494 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_15
-# 495 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	case LOCALID_PHANPY_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_16
 # 497 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	case LOCALID_PHANPY_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_16
+# 499 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case LOCALID_BAGON_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_17
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_13:
-# 500 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	closemessage
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_6
 # 502 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
+	closemessage
 # 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	removeobject VAR_LOCALID_CUTSCENE_SECOND
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_6
 # 504 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxyperm LOCALID_TYRANTRUM_BRIDGE, 8, 25
+	waitmovement 0
 # 505 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	clearflag FLAG_HIDE_BRIDGE_NPCS
+	removeobject VAR_LOCALID_CUTSCENE_SECOND
 # 506 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	setobjectxyperm LOCALID_TYRANTRUM_BRIDGE, 8, 25
+# 507 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	clearflag FLAG_HIDE_BRIDGE_NPCS
+# 508 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	switch VAR_FIRST_SAVED
-# 509 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 511 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case CHAR_BAGON, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_20
-# 513 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 515 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case CHAR_PHANPY, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_21
-# 517 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 519 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case CHAR_JIGGLYPUFF, JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_22
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_18:
-# 522 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxyperm VAR_LOCALID_CUTSCENE_MAIN, 48, 16
-# 523 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxyperm VAR_LOCALID_CUTSCENE_SECOND, 47, 16
 # 524 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxy VAR_LOCALID_CUTSCENE_MAIN, 48, 16
+	setobjectxyperm VAR_LOCALID_CUTSCENE_MAIN, 48, 16
 # 525 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectxy VAR_LOCALID_CUTSCENE_SECOND, 47, 16
+	setobjectxyperm VAR_LOCALID_CUTSCENE_SECOND, 47, 16
 # 526 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setobjectmovementtype VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_UP
+	setobjectxy VAR_LOCALID_CUTSCENE_MAIN, 48, 16
 # 527 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	addobject VAR_LOCALID_CUTSCENE_MAIN
+	setobjectxy VAR_LOCALID_CUTSCENE_SECOND, 47, 16
 # 528 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	addobject VAR_LOCALID_CUTSCENE_SECOND
+	setobjectmovementtype VAR_LOCALID_CUTSCENE_MAIN, MOVEMENT_TYPE_FACE_UP
 # 529 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setvar VAR_GAME_STATE, GS_TYRANTRUM_DEFEATED
+	addobject VAR_LOCALID_CUTSCENE_MAIN
 # 530 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	addobject VAR_LOCALID_CUTSCENE_SECOND
+# 531 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	setvar VAR_GAME_STATE, GS_TYRANTRUM_DEFEATED
+# 532 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	release
 	end
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_2:
-# 461 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 463 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	msgbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_2
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_1
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_5:
-# 466 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 468 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	applymovement LOCALID_TYRANTRUM_BRIDGE, JurassicPark_Bridge_And_Lab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_Movement_13
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_4
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_10:
-# 479 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 481 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_4, localId = LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 480 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 482 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_5, localId = LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_8
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_11:
-# 482 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 484 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_6, localId = LOCALID_PHANPY_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_SAD
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_8
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_12:
-# 484 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 486 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_7, localId = LOCALID_BAGON_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_8
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_15:
-# 493 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 495 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_4, localId = LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
-# 494 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 496 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_5, localId = LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_ANGRY
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_13
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_16:
-# 496 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 498 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_6, localId = LOCALID_PHANPY_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_SAD
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_13
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_17:
-# 498 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 500 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_7, localId = LOCALID_BAGON_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_13
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_20:
-# 510 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 512 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_BRIDGE
-# 511 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 513 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_18
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_21:
-# 514 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 516 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE
-# 515 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 517 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_18
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_22:
-# 518 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 520 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE
-# 519 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 521 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_18
 
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab::
-# 537 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 539 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	lock
-# 538 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	switch VAR_LOCALID_CUTSCENE_MAIN
 # 540 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	case LOCALID_BAGON_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_EnterLab_3
+	switch VAR_LOCALID_CUTSCENE_MAIN
 # 542 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	case LOCALID_PHANPY_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_EnterLab_4
+	case LOCALID_BAGON_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_EnterLab_3
 # 544 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	case LOCALID_PHANPY_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_EnterLab_4
+# 546 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	case LOCALID_JIGGLYPUFF_BRIDGE, JurassicPark_Bridge_And_Lab_EventScript_EnterLab_5
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_1:
-# 547 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	closemessage
-# 548 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Bridge_And_Lab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_Movement_13
 # 549 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa_Movement_1
+	closemessage
 # 550 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	waitmovement 0
+	applymovement VAR_LOCALID_CUTSCENE_MAIN, JurassicPark_Bridge_And_Lab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_Movement_13
 # 551 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	playse SE_EXIT
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa_Movement_1
 # 552 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	removeobject VAR_LOCALID_CUTSCENE_MAIN
-# 553 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Bridge_And_Lab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_Movement_13
-# 554 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	waitmovement 0
-# 555 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 553 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	playse SE_EXIT
+# 554 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	removeobject VAR_LOCALID_CUTSCENE_MAIN
+# 555 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	applymovement VAR_LOCALID_CUTSCENE_SECOND, JurassicPark_Bridge_And_Lab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_Movement_13
 # 556 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	removeobject VAR_LOCALID_CUTSCENE_SECOND
+	waitmovement 0
 # 557 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setvar VAR_GAME_STATE, GS_ENTERING_LAB
+	playse SE_EXIT
 # 558 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	removeobject VAR_LOCALID_CUTSCENE_SECOND
+# 559 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+	setvar VAR_GAME_STATE, GS_ENTERING_LAB
+# 560 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	release
 	end
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_3:
-# 541 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 543 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_0, localId = LOCALID_BAGON_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_SAD
 	goto JurassicPark_Bridge_And_Lab_EventScript_EnterLab_1
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_4:
-# 543 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 545 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_1, localId = LOCALID_PHANPY_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 	goto JurassicPark_Bridge_And_Lab_EventScript_EnterLab_1
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_5:
-# 545 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 547 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	mnmbox JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_2, localId = LOCALID_JIGGLYPUFF_BRIDGE, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 	goto JurassicPark_Bridge_And_Lab_EventScript_EnterLab_1
 
@@ -1257,137 +1261,137 @@ JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa_Movement_6:
 	walk_fast_left
 	step_end
 
-# 428 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 430 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_0:
-# 428 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 430 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 428 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 430 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 428 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 430 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
 	step_end
 
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_1:
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_in_place_down
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 437 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 439 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
 	step_end
 
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_2:
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_in_place_up
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
-# 443 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 445 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
 	step_end
 
-# 452 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 454 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_3:
-# 452 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 454 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	emote_exclamation_mark
-# 452 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 454 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	delay_16
 	step_end
 
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_4:
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
-# 473 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 475 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_left
 	step_end
 
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_5:
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_down
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_down
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 487 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 489 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
 	step_end
 
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Movement_6:
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
-# 501 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 503 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	walk_right
 	step_end
 
@@ -1515,46 +1519,46 @@ JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa_Text_2:
 	.string "We need to check on the others…$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_0:
-# 425 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 427 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "Larvy, stop!!!$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_1:
-# 454 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 456 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "Groargh?$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_2:
-# 461 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 463 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "PLACEHOLDER\n"
 	.string "Tyrantrum battle other outcomes here.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_3:
-# 463 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 465 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "Graaaaaah?!$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_4:
-# 479 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 481 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "Well I'll be damned.\n"
 	.string "It really worked.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_5:
-# 480 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 482 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "…Now let's kick Drampa's ass.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_6:
-# 482 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 484 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "… … …\p"
 	.string "Can we really blame this Tyrantrum for\n"
 	.string "what happened…?\p"
 	.string "Let's go and find the Doctor.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_Text_7:
-# 484 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 486 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "That was terrifying!\p"
 	.string "I'm glad you're ok, Larvy.\n"
 	.string "We're close to the end, now.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_0:
-# 541 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 543 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "… … …\n"
 	.string "This is it.\p"
 	.string "The Doctor's boat is there, but…\p"
@@ -1573,7 +1577,7 @@ JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_0:
 	.string "Let's end this, Larvy.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_1:
-# 543 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 545 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "… … …\p"
 	.string "The doctor's boat is docked there.\p"
 	.string "There's no key inside\n"
@@ -1586,7 +1590,7 @@ JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_1:
 	.string "But we need to finish this, now.$"
 
 JurassicPark_Bridge_And_Lab_EventScript_EnterLab_Text_2:
-# 545 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
+# 547 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	.string "… … …\p"
 	.string "Drampa's boat is right there.\p"
 	.string "No key, of course.\n"
