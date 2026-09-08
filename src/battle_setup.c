@@ -769,6 +769,9 @@ static u32 PuzzleOutcome_Bastiodon(void)
 
     sBastiodonPrevHP = currentHP;
 
+    if (!IsBattlerAlive(enemy))
+        return B_OUTCOME_LOST;
+
     if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
         return B_OUTCOME_LOST;
 
@@ -781,6 +784,9 @@ static u32 PuzzleOutcome_Cradily(void)
         return B_OUTCOME_PUZZLE_COMPLETE;
 
     if (!IsPuzzlePartnerAlive())
+        return B_OUTCOME_LOST;
+
+    if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
         return B_OUTCOME_LOST;
 
     return 0;
@@ -812,6 +818,9 @@ static u32 PuzzleOutcome_Tyrantrum(void)
     enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
     if (!IsBattlerAlive(player))
+        return B_OUTCOME_LOST;
+
+    if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
         return B_OUTCOME_LOST;
 
     if (GetBattlerChosenMove(player) == MOVE_LARVESTA_DEFEND)
