@@ -709,6 +709,8 @@ JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor_10:
 # 468 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	clearflag FLAG_SPAWN_WEST
 # 469 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
+	forcesave
+# 470 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	releaseall
 	end
 

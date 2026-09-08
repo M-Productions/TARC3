@@ -32,6 +32,8 @@
 #include "constants/vars.h"
 #include "constants/wild_encounter.h"
 
+#include "battle.h"
+
 
 #define sOverworldEncounterLevel        trainerRange_berryTreeId
 #define sOverworldEncounterAge          playerCopyableMovement
@@ -413,7 +415,7 @@ void StartWildBattleWithOWE(struct ScriptContext *ctx)
     if (StartWildBattleWithOWE_CheckDoubleBattle(owe, headerId))
         return;
 
-    BattleSetup_StartWildBattle();
+    BattleSetup_StartDoubleWildBattle();
 }
 
 void SetOverworldObjectSpecies(struct ScriptContext *ctx)

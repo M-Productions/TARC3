@@ -177,310 +177,314 @@ JurassicPark_Desert_Main_EventScript_Phanpy::
 # 99 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	mnmbox JurassicPark_Desert_Main_EventScript_Phanpy_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 100 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	waitmessage
+# 101 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
 	end
 
 
 JurassicPark_Desert_Main_EventScript_House::
-# 106 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 107 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	compare VAR_DESERT_STATE, 2
 	goto_if_eq JurassicPark_Desert_Main_EventScript_House_1
-# 127 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 128 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	goto General_EventScript_Cutout
 	return
 
 JurassicPark_Desert_Main_EventScript_House_1:
-# 108 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 109 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 110 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	special SpawnCameraObject
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement LOCALID_CAMERA, JurassicPark_Desert_Main_EventScript_House_Movement_0
-# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitmovement LOCALID_CAMERA
-# 114 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 115 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
-# 116 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_3, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
-# 117 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_4, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
-# 118 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_5, localId = LOCALID_PLAYER
-# 119 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_6, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
-# 120 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
+# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	special SpawnCameraObject
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	applymovement LOCALID_CAMERA, JurassicPark_Desert_Main_EventScript_House_Movement_0
+# 113 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	waitmovement LOCALID_CAMERA
+# 115 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 116 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_2, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 117 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_3, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+# 118 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_4, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+# 119 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_5, localId = LOCALID_PLAYER
+# 120 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_House_Text_6, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
 # 121 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	special RemoveCameraObject
+	closemessage
 # 122 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	special RemoveCameraObject
+# 123 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_DESERT_STATE, 3
 	end
 
 
 JurassicPark_Desert_Main_EventsScript_GoLeft::
-# 134 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_GoLeft_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 135 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Desert_Main_EventsScript_GoLeft_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 136 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Desert_Main_EventsScript_GoLeft_Movement_0
+	closemessage
 # 137 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Desert_Main_EventsScript_GoLeft_Movement_0
+	applymovement LOCALID_PLAYER, JurassicPark_Desert_Main_EventsScript_GoLeft_Movement_0
 # 138 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Desert_Main_EventsScript_GoLeft_Movement_0
+# 139 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	waitmovement 0
 	end
 
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight::
-# 144 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 145 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 146 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 147 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_3, localId = LOCALID_PLAYER
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 148 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_4, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_3, localId = LOCALID_PLAYER
 # 149 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_4, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 # 150 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_6, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_5, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 151 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_7, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_6, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 152 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_8, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_7, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 # 153 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_8, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_HAPPY
 # 154 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	puzzlebattle BP_HEADBUTT
+	closemessage
 # 155 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitstate
+	puzzlebattle BP_HEADBUTT
 # 156 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_9, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
+	waitstate
 # 157 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	lockall
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_9, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
 # 158 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	lockall
+# 159 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement LOCALID_PLAYER, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_0
 # 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_0
+	applymovement LOCALID_PLAYER, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_0
 # 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement LOCALID_RAMPARDOS, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_1
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_0
 # 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitmovement LOCALID_RAMPARDOS
+	applymovement LOCALID_RAMPARDOS, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_1
 # 164 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	playse SE_UNLOCK
+	waitmovement LOCALID_RAMPARDOS
 # 165 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	call JurassicPark_Desert_Main_RemoveHouse
+	playse SE_UNLOCK
 # 166 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitse
+	call JurassicPark_Desert_Main_RemoveHouse
 # 167 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	delay 16
+	waitse
 # 168 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_10, localId = LOCALID_RAMPARDOS, mugshotEmotion = MUGSHOT_EMOTE_DIZZY
+	delay 16
 # 169 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_10, localId = LOCALID_RAMPARDOS, mugshotEmotion = MUGSHOT_EMOTE_DIZZY
 # 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement LOCALID_RAMPARDOS, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_2
+	closemessage
 # 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_RAMPARDOS, JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_2
 # 172 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setobjectxyperm LOCALID_RAMPARDOS, 45, 7
+	waitmovement 0
 # 173 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setobjectmovementtype LOCALID_RAMPARDOS, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm LOCALID_RAMPARDOS, 45, 7
 # 174 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	removeobject LOCALID_RAMPARDOS
+	setobjectmovementtype LOCALID_RAMPARDOS, MOVEMENT_TYPE_FACE_UP
 # 175 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	clearflag FLAG_HIDE_RAMPARDOS
+	removeobject LOCALID_RAMPARDOS
 # 176 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	addobject LOCALID_RAMPARDOS
+	clearflag FLAG_HIDE_RAMPARDOS
 # 177 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_11, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
+	addobject LOCALID_RAMPARDOS
 # 178 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_12, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_11, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
 # 179 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_13, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_12, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_SURPRISED
 # 180 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_14, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_13, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 181 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_15, localId = LOCALID_PLAYER
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_14, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
 # 182 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_16, localId = OBJ_EVENT_ID_NPC_FOLLOWER
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_15, localId = LOCALID_PLAYER
 # 183 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_16, localId = OBJ_EVENT_ID_NPC_FOLLOWER
+# 184 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	compare VAR_GAME_STATE, GS_POST_TWO_GENERATORS
 	goto_if_eq JurassicPark_Desert_Main_EventsScript_RampardosFight_2
-# 188 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 189 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_18, localId = LOCALID_PLAYER
 JurassicPark_Desert_Main_EventsScript_RampardosFight_1:
-# 190 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_19, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 191 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setvar VAR_DESERT_STATE, 4
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_19, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 192 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	forcesave
+	setvar VAR_DESERT_STATE, 4
 # 193 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	forcesave
+# 194 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	releaseall
 	end
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_2:
-# 185 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 186 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_17, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_SAD
 	goto JurassicPark_Desert_Main_EventsScript_RampardosFight_1
 
 
 JurassicPark_Desert_Main_RemoveHouse::
-# 199 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 39, 10 METATILE_Desert_Primary_Sand, FALSE
 # 200 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 40, 10 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 39, 10 METATILE_Desert_Primary_Sand, FALSE
 # 201 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 41, 10 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 40, 10 METATILE_Desert_Primary_Sand, FALSE
 # 202 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 42, 10 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 41, 10 METATILE_Desert_Primary_Sand, FALSE
 # 203 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 39, 9 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 42, 10 METATILE_Desert_Primary_Sand, FALSE
 # 204 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 40, 9 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 39, 9 METATILE_Desert_Primary_Sand, FALSE
 # 205 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 41, 9 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 40, 9 METATILE_Desert_Primary_Sand, FALSE
 # 206 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 42, 9 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 41, 9 METATILE_Desert_Primary_Sand, FALSE
 # 207 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 39, 8 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 42, 9 METATILE_Desert_Primary_Sand, FALSE
 # 208 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 40, 8 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 39, 8 METATILE_Desert_Primary_Sand, FALSE
 # 209 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 41, 8 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 40, 8 METATILE_Desert_Primary_Sand, FALSE
 # 210 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 42, 8 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 41, 8 METATILE_Desert_Primary_Sand, FALSE
 # 211 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 39, 7 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 42, 8 METATILE_Desert_Primary_Sand, FALSE
 # 212 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 40, 7 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 39, 7 METATILE_Desert_Primary_Sand, FALSE
 # 213 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 41, 7 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 40, 7 METATILE_Desert_Primary_Sand, FALSE
 # 214 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setmetatile 42, 7 METATILE_Desert_Primary_Sand, FALSE
+	setmetatile 41, 7 METATILE_Desert_Primary_Sand, FALSE
 # 215 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	setmetatile 42, 7 METATILE_Desert_Primary_Sand, FALSE
+# 216 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	special DrawWholeMapView
 	return
 
 
 JurassicPark_Desert_Main_EventScript_Rampardos::
-# 221 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_10, localId = LOCALID_RAMPARDOS, mugshotEmotion = MUGSHOT_EMOTE_DIZZY
 # 222 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_10, localId = LOCALID_RAMPARDOS, mugshotEmotion = MUGSHOT_EMOTE_DIZZY
+# 223 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
 	end
 
 
 JurassicPark_Desert_Main_EventScript_Cradily::
-# 228 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	playse SE_PIN
 # 229 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	applymovement LOCALID_CRADILY_STATIC, JurassicPark_Desert_Main_EventScript_Cradily_Movement_0
+	playse SE_PIN
 # 230 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_CRADILY_STATIC, JurassicPark_Desert_Main_EventScript_Cradily_Movement_0
 # 231 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	puzzlebattle BP_CRADILY
+	waitmovement 0
 # 232 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitstate
+	puzzlebattle BP_CRADILY
 # 233 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_Cradily_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
-# 234 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
-# 235 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setvar VAR_DESERT_STATE, 5
-# 236 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	warp MAP_JURASSIC_PARK_DESERT_MAIN, 1
-# 237 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	waitstate
+# 234 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_Cradily_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+# 235 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	closemessage
+# 236 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	setvar VAR_DESERT_STATE, 5
+# 237 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	warp MAP_JURASSIC_PARK_DESERT_MAIN, 1
+# 238 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	waitstate
+# 239 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	forcesave
 	end
 
 
 JurassicPark_Desert_Main_EventScript_CradilyTeleport::
-# 243 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_WarpToLastPosition_Text_0, localId = LOCALID_CRADILY_STATIC
-# 244 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	warp MAP_JURASSIC_PARK_DESERT_MAIN, 1
 # 245 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_WarpToLastPosition_Text_0, localId = LOCALID_CRADILY_STATIC
+# 246 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	warp MAP_JURASSIC_PARK_DESERT_MAIN, 1
+# 247 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	waitstate
 	end
 
 
 JurassicPark_Desert_Main_EventScript_Generator::
-# 251 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 253 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	compare VAR_DESERT_STATE, 5
 	goto_if_eq JurassicPark_Desert_Main_EventScript_Generator_2
 JurassicPark_Desert_Main_EventScript_Generator_1:
 	end
 
 JurassicPark_Desert_Main_EventScript_Generator_2:
-# 253 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
-# 254 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	closemessage
 # 255 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	playse SE_M_STRENGTH
+	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_0, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_JOYOUS
 # 256 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setvar VAR_0x8004, 1
-# 257 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setvar VAR_0x8005, 1
-# 258 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setvar VAR_0x8006, 20
-# 259 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	setvar VAR_0x8007, 5
-# 260 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	special ShakeCamera
-# 261 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	waitstate
-# 262 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER
-# 263 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
-# 264 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_3, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
-# 265 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	closemessage
+# 257 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	playse SE_M_STRENGTH
+# 258 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	setvar VAR_0x8004, 1
+# 259 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	setvar VAR_0x8005, 1
+# 260 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	setvar VAR_0x8006, 20
+# 261 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	setvar VAR_0x8007, 5
+# 262 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	special ShakeCamera
+# 263 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	waitstate
+# 264 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_1, localId = OBJ_EVENT_ID_NPC_FOLLOWER
+# 265 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_TEARY_EYED
 # 266 "data/maps/JurassicPark_Desert_Main/scripts.pory"
-	switch VAR_GAME_STATE
+	mnmbox JurassicPark_Desert_Main_EventScript_Generator_Text_3, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+# 267 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	closemessage
 # 268 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+	switch VAR_GAME_STATE
+# 270 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	case GS_NO_GENERATORS, JurassicPark_Desert_Main_EventScript_Generator_6
-# 271 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 273 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	case GS_POST_ONE_GENERATOR, JurassicPark_Desert_Main_EventScript_Generator_7
-# 274 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 276 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	case GS_POST_TWO_GENERATORS, JurassicPark_Desert_Main_EventScript_Generator_8
 JurassicPark_Desert_Main_EventScript_Generator_4:
-# 278 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 280 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_DESERT_STATE, 6
-# 279 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 281 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_DESERT_COMPLETE, 1
 	goto JurassicPark_Desert_Main_EventScript_Generator_1
 
 JurassicPark_Desert_Main_EventScript_Generator_6:
-# 269 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 271 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_GAME_STATE, GS_ONE_GENERATOR
-# 270 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 272 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_FIRST_SAVED, CHAR_PHANPY
 	goto JurassicPark_Desert_Main_EventScript_Generator_4
 
 JurassicPark_Desert_Main_EventScript_Generator_7:
-# 272 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 274 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_GAME_STATE, GS_TWO_GENERATORS
-# 273 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 275 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_SECOND_SAVED, CHAR_PHANPY
 	goto JurassicPark_Desert_Main_EventScript_Generator_4
 
 JurassicPark_Desert_Main_EventScript_Generator_8:
-# 275 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 277 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_GAME_STATE, GS_THREE_GENERATORS
-# 276 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 278 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	setvar VAR_THIRD_SAVED, CHAR_PHANPY
 	goto JurassicPark_Desert_Main_EventScript_Generator_4
 
@@ -515,125 +519,125 @@ JurassicPark_Desert_Main_EventScript_PhanpyJoins_Movement_1:
 	face_left
 	step_end
 
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 JurassicPark_Desert_Main_EventScript_House_Movement_0:
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	delay_16
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	delay_16
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	delay_16
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_down
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_down
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_down
-# 111 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 112 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_down
 	step_end
 
-# 136 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 137 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 JurassicPark_Desert_Main_EventsScript_GoLeft_Movement_0:
-# 136 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 137 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_left
 	step_end
 
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_0:
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 160 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 161 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	face_right
 	step_end
 
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_1:
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	unlock_facing_direction
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_left
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
-# 162 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 163 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Movement_2:
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_right
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_right
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_right
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
-# 170 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 171 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	walk_up
 	step_end
 
-# 229 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 230 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 JurassicPark_Desert_Main_EventScript_Cradily_Movement_0:
-# 229 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 230 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	emote_exclamation_mark
-# 229 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 230 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	delay_16
-# 229 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 230 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	face_up
 	step_end
 
@@ -744,43 +748,43 @@ JurassicPark_Desert_Main_EventScript_Phanpy_Text_0:
 	.string "Let's go, Larvy.$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_0:
-# 108 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 109 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Look, Larvy!\n"
 	.string "There's stairs there!$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_1:
-# 114 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 115 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "But this house is in the way…$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_2:
-# 115 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 116 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(Wait, she hasn't noticed yet…?)$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_3:
-# 116 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 117 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "… … …\p"
 	.string "Hey, wait a minute.\n"
 	.string "There's something… Off.$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_4:
-# 117 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 118 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Wait!\n"
 	.string "This house…\l"
 	.string "Is not a house at all!\p"
 	.string "It's made of cardboard!$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_5:
-# 118 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 119 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(There we go.)$"
 
 JurassicPark_Desert_Main_EventScript_House_Text_6:
-# 119 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 120 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Which means, we just need to find a way\n"
 	.string "to knock it down.\p"
 	.string "Let's look around!$"
 
 JurassicPark_Desert_Main_EventsScript_GoLeft_Text_0:
-# 134 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 135 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Woah!\n"
 	.string "This must be a Rampardos.\p"
 	.string "Fascinating!\n"
@@ -788,86 +792,86 @@ JurassicPark_Desert_Main_EventsScript_GoLeft_Text_0:
 	.string "Let's keep clear, Larvy.$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_0:
-# 144 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 145 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Wait, Larvy, do you think that…\p"
 	.string "We could get this Rampardos to knock\n"
 	.string "the house down?$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_1:
-# 145 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 146 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(It seems a bit overkill…\n"
 	.string "But it might be worth a shot.)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_2:
-# 146 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 147 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "It looks scary, but it hasn't been\n"
 	.string "attacking us.\l"
 	.string "So maybe…$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_3:
-# 147 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 148 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(If we found a way to communicate…)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_4:
-# 148 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 149 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "If we got it really really mad…$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_5:
-# 149 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 150 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(That's not what I was thinking at all!)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_6:
-# 150 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 151 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Oh, do you think it's a bad idea…?$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_7:
-# 151 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 152 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(Well…\n"
 	.string "It could work.)\p"
 	.string "(We get it mad at us, and then lure it to\n"
 	.string "the house.)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_8:
-# 152 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 153 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Hehe.\p"
 	.string "Let's go, team!$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_9:
-# 156 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 157 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Run, Larvy, run!$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_10:
-# 168 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 169 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Graaaargh…$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_11:
-# 177 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 178 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "We did it!$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_12:
-# 178 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 179 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "…Ah!\n"
 	.string "Did I overdo it?\l"
 	.string "Is the Rampardos ok?\p"
 	.string "I didn't give it brain damage, did I?$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_13:
-# 179 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 180 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(I'm…\n"
 	.string "Sure it will be fine…)\p"
 	.string "(But, uh, wasn't that really risky…?)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_14:
-# 180 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 181 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "I-I'm sorry, I got a bit carried away.\p"
 	.string "I thought it was a good idea, and, and-$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_15:
-# 181 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 182 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(We did free the way to the stairs.)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_16:
-# 182 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 183 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "I don't want to see these Pokémon just\n"
 	.string "as…\l"
 	.string "Obstacles in our path.\p"
@@ -881,19 +885,19 @@ JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_16:
 	.string "Live free.$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_17:
-# 185 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 186 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "… … …$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_18:
-# 188 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 189 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "(Agreed.)$"
 
 JurassicPark_Desert_Main_EventsScript_RampardosFight_Text_19:
-# 190 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 191 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Now let's go, Larvy!$"
 
 JurassicPark_Desert_Main_EventScript_Cradily_Text_0:
-# 233 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 234 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "We did it!\p"
 	.string "…Hey, it looks like this Cradily wants to\n"
 	.string "help us get to the other side.\p"
@@ -901,7 +905,7 @@ JurassicPark_Desert_Main_EventScript_Cradily_Text_0:
 	.string "restart.$"
 
 JurassicPark_Desert_Main_EventScript_Generator_Text_0:
-# 253 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 255 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Look!\n"
 	.string "We did it!\l"
 	.string "We really did it!\p"
@@ -909,20 +913,20 @@ JurassicPark_Desert_Main_EventScript_Generator_Text_0:
 	.string "here, and…$"
 
 JurassicPark_Desert_Main_EventScript_Generator_Text_1:
-# 262 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 264 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "Yes!\n"
 	.string "And what an adventure it was!\p"
 	.string "This totally makes up for my wrecked\n"
 	.string "boat.$"
 
 JurassicPark_Desert_Main_EventScript_Generator_Text_2:
-# 263 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 265 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "… … …\n"
 	.string "My boat…\l"
 	.string "Sniff.$"
 
 JurassicPark_Desert_Main_EventScript_Generator_Text_3:
-# 264 "data/maps/JurassicPark_Desert_Main/scripts.pory"
+# 266 "data/maps/JurassicPark_Desert_Main/scripts.pory"
 	.string "No! I have to be strong!\n"
 	.string "We can get a new boat after this!\p"
 	.string "C'mon Larvy, let's go back to the visitor\n"

@@ -82,6 +82,7 @@ script JurassicPark_Marshlands_Main_EventScript_GoBack
     mnmbox(format("(There's no time to waste.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     applymovement(LOCALID_PLAYER, moves(walk_down))
+    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down))
     waitmovement(0)
     release
     end
