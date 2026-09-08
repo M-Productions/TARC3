@@ -990,7 +990,6 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
 
-        .battleFlags = BATTLE_TYPE_DOUBLE,
         .puzzleFunc = PuzzleOutcome_Cradily
     },
 
