@@ -230,12 +230,16 @@ script JurassicPark_Desert_Main_EventScript_Cradily
     waitmovement(0)
     puzzlebattle(BP_CRADILY)
     waitstate
-    removeobject(LOCALID_CRADILY_STATIC)
-    mnmbox(format("Wait…\nI get it!\pCradily are attracted by vibration, so if I use Bulldoze…\pIt's going to confuse them, and get them off our tail!\p…I'm sorry, Cradily.\nBut we have a generator to restart."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
-    closemessage
-    msgbox(format("Phanpy can now use Bulldoze!\p…But it's not implemented yet, so get teleported instead."))
+    mnmbox(format("We did it!\p…Hey, it looks like this Cradily could help us get to the other side.\pCome on, we have a generator to restart."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     closemessage
     setvar(VAR_DESERT_STATE, 5)
+    warp(MAP_JURASSIC_PARK_DESERT_MAIN, 1)
+    waitstate
+    end
+}
+
+script JurassicPark_Desert_Main_EventScript_CradilyTeleport
+{
     warp(MAP_JURASSIC_PARK_DESERT_MAIN, 1)
     waitstate
     end
