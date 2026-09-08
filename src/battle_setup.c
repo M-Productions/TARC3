@@ -621,6 +621,7 @@ static void ResetBruteBonnetPoisonCounter(void)
     sBruteBonnetPoisonTurns[1] = 0; // Bagon
 }
 
+#include "battle_interface.h"
 static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
 {
     if (!(gBattleMons[battler].status1 & STATUS1_POISON))
@@ -634,6 +635,7 @@ static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
     {
         gBattleMons[battler].status1 &= ~STATUS1_POISON;
         *turns = 0;
+        UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], GetBattlerMon(battler), HEALTHBOX_ALL);
     }
 }
 
