@@ -2391,17 +2391,11 @@ BattleScript_EffectFutureSight::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectTeleport::
-	jumpifgenconfiglowerthan CONFIG_B_TELEPORT_BEHAVIOR, GEN_8, BattleScript_EffectTeleportGen7
-	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_EffectBatonPass
-	jumpifside BS_ATTACKER, B_SIDE_PLAYER, BattleScript_EffectBatonPass
-	goto BattleScript_DoEffectTeleport
 BattleScript_EffectTeleportGen7::
-	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FailedFromAtkCanceler
 BattleScript_DoEffectTeleport::
 	attackcanceler
-	isrunningimpossible
-	jumpifbyte CMP_EQUAL, gBattleCommunication, BATTLE_RUN_FORBIDDEN, BattleScript_ButItFailed
-	jumpifbyte CMP_EQUAL, gBattleCommunication, BATTLE_RUN_FAILURE, BattleScript_PrintAbilityMadeIneffective
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	accuracycheck
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNFLEDFROMBATTLE

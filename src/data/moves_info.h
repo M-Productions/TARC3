@@ -481,41 +481,20 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_WHIRLWIND] =
     {
-        .name = COMPOUND_STRING("Whirlwind"),
+        .name = COMPOUND_STRING("Status"),
         .description = COMPOUND_STRING(
-            "Blows away the foe, switches\n"
-            "it out or ends wild battle."),
-        .effect = EFFECT_ROAR,
+            "Frightens with a scary face\n"
+            "to make opponents run."),
+        .effect = EFFECT_TELEPORT,
         .power = 0,
-        .type = TYPE_NORMAL,
-        #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 0,
-            .priority = -6,
-        #elif B_UPDATED_MOVE_DATA >= GEN_3
-            .accuracy = 100,
-            .priority = -6,
-        #elif B_UPDATED_MOVE_DATA == GEN_2
-            .accuracy = 100,
-            .priority = -1,
-        #else
-            .accuracy = 85,
-            .priority = 0,
-        #endif
-        .pp = 20,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 5,
         .target = TARGET_SELECTED,
+        .priority = -1,
         .category = DAMAGE_CATEGORY_STATUS,
-        .zMove = { .effect = Z_EFFECT_SPDEF_UP_1 },
-        .windMove = TRUE,
-        .ignoresProtect = B_UPDATED_MOVE_FLAGS >= GEN_6,
-        .ignoresSubstitute = TRUE,
-        .magicCoatAffected = B_UPDATED_MOVE_FLAGS >= GEN_5,
-        .copycatBanned = B_UPDATED_MOVE_FLAGS >= GEN_6,
-        .assistBanned = B_UPDATED_MOVE_FLAGS >= GEN_6,
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_NEXT_APPEAL_LATER : CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
-        .contestCategory = CONTEST_CATEGORY_SMART,
-        .contestComboStarterId = 0,
-        .contestComboMoves = {COMBO_STARTER_STEALTH_ROCK, COMBO_STARTER_SPIKES, COMBO_STARTER_TOXIC_SPIKES},
-        .battleAnimScript = gBattleAnimMove_Whirlwind,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_ScaryFace,
         .validApprenticeMove = TRUE,
     },
 
@@ -5376,7 +5355,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_DETECT] =
     {
-        .name = COMPOUND_STRING("Detect"),
+        .name = COMPOUND_STRING("Cower"),
         .description = COMPOUND_STRING(
             "Evades attack, but may fail\n"
             "if used in succession."),

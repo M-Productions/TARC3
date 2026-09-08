@@ -684,21 +684,18 @@ static u32 PuzzleOutcome_Armaldo(void)
 
 static s32 AI_AnorithBurrowCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    enum BattlerId anorithTwo = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    if (gBattleResults.battleTurnCounter == 0)
+        return (move == MOVE_PROTECT) ? 100 : 0;
 
-    if (battlerAtk == anorithTwo && gBattleResults.battleTurnCounter == 0)
-        return (move == MOVE_HARDEN) ? 100 : 0;
-
-    return (move == MOVE_DIG) ? 100 : 0;
+    return (move == MOVE_HARDEN) ? 100 : 0;
 }
 
 static u32 PuzzleOutcome_Anorith(void)
 {
     enum BattlerId anorithOne = GetPuzzleEnemyBattler();
-    enum BattlerId anorithTwo = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
 
-    if (!IsBattlerAlive(anorithOne) && !IsBattlerAlive(anorithTwo))
-        return B_OUTCOME_PUZZLE_COMPLETE;
+    if (!(IsBattlerAlive(anorithOne)))
+        return B_OUTCOME_LOST;
 
     if (!IsPuzzlePartnerAlive())
         return B_OUTCOME_LOST;
@@ -890,22 +887,18 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_TICKLE_ANORITH,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_SCARY_FACE,
+        .partnerStatusMove = MOVE_WHIRLWIND,
         .partnerHP = 60,
         .partnerMaxHP = 100,
 
         .enemySpecies = SPECIES_ANORITH,
-        .enemyAttackMove = MOVE_PROTECT,
+        .enemyAttackMove = MOVE_DETECT,
         .enemyDefendMove = MOVE_HARDEN,
-
-        .enemyTwoSpecies = SPECIES_ANORITH,
-        .enemyTwoAttackMove = MOVE_PROTECT,
-        .enemyTwoDefendMove = MOVE_HARDEN,
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
         .aiFunc = AI_AnorithBurrowCycle,
