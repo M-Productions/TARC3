@@ -1004,8 +1004,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_ROARING_MOON,
         .enemyAttackMove = MOVE_CRUNCH,
+        .enemyDefendMove = MOVE_BRAVE_BIRD,
         .enemyStatusMove = MOVE_HOWL,
         .enemyAceMove = MOVE_BRAVE_BIRD,
+        
+        .aiFunc = AI_SequentialMoves,
     },
 
     [BP_GREAT_TUSK] =
@@ -1017,8 +1020,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_GREAT_TUSK,
         .enemyAttackMove = MOVE_CRUNCH,
+        .enemyDefendMove = MOVE_BULLDOZE,
         .enemyStatusMove = MOVE_HOWL,
         .enemyAceMove = MOVE_BULLDOZE,
+        
+        .aiFunc = AI_SequentialMoves,
     },
 
     [BP_SCREAM_TAIL] =
@@ -1030,8 +1036,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_SCREAM_TAIL,
         .enemyAttackMove = MOVE_CRUNCH,
+        .enemyDefendMove = MOVE_SING,
         .enemyStatusMove = MOVE_HOWL,
         .enemyAceMove = MOVE_SING,
+
+        .aiFunc = AI_SequentialMoves,
     },
 
     [BP_TYRANTRUM] =
