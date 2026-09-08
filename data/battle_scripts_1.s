@@ -1977,6 +1977,13 @@ BattleScript_SpecialArchenTutorial::
 	setadditionaleffects
 	goto BattleScript_MoveEnd
 
+BattleScript_TickleTutorial::
+	attackcanceler
+	attackanimation
+	waitanimation
+	setadditionaleffects
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectTalkTutorial::
 	attackcanceler
 	attackanimation

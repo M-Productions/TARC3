@@ -678,6 +678,7 @@ AI_DOUBLE_BATTLE_TEST("AI can use all moves, 801-900")
         case EFFECT_NON_VOLATILE_STATUS:
         case EFFECT_DO_NOTHING:
         case EFFECT_DO_NOTHING_TUTORIAL:
+        case EFFECT_TICKLE_TUTORIAL:
         case EFFECT_HOLD_HANDS:
         case EFFECT_CELEBRATE:
         case EFFECT_HAPPY_HOUR:

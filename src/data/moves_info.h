@@ -23889,7 +23889,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Distracts the target,\n"
             "waking it up."),
-        .effect = EFFECT_DO_NOTHING_TUTORIAL,
+        .effect = EFFECT_TICKLE_TUTORIAL,
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
