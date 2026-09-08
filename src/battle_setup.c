@@ -985,6 +985,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
 
+        .battleFlags = BATTLE_TYPE_DOUBLE,
         .puzzleFunc = PuzzleOutcome_Cradily
     },
 
@@ -1074,6 +1075,8 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = MOVE_SNORE,
         .enemyStatusMove = MOVE_NASTY_PLOT,
         .enemyDefendMove = MOVE_REST,
+        
+        .battleFlags = BATTLE_TYPE_DOUBLE,
     }
 };
 
