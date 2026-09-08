@@ -142,7 +142,6 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
 
 
 script JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest {
-    lockall
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     setvar(VAR_GAME_STATE, GS_FOREST_ROAD)
     playse(SE_PIN)
@@ -188,7 +187,6 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_PlayerObserveForest {
     setobjectxyperm(LOCALID_PHANPY_FOREST, 42, 36)
     clearflag(FLAG_HIDE_BAGON_FOREST)
     addobject(LOCALID_BAGON_FOREST)
-    releaseall
     end
 
 
@@ -439,6 +437,12 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa
     addobject(LOCALID_PHANPY_FOREST)
     setobjectmovementtype(LOCALID_DRAMPA_FOREST, MOVEMENT_TYPE_SLEEP)
     fadedefaultbgm
+    releaseall
+    removeobject(LOCALID_DRAMPA_FOREST)
+    setobjectmovementtype(LOCALID_DRAMPA_FOREST, MOVEMENT_TYPE_SLEEP)
+    clearflag(FLAG_HIDE_DRAMPA_FOREST)
+    addobject(LOCALID_DRAMPA_FOREST)
+    
     end
 }
 
@@ -464,7 +468,6 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_GoBackToMeetDrampaWalkWes
 
 script JurassicPark_Road_To_Visitor_Centre_Snoring_Drampa
 {
-    lock
     fadenewbgm(MUS_CUTSCENE_MYSTERIOUS)
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     switch(var(VAR_TEMP_1))

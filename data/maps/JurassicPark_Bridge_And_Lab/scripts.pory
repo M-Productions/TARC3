@@ -453,10 +453,13 @@ script JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum
     waitse
     mnmbox(format("Groargh?"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
     closemessage
-    mnmbox(format("(Hold your horns, Larvy…)\p(If it can't see you move, it can't see you at all.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
-    closemessage
+    // PLACEHOLDER "Tyrantrum can track movement. Don't even flinch…"
     puzzlebattle(BP_TYRANTRUM)
     waitstate
+    if (var(VAR_RESULT) != B_OUTCOME_PUZZLE_COMPLETE)
+    {
+        msgbox(format("PLACEHOLDER\nTyrantrum battle other outcomes here."))
+    }
     mnmbox(format("Graaaaaah?!"), localId=LOCALID_TYRANTRUM_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
     closemessage
     if(var(VAR_0x8005) == 9){
@@ -524,7 +527,6 @@ script JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum
     addobject(VAR_LOCALID_CUTSCENE_MAIN)
     addobject(VAR_LOCALID_CUTSCENE_SECOND)
     setvar(VAR_GAME_STATE, GS_TYRANTRUM_DEFEATED)
-    forcesave
     release
     end
         
