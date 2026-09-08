@@ -596,7 +596,12 @@ static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef
 #define BP_BRUTE_BONNET_ENEMY_MOVE_STATUS MOVE_POISON_POWDER
 static s32 AI_BruteBonnetSporeCycle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    bool32 bagonPoisoned = gBattleMons[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)].status1 & STATUS1_POISON;
+    enum BattlerId partner = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+
+    if (battlerDef != partner)
+        return 0;
+
+    bool32 bagonPoisoned = gBattleMons[partner].status1 & STATUS1_POISON;
 
     if (move == BP_BRUTE_BONNET_ENEMY_MOVE_STATUS)
         return bagonPoisoned ? 0 : 100;
@@ -921,13 +926,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS_2,
         .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
-        .playerStatusEffect = STATUS1_POISON,
 
         .partnerSpecies = SPECIES_BAGON,
         .partnerAttackMove = MOVE_DRAGON_BREATH,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_DRAGON_DANCE,
-        .partnerStatusEffect = STATUS1_POISON,
 
         .enemySpecies = SPECIES_BRUTE_BONNET,
         .enemyAttackMove = BP_BRUTE_BONNET_ENEMY_MOVE_ATTACK,
@@ -1271,7 +1274,7 @@ void StartNonPuzzleBattle(void)
     SetMonMoveSlot(player, puzzlesData->playerDefendMove, 1);
     SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
     SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
-    CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), WILD_BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
     LockPlayerFieldControls();
     CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
     CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][0]);

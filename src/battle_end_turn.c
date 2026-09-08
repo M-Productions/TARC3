@@ -553,7 +553,7 @@ static bool32 HandleEndTurnPoison(enum BattlerId battler)
         }
         else
         {
-            SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 8);
+            SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 4);
             BattleScriptCall(BattleScript_PoisonTurnDmg);
             effect = TRUE;
         }
