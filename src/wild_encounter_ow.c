@@ -402,6 +402,7 @@ void StartWildBattleWithOWE(struct ScriptContext *ctx)
     SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IS_SHINY, &shiny);
 
     AdjustNonPuzzleLarvestaMoves();
+    StoreInitialPlayerAvatarState();
     
     if (StartWildBattleWithOWE_CheckBattleFrontier(headerId))
         return;

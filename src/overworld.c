@@ -2612,6 +2612,7 @@ static void InitObjectEventsLocal(void)
 static void InitObjectEventsReturnToField(void)
 {
     SpawnObjectEventsOnReturnToField(0, 0);
+    SetPlayerAvatarTransitionFlags(sInitialPlayerAvatarState.transitionFlags);
     RotatingGate_InitPuzzleAndGraphics();
     RunOnReturnToFieldMapScript();
 }

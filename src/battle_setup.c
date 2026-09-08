@@ -1255,6 +1255,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     ResetTyrantrumStillStreak();
     ResetBruteBonnetPoisonCounter();
     SetDynamicAIFunc(puzzlesData->aiFunc);
+    StoreInitialPlayerAvatarState();
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
@@ -1278,10 +1279,12 @@ void StartNonPuzzleBattle(void)
     SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
     SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
     CreateMon(&gParties[B_TRAINER_OPPONENT_A][0], VarGet(VAR_ENCOUNTER_MON), BATTLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     LockPlayerFieldControls();
     CalculateMonStats(&gParties[B_TRAINER_PLAYER][0]);
     CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][0]);
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    StoreInitialPlayerAvatarState();
     CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
 

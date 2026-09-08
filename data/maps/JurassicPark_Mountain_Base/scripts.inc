@@ -307,6 +307,8 @@ JurassicPark_Mountain_Base_BruteBonnet::
 	removeobject LOCALID_BRUTE_BONNET
 # 196 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	forcesave
+# 197 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	release
 	end
 
 JurassicPark_Mountain_Base_BruteBonnet_2:
@@ -318,77 +320,77 @@ JurassicPark_Mountain_Base_BruteBonnet_2:
 
 
 JurassicPark_Mountain_Base_Bagon::
-# 202 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 203 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	compare VAR_MOUNTAIN_STATE, 2
 	goto_if_eq JurassicPark_Mountain_Base_Bagon_2
-# 237 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 238 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_13, localId = OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 	end
 
 JurassicPark_Mountain_Base_Bagon_2:
-# 204 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	faceplayer
 # 205 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_0, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+	faceplayer
 # 206 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_0, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 207 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_2, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 208 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_3, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_2, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 209 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_3, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 210 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	switch VAR_GAME_STATE
-# 211 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 212 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	case GS_NO_GENERATORS, JurassicPark_Mountain_Base_Bagon_7
-# 214 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 215 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	case GS_POST_ONE_GENERATOR, JurassicPark_Mountain_Base_Bagon_8
 JurassicPark_Mountain_Base_Bagon_5:
-# 229 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_12, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 230 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	closemessage
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_12, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_INSPIRED
 # 231 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	setfollowernpc LOCALID_BAGON_MOUNTAIN, FOLLOWER_NPC_FLAG_ALL
+	closemessage
 # 232 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	setfollowernpc LOCALID_BAGON_MOUNTAIN, FOLLOWER_NPC_FLAG_ALL
+# 233 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	setvar VAR_MOUNTAIN_STATE, 3
 	end
 
 JurassicPark_Mountain_Base_Bagon_7:
-# 212 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_4, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 213 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_4, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 214 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_5, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 	goto JurassicPark_Mountain_Base_Bagon_5
 
 JurassicPark_Mountain_Base_Bagon_8:
-# 215 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 216 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	switch VAR_FIRST_SAVED
-# 217 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 218 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	case CHAR_JIGGLYPUFF, JurassicPark_Mountain_Base_Bagon_10
-# 220 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 221 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	case CHAR_PHANPY, JurassicPark_Mountain_Base_Bagon_11
-# 223 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 224 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	case GS_POST_TWO_GENERATORS, JurassicPark_Mountain_Base_Bagon_12
 	goto JurassicPark_Mountain_Base_Bagon_5
 
 JurassicPark_Mountain_Base_Bagon_10:
-# 218 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_6, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 219 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_6, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 220 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_7, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 	goto JurassicPark_Mountain_Base_Bagon_5
 
 JurassicPark_Mountain_Base_Bagon_11:
-# 221 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_8, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
 # 222 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_8, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_WORRIED
+# 223 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_9, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 	goto JurassicPark_Mountain_Base_Bagon_5
 
 JurassicPark_Mountain_Base_Bagon_12:
-# 224 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
-	mnmbox JurassicPark_Mountain_Base_Bagon_Text_10, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
 # 225 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+	mnmbox JurassicPark_Mountain_Base_Bagon_Text_10, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_PAIN
+# 226 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	mnmbox JurassicPark_Mountain_Base_Bagon_Text_11, localId = LOCALID_BAGON_MOUNTAIN, mugshotEmotion = MUGSHOT_EMOTE_NORMAL
 	goto JurassicPark_Mountain_Base_Bagon_5
 
@@ -1154,30 +1156,30 @@ JurassicPark_Mountain_Base_BruteBonnet_Text_1:
 	.string "an eye on him…)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_0:
-# 205 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 206 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "Laaaaaaarvy!\p"
 	.string "Larvy Larvy Larvy Larvy Larvy!$"
 
 JurassicPark_Mountain_Base_Bagon_Text_1:
-# 206 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 207 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "(…Yes, Bagon?)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_2:
-# 207 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 208 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "I flew, Larvy!\n"
 	.string "I flew on the back of those birds!\p"
 	.string "This place is amazing!$"
 
 JurassicPark_Mountain_Base_Bagon_Text_3:
-# 208 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 209 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "…Wait, where's the others?$"
 
 JurassicPark_Mountain_Base_Bagon_Text_4:
-# 212 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 213 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "(I haven't seen anyone else yet…)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_5:
-# 213 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 214 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "Oh, okay.\n"
 	.string "Hey, don't worry, Larvy, I'm sure they\l"
 	.string "found a cozy spot to hide in!\p"
@@ -1185,32 +1187,32 @@ JurassicPark_Mountain_Base_Bagon_Text_5:
 	.string "about this place.$"
 
 JurassicPark_Mountain_Base_Bagon_Text_6:
-# 218 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 219 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "(I only managed to find Jiggly so far…)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_7:
-# 219 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 220 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "Oh, Phanpy's still missing?\p"
 	.string "When we find her, I bet Jiggly is gonna\n"
 	.string "yell at her for making him worry, hehe.$"
 
 JurassicPark_Mountain_Base_Bagon_Text_8:
-# 221 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 222 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "(I only managed to find Phanpy so far…)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_9:
-# 222 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 223 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "Oh, Jiggly's still missing?\p"
 	.string "When we find him, I bet he's gonna yell\n"
 	.string "at us for taking too long, hehe.$"
 
 JurassicPark_Mountain_Base_Bagon_Text_10:
-# 224 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 225 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "(I can't…\n"
 	.string "Bring myself to say it…)$"
 
 JurassicPark_Mountain_Base_Bagon_Text_11:
-# 225 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 226 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "…What's wrong Larvy?\n"
 	.string "Worried about something?\p"
 	.string "…Whatever it it, it'll be okay.\p"
@@ -1221,12 +1223,12 @@ JurassicPark_Mountain_Base_Bagon_Text_11:
 	.string "But for now, we have to do what wew can.$"
 
 JurassicPark_Mountain_Base_Bagon_Text_12:
-# 229 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 230 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "Anyway, earlier Jiggly told me that\n"
 	.string "there should be a generator on top of\l"
 	.string "this mountain.\p"
 	.string "Let's go find it, so we can go home!$"
 
 JurassicPark_Mountain_Base_Bagon_Text_13:
-# 237 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
+# 238 "data/maps/JurassicPark_Mountain_Base/scripts.pory"
 	.string "Let's go, Larvy!$"

@@ -295,7 +295,7 @@ JurassicPark_Visitor_Centre_EventScript_Phanpy_6:
 # 159 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	faceplayer
 # 160 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_Phanpy_Text_10, localId = LOCALID_BAGON_CENTRE
+	mnmbox JurassicPark_Visitor_Centre_EventScript_Phanpy_Text_10, localId = LOCALID_PHANPY_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_SAD
 JurassicPark_Visitor_Centre_EventScript_Phanpy_10:
 # 162 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	closemessage
@@ -368,7 +368,7 @@ JurassicPark_Visitor_Centre_EventScript_Jigglypuff_6:
 # 193 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	faceplayer
 # 194 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Visitor_Centre_EventScript_Jigglypuff_Text_5, localId = LOCALID_BAGON_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
+	mnmbox JurassicPark_Visitor_Centre_EventScript_Jigglypuff_Text_5, localId = LOCALID_JIGGLYPUFF_CENTRE, mugshotEmotion = MUGSHOT_EMOTE_DETERMINED
 JurassicPark_Visitor_Centre_EventScript_Jigglypuff_7:
 # 196 "data/maps/JurassicPark_Visitor_Centre/scripts.pory"
 	closemessage
