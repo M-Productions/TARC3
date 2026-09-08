@@ -1277,9 +1277,9 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
 void StartNonPuzzleBattle(void)
 {
     HealPlayerParty();
-    for (s32 i = 1; i < PARTY_SIZE; i++)
-        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    // for (s32 i = 1; i < PARTY_SIZE; i++)
+    //     ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    // gPartiesCount[B_TRAINER_PLAYER] = 1;
     ZeroEnemyPartyMons();
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
     const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];
