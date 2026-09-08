@@ -711,6 +711,7 @@ static EWRAM_DATA u8 sBastiodonGuardRolledTurn = 0;
 static EWRAM_DATA bool8 sBastiodonGuardUpThisTurn = FALSE;
 static EWRAM_DATA u32 sBastiodonPrevHP = 0;
 
+#define BP_BP_BASTIODON_ENEMY_MOVE_ATTACK MOVE_HEADBUTT
 #define BP_BP_BASTIODON_ENEMY_MOVE_DEFEND MOVE_BASTIODON_GUARD_1
 #define BP_BP_BASTIODON_ENEMY_MOVE_STATUS MOVE_HARDEN
 static void ResetBastiodonGuardAI(void)
@@ -941,6 +942,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_BASTIODON,
+        .enemyAttackMove = BP_BP_BASTIODON_ENEMY_MOVE_ATTACK,
         .enemyDefendMove = BP_BP_BASTIODON_ENEMY_MOVE_DEFEND,
         .enemyStatusMove = BP_BP_BASTIODON_ENEMY_MOVE_STATUS,
 
