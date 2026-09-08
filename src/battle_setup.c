@@ -57,6 +57,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "fishing.h"
+#include "constants/rgb.h"
 
 enum TransitionType
 {
@@ -1080,12 +1081,22 @@ bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
     return FALSE;
 }
 
+static void DoSoftReset_Task(u8 taskId)
+{
+    if (!gPaletteFade.active)
+        DoSoftReset();
+}
+
 void ClearBattlePuzzle(void)
 {
     if (sActivePuzzle != BP_TYRANTRUM_LOSE
      && gBattleOutcome == B_OUTCOME_LOST
      && IsPlayerDefeated(gBattleOutcome))
-        DoSoftReset();
+    {
+        FadeOutMapMusic(4);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_WHITE);
+        CreateTask(DoSoftReset_Task, 0);
+    }
 
     sActivePuzzle = BP_NONE;
 }
