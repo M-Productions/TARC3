@@ -789,10 +789,10 @@ static u32 PuzzleOutcome_Cradily(void)
         return B_OUTCOME_PUZZLE_COMPLETE;
 
     if (!IsPuzzlePartnerAlive())
-        return B_OUTCOME_WON;
+        return B_OUTCOME_LOST;
 
     if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
-        return B_OUTCOME_LOST;
+        return B_OUTCOME_WON;
 
     return 0;
 }
