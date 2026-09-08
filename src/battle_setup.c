@@ -1109,6 +1109,15 @@ bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
     return FALSE;
 }
 
+bool32 IsAnorithComboReady(void)
+{
+    if (sActivePuzzle != BP_ANORITH)
+        return FALSE;
+
+    enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    return GetBattlerChosenMove(player) == MOVE_LARVESTA_STATUS;
+}
+
 static void DoSoftReset_Task(u8 taskId)
 {
     if (!gPaletteFade.active)

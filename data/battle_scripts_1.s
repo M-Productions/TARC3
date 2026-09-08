@@ -2401,6 +2401,7 @@ BattleScript_EffectTeleport::
 BattleScript_EffectTeleportGen7::
 BattleScript_DoEffectTeleport::
 	attackcanceler
+	jumpifanorithcombonotready BattleScript_ButItFailed
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	accuracycheck
 	attackanimation

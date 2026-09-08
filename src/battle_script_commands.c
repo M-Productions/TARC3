@@ -14012,3 +14012,13 @@ void BS_RestoreStatChangeQueue(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_JumpIfAnorithComboNotReady(void)
+{
+    NATIVE_ARGS(const u8 *jumpInstr);
+
+    if (!IsAnorithComboReady())
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
