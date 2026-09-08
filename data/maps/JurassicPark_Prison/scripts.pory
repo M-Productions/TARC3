@@ -299,6 +299,7 @@ script JurassicPark_EventScript_Prison_FinalCutscene
     fadescreen(FADE_TO_BLACK)
     playbgm(MUS_RG_SS_ANNE, 0)
     msgbox(format("JURASSIC POKÉPARK.\NA game by Nico and Marky.\pThank you so much for playing!\NWe hope you enjoyed the experience.\pFull credits are available on the hack's download page.\pSee you around!"))
+    fadescreen(FADE_TO_WHITE)
     special(DoSoftReset)
     end
     

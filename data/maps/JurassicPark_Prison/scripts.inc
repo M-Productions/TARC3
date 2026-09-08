@@ -386,6 +386,8 @@ JurassicPark_EventScript_Prison_FinalCutscene_51:
 # 301 "data/maps/JurassicPark_Prison/scripts.pory"
 	msgbox JurassicPark_EventScript_Prison_FinalCutscene_Text_67
 # 302 "data/maps/JurassicPark_Prison/scripts.pory"
+	fadescreen FADE_TO_WHITE
+# 303 "data/maps/JurassicPark_Prison/scripts.pory"
 	special DoSoftReset
 	end
 
