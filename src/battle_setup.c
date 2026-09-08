@@ -584,7 +584,7 @@ static s32 AI_RampardosRandom(enum BattlerId battlerAtk, enum BattlerId battlerD
 
 static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    enum BattlerId desiredTarget = BATTLE_PARTNER(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT));
+    enum BattlerId desiredTarget = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
 
     if (battlerDef != desiredTarget)
         return 0;

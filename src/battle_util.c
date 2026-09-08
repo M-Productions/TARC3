@@ -7660,7 +7660,7 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
         break;
     case EFFECT_FIXED_HP_DAMAGE:
         dmg = GetMoveFixedHPDamage(ctx->move);
-        if (ctx->move == MOVE_HEAD_CHARGE)
+        if (ctx->move == MOVE_HEAD_CHARGE || ctx->move == MOVE_GIGA_IMPACT)
         {
             u32 statStage = gBattleMons[ctx->battlerAtk].statStages[STAT_ATK];
             dmg *= gStatStageRatios[statStage][0];
