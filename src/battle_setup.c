@@ -964,6 +964,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = BP_BP_BASTIODON_ENEMY_MOVE_ATTACK,
         .enemyDefendMove = BP_BP_BASTIODON_ENEMY_MOVE_DEFEND,
         .enemyStatusMove = BP_BP_BASTIODON_ENEMY_MOVE_STATUS,
+        .enemyHP = 90,
 
         .aiFunc = AI_BastiodonFlankGuard,
         .puzzleFunc = PuzzleOutcome_Bastiodon,
@@ -1075,7 +1076,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = MOVE_SNORE,
         .enemyStatusMove = MOVE_NASTY_PLOT,
         .enemyDefendMove = MOVE_REST,
-        
+
         .battleFlags = BATTLE_TYPE_DOUBLE,
     }
 };
