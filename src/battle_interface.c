@@ -2418,16 +2418,16 @@ static const struct SpriteTemplate sSpriteTemplate_AbilityPopUp =
 
 static const s16 sAbilityPopUpCoordsDoubles[MAX_BATTLERS_COUNT][2] =
 {
-    { 24, 80}, // Player left
-    {178, 19}, // Opponent left
-    { 24, 97}, // Player right
-    {178, 36}, // Opponent right
+    { 24, 95}, // Player left
+    {178, 95}, // Opponent left
+    { 24, 95}, // Player right
+    {95}, // Opponent right
 };
 
 static const s16 sAbilityPopUpCoordsSingles[MAX_BATTLERS_COUNT][2] =
 {
-    { 24, 97}, // Player
-    {178, 57}, // Opponent
+    { 24, 95}, // Player
+    {178, 95}, // Opponent
 };
 
 static u8 *AddTextPrinterAndCreateWindowOnAbilityPopUp(const u8 *str, u32 x, u32 y, u32 bgColor, u32 fgColor, u32 shadowColor, u32 *windowId)
