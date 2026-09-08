@@ -7664,6 +7664,12 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
         break;
     case EFFECT_FIXED_HP_DAMAGE:
         dmg = GetMoveFixedHPDamage(ctx->move);
+        if (ctx->move == MOVE_HEAD_CHARGE)
+        {
+            u32 statStage = gBattleMons[ctx->battlerAtk].statStages[STAT_ATK];
+            dmg *= gStatStageRatios[statStage][0];
+            dmg /= gStatStageRatios[statStage][1];
+        }
         break;
     case EFFECT_FIXED_PERCENT_DAMAGE:
         dmg = GetNonDynamaxHP(ctx->battlerDef) * GetMoveDamagePercentage(ctx->move) / 100;
