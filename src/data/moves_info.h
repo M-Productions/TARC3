@@ -23942,4 +23942,21 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .assistBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_Protect,
     },
+
+    [MOVE_LARVESTA_POKE] =
+    {
+        .name = COMPOUND_STRING("Poke"),
+        .description = COMPOUND_STRING(
+            "Pokes a friendly ally\n"
+            "into action."),
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 5,
+        .target = TARGET_ALLY,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Pound,
+    },
 };

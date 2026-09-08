@@ -919,7 +919,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_POKE,
 
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
@@ -1115,7 +1115,7 @@ bool32 IsAnorithComboReady(void)
         return FALSE;
 
     enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-    return GetBattlerChosenMove(player) == MOVE_LARVESTA_STATUS;
+    return GetBattlerChosenMove(player) == MOVE_LARVESTA_POKE;
 }
 
 static void DoSoftReset_Task(u8 taskId)
