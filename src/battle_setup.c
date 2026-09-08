@@ -894,16 +894,16 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_CHARM,
+        .partnerStatusMove = MOVE_SCARY_FACE,
         .partnerHP = 60,
         .partnerMaxHP = 100,
 
         .enemySpecies = SPECIES_ANORITH,
-        .enemyAttackMove = MOVE_DIG,
+        .enemyAttackMove = MOVE_PROTECT,
         .enemyDefendMove = MOVE_HARDEN,
 
         .enemyTwoSpecies = SPECIES_ANORITH,
-        .enemyTwoAttackMove = MOVE_DIG,
+        .enemyTwoAttackMove = MOVE_PROTECT,
         .enemyTwoDefendMove = MOVE_HARDEN,
 
         .battleFlags = BATTLE_TYPE_DOUBLE,
