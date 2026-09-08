@@ -234,14 +234,31 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
 {
     lock
     specialvar(VAR_RESULT, GetPlayerFacingDirection)
-    if(var(VAR_RESULT) == DIR_NORTH){
-        mnmbox("Guoh!", localId=VAR_LAST_TALKED, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
-        closemessage
+    copyvar(VAR_0x8004, VAR_RESULT)
+    mnmbox("Guoh!", localId=VAR_LAST_TALKED, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    closemessage
+    if (var(VAR_MOUNTAIN_COMPLETE) < 1)
+    {
         release
         end
     }
-    copyvar(VAR_0x8004, VAR_RESULT)
-    mnmbox(format("(Its never seems to turns…)\p(Maybe its back doesn't even know I'm here.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    mnmboxdelay
+    if(var(VAR_RESULT) == DIR_NORTH){
+        mnmbox(format("(Its never seems to turn…)\p(It can certainly see me, for now…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+        closemessage
+        mnmboxdelay
+        msgbox("Approach the Bastiodon?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO)
+        {
+            closemessage
+            release
+            end
+        }
+    }
+    else
+    {
+        mnmbox(format("(Its never seems to turn…)\p(Maybe it doesn't even know I'm here.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    }
     closemessage
     puzzlebattle(BP_BASTIODON)
     waitstate
