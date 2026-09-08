@@ -155,7 +155,7 @@ enum __attribute__((packed)) Stat
 #define MIN_LEVEL 1
 #define MAX_LEVEL 100
 #define PUZZLE_LEVEL MAX_LEVEL / 2
-#define BATTLE_LEVEL PUZZLE_LEVEL - 10
+#define BATTLE_LEVEL PUZZLE_LEVEL - 20
 #define WILD_BATTLE_LEVEL 10
 
 #define MAX_DYNAMAX_LEVEL 10

@@ -1094,6 +1094,17 @@ void ClearBattlePuzzle(void)
     sActivePuzzle = BP_NONE;
 }
 
+void AdjustNonPuzzleLarvestaMoves(void)
+{
+    struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
+    const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];
+    SetMonMoveSlot(player, puzzlesData->playerAttackMove, 0);
+    SetMonMoveSlot(player, puzzlesData->playerDefendMove, 1);
+    SetMonMoveSlot(player, puzzlesData->playerStatusMove, 2);
+    SetMonMoveSlot(player, puzzlesData->playerAceMove, 3);
+    CalculateMonStats(player);
+}
+
 void AdjustBattleData(enum BattlePuzzles puzzle)
 {
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
