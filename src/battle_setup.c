@@ -733,6 +733,9 @@ static s32 AI_BastiodonFlankGuard(enum BattlerId battlerAtk, enum BattlerId batt
 {
     u32 turn = gBattleResults.battleTurnCounter;
 
+    if (turn == 0)
+        sBastiodonPrevHP = gBattleMons[GetPuzzleEnemyBattler()].hp;
+
     if (!sBastiodonGuardRolled || turn != sBastiodonGuardRolledTurn)
     {
         sBastiodonGuardRolled = TRUE;
