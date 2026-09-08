@@ -155,6 +155,11 @@ script JurassicPark_Marshlands_EventScript_Anorith
     clearflag(FLAG_TEMP_1)
     addobject(LOCALID_ANORITH_2)
     setvar(VAR_MARSH_STATE, 3)
+    setvar(VAR_0x8000, LOCALID_ANORITH_1)
+	setvar(VAR_0x8001, LOCALID_MARSH_BARRIER_7L)
+	setvar(VAR_0x8002, LOCALID_MARSH_BARRIER_7R)
+	setvar(VAR_0x8003, LOCALID_PLAYER )
+	call(EventScript_CutTree_Kabuto)
     forcesave
     releaseall
     }
