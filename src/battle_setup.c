@@ -6,6 +6,7 @@
 #include "battle_tower.h"
 #include "battle_transition.h"
 #include "main.h"
+#include "moves.h"
 #include "task.h"
 #include "safari_zone.h"
 #include "script.h"
@@ -847,7 +848,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_PHANPY,
         .partnerAttackMove = MOVE_MUD_SLAP,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_TAUNT,
+        .partnerStatusMove = MOVE_ENCORE,
         .partnerAceMove = MOVE_BULLDOZE,
 
         .enemySpecies = SPECIES_RAMPARDOS,
@@ -954,7 +955,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerSpecies = SPECIES_PHANPY,
         .partnerAttackMove = MOVE_MUD_SLAP,
         .partnerDefendMove = MOVE_PROTECT,
-        .partnerStatusMove = MOVE_TAUNT,
+        .partnerStatusMove = MOVE_ENCORE,
         .partnerAceMove = MOVE_BULLDOZE,
 
         .enemySpecies = SPECIES_CRADILY,
