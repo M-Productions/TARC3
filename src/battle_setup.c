@@ -637,17 +637,20 @@ static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
     }
 }
 
+static enum BattlerId GetPuzzleEnemyBattler(void)
+{
+    return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+}
+
 static u32 PuzzleOutcome_BruteBonnet(void)
 {
     BruteBonnetPoisonCounter(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT), &sBruteBonnetPoisonTurns[0]);
     BruteBonnetPoisonCounter(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT), &sBruteBonnetPoisonTurns[1]);
 
-    return 0;
-}
+    if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
+        return B_OUTCOME_PUZZLE_COMPLETE;
 
-static enum BattlerId GetPuzzleEnemyBattler(void)
-{
-    return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    return 0;
 }
 
 static bool32 IsPuzzlePartnerAlive(void)
