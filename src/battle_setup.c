@@ -731,13 +731,23 @@ static s32 AI_BastiodonFlankGuard(enum BattlerId battlerAtk, enum BattlerId batt
         sBastiodonGuardRolled = TRUE;
         sBastiodonGuardRolledTurn = turn;
         gBattleMons[battlerAtk].volatiles.consecutiveMoveUses = 0;
-        sBastiodonGuardUpThisTurn = !sBastiodonApproachFromBehind && RandomPercentage(RNG_NONE, 50);
+        sBastiodonGuardUpThisTurn = RandomPercentage(RNG_NONE, 50);
     }
 
-    if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
-        return sBastiodonGuardUpThisTurn ? 100 : 0;
-    if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
-        return sBastiodonGuardUpThisTurn ? 0 : 100;
+    if (sBastiodonApproachFromBehind)
+    {
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
+            return 0;
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
+            return sBastiodonGuardUpThisTurn ? 100 : 0;
+    }
+    else
+    {
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_STATUS)
+            return 0;
+        if (move == BP_BP_BASTIODON_ENEMY_MOVE_DEFEND)
+            return sBastiodonGuardUpThisTurn ? 100 : 0;
+    }
 
     return score;
 }
