@@ -440,6 +440,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_MeetDrampa
     clearflag(FLAG_HIDE_PHANPY_FOREST)
     addobject(LOCALID_JIGGLYPUFF_FOREST)
     addobject(LOCALID_PHANPY_FOREST)
+    setobjectmovementtype(LOCALID_DRAMPA_FOREST, MOVEMENT_TYPE_SLEEP)
     fadedefaultbgm
     end
 }
