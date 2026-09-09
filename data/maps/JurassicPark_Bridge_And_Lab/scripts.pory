@@ -82,32 +82,7 @@ mapscripts JurassicPark_Bridge_And_Lab_MapScripts {
     }
     MAP_SCRIPT_ON_TRANSITION
     {
-        if(var(VAR_GAME_STATE) == GS_POST_THREE_GENERATORS)
-        {
-            clearflag(FLAG_HIDE_BRIDGE_NPCS)
-            switch(var(VAR_FIRST_SAVED))
-            {
-                
-                case CHAR_BAGON:
-                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_BRIDGE)
-                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE)
-                
-                case CHAR_PHANPY:
-                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
-                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
-                
-                case CHAR_JIGGLYPUFF:
-                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
-                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
-
-            }
-            setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 4, 7)
-            setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 6, 10)
-            setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 4, 7)
-            setobjectxy(VAR_LOCALID_CUTSCENE_SECOND, 6, 10)
-            addobject(VAR_LOCALID_CUTSCENE_MAIN)
-            addobject(VAR_LOCALID_CUTSCENE_SECOND)
-        }
+        
 
         if(var(VAR_GAME_STATE) == GS_TYRANTRUM_DEFEATED)
         {
@@ -419,6 +394,38 @@ script JurassicPark_Bridge_And_Lab_EventScript_Chase_Drampa
 
 script JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum
 {
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    if(var(VAR_GAME_STATE) == GS_POST_THREE_GENERATORS)
+        {
+            clearflag(FLAG_HIDE_BRIDGE_NPCS)
+            addobject(LOCALID_BAGON_BRIDGE)
+            addobject(LOCALID_JIGGLYPUFF_BRIDGE)
+            addobject(LOCALID_PHANPY_BRIDGE)
+            switch(var(VAR_FIRST_SAVED))
+            {
+                
+                case CHAR_BAGON:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_JIGGLYPUFF_BRIDGE)
+                
+                case CHAR_PHANPY:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
+                
+                case CHAR_JIGGLYPUFF:
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
+
+            }
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 4, 7)
+            setobjectxyperm(VAR_LOCALID_CUTSCENE_SECOND, 6, 10)
+            setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 4, 7)
+            setobjectxy(VAR_LOCALID_CUTSCENE_SECOND, 6, 10)
+            addobject(VAR_LOCALID_CUTSCENE_MAIN)
+            addobject(VAR_LOCALID_CUTSCENE_SECOND)
+        }
+    delay(64)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     lockall
     getplayerxy(VAR_0x8004, VAR_0x8005)
     setobjectxyperm(LOCALID_TYRANTRUM_BRIDGE, 10, VAR_0x8005)

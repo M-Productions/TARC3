@@ -8,13 +8,12 @@ mapscripts JurassicPark_Marshlands_Maze_Test_MapScripts {
 script JurassicPark_Marshlands_Maze_Armaldo
 {
     lock
-    mnmbox(format("(Maybe Jiggly can lull it to sleep, I just need to make sure it looks at me instead.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    mnmbox(format("(Maybe Jiggly can lull it to sleep.)p(I just need to make sure it looks at me instead.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     puzzlebattle(BP_SING)
     waitstate
-    forcesave
     release
-    end
+    return
 }
 
 script JurassicPark_Marshlands_Generator
@@ -30,7 +29,11 @@ script JurassicPark_Marshlands_Generator
 	    setvar(VAR_0x8007, 5)  // shake delay
         special(ShakeCamera)
         waitstate
-        clearflag(FLAG_HIDE_ARMALDO)
+        clearflag(FLAG_HIDE_ARMALDO_1)
+        clearflag(FLAG_HIDE_ARMALDO_2)
+        clearflag(FLAG_HIDE_ARMALDO_3)
+        clearflag(FLAG_HIDE_ARMALDO_4)
+        clearflag(FLAG_HIDE_ARMALDO_5)
         mnmbox(format("Uh, what was that…?\p…Let's get out of here as quickly as we can."), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
         closemessage
         switch(var(VAR_GAME_STATE))

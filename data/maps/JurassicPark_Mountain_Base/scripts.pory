@@ -9,10 +9,18 @@ mapscripts JurassicPark_Mountain_Base_MapScripts {
             applymovement(LOCALID_PLAYER, moves(walk_left*2))
             waitmovement(0)
             setvar(VAR_MOUNTAIN_STATE, 1)
+            destroyfollowernpc
             release
             end
         }
     ]
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_MOUNTAIN_STATE) == 7)
+        {
+            clearflag(FLAG_HIDE_ARCHEOPS_BASE)
+            addobject(15)
+        }
+    }
 }
 
 script JurassicPark_Mountain_Base_GoLeft
@@ -236,6 +244,7 @@ script JurassicPark_Mountain_Base_Bagon
     else
     {
         mnmbox(format("Let's go, Larvy!"), localId=OBJ_EVENT_ID_NPC_FOLLOWER, mugshotEmotion=MUGSHOT_EMOTE_INSPIRED)
+        closemessage
     }
     end
 }

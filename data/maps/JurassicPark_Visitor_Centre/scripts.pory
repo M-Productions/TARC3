@@ -40,6 +40,12 @@ mapscripts JurassicPark_Visitor_Centre_MapScripts {
             default:
                 end
         }
+        if(var(VAR_GAME_STATE) >= GS_THREE_GENERATORS)
+        {
+            removeobject(LOCALID_JIGGLYPUFF_CENTRE)
+            removeobject(LOCALID_PHANPY_CENTRE)
+            removeobject(LOCALID_BAGON_CENTRE)
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_GAME_STATE, GS_MET_DRAMPA {
@@ -466,6 +472,7 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor
         setvar(VAR_GAME_STATE, GS_POST_TWO_GENERATORS)
         clearflag(FLAG_NO_OW_MUSIC)
         clearflag(FLAG_SPAWN_WEST)
+        destroyfollowernpc
         forcesave
         releaseall
         end

@@ -336,12 +336,7 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {
-    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
-    ||
-    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)))
-        AddStartMenuAction(MENU_ACTION_MARSH_PUZZLE);
+
     
     // if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     //     AddStartMenuAction(MENU_ACTION_POKEDEX);
@@ -366,12 +361,7 @@ static void BuildNormalStartMenu(void)
 static void BuildDebugStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_DEBUG);
-    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAZE_TEST))
-    ||
-    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_JURASSIC_PARK_MARSHLANDS_MAIN)))
-        AddStartMenuAction(MENU_ACTION_MARSH_PUZZLE);
+
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEDEX);
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)

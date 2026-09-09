@@ -63,26 +63,6 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
                 setweather(WEATHER_RAIN_THUNDERSTORM)
                 doweather
                 setflag(FLAG_NO_OW_MUSIC)
-            case GS_TWO_GENERATORS_CUTSCENE:
-                switch(var(VAR_SECOND_SAVED))
-                {
-                    case CHAR_BAGON:
-                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_FOREST)
-                        clearflag(FLAG_HIDE_BAGON_FOREST)
-                    case CHAR_PHANPY:
-                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_FOREST)
-                        clearflag(FLAG_HIDE_PHANPY_FOREST)
-                    case CHAR_JIGGLYPUFF:
-                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_FOREST)
-                        clearflag(FLAG_HIDE_PHANPY_FOREST)
-                }
-                setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 32, 18)
-                addobject(VAR_LOCALID_CUTSCENE_MAIN)
-                clearflag(FLAG_HIDE_TYRANTRUM_FOREST)
-                setobjectxyperm(LOCALID_TYRUNT_FOREST, 32, 12)
-                setobjectmovementtype(LOCALID_TYRUNT_FOREST, MOVEMENT_TYPE_FACE_UP)
-                addobject(LOCALID_TYRUNT_FOREST)
-                setobjectxyperm(LOCALID_TYRANTRUM_FOREST, 32, 20)
             case GS_THREE_GENERATORS_CUTSCENE:
                 switch(var(VAR_FIRST_SAVED))
                 {
@@ -775,6 +755,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenPhanpy
 
 script JurassicPark_Visitor_Centre_EventScript_OneGeneratorCutscene
 {
+    setvar(VAR_GAME_STATE, GS_POST_ONE_GENERATOR)
     switch(var(VAR_FIRST_SAVED))
     {
         case CHAR_BAGON:
@@ -828,7 +809,7 @@ script JurassicPark_Visitor_Centre_EventScript_OneGeneratorCutscene
 
     }
     closemessage
-    setvar(VAR_GAME_STATE, GS_POST_ONE_GENERATOR)
+    
     end
 }
 
@@ -922,7 +903,9 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_SecondGenPhanpy
     destroyfollowernpc
     setvar(VAR_GAME_STATE, GS_TWO_GENERATORS_CUTSCENE)
     fadescreen(FADE_TO_BLACK)
+    delay(20)
     warpcontinuescript(MAP_JURASSIC_PARK_ROAD_TO_VISITOR_CENTRE, 32, 12, JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene)
+    waitstate
     end
 }
 
@@ -932,9 +915,39 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_SecondGenPhanpy
 script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
 {
     lockall
+    switch(var(VAR_SECOND_SAVED))
+                {
+                    case CHAR_BAGON:
+                        clearflag(FLAG_HIDE_BAGON_FOREST)
+                        addobject(LOCALID_BAGON_FOREST)
+                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_FOREST)
+                        
+                    case CHAR_PHANPY:
+                        clearflag(FLAG_HIDE_PHANPY_FOREST)
+                        addobject(LOCALID_PHANPY_FOREST)
+                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_PHANPY_FOREST)
+                        
+                    case CHAR_JIGGLYPUFF:
+                        clearflag(FLAG_HIDE_PHANPY_FOREST)
+                        addobject(LOCALID_JIGGLYPUFF_FOREST)
+                        setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_FOREST)
+                        
+                }
+                setobjectxyperm(VAR_LOCALID_CUTSCENE_MAIN, 32, 18)
+                setobjectxy(VAR_LOCALID_CUTSCENE_MAIN, 32, 18)
+                
+                clearflag(FLAG_HIDE_TYRANTRUM_FOREST)
+                setobjectxyperm(LOCALID_TYRUNT_FOREST, 32, 12)
+                setobjectxy(LOCALID_TYRUNT_FOREST, 32, 12)
+                setobjectmovementtype(LOCALID_TYRUNT_FOREST, MOVEMENT_TYPE_FACE_UP)
+                
+                
     special(SpawnCameraObject)
     applymovement(LOCALID_PLAYER, moves(walk_faster_down*5, face_up))
     waitmovement(0)
+    addobject(LOCALID_TYRUNT_FOREST)
+    addobject(VAR_LOCALID_CUTSCENE_MAIN)
+    
     fadescreen(FADE_FROM_BLACK)
     applymovement(LOCALID_TYRUNT_FOREST, moves(walk_up*2))
     applymovement(LOCALID_PLAYER, moves(walk_fast_up*6))
@@ -968,6 +981,9 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
     waitmoncry
     mnmbox(format("(No…\nIt's back…!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
     closemessage
+    setobjectxyperm(LOCALID_TYRANTRUM_FOREST, 32, 20)
+    setobjectxy(LOCALID_TYRANTRUM_FOREST, 32, 20)
+    addobject(LOCALID_TYRANTRUM_FOREST)
     playbgm(MUS_VS_BOSS_POWERFUL, TRUE)
     playse(SE_M_STRENGTH)
     applymovement(LOCALID_TYRANTRUM_FOREST, moves(walk_up, delay_16*2))
@@ -1028,6 +1044,7 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
     closemessage
     puzzlebattle(BP_TYRANTRUM_LOSE)
     waitstate
+    
     mnmbox(format("(What…\nIs happening to me…)\p(My legs…\nAren't moving…?)\p(I'm…\nI'm too scared…)\p(Is this it…?\nNo…)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_PAIN)
     switch(var(VAR_SECOND_SAVED))
     {
@@ -1167,6 +1184,7 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutscene
     clearflag(FLAG_ALWAYS_RAINING)
     setflag(FLAG_SPAWN_WEST)
     fadescreen(FADE_FROM_BLACK)
+    destroyfollowernpc
     warpcontinuescript(MAP_JURASSIC_PARK_VISITOR_CENTRE, 18, 6, JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor)
     waitstate
     end
@@ -1432,6 +1450,9 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene
     removeobject(LOCALID_PHANPY_FOREST)
     removeobject(LOCALID_JIGGLYPUFF_FOREST)
     removeobject(LOCALID_BAGON_FOREST)
+    removeobject(LOCALID_PHANPY_CENTRE)
+    removeobject(LOCALID_JIGGLYPUFF_CENTRE)
+    removeobject(LOCALID_BAGON_CENTRE)
     clearflag(FLAG_HIDE_BRIDGE)
     delay(16)
     fadescreenswapbuffers(FADE_FROM_BLACK)

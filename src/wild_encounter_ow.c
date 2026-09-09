@@ -1059,7 +1059,7 @@ void TryTriggerOverworldWildEncounter(struct ObjectEvent *obstacle, struct Objec
     if (wildMon->movementActionId >= MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_DOWN && wildMon->movementActionId <= MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_RIGHT)
         ClearObjectEventMovement(wildMon, &gSprites[wildMon->spriteId]);
 
-    if (OW_SPECIES(wildMon) == SPECIES_ARMALDO && !ArePlayerFieldControlsLocked())
+    if (OW_SPECIES(wildMon) == SPECIES_ARMALDO)
     {
         ScriptContext_SetupScript(JurassicPark_Marshlands_Maze_Armaldo);
         return;

@@ -785,8 +785,6 @@ static u32 PuzzleOutcome_Bastiodon(void)
 
 static u32 PuzzleOutcome_Cradily(void)
 {
-    if (FlagGet(FLAG_CRADILY_HIT_UNDERGROUND))
-        return B_OUTCOME_PUZZLE_COMPLETE;
 
     if (!IsPuzzlePartnerAlive())
         return B_OUTCOME_LOST;

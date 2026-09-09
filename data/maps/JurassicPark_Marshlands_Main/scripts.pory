@@ -9,24 +9,22 @@ mapscripts JurassicPark_Marshlands_Main_MapScripts {
             setvar(VAR_MARSH_STATE, 1)
             release
             setflag(FLAG_HIDE_ARMALDO)
+            setflag(FLAG_HIDE_ARMALDO_1)
+            setflag(FLAG_HIDE_ARMALDO_2)
+            setflag(FLAG_HIDE_ARMALDO_3)
+            setflag(FLAG_HIDE_ARMALDO_4)
+            setflag(FLAG_HIDE_ARMALDO_5)
             end
         }
         VAR_MARSH_STATE, 4
         {
             lockall
             playse(SE_PIN)
+            setvar(VAR_MARSH_STATE, 5)
             applymovement(LOCALID_ARMALDO, moves(emote_exclamation_mark, delay_16))
             waitmovement(0)
-            if (flag(FLAG_HIDE_ARMALDO))
-            {
-                playmoncry(SPECIES_ARMALDO, CRY_MODE_WEAK_DOUBLES)
-            }
-            else
-            {
-                call(JurassicPark_Marshlands_Maze_Armaldo)
-            }
+            call(JurassicPark_Marshlands_Maze_Armaldo)
             removeobject(LOCALID_ARMALDO)
-            setvar(VAR_MARSH_STATE, 5)
             applymovement(LOCALID_PLAYER, moves(walk_down*2))
             applymovement(LOCALID_JIGGLYPUFF_MARSH, moves(walk_down*2))
             waitmovement(0)
