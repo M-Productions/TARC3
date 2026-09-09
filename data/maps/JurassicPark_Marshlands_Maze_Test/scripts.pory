@@ -8,7 +8,7 @@ mapscripts JurassicPark_Marshlands_Maze_Test_MapScripts {
 script JurassicPark_Marshlands_Maze_Armaldo
 {
     lock
-    mnmbox(format("(Maybe Jiggly can lull it to sleep.)\p(I just need to make sure it looks at me instead.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
+    mnmbox(format("(Maybe Jiggly can lull it to sleep.)\p(We'll need it to stay focussed on me and not interrupt the song.)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_NORMAL)
     closemessage
     puzzlebattle(BP_SING)
     waitstate
