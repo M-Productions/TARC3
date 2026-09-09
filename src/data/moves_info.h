@@ -1250,7 +1250,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 5,
-        .target = TARGET_SELECTED,
+        .target = TARGET_OPPONENT,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
         .argument = { .nonVolatileStatus = MOVE_EFFECT_SLEEP },
@@ -23813,7 +23813,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .accuracy = 100,
         .effect = EFFECT_DO_NOTHING,
         .pp = 1,
-        .target = TARGET_SELECTED,
+        .target = TARGET_OPPONENT,
         .priority = -6,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .makesContact = TRUE,
@@ -23823,7 +23823,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
-        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+        .battleAnimScript = gBattleAnimMove_Splash,
     },
 
     [MOVE_LARVESTA_SPECIAL_TUTORIAL] =
@@ -23837,7 +23837,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .accuracy = 100,
         .effect = EFFECT_DO_NOTHING_TUTORIAL,
         .pp = 1,
-        .target = TARGET_SELECTED,
+        .target = TARGET_OPPONENT,
         .priority = -6,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = { .status = STATUS1_SLEEP, },
@@ -23851,7 +23851,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
-        .battleAnimScript = gBattleAnimMove_FlareBlitz,
+        .battleAnimScript = gBattleAnimMove_Splash,
     },
 
     [MOVE_LARVESTA_ATTACK_TUTORIAL] =
