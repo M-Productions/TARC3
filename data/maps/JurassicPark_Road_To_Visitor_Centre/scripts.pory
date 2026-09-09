@@ -1406,7 +1406,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene
             mnmbox(format("It's just an hypothesis.\pBut I think I read something similar once.\pSo, if we encounter it again, we should try…\nStanding still."), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
 
         case CHAR_JIGGLYPUFF:
-            mnmbox(format("Larvy."), localId=LOCALID_PHANPY_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
+            mnmbox(format("Larvy."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
             mnmbox(format("(I know…\nI know!)\p(I failed everyone!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_TEARY_EYED)
             mnmbox(format("Calm down for a second, will you?\pI noticed something interesting.\pWhen we were fighting, the monster only came after me.\pAnd before you say anything…\nI think there may be a reason for that."), localId=LOCALID_JIGGLYPUFF_FOREST, mugshotEmotion=MUGSHOT_EMOTE_DETERMINED)
             mnmbox(format("(A-a reason?!)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
