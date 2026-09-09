@@ -1596,6 +1596,9 @@ static void CB2_EndMarowakBattle(void)
 
 enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 {
+    if (gMapHeader.mapType == MAP_TYPE_INDOOR)
+        return BATTLE_ENVIRONMENT_BUILDING;
+    
     s32 mapGroup = gSaveBlock1Ptr->location.mapGroup;
 
     switch (mapGroup)
