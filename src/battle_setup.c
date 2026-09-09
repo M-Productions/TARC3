@@ -1117,7 +1117,20 @@ bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
     if (sBattlePuzzles[sActivePuzzle].doNothingEnemyTwo)
         return GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT) == battlerAtk;
 
+    if (sActivePuzzle == BP_TYRANTRUM_LOSE)
+        return GetBattlerChosenMove(battlerAtk) == MOVE_SING;
+
     return FALSE;
+}
+
+#define TYRANTRUM_DAMAGE 5
+s32 PreventTyrantrumDamage(enum BattlerId battlerDef, s32 damage)
+{
+    if (sActivePuzzle == BP_TYRANTRUM_LOSE && damage > TYRANTRUM_DAMAGE
+     && GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT) == battlerDef)
+        return TYRANTRUM_DAMAGE;
+
+    return damage;
 }
 
 bool32 IsAnorithComboReady(void)

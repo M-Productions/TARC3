@@ -123,6 +123,7 @@ void SetBattlePuzzleOutcome(void);
 bool32 DoesBattleHavePuzzle(void);
 void ClearBattlePuzzle(void);
 bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk);
+s32 PreventTyrantrumDamage(enum BattlerId battlerDef, s32 damage);
 bool32 IsAnorithComboReady(void);
 
 #endif // GUARD_BATTLE_SETUP_H

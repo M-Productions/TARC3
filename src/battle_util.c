@@ -7974,6 +7974,8 @@ s32 GetAdjustedDamage(struct DamageContext *ctx, s32 damage)
      || DoesIceFaceBlockMove(ctx->battlerDef, ctx->move))
         return damage; // No damage will be dealt
 
+    damage = PreventTyrantrumDamage(ctx->battlerDef, damage);
+
     if (GetConfig(B_STURDY) >= GEN_5 && ctx->abilities[ctx->battlerDef] == ABILITY_STURDY && damage > STURDY_DAMAGE)
     {
         RecordAbilityBattle(ctx->battlerDef, ABILITY_STURDY);
