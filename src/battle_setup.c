@@ -1224,6 +1224,7 @@ void AdjustBattleData(enum BattlePuzzles puzzle)
         SetMonData(partner, MON_DATA_ATK, &stat);
         SetMonData(partner, MON_DATA_SPATK, &stat);
         CalculateMonStats(partner);
+        gPartiesCount[B_TRAINER_PLAYER] = 2;
         return;
     default:
         speciesPlayer = SPECIES_LARVESTA;
