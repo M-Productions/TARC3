@@ -433,6 +433,7 @@ const u8 *GetInteractedLinkPlayerScript(struct MapPosition *position, u8 metatil
     return GetObjectEventScriptPointerByObjectEventId(objectEventId);
 }
 
+extern const u8 JurassicPark_Marshlands_Maze_Armaldo[];
 static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8 metatileBehavior, enum Direction direction)
 {
     u8 objectEventId;

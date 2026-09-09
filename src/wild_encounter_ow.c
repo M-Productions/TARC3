@@ -1029,6 +1029,7 @@ void SetMinimumOWESpawnTimer(void)
         sOWESpawnCountdown = OWE_SPAWN_TIME_LURE;
 }
 
+extern const u8 JurassicPark_Marshlands_Maze_Armaldo[];
 void TryTriggerOverworldWildEncounter(struct ObjectEvent *obstacle, struct ObjectEvent *collider)
 {
     if (WE_OWE_NO_REPEL_DEXNAV_COLLISION && (FlagGet(DN_FLAG_SEARCHING) || REPEL_STEP_COUNT))
@@ -1058,11 +1059,20 @@ void TryTriggerOverworldWildEncounter(struct ObjectEvent *obstacle, struct Objec
     if (wildMon->movementActionId >= MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_DOWN && wildMon->movementActionId <= MOVEMENT_ACTION_WALK_IN_PLACE_NORMAL_RIGHT)
         ClearObjectEventMovement(wildMon, &gSprites[wildMon->spriteId]);
 
+    if (OW_SPECIES(wildMon) == SPECIES_ARMALDO && !ArePlayerFieldControlsLocked())
+    {
+        ScriptContext_SetupScript(JurassicPark_Marshlands_Maze_Armaldo);
+        return;
+    }
+
     ScriptContext_SetupScript(InteractWithOverworldWildEncounter);
 }
 
 const u8 *GetOverworlWildEncounterScript(u32 objectEventId)
 {
+    if (OW_SPECIES(&gObjectEvents[objectEventId]) == SPECIES_ARMALDO)
+        return JurassicPark_Marshlands_Maze_Armaldo;
+
     const u8 *script;
     if (GetOverworldWildEncounterType(&gObjectEvents[objectEventId]) == OWE_MANUAL
      && (script = GetObjectEventScriptPointerByObjectEventId(objectEventId)) != NULL)

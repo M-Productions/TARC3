@@ -687,7 +687,7 @@ static u32 PuzzleOutcome_Armaldo(void)
         return B_OUTCOME_LOST;
 
     if (!IsBattlerAlive(enemy))
-        return B_OUTCOME_LOST;
+        return B_OUTCOME_WON;
 
     return 0;
 }
@@ -775,7 +775,7 @@ static u32 PuzzleOutcome_Bastiodon(void)
     sBastiodonPrevHP = currentHP;
 
     if (!IsBattlerAlive(enemy))
-        return B_OUTCOME_LOST;
+        return B_OUTCOME_WON;
 
     if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
         return B_OUTCOME_LOST;
@@ -903,8 +903,6 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_CHARM,
         .partnerAceMove = MOVE_SING,
-        .partnerHP = 75,
-        .partnerMaxHP = 150,
 
         .enemySpecies = SPECIES_ARMALDO,
         .enemyAttackMove = MOVE_ANCIENT_POWER,
@@ -925,8 +923,6 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_WHIRLWIND,
-        .partnerHP = 60,
-        .partnerMaxHP = 100,
 
         .enemySpecies = SPECIES_ANORITH,
         .enemyAttackMove = MOVE_DETECT,
