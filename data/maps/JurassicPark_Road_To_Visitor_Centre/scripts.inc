@@ -1495,7 +1495,7 @@ JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly::
 # 832 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly_Text_1, localId = LOCALID_PLAYER, mugshotEmotion = MUGSHOT_EMOTE_STUNNED
 # 833 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
-	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly_Text_2, localId = LOCALID_JIGGLYPUFF_FOREST
+	mnmbox JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly_Text_2, localId = OBJ_EVENT_ID_NPC_FOLLOWER
 # 834 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"
 	fadescreen FADE_TO_BLACK
 # 835 "data/maps/JurassicPark_Road_To_Visitor_Centre/scripts.pory"

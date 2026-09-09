@@ -830,7 +830,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_FirstGenJiggly
 {
     mnmbox(format("And here we are, safe and sound.\nObviously.\pYou did fairly good, Larvy."), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
     mnmbox(format("(Uh, thanks…?)"), localId=LOCALID_PLAYER, mugshotEmotion=MUGSHOT_EMOTE_STUNNED)
-    mnmbox(format("Yes, anyway.\pLet's not linger here too much.\nI don't want to see that ugly brute show up again.\pLet's go to the visitor centre, yeah?"), localId=LOCALID_JIGGLYPUFF_FOREST)
+    mnmbox(format("Yes, anyway.\pLet's not linger here too much.\nI don't want to see that ugly brute show up again.\pLet's go to the visitor centre, yeah?"), localId=OBJ_EVENT_ID_NPC_FOLLOWER)
     fadescreen(FADE_TO_BLACK)
     destroyfollowernpc
     clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
