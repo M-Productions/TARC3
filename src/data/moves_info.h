@@ -23709,13 +23709,14 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Special"),
         .description = COMPOUND_STRING(
-            "A powerful move."),
+            "A powerful move, that\n"
+            "can finally be used."),
         .effect = EFFECT_FIXED_HP_DAMAGE,
         .power = 1,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 1,
-        .target = TARGET_SELECTED,
+        .target = TARGET_OPPONENT,
         .priority = -6,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = { .fixedDamage = 100 },
@@ -23733,7 +23734,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Attack"),
         .description = COMPOUND_STRING(
-            "A powerful move."),
+            "A powerful move,\n"
+            "that cannot be used."),
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -23756,7 +23758,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Defend"),
         .description = COMPOUND_STRING(
-            "A powerful move."),
+            "A powerful move,\n"
+            "that cannot be used."),
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -23779,7 +23782,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Status"),
         .description = COMPOUND_STRING(
-            "A powerful move."),
+            "A powerful move,\n"
+            "that cannot be used."),
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -23802,7 +23806,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Special"),
         .description = COMPOUND_STRING(
-            "A powerful move."),
+            "A powerful move,\n"
+            "that cannot be used."),
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -23825,7 +23830,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Special"),
         .description = COMPOUND_STRING(
-            "A powerful move."),
+            "A powerful move,\n"
+            "that cannot be used."),
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 100,
