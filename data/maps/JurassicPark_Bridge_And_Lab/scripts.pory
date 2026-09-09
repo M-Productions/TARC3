@@ -204,6 +204,8 @@ mapscripts JurassicPark_Bridge_And_Lab_MapScripts {
             mnmbox(format("(… … …)\p({COLOR RED}YES.{COLOR DARK_GRAY})"), localId=LOCALID_SLITHER_WING_BRIDGE)
             mnmbox(format("…!"), localId=LOCALID_DRAMPA_BRIDGE, mugshotEmotion=MUGSHOT_EMOTE_SURPRISED)
             closemessage
+            playse(MUS_LEVEL_UP)
+            waitse
             puzzlebattle(BP_DRAMPA)
             waitstate
             playbgm(MUS_DUMMY, 0)
