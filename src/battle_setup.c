@@ -529,7 +529,9 @@ struct BattlePuzzle
     AiScoreFunc aiFunc;
     u32 (*puzzleFunc)(void);
     bool32 doNothingPlayer;
+    bool32 doNothingPartner;
     bool32 doNothingEnemy;
+    bool32 doNothingEnemyTwo;
 };
 
 static s32 AI_SequentialMoves(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
@@ -1104,10 +1106,16 @@ bool32 DoesBattleHavePuzzle(void)
 bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
 {
     if (sBattlePuzzles[sActivePuzzle].doNothingPlayer)
-        return IsOnPlayerSide(battlerAtk);
+        return GetBattlerAtPosition(B_POSITION_PLAYER_LEFT) == battlerAtk;
+
+    if (sBattlePuzzles[sActivePuzzle].doNothingPartner)
+        return GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT) == battlerAtk;
 
     if (sBattlePuzzles[sActivePuzzle].doNothingEnemy)
-        return !IsOnPlayerSide(battlerAtk);
+        return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT) == battlerAtk;
+
+    if (sBattlePuzzles[sActivePuzzle].doNothingEnemyTwo)
+        return GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT) == battlerAtk;
 
     return FALSE;
 }
