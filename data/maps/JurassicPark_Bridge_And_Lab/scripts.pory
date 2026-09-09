@@ -99,7 +99,7 @@ mapscripts JurassicPark_Bridge_And_Lab_MapScripts {
                     setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
                 
                 case CHAR_JIGGLYPUFF:
-                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_BRIDGE)
                     setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
 
             }
@@ -413,7 +413,7 @@ script JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum
                     setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
                 
                 case CHAR_JIGGLYPUFF:
-                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                    setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_BRIDGE)
                     setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
 
             }
@@ -520,7 +520,7 @@ script JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum
                 setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_BAGON_BRIDGE)
                 
             case CHAR_JIGGLYPUFF:
-                setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE)
+                setvar(VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_BRIDGE)
                 setvar(VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE)
 
         }

@@ -810,6 +810,60 @@
       "var": "VAR_MOUNTAIN_COMPLETE",
       "var_value": "2",
       "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_Mountain_WalkBack"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_POST_THREE_GENERATORS",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_POST_THREE_GENERATORS",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_TYRANTRUM_DEFEATED",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ENTERING_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_TYRANTRUM_DEFEATED",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_GAME_STATE",
+      "var_value": "GS_ENTERING_LAB",
+      "script": "JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack"
     }
   ],
   "bg_events": [

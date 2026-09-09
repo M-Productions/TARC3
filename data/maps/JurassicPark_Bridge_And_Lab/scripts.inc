@@ -911,7 +911,7 @@ JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_11:
 
 JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_12:
 # 416 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
-	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_JIGGLYPUFF_BRIDGE
+	setvar VAR_LOCALID_CUTSCENE_MAIN, LOCALID_BAGON_BRIDGE
 # 417 "data/maps/JurassicPark_Bridge_And_Lab/scripts.pory"
 	setvar VAR_LOCALID_CUTSCENE_SECOND, LOCALID_PHANPY_BRIDGE
 	goto JurassicPark_Bridge_And_Lab_EventScript_Tyrantrum_8

@@ -63,39 +63,6 @@ mapscripts JurassicPark_Road_To_Visitor_Centre_MapScripts {
                 setweather(WEATHER_RAIN_THUNDERSTORM)
                 doweather
                 setflag(FLAG_NO_OW_MUSIC)
-            case GS_THREE_GENERATORS_CUTSCENE:
-                switch(var(VAR_FIRST_SAVED))
-                {
-                    case CHAR_PHANPY:  
-                        clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
-                        clearflag(FLAG_HIDE_BAGON_FOREST)
-                        setobjectxyperm(LOCALID_BAGON_FOREST, 34, 11)
-                        setobjectmovementtype(LOCALID_BAGON_FOREST, MOVEMENT_TYPE_FACE_UP)
-                        setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 35, 11)
-                        setobjectmovementtype(LOCALID_JIGGLYPUFF_FOREST, MOVEMENT_TYPE_FACE_UP)
-                        addobject(LOCALID_JIGGLYPUFF_FOREST)
-                        addobject(LOCALID_BAGON_FOREST)
-
-                    case CHAR_JIGGLYPUFF:
-                        clearflag(FLAG_HIDE_PHANPY_FOREST)
-                        clearflag(FLAG_HIDE_BAGON_FOREST)
-                        setobjectxyperm(LOCALID_BAGON_FOREST, 34, 11)
-                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
-                        setobjectxyperm(LOCALID_BAGON_FOREST, 35, 11)
-                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
-                        addobject(LOCALID_PHANPY_FOREST)
-                        addobject(LOCALID_BAGON_FOREST)
-                    
-                    case CHAR_BAGON:
-                        clearflag(FLAG_HIDE_PHANPY_FOREST)
-                        clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
-                        setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 34, 11)
-                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
-                        setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 35, 11)
-                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
-                        addobject(LOCALID_PHANPY_FOREST)
-                        addobject(LOCALID_JIGGLYPUFF_FOREST)
-                }
                 
         }
 
@@ -1345,6 +1312,44 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_DrawGrave
 
 script JurassicPark_Road_To_Visitor_Centre_EventScript_FarewellFriendScene
 {
+    switch(var(VAR_FIRST_SAVED))
+                {
+                    case CHAR_PHANPY:  
+                        clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
+                        clearflag(FLAG_HIDE_BAGON_FOREST)
+                        setobjectxy(LOCALID_BAGON_FOREST, 34, 11)
+                        setobjectxyperm(LOCALID_BAGON_FOREST, 34, 11)
+                        setobjectmovementtype(LOCALID_BAGON_FOREST, MOVEMENT_TYPE_FACE_UP)
+                        setobjectxy(LOCALID_JIGGLYPUFF_FOREST, 35, 11)
+                        setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 35, 11)
+                        setobjectmovementtype(LOCALID_JIGGLYPUFF_FOREST, MOVEMENT_TYPE_FACE_UP)
+                        addobject(LOCALID_JIGGLYPUFF_FOREST)
+                        addobject(LOCALID_BAGON_FOREST)
+
+                    case CHAR_JIGGLYPUFF:
+                        clearflag(FLAG_HIDE_PHANPY_FOREST)
+                        clearflag(FLAG_HIDE_BAGON_FOREST)
+                        setobjectxy(LOCALID_PHANPY_FOREST, 34, 11)
+                        setobjectxyperm(LOCALID_PHANPY_FOREST, 34, 11)
+                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
+                        setobjectxy(LOCALID_BAGON_FOREST, 35, 11)
+                        setobjectxyperm(LOCALID_BAGON_FOREST, 35, 11)
+                        setobjectmovementtype(LOCALID_BAGON_FOREST, MOVEMENT_TYPE_FACE_UP)
+                        addobject(LOCALID_PHANPY_FOREST)
+                        addobject(LOCALID_BAGON_FOREST)
+                    
+                    case CHAR_BAGON:
+                        clearflag(FLAG_HIDE_PHANPY_FOREST)
+                        clearflag(FLAG_HIDE_JIGGLYPUFF_FOREST)
+                        setobjectxy(LOCALID_JIGGLYPUFF_FOREST, 34, 11)
+                        setobjectxyperm(LOCALID_JIGGLYPUFF_FOREST, 34, 11)
+                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
+                        setobjectxy(LOCALID_PHANPY_FOREST, 35, 11)
+                        setobjectxyperm(LOCALID_PHANPY_FOREST, 35, 11)
+                        setobjectmovementtype(LOCALID_PHANPY_FOREST, MOVEMENT_TYPE_FACE_UP)
+                        addobject(LOCALID_PHANPY_FOREST)
+                        addobject(LOCALID_JIGGLYPUFF_FOREST)
+                }
     call(JurassicPark_Road_To_Visitor_Centre_EventScript_DrawGrave)
     applymovement(LOCALID_PLAYER, moves(face_up))
     waitmovement(0)
@@ -1478,4 +1483,12 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Mountain_WalkBack
     waitmovement(0)
     release
     end
+}
+
+script JurassicPark_Road_To_Visitor_Centre_EventScript_GoBack
+{
+    mnmbox(format("(No!\nI need to go, now!)"), localId=LOCALID_PLAYER)
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    waitmovement(0)
 }
