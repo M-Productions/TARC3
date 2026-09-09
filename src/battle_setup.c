@@ -1301,15 +1301,18 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
     StartPuzzleBattle(puzzle);
 }
 
+bool32 ClearPuzzlePartners(void)
+{
+    for (s32 i = 1; i < PARTY_SIZE; i++)
+        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    return FALSE;
+}
+
 bool32 SetNonPuzzlePartner(void)
 {
     if (!PlayerHasFollowerNPC())
-    {
-        for (s32 i = 1; i < PARTY_SIZE; i++)
-            ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-        gPartiesCount[B_TRAINER_PLAYER] = 1;
-        return FALSE;
-    }
+        return ClearPuzzlePartners();
 
     u32 objId = GetFollowerNPCData(FNPC_DATA_OBJ_ID);
     enum BattlePuzzles puzzle;
@@ -1325,6 +1328,7 @@ bool32 SetNonPuzzlePartner(void)
     case SPECIES_PHANPY:
         puzzle = BP_HEADBUTT;
         break; 
+    default: return ClearPuzzlePartners();
     }
     const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[puzzle];
     struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][1];
