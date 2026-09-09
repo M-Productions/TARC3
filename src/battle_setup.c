@@ -1034,7 +1034,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemyAttackMove = MOVE_CRUNCH,
         .enemyDefendMove = MOVE_SING,
         .enemyStatusMove = MOVE_HOWL,
-        .enemyAceMove = MOVE_SING,
+        .enemyAceMove = MOVE_CRUNCH,
 
         .aiFunc = AI_SequentialMoves,
     },
