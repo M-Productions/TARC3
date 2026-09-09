@@ -994,7 +994,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_ROARING_MOON,
         .enemyAttackMove = MOVE_CRUNCH,
@@ -1010,7 +1010,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_GREAT_TUSK,
         .enemyAttackMove = MOVE_CRUNCH,
@@ -1026,7 +1026,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_SCREAM_TAIL,
         .enemyAttackMove = MOVE_CRUNCH,
@@ -1042,7 +1042,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL,
+        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
 
         .enemySpecies = SPECIES_TYRANTRUM,
         .enemyAttackMove = BP_TYRANTRUM_ENEMY_MOVE_ATTACK,
