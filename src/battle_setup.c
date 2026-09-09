@@ -1233,6 +1233,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     hpStart = puzzlesData->playerHP ? puzzlesData->playerHP : hpMax;
     SetMonData(player, MON_DATA_HP, &hpStart);
     SetMonData(player, MON_DATA_MAX_HP, &hpMax);
+    gPartiesCount[B_TRAINER_PLAYER] = 1;
 
     if (puzzlesData->partnerSpecies)
     {
@@ -1248,6 +1249,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         SetMonData(partner, MON_DATA_HP, &hpStart);
         SetMonData(partner, MON_DATA_MAX_HP, &hpMax);
         CalculateMonStats(partner);
+        gPartiesCount[B_TRAINER_PLAYER] = 2;
     }
 
     struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
@@ -1299,13 +1301,52 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
     StartPuzzleBattle(puzzle);
 }
 
+bool32 SetNonPuzzlePartner(void)
+{
+    if (!PlayerHasFollowerNPC())
+    {
+        for (s32 i = 1; i < PARTY_SIZE; i++)
+            ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+        gPartiesCount[B_TRAINER_PLAYER] = 1;
+        return FALSE;
+    }
+
+    u32 objId = GetFollowerNPCData(FNPC_DATA_OBJ_ID);
+    enum BattlePuzzles puzzle;
+
+    switch (OW_SPECIES(&gObjectEvents[objId]))
+    {
+    case SPECIES_BAGON:
+        puzzle = BP_BRUTE_BONNET;
+        break;
+    case SPECIES_JIGGLYPUFF:
+        puzzle = BP_SING;
+        break;
+    case SPECIES_PHANPY:
+        puzzle = BP_HEADBUTT;
+        break; 
+    }
+    const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[puzzle];
+    struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][1];
+    u32 hp = HP_MAX_DEFAULT;
+    CreateMon(partner, puzzlesData->partnerSpecies, PUZZLE_LEVEL, Random32(), OTID_STRUCT_RANDOM_NO_SHINY);
+    SetMonMoveSlot(partner, puzzlesData->partnerAttackMove, 0);
+    SetMonMoveSlot(partner, puzzlesData->partnerDefendMove, 1);
+    SetMonMoveSlot(partner, puzzlesData->partnerStatusMove, 2);
+    SetMonMoveSlot(partner, puzzlesData->partnerAceMove, 3);
+    SetMonData(partner, MON_DATA_STATUS, &puzzlesData->partnerStatusEffect);
+    SetMonData(partner, MON_DATA_HP, &hp);
+    SetMonData(partner, MON_DATA_MAX_HP, &hp);
+    CalculateMonStats(partner);
+    gPartiesCount[B_TRAINER_PLAYER] = 2;
+    gBattleTypeFlags = BATTLE_TYPE_DOUBLE;
+    return TRUE;
+}
+
 void StartNonPuzzleBattle(void)
 {
     HealPlayerParty();
-    // for (s32 i = 1; i < PARTY_SIZE; i++)
-    //     ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-    // gPartiesCount[B_TRAINER_PLAYER] = 1;
-    gBattleTypeFlags = BATTLE_TYPE_DOUBLE;
+    SetNonPuzzlePartner();
     ZeroEnemyPartyMons();
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
     const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];

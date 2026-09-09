@@ -363,6 +363,7 @@ static enum TypeOWE GetOverworldWildEncounterType(struct ObjectEvent *owe)
 }
 
 extern void AdjustNonPuzzleLarvestaMoves();
+extern bool32 SetNonPuzzlePartner();
 void StartWildBattleWithOWE(struct ScriptContext *ctx)
 {
     u32 localId = VarGet(ScriptReadHalfword(ctx));
@@ -395,9 +396,7 @@ void StartWildBattleWithOWE(struct ScriptContext *ctx)
     }
 
     ZeroEnemyPartyMons();
-    // for (s32 i = 1; i < PARTY_SIZE; i++)
-    //     ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-    // gPartiesCount[B_TRAINER_PLAYER] = 1;
+    bool32 doubleBattle = SetNonPuzzlePartner();
     personality = GetMonPersonality(speciesId, gender, NATURE_RANDOM, RANDOM_UNOWN_LETTER);
     CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], speciesId, WILD_BATTLE_LEVEL, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
     GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
@@ -415,7 +414,10 @@ void StartWildBattleWithOWE(struct ScriptContext *ctx)
     if (StartWildBattleWithOWE_CheckDoubleBattle(owe, headerId))
         return;
 
-    BattleSetup_StartDoubleWildBattle();
+    if (doubleBattle)
+        BattleSetup_StartDoubleWildBattle();
+    else
+        BattleSetup_StartWildBattle();
 }
 
 void SetOverworldObjectSpecies(struct ScriptContext *ctx)
