@@ -123,5 +123,6 @@ void SetBattlePuzzleOutcome(void);
 bool32 DoesBattleHavePuzzle(void);
 void ClearBattlePuzzle(void);
 bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk);
+bool32 IsAnorithComboReady(void);
 
 #endif // GUARD_BATTLE_SETUP_H

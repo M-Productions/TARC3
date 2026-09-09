@@ -7330,11 +7330,7 @@ static inline uq4_12_t GetMinimizeModifier(enum Move move, enum BattlerId battle
 static inline uq4_12_t GetUndergroundModifier(enum Move move, enum BattlerId battlerDef)
 {
     if (MoveDamagesUnderground(move) && gBattleMons[battlerDef].volatiles.semiInvulnerable == STATE_UNDERGROUND)
-    {
-        if (gBattleMons[GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)].species == SPECIES_CRADILY)
-            FlagSet(FLAG_CRADILY_HIT_UNDERGROUND);
         return UQ_4_12(2.0);
-    }
     return UQ_4_12(1.0);
 }
 
@@ -7664,6 +7660,12 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
         break;
     case EFFECT_FIXED_HP_DAMAGE:
         dmg = GetMoveFixedHPDamage(ctx->move);
+        if (ctx->move == MOVE_HEAD_CHARGE || ctx->move == MOVE_GIGA_IMPACT)
+        {
+            u32 statStage = gBattleMons[ctx->battlerAtk].statStages[STAT_ATK];
+            dmg *= gStatStageRatios[statStage][0];
+            dmg /= gStatStageRatios[statStage][1];
+        }
         break;
     case EFFECT_FIXED_PERCENT_DAMAGE:
         dmg = GetNonDynamaxHP(ctx->battlerDef) * GetMoveDamagePercentage(ctx->move) / 100;
@@ -7732,7 +7734,12 @@ static inline s32 DoMoveDamageCalc(struct DamageContext *ctx)
 
     s32 dmg = DoFixedDamageMoveCalc(ctx);
     if (dmg != INT32_MAX)
+    {
+        if (MoveDamagesUnderground(ctx->move) && gBattleMons[ctx->battlerDef].volatiles.semiInvulnerable == STATE_UNDERGROUND
+         && gBattleMons[GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)].species == SPECIES_CRADILY)
+            FlagSet(FLAG_CRADILY_HIT_UNDERGROUND);
         return dmg;
+    }
 
     ctx->isCrit = IsCriticalHit(ctx);
     return DoMoveDamageCalcVars(ctx);

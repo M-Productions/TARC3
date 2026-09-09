@@ -1245,7 +1245,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A soothing song lulls the\n"
             "foe into a deep slumber."),
-        .effect = EFFECT_SING_ARMALDO,
+        .effect = EFFECT_NON_VOLATILE_STATUS,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -2566,7 +2566,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_CALM_MIND},
-        .battleAnimScript = gBattleAnimMove_Meditate,
+        .battleAnimScript = gBattleAnimMove_Agility,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = STAT_CHANGE_EFFECT_PLUS,
             .attack = 1,
@@ -11064,7 +11064,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
-        .argument = { .fixedDamage = 30 },
+        .argument = { .fixedDamage = 40 },
         .makesContact = TRUE,
         .contestEffect = CONTEST_EFFECT_USER_MORE_EASILY_STARTLED,
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_COOL : CONTEST_CATEGORY_CUTE,
@@ -12475,8 +12475,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Status"),
         .description = COMPOUND_STRING(
-            "Sharpens its claws to raise\n"
-            "Attack and Accuracy."),
+            "Sharpens its claws to\n"
+            "raise its Attack."),
         .effect = EFFECT_STAT_CHANGE,
         .power = 0,
         .type = TYPE_DARK,
@@ -12495,8 +12495,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {0},
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = STAT_CHANGE_EFFECT_PLUS,
-            .attack = 1,
-            .accuracy = 1,
+            .attack = 3,
         }),
         .battleAnimScript = gBattleAnimMove_HoneClaws,
     },
@@ -13874,7 +13873,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .skyBattleBanned = TRUE,
-        .argument = { .fixedDamage = 30 },
+        .argument = { .fixedDamage = 40 },
         .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MONS,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
@@ -23942,5 +23941,22 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .copycatBanned = TRUE,
         .assistBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_Protect,
+    },
+
+    [MOVE_LARVESTA_POKE] =
+    {
+        .name = COMPOUND_STRING("Poke"),
+        .description = COMPOUND_STRING(
+            "Pokes a friendly ally\n"
+            "into action."),
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 5,
+        .target = TARGET_ALLY,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Pound,
     },
 };

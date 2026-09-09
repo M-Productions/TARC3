@@ -259,6 +259,7 @@ script JurassicPark_Road_To_Visitor_Centre_EventScript_Bastiodon
     }
     closemessage
     puzzlebattle(BP_BASTIODON)
+    waitstate
     removeobject(VAR_LAST_TALKED)
     forcesave
     release

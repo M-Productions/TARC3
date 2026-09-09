@@ -466,6 +466,7 @@ script JurassicPark_Visitor_Centre_EventScript_TwoGeneratorsCutsceneIndoor
         setvar(VAR_GAME_STATE, GS_POST_TWO_GENERATORS)
         clearflag(FLAG_NO_OW_MUSIC)
         clearflag(FLAG_SPAWN_WEST)
+        forcesave
         releaseall
         end
 }

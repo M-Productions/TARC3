@@ -584,7 +584,7 @@ static s32 AI_RampardosRandom(enum BattlerId battlerAtk, enum BattlerId battlerD
 
 static s32 AI_AttackPartner(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
-    enum BattlerId desiredTarget = BATTLE_PARTNER(GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT));
+    enum BattlerId desiredTarget = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
 
     if (battlerDef != desiredTarget)
         return 0;
@@ -621,6 +621,7 @@ static void ResetBruteBonnetPoisonCounter(void)
     sBruteBonnetPoisonTurns[1] = 0; // Bagon
 }
 
+#include "battle_interface.h"
 static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
 {
     if (!(gBattleMons[battler].status1 & STATUS1_POISON))
@@ -634,6 +635,7 @@ static void BruteBonnetPoisonCounter(enum BattlerId battler, u8 *turns)
     {
         gBattleMons[battler].status1 &= ~STATUS1_POISON;
         *turns = 0;
+        UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], GetBattlerMon(battler), HEALTHBOX_ALL);
     }
 }
 
@@ -685,7 +687,7 @@ static u32 PuzzleOutcome_Armaldo(void)
         return B_OUTCOME_LOST;
 
     if (!IsBattlerAlive(enemy))
-        return B_OUTCOME_LOST;
+        return B_OUTCOME_WON;
 
     return 0;
 }
@@ -733,6 +735,9 @@ static s32 AI_BastiodonFlankGuard(enum BattlerId battlerAtk, enum BattlerId batt
 {
     u32 turn = gBattleResults.battleTurnCounter;
 
+    if (turn == 0)
+        sBastiodonPrevHP = gBattleMons[GetPuzzleEnemyBattler()].hp;
+
     if (!sBastiodonGuardRolled || turn != sBastiodonGuardRolledTurn)
     {
         sBastiodonGuardRolled = TRUE;
@@ -770,7 +775,7 @@ static u32 PuzzleOutcome_Bastiodon(void)
     sBastiodonPrevHP = currentHP;
 
     if (!IsBattlerAlive(enemy))
-        return B_OUTCOME_LOST;
+        return B_OUTCOME_WON;
 
     if (!IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
         return B_OUTCOME_LOST;
@@ -784,10 +789,10 @@ static u32 PuzzleOutcome_Cradily(void)
         return B_OUTCOME_PUZZLE_COMPLETE;
 
     if (!IsPuzzlePartnerAlive())
-        return B_OUTCOME_WON;
+        return B_OUTCOME_LOST;
 
     if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
-        return B_OUTCOME_LOST;
+        return B_OUTCOME_WON;
 
     return 0;
 }
@@ -898,8 +903,6 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_CHARM,
         .partnerAceMove = MOVE_SING,
-        .partnerHP = 75,
-        .partnerMaxHP = 150,
 
         .enemySpecies = SPECIES_ARMALDO,
         .enemyAttackMove = MOVE_ANCIENT_POWER,
@@ -914,14 +917,12 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .playerAttackMove = MOVE_LARVESTA_ATTACK,
         .playerDefendMove = MOVE_LARVESTA_DEFEND,
         .playerStatusMove = MOVE_LARVESTA_STATUS,
-        .playerAceMove = MOVE_LARVESTA_SPECIAL_LOCKED,
+        .playerAceMove = MOVE_LARVESTA_POKE,
 
         .partnerSpecies = SPECIES_JIGGLYPUFF,
         .partnerAttackMove = MOVE_TACKLE,
         .partnerDefendMove = MOVE_PROTECT,
         .partnerStatusMove = MOVE_WHIRLWIND,
-        .partnerHP = 60,
-        .partnerMaxHP = 100,
 
         .enemySpecies = SPECIES_ANORITH,
         .enemyAttackMove = MOVE_DETECT,
@@ -987,7 +988,6 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .enemySpecies = SPECIES_CRADILY,
         .enemyAttackMove = MOVE_DIG,
 
-        .battleFlags = BATTLE_TYPE_DOUBLE,
         .puzzleFunc = PuzzleOutcome_Cradily
     },
 
@@ -1000,8 +1000,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_ROARING_MOON,
         .enemyAttackMove = MOVE_CRUNCH,
+        .enemyDefendMove = MOVE_BRAVE_BIRD,
         .enemyStatusMove = MOVE_HOWL,
         .enemyAceMove = MOVE_BRAVE_BIRD,
+        
+        .aiFunc = AI_SequentialMoves,
     },
 
     [BP_GREAT_TUSK] =
@@ -1013,8 +1016,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_GREAT_TUSK,
         .enemyAttackMove = MOVE_CRUNCH,
+        .enemyDefendMove = MOVE_BULLDOZE,
         .enemyStatusMove = MOVE_HOWL,
         .enemyAceMove = MOVE_BULLDOZE,
+        
+        .aiFunc = AI_SequentialMoves,
     },
 
     [BP_SCREAM_TAIL] =
@@ -1026,8 +1032,11 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
 
         .enemySpecies = SPECIES_SCREAM_TAIL,
         .enemyAttackMove = MOVE_CRUNCH,
+        .enemyDefendMove = MOVE_SING,
         .enemyStatusMove = MOVE_HOWL,
-        .enemyAceMove = MOVE_SING,
+        .enemyAceMove = MOVE_CRUNCH,
+
+        .aiFunc = AI_SequentialMoves,
     },
 
     [BP_TYRANTRUM] =
@@ -1059,6 +1068,7 @@ static const struct BattlePuzzle sBattlePuzzles[BP_COUNT] =
         .aiFunc = AI_AttackPartner,
         .puzzleFunc = PuzzleOutcome_Tyrantrum_Lose,
         .doNothingPlayer = TRUE,
+        .battleFlags = BATTLE_TYPE_DOUBLE,
     },
 
     [BP_DRAMPA] =
@@ -1102,6 +1112,15 @@ bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
         return !IsOnPlayerSide(battlerAtk);
 
     return FALSE;
+}
+
+bool32 IsAnorithComboReady(void)
+{
+    if (sActivePuzzle != BP_ANORITH)
+        return FALSE;
+
+    enum BattlerId player = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    return GetBattlerChosenMove(player) == MOVE_LARVESTA_POKE;
 }
 
 static void DoSoftReset_Task(u8 taskId)
@@ -1230,6 +1249,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         hpStart = puzzlesData->partnerHP ? puzzlesData->partnerHP : hpMax;
         SetMonData(partner, MON_DATA_HP, &hpStart);
         SetMonData(partner, MON_DATA_MAX_HP, &hpMax);
+        CalculateMonStats(partner);
     }
 
     struct Pokemon *enemy = &gParties[B_TRAINER_OPPONENT_A][0];
@@ -1243,6 +1263,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     hpStart = puzzlesData->enemyHP ? puzzlesData->enemyHP : hpMax;
     SetMonData(enemy, MON_DATA_HP, &hpStart);
     SetMonData(enemy, MON_DATA_MAX_HP, &hpMax);
+    CalculateMonStats(enemy);
 
     if (puzzlesData->enemyTwoSpecies)
     {
@@ -1257,6 +1278,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
         hpStart = puzzlesData->enemyTwoHP ? puzzlesData->enemyTwoHP : hpMax;
         SetMonData(enemyTwo, MON_DATA_HP, &hpStart);
         SetMonData(enemyTwo, MON_DATA_MAX_HP, &hpMax);
+        CalculateMonStats(enemyTwo);
     }
 
     AdjustBattleData(puzzle);
@@ -1285,6 +1307,7 @@ void StartNonPuzzleBattle(void)
     // for (s32 i = 1; i < PARTY_SIZE; i++)
     //     ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
     // gPartiesCount[B_TRAINER_PLAYER] = 1;
+    gBattleTypeFlags = BATTLE_TYPE_DOUBLE;
     ZeroEnemyPartyMons();
     struct Pokemon *player = &gParties[B_TRAINER_PLAYER][0];
     const struct BattlePuzzle *puzzlesData = &sBattlePuzzles[BP_HEADBUTT];

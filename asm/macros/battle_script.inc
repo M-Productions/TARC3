@@ -1634,6 +1634,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifanorithcombonotready jumpInstr:req
+	callnative BS_JumpIfAnorithComboNotReady
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifabsent battler:req, jumpInstr:req
 	callnative BS_JumpIfAbsent
 	.byte \battler
