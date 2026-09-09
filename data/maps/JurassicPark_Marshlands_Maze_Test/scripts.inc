@@ -116,8 +116,8 @@ JurassicPark_Marshlands_EventScript_ArmaldoFinal::
 
 JurassicPark_Marshlands_Maze_Armaldo_Text_0:
 # 11 "data/maps/JurassicPark_Marshlands_Maze_Test/scripts.pory"
-	.string "(Maybe Jiggly can lull it to sleep.)p(I\n"
-	.string "just need to make sure it looks at me\l"
+	.string "(Maybe Jiggly can lull it to sleep.)\p"
+	.string "(I just need to make sure it looks at me\n"
 	.string "instead.)$"
 
 JurassicPark_Marshlands_Generator_Text_0:
