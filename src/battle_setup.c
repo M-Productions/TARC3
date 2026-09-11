@@ -1105,20 +1105,25 @@ bool32 DoesBattleHavePuzzle(void)
 
 bool32 PuzzleMoveDoNothing(enum BattlerId battlerAtk)
 {
-    if (sBattlePuzzles[sActivePuzzle].doNothingPlayer)
-        return GetBattlerAtPosition(B_POSITION_PLAYER_LEFT) == battlerAtk;
+    if (sBattlePuzzles[sActivePuzzle].doNothingPlayer
+     && GetBattlerAtPosition(B_POSITION_PLAYER_LEFT) == battlerAtk)
+        return TRUE;
 
-    if (sBattlePuzzles[sActivePuzzle].doNothingPartner)
-        return GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT) == battlerAtk;
+    if (sBattlePuzzles[sActivePuzzle].doNothingPartner
+     && GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT) == battlerAtk)
+        return TRUE;
 
-    if (sBattlePuzzles[sActivePuzzle].doNothingEnemy)
-        return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT) == battlerAtk;
+    if (sBattlePuzzles[sActivePuzzle].doNothingEnemy
+     && GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT) == battlerAtk)
+        return TRUE;
 
-    if (sBattlePuzzles[sActivePuzzle].doNothingEnemyTwo)
-        return GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT) == battlerAtk;
+    if (sBattlePuzzles[sActivePuzzle].doNothingEnemyTwo
+     && GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT) == battlerAtk)
+        return TRUE;
 
-    if (sActivePuzzle == BP_TYRANTRUM_LOSE)
-        return GetBattlerChosenMove(battlerAtk) == MOVE_SING;
+    if (sActivePuzzle == BP_TYRANTRUM_LOSE
+     && GetBattlerChosenMove(battlerAtk) == MOVE_SING)
+        return TRUE;
 
     return FALSE;
 }
