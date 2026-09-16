@@ -775,6 +775,7 @@ static inline enum MoveEffect GetMoveNonVolatileStatus(enum Move move)
     case EFFECT_NON_VOLATILE_STATUS:
     case EFFECT_YAWN:
     case EFFECT_DARK_VOID:
+    case EFFECT_SING_ARMALDO:
         return gMovesInfo[move].argument.nonVolatileStatus;
     default:
         return MOVE_EFFECT_NONE;
