@@ -1243,6 +1243,14 @@ void AdjustBattleData(enum BattlePuzzles puzzle)
     CalculateMonStats(enemy);
 }
 
+bool32 ClearPuzzlePartners(void)
+{
+    for (s32 i = 1; i < PARTY_SIZE; i++)
+        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
+    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    return FALSE;
+}
+
 #define HP_MAX_DEFAULT 100
 void StartPuzzleBattle(enum BattlePuzzles puzzle)
 {
@@ -1260,7 +1268,7 @@ void StartPuzzleBattle(enum BattlePuzzles puzzle)
     hpStart = puzzlesData->playerHP ? puzzlesData->playerHP : hpMax;
     SetMonData(player, MON_DATA_HP, &hpStart);
     SetMonData(player, MON_DATA_MAX_HP, &hpMax);
-    gPartiesCount[B_TRAINER_PLAYER] = 1;
+    ClearPuzzlePartners();
 
     if (puzzlesData->partnerSpecies)
     {
@@ -1326,14 +1334,6 @@ void StartPuzzleBattleScript(struct ScriptContext *ctx)
 {
     enum BattlePuzzles puzzle = ScriptReadByte(ctx);
     StartPuzzleBattle(puzzle);
-}
-
-bool32 ClearPuzzlePartners(void)
-{
-    for (s32 i = 1; i < PARTY_SIZE; i++)
-        ZeroMonData(&gParties[B_TRAINER_PLAYER][i]);
-    gPartiesCount[B_TRAINER_PLAYER] = 1;
-    return FALSE;
 }
 
 bool32 SetNonPuzzlePartner(void)
