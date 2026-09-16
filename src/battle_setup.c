@@ -828,7 +828,8 @@ static u32 PuzzleOutcome_Tyrantrum(void)
     if (!IsBattlerAlive(GetPuzzleEnemyBattler()))
         return B_OUTCOME_LOST;
 
-    if (GetBattlerChosenMove(player) == MOVE_LARVESTA_DEFEND)
+    if (GetBattlerChosenMove(player) == MOVE_LARVESTA_DEFEND
+     || GetBattlerChosenMove(player) == MOVE_LARVESTA_SPECIAL_LOCKED)
         sTyrantrumStillStreak++;
     else
         sTyrantrumStillStreak = 0;

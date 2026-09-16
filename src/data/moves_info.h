@@ -6682,7 +6682,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .makesContact = B_UPDATED_MOVE_DATA < GEN_4,
-        .argument = { .fixedDamage = 60 },
+        .argument = { .fixedDamage = 30 },
         .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
