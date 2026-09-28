@@ -1697,6 +1697,11 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
 {
     u8 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    u16 metatileBehavior = MapGridGetMetatileBehaviorAt(playerObjEvent->currentCoords.x, playerObjEvent->currentCoords.y);
+
+    if (stateFlag == PLAYER_AVATAR_FLAG_ON_FOOT && MetatileBehavior_IsSurfableWaterOrUnderwater(metatileBehavior) == TRUE)
+        stateFlag = PLAYER_AVATAR_FLAG_SURFING;
 
     gPlayerAvatar.transitionFlags |= stateFlag | transitionFlag;
     DoPlayerAvatarTransition();
